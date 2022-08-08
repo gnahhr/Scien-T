@@ -16,9 +16,8 @@ html {
 }
 
 button {
-  color:black;
+  color: black;
   background-color: #FBB500;
-  font-size: 2rem;
   padding: 1rem 2rem;
   border-radius: 2rem;
   box-shadow: 2px 2px #000000;

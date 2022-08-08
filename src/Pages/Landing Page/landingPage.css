@@ -6,21 +6,12 @@ h1 {
   text-shadow: 4px 4px 6px #000000;
 }
 
-button {
-  color: black;
-  background-color: #FBB500;
-  font-size: 2rem;
-  padding: 1rem 2rem;
-  border-radius: 2rem;
-  box-shadow: 2px 2px #000000;
-  margin: 2rem;
-}
-
 #mound {
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100vw;
+  z-index: -1;
 }
 
 #flasks {
@@ -28,4 +19,8 @@ button {
   bottom: 0;
   transform: translate(-100%, -35%);
   height: 20%;
+}
+
+button {
+  font-size: 2rem;
 }

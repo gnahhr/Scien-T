@@ -4,6 +4,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Honeycombs from "./Assets/Images/honeycombs.svg";
 import Navbar from './Components/Navbar';
 import LandingPage from './Pages/Landing Page/landingPage';
+import LoginPage from './Pages/Login/loginPage';
+import RegisterPage from './Pages/Register/registerPage';
 import './App.css';
 
 function App() {
@@ -11,7 +13,9 @@ function App() {
     <div className="App">
       <img src={Honeycombs} alt="honeycombs" className="honeycombs"/>
       <Navbar />
-      <LandingPage />
+      <RegisterPage />
+      {/* <LoginPage /> */}
+      {/* <LandingPage /> */}
     </div>
   );
 }
