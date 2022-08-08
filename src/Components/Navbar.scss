@@ -1,0 +1,22 @@
+@import url("../Pages/global.scss");
+
+nav {
+    border-bottom: 1px solid #E6CCFF;
+    ul {
+        display: flex;
+        flex-direction: row-reverse;
+        li {
+            list-style-type: none;
+            padding: 1rem;
+            margin: .3rem;
+            a {
+                color: white;
+                text-decoration: none;
+            }
+            
+            a:hover {
+               text-decoration: underline; 
+            }
+        }
+    }
+}

@@ -1,0 +1,24 @@
+@import url("../Pages/global.scss");
+nav {
+  border-bottom: 1px solid #E6CCFF;
+}
+
+nav ul {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+nav ul li {
+  list-style-type: none;
+  padding: 1rem;
+  margin: .3rem;
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+}
+
+nav ul li a:hover {
+  text-decoration: underline;
+}

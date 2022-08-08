@@ -1,0 +1,22 @@
+<svg width="331" height="203" viewBox="0 0 331 203" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.4">
+<path d="M129 148.07C129 176.198 106.167 199 78 199C49.8335 199 27 176.198 27 148.07C27 119.942 49.8335 97.1402 78 97.1402C106.167 97.1402 129 119.942 129 148.07Z" fill="#D9D9D9"/>
+<path d="M61.3238 43.4617H95L94.6762 99.9251L78 97.1402L61.3238 99.9251V43.4617Z" fill="#D9D9D9"/>
+<path d="M41.5714 34.7308C41.5714 29.9089 45.4857 26 50.3143 26H106.01C110.838 26 114.752 29.9089 114.752 34.7308C114.752 39.5528 110.838 43.4617 106.01 43.4617H50.3143C45.4857 43.4617 41.5714 39.5528 41.5714 34.7308Z" fill="#D9D9D9"/>
+</g>
+<path opacity="0.4" d="M162 111H198V181C198 190.941 189.941 199 180 199V199C170.059 199 162 190.941 162 181V111Z" fill="#D9D9D9"/>
+<path opacity="0.4" d="M234 110H270V180C270 189.941 261.941 198 252 198V198C242.059 198 234 189.941 234 180V110Z" fill="#D9D9D9"/>
+<rect opacity="0.4" x="152" y="98" width="56" height="13" rx="6.5" fill="#D9D9D9"/>
+<rect opacity="0.4" x="224" y="97" width="56" height="13" rx="6.5" fill="#D9D9D9"/>
+<circle opacity="0.4" cx="169" cy="130" r="5" fill="#FAF1F1"/>
+<circle opacity="0.4" cx="241" cy="129" r="5" fill="#FAF1F1"/>
+<ellipse opacity="0.4" cx="189.5" cy="163" rx="6.5" ry="6" fill="#FAF1F1" fill-opacity="0.38"/>
+<ellipse opacity="0.4" cx="261.5" cy="162" rx="6.5" ry="6" fill="#FAF1F1" fill-opacity="0.38"/>
+<circle opacity="0.4" cx="78" cy="148" r="47" fill="#112799" fill-opacity="0.86"/>
+<circle opacity="0.4" cx="51" cy="147" r="5" fill="#FAF1F1" fill-opacity="0.83"/>
+<circle opacity="0.4" cx="61" cy="129" r="10" fill="#FAF1F1" fill-opacity="0.54"/>
+<circle opacity="0.4" cx="94" cy="160" r="15" fill="#FAF1F1" fill-opacity="0.22"/>
+<path opacity="0.6" d="M3 200L290 200" stroke="#BF7397" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path opacity="0.6" d="M241 16L328 16" stroke="#BF7397" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+<path opacity="0.6" d="M291 3L291 199" stroke="#C388A5" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

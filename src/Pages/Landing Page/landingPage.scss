@@ -1,0 +1,22 @@
+h1 {
+    margin-top: 6rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 5rem;
+    color: white;
+    text-shadow: 4px 4px 6px #000000;
+}
+
+#mound {
+    position:fixed;
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    z-index: -1;
+}
+
+#flasks {
+    position: fixed;
+    bottom: 0;
+    transform: translate(-100%, -35%);
+    height: 20%;
+}

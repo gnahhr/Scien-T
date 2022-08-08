@@ -1,0 +1,26 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-family: 'Secular One', sans-serif;
+}
+
+html {
+  background: #48149c;
+  background: linear-gradient(129deg, #48149c 0%, #48149c 14%, #ffb3b3 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#48149c",endColorstr="#ffb3b3",GradientType=1);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+button {
+  color:black;
+  background-color: #FBB500;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  box-shadow: 2px 2px #000000;
+  margin: 2rem;
+}
