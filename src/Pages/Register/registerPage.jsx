@@ -29,7 +29,7 @@ const registerPage = () => {
     <div className="main">
         <div className="main">
         <h2>Register</h2>
-        <form action="" method="post" id="login">
+        <form action="/register" method="post" id="login">
             <label htmlFor="username">Username</label>
             <input type="text" name="username" id="username" value={username} onChange={(e) => onInputChange(e)}/>
             <label htmlFor="password">Password</label>
