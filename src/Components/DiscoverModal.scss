@@ -12,7 +12,7 @@
 
     .wrapper {
         width: 50vw;
-        height: 24vh;
+        height: 25vh;
         background-color: white;
         color: black;
         border-radius: 18px;
@@ -36,26 +36,33 @@
             cursor: pointer;
         }
 
-        .header {
-            display:flex;
-            justify-content: space-around;
+        .compound-wrapper {
+            overflow-y: auto;
             width: 100%;
+            margin: 0;
 
-            h2 {
-                color: black;
-                margin: 0;
-                font-size: 3rem;
-            }
-    
-            .picture {
-                border: 1px solid black;
-                width: 128px;
-                height: 128px;
-            }
-        }
+            .compound {
+                display:grid;
+                grid-template-columns: 1fr 4fr;
+                justify-content: space-around;
+                width: 80%;
+                margin: 1rem auto;
 
-        .description {
-            margin-top: 2rem;
+                .text {
+                    h2 {
+                        color: black;
+                        margin: 0;
+                        font-size: 2rem;
+                    }
+                }
+                
+        
+                .picture {
+                    border: 1px solid black;
+                    width: 50%;
+                    aspect-ratio: 1;
+                }
+            }
         }
     }
 }

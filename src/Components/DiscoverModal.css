@@ -13,7 +13,7 @@
 
 #discover-modal .wrapper {
   width: 50vw;
-  height: 24vh;
+  height: 25vh;
   background-color: white;
   color: black;
   border-radius: 18px;
@@ -38,24 +38,28 @@
   cursor: pointer;
 }
 
-#discover-modal .wrapper .header {
-  display: flex;
-  justify-content: space-around;
+#discover-modal .wrapper .compound-wrapper {
+  overflow-y: auto;
   width: 100%;
+  margin: 0;
 }
 
-#discover-modal .wrapper .header h2 {
+#discover-modal .wrapper .compound-wrapper .compound {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  justify-content: space-around;
+  width: 80%;
+  margin: 1rem auto;
+}
+
+#discover-modal .wrapper .compound-wrapper .compound .text h2 {
   color: black;
   margin: 0;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
-#discover-modal .wrapper .header .picture {
+#discover-modal .wrapper .compound-wrapper .compound .picture {
   border: 1px solid black;
-  width: 128px;
-  height: 128px;
-}
-
-#discover-modal .wrapper .description {
-  margin-top: 2rem;
+  width: 50%;
+  aspect-ratio: 1;
 }

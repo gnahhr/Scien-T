@@ -66,7 +66,7 @@ const mixingTable = () => {
   	if(mixed.length === 0){
   		alert("No compound of this mixture.")
   	} else {
-      setNewDiscover(mixed[0]);
+      setNewDiscover(mixed);
       setShowNew(true); 		
   	}
   	setMixData([]);

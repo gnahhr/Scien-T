@@ -17,5 +17,8 @@ export const recipe = [
 	}, {
 		name:"Potassim ulit na may Flouride",
 		elements: ["K", "F"]
+	}, {
+		name:"Potassim ulit na may Flourideee",
+		elements: ["K", "F"]
 	}
 ];
