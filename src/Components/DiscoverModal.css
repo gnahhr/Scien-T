@@ -1,0 +1,61 @@
+#discover-modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.312);
+  height: 100vh;
+  width: 100vw;
+  display: grid;
+  justify-items: center;
+  align-items: center;
+  z-index: 10;
+}
+
+#discover-modal .wrapper {
+  width: 50vw;
+  height: 24vh;
+  background-color: white;
+  color: black;
+  border-radius: 18px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#discover-modal .wrapper .exit {
+  align-self: flex-end;
+  font-size: 1.5rem;
+  border: 2px solid black;
+  border-radius: 50%;
+  padding: .05rem;
+  aspect-ratio: 1;
+}
+
+#discover-modal .wrapper .exit:hover {
+  border-color: #810e0e;
+  color: #810e0e;
+  cursor: pointer;
+}
+
+#discover-modal .wrapper .header {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+#discover-modal .wrapper .header h2 {
+  color: black;
+  margin: 0;
+  font-size: 3rem;
+}
+
+#discover-modal .wrapper .header .picture {
+  border: 1px solid black;
+  width: 128px;
+  height: 128px;
+}
+
+#discover-modal .wrapper .description {
+  margin-top: 2rem;
+}
