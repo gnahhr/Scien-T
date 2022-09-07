@@ -84,7 +84,6 @@ const mixingTable = () => {
 
   return (
     <div>
-        <h3>Elements</h3>
         <div id="periodic-table">
           <div id="mixing-table" ref={drop}>
             {mixData.length > 0 ? mixData.map(element => <div key={element}>{element}</div>) : "Please drag elements here for mixing."}
