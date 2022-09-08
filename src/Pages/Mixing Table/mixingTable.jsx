@@ -1,20 +1,32 @@
-import React, { useEffect, useState } from 'react';
+//Libraries
+import React, { useState } from 'react';
 import { DndProvider, useDrop } from "react-dnd";
-import { recipe } from '../../Data/Recipe.js';
-import Elements from '../../Components/Elements.jsx';
+
+//Data
 import elements from '../../Data/PeriodicTableJSON.json';
+import { recipe } from '../../Data/Recipe.js';
+
+//Components
+import Elements from '../../Components/Elements.jsx';
 import DiscoverList from '../../Components/DiscoverList.jsx';
-import "./mixingTable.css";
 import CompoundModal from '../../Components/CompoundModal.jsx';
 import DiscoverModal from '../../Components/DiscoverModal.jsx';
+
+//Design
+import "./mixingTable.css";
+import gear from "../../Assets/Images/gear.svg";
+import listIcon from "../../Assets/Images/list-icon.svg";
+import muted from "../../Assets/Images/muted.svg";
+import unmuted from "../../Assets/Images/music.svg";
+
 
 const mixingTable = () => {
   const listElems = elements.elements;
 
-  //Data
+  //Data States
   const [ mixData, setMixData ] = useState([]);
   const [ selectedCompound, setSelectedCompound] = useState([]);
-  const [ knownCompound, setKnownCompound ] = useState(["First", "Second"]);
+  const [ knownCompound, setKnownCompound ] = useState([]);
   const [ newDiscover, setNewDiscover ] = useState("");
 
   //save user progress to the database
@@ -35,6 +47,7 @@ const mixingTable = () => {
   const [ showModal, setShowModal ] = useState(false);
   const [ showDiscover, setShowDiscover ] = useState(false);
   const [ showNew, setShowNew ] = useState(false);
+  const [ music, setMusic ] = useState(true);
 
   const [{isOver}, drop ] = useDrop(() => ({
     accept: "element",
@@ -43,13 +56,6 @@ const mixingTable = () => {
       isOver: !!monitor.isOver(),
     })
   }))
-
-  useEffect(() => {
-    if (mixData === []) {
-      setMixData([]);
-    }
-  }, [mixData])
-
 
   //Add an element into mixData
   const addElement = (symbol) => {
@@ -64,23 +70,23 @@ const mixingTable = () => {
     });
   }
 
-  //Check mixData if there are any duplicate elements
-  const checkArray = (symbol, currData) => {
-    return currData.filter((element) => symbol === element).length > 0 ? true : false;
-  }
-
   //Check if the selected elements form a compound
   const mixElems = (elemArr) => {
-  	var mixed = recipe.filter((compound) => {
+    let flag = true;
+    if (elemArr.length === 0) {
+      return;
+    }
+
+  	let mixed = recipe.filter((compound) => {
 				if (compareElemArr(compound.elements.sort(), elemArr.sort())){
 					return compound;
 				}
   	});
 
   	if(mixed.length === 0){
-  		alert("No compound of this mixture.")
+  		alert("No compound of this mixture.");
   	} else {
-      mixElements(mixed);
+      // mixElements(mixed);
       setNewDiscover(mixed);
       setShowNew(true); 		
   	}
@@ -91,16 +97,32 @@ const mixingTable = () => {
 
   //Compare elements on the mixing table to the recipes list
   const compareElemArr = (elemArr1, elemArr2) => {
-  	for (var x = 0; x < elemArr1.length; x++){
-  		if(elemArr1[x] !== elemArr2[x]){
-  			return false;
-  		}
-  	}
-  	return true;
+    let flag = true;
+    if (elemArr1.length === elemArr2.length){
+      for (let x = 0; x < elemArr1.length; x++){
+        if(elemArr1[x] !== elemArr2[x]){
+          flag = false;
+        }
+      }
+    } else {
+      flag = false;
+    }
+  	
+  	return flag;
+  }
+
+  //Toggle Music
+  const toggleMusic = () => {
+    setMusic(!music);
   }
 
   return (
-    <div>
+    <div className="main-wrapper">
+        <div className="icons-wrapper">
+          <div className="icon" onClick={() => toggleMusic()}><img src={music ? unmuted : muted}/></div>
+          <div className="icon" onClick={() => setShowDiscover(true)}><img src={listIcon}/></div>
+          <div className="icon" ><img src={gear}/></div>
+        </div>
         <div id="periodic-table">
           <div id="mixing-table" ref={drop}>
             {mixData.length > 0 ? mixData.map(element => <div key={element}>{element}</div>) : "Please drag elements here for mixing."}
@@ -116,8 +138,7 @@ const mixingTable = () => {
           />)}
         </div>
         
-        {!showDiscover && <button onClick={() => setShowDiscover(true)}>List</button>}
-        <DiscoverList knownCompound={listElems}
+        <DiscoverList knownCompound={knownCompound}
                       discoverState={showDiscover}
                       showDiscover={setShowDiscover}
                       selectedCompound={setSelectedCompound}
