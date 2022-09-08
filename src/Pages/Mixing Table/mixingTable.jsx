@@ -86,7 +86,7 @@ const mixingTable = () => {
   	if(mixed.length === 0){
   		alert("No compound of this mixture.");
   	} else {
-      // mixElements(mixed);
+      // mixElements(mixed); remain as a comment until further notice - kagagawan ni juicewah
       setNewDiscover(mixed);
       setShowNew(true); 		
   	}
