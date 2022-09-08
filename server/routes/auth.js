@@ -47,6 +47,8 @@ router.post('/api/login', async (req,res) => {
 				id: user._id,
 				username: user.username,
                 firstName: user.firstName,
+				lastName: user.lastName,
+				email: user.email
 			},
 			JWT_SECRET
 		)
@@ -58,4 +60,5 @@ router.post('/api/login', async (req,res) => {
 })
 
 
-module.exports = router;
+
+module.exports = router
