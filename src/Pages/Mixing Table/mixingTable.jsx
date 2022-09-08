@@ -17,6 +17,20 @@ const mixingTable = () => {
   const [ knownCompound, setKnownCompound ] = useState(["First", "Second"]);
   const [ newDiscover, setNewDiscover ] = useState("");
 
+  //save user progress to the database
+  // async function mixElements(element){                             
+  //   const username = 'josh'
+  //   const response = await fetch('/api/mixElements',{              remain as a comment until further notice - kagagawan ni juicewah
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //       username,element
+  //     })
+  //   })
+  // }
+
   //Modals
   const [ showModal, setShowModal ] = useState(false);
   const [ showDiscover, setShowDiscover ] = useState(false);
@@ -66,11 +80,14 @@ const mixingTable = () => {
   	if(mixed.length === 0){
   		alert("No compound of this mixture.")
   	} else {
+      mixElements(mixed);
       setNewDiscover(mixed);
       setShowNew(true); 		
   	}
-  	setMixData([]);
+    setMixData([]);
   }
+
+  
 
   //Compare elements on the mixing table to the recipes list
   const compareElemArr = (elemArr1, elemArr2) => {
