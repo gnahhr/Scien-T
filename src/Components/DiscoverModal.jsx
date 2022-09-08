@@ -9,7 +9,7 @@ const DiscoverModal = ({showNew, data}) => {
             <div className="compound-wrapper">
                 {data.map((compound) => {
                     return(
-                    <div className="compound">
+                    <div className="compound" key={compound.name}>
                         <div className="picture">Pic</div>
                         <div className="text">
                             <h2 className="name">{compound.name}</h2>

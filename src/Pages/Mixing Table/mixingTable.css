@@ -1,11 +1,42 @@
 /*Grid*/
+.main-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+  margin-left: 15vw;
+}
+
+.icons-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.icons-wrapper .icon {
+  background-color: #FBB500;
+  width: max-content;
+  height: max-content;
+  align-self: flex-end;
+  border-radius: 5px;
+  padding: .5rem;
+  display: grid;
+  align-content: center;
+  margin: 0 .5rem;
+}
+
+.icons-wrapper .icon img {
+  height: 1rem;
+}
+
+.icons-wrapper .icon:hover {
+  background-color: #ffffff;
+}
+
 #periodic-table {
   margin-top: 5vh;
   display: grid;
   grid-template-rows: repeat(11, 24px);
   grid-template-columns: repeat(18, 24px);
   grid-gap: 2rem;
-  margin-left: 15vw;
 }
 
 #periodic-table div {
