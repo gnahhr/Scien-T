@@ -128,7 +128,7 @@ const mixingTable = () => {
     <div className="main-wrapper">
         <div className="icons-wrapper">
           <div className="icon" onClick={() => toggleMusic()}><img src={music ? unmuted : muted}/></div>
-          <div className="icon" onClick={() => setShowDiscover(true)}><img src={listIcon}/></div>
+          <div className="icon" onClick={() => setShowDiscover(!showDiscover)}><img src={listIcon}/></div>
           <div className="icon" ><img src={gear}/></div>
         </div>
         <div id="periodic-table">

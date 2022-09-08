@@ -4,6 +4,7 @@
   flex-direction: column;
   margin: 1rem;
   margin-left: 15vw;
+  max-width: fit-content;
 }
 
 .icons-wrapper {
@@ -37,6 +38,7 @@
   grid-template-rows: repeat(11, 24px);
   grid-template-columns: repeat(18, 24px);
   grid-gap: 2rem;
+  padding: 2rem;
 }
 
 #periodic-table div {
