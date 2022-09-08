@@ -7,6 +7,7 @@ const UserData = new mongoose.Schema(
         email: {type: String, required: true},
         username: {type: String, required: true, index: { unique: true }},
         password: {type: String, required: true},
+        mixingElements : { type : Array},
     },
     { collection: 'UserData' }
 )

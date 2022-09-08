@@ -1,12 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const jwt = require('jsonwebtoken')
 const UserData = require('../models/UsersModel')
 
-module.exports = router
+router.post('/api/mixElements', async (req,res) =>{ //save user's progress
+    console.log('adfadfdafdsf')
+    const mixed = req.body.element
+    console.log(mixed)
 
-router.post('/api/save', async (req,res) =>{ //save user's progress
-    //mema muna
+    const compoundElement = await UserData.updateOne({
+        username: req.body.username
+        },{
+            $push: {mixingElements: mixed}}
+    )
 })
 
-router
+module.exports = router

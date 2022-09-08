@@ -29,7 +29,21 @@ const mixingTable = () => {
   const [ knownCompound, setKnownCompound ] = useState([]);
   const [ newDiscover, setNewDiscover ] = useState("");
 
-  //Boolean States
+  //save user progress to the database
+  // async function mixElements(element){                             
+  //   const username = 'josh'
+  //   const response = await fetch('/api/mixElements',{              remain as a comment until further notice - kagagawan ni juicewah
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({
+  //       username,element
+  //     })
+  //   })
+  // }
+
+  //Modals
   const [ showModal, setShowModal ] = useState(false);
   const [ showDiscover, setShowDiscover ] = useState(false);
   const [ showNew, setShowNew ] = useState(false);
@@ -72,37 +86,15 @@ const mixingTable = () => {
   	if(mixed.length === 0){
   		alert("No compound of this mixture.");
   	} else {
-      setKnownCompound((knownCompound) => {
-        if (knownCompound.length < 1){
-          return [...knownCompound, ...mixed];
-        } else if (!checkCompounds(mixed, knownCompound)) {
-          return [...knownCompound, ...mixed];
-        } else {
-          return [...knownCompound];
-        }
-      });	
-      
-      //Just show modal if newly discovered
-      if (!checkCompounds(mixed, knownCompound)) {
-        setNewDiscover(mixed);
-        setShowNew(true); 
-      }
+      // mixElements(mixed); remain as a comment until further notice - kagagawan ni juicewah
+      setNewDiscover(mixed);
+      setShowNew(true); 		
   	}
-
-  	setMixData([]);
+    setMixData([]);
   }
 
-  //Check mixData if there are any duplicate elements
-  const checkArray = (symbol, currData) => {
-    return currData.filter((element) => symbol === element).length > 0 ? true : false;
-  }
-
-  //Check knownCompound if there's duplicate known compound
-  const checkCompounds = (mixed, listCompound) => {
-    if (mixed)
-    return listCompound.filter((compound) => mixed[0].name === compound.name).length > 0 ? true : false;
-  }
   
+
   //Compare elements on the mixing table to the recipes list
   const compareElemArr = (elemArr1, elemArr2) => {
     let flag = true;
