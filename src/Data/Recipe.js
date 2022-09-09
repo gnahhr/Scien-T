@@ -30,12 +30,12 @@ export const recipe = [
 	}, {
 		name:"Potassim ulit na may Flourideee",
 		elements: ["K", "F"],
-		formula: "NH3",
+		formula: "I<sup>-</sup>",
 		description: "Lorem memesum"
 	}, {
 		name:"Ammonia",
 		elements: ["N", "H"],
-		formula: "NHs3",
+		formula: "NH<sub>3</sub>",
 		description: "Water",
 	}
 ];

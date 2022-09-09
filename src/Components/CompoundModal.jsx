@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./CompoundModal.css";
 
 const CompoundModal = ({showModal, data}) => {
+
+  useEffect(() => {
+    //Output formula correctly on HTML
+    document.getElementById("formula").innerHTML = data.formula;
+  }, [])
 
   return (
     <div id="compound-modal">
@@ -11,7 +16,7 @@ const CompoundModal = ({showModal, data}) => {
                 <div className="picture">Pic</div>
                 <div className="text">
                     <h2 className="name">{data.name}</h2>
-                    <h3 className="formula">{data.formula}</h3>
+                    <h3 id="formula"></h3>
                 </div>
             </div>
             
