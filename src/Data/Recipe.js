@@ -37,5 +37,15 @@ export const recipe = [
 		elements: ["N", "H"],
 		formula: "NH<sub>3</sub>",
 		description: "Water",
+	}, {
+		name:"Water",
+		elements: ["H", "O"],
+		formula: "H<sub>2</sub>O",
+		description: "Water",
+	}, {
+		name:"Potassium dichromate",
+		elements: ["K", "Cr", "O"],
+		formula: "K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>",
+		description: "Sikret walang clue",
 	}
 ];
