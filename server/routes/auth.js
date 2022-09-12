@@ -1,11 +1,20 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcryptjs')
-const UserData = require('../models/UsersModel')
 const jwt = require('jsonwebtoken')
 
 const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk'
 
+//utils
+const { generateOTP, mailTransport } = require('../utils/mail')
+
+//schemas
+const UserData = require('../models/UsersModel')
+const VerificationToken = require('../models/VerificationToken');
+const { isValidObjectId } = require('mongoose');
+
+
+//register
 router.post('/api/register', async (req,res) => {
     const { firstName, lastName, email, username, password: plainTextPassword } = req.body
 
@@ -19,18 +28,72 @@ router.post('/api/register', async (req,res) => {
 			username,
 			password
 		})
-		console.log('User created successfully: ', response)
+
+		const OTP = generateOTP()
+		const hashOTP = await bcrypt.hash(OTP, 10)
+
+		const verificationToken = await VerificationToken.create({
+			owner: response._id,
+			token: hashOTP
+		})
+
+		mailTransport().sendMail({
+			from: 'shenxaioting@gmail.com',
+			to: response.email,
+			subject: 'verify email',
+			html: `<h1> ${OTP} </h1>`
+
+		})
+
+		res.json(response)
+		console.log(verificationToken)
 	} catch (error) {
 		if (error.code === 11000) {
-			return res.json({ status: 'error', error: 'Username already in use' })
+			return res.json({ status: 'error', error: 'Username/Email already in use' })
 		}
 		throw error
 	}
 
-	res.json({ status: 'ok' })
 
 })
 
+//verify
+router.post('/api/verify', async (req,res) =>{
+	const { otp, userID} = (req.body)
+	
+
+	if(!isValidObjectId(userID)) res.json({status: 'error', error: 'invalid user id'})
+
+	const user = await UserData.findById({userID})
+	if(!user) res.json({status: 'error', error: 'User not found'})
+	
+	if(user.isVerified){
+		res.json({status: 'error', error: 'user already verified'})
+		// res.redirect
+	}
+
+	const verify = await VerificationToken.findOne({owner: userID})			
+	if(!verify) res.json({status: 'error', error: 'token not found'})
+
+	const isMatch = await bcrypt.compare(otp, verify.token)
+	if(!isMatch) res.json({status: 'error', error: 'wrong token'})
+
+	user.isVerified = true
+
+	await VerificationToken.findByIdAndDelete(verify._id)
+	user.isVerified = true
+
+	mailTransport().sendMail({
+		from: 'shenxaioting@gmail.com',
+		to: user.email,
+		subject: 'verify email',
+		html: `<h1> you are now verified </h1>`
+
+	})
+
+})
+
+//login
 router.post('/api/login', async (req,res) => {
     const { username, password } = req.body
 	const user = await UserData.findOne({ username }).lean()
@@ -52,7 +115,6 @@ router.post('/api/login', async (req,res) => {
 			},
 			JWT_SECRET
 		)
-        console.log(token.username)
 		return res.json({ status: 'ok', token: token })
 	}
 
