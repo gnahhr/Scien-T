@@ -30,28 +30,6 @@
   grid-gap: 5px;
 }
 
-#intelliment .question-wrapper .choices-wrapper .choice {
-  background-color: rgba(255, 255, 255, 0.5);
-  color: black;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-}
-
-#intelliment .question-wrapper .choices-wrapper .choice:hover {
-  background-color: rgba(255, 255, 255, 0.75);
-  cursor: pointer;
-}
-
-#intelliment .question-wrapper .choices-wrapper .correct {
-  background-color: #206E28;
-  color: white;
-}
-
-#intelliment .question-wrapper .choices-wrapper .wrong {
-  background-color: #5f1c1c;
-  color: white;
-}
-
 #intelliment .timer {
   display: flex;
   margin-right: 3rem;
@@ -68,4 +46,5 @@
   border-radius: 5px;
   background-color: #D0CE8D;
   align-self: center;
+  transition: width .5ms;
 }

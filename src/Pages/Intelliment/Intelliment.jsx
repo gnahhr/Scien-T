@@ -4,7 +4,7 @@ import ElementQuestion from '../../Components/ElementQuestion';
 import "./Intelliment.css";
 
 const Intelliment = () => {
-  const [ timer, setTimer ] = useState(100);
+  const [ timer, setTimer ] = useState(10);
   const [ step, setStep ] = useState(0);
   const [ questions, setQuestions ] = useState([
     {
@@ -31,6 +31,10 @@ const Intelliment = () => {
         setStep(0);
     }
   }, [step])
+
+  useEffect(() => {
+    setTimeout(() => setTimer(timer-1), 1000)
+  }, [timer])
   
 
   const selectAns = (choice) => {
@@ -60,9 +64,9 @@ const Intelliment = () => {
 
         <div className="timer">
             <div className="text-timer">
-                10s
+                {timer}s
             </div>
-            <div className="bar-timer" style={{}}>
+            <div className="bar-timer" style={{width: `${100+(timer*10)}%`}}>
                 
             </div>
         </div>
