@@ -1,4 +1,5 @@
 import React from 'react'
+import "./Choice.css";
 
 const Choice = ({data, selectedAnswer}) => {
   return (
