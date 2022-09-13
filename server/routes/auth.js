@@ -8,6 +8,7 @@ const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhf
 //utils
 const { generateOTP, mailTransport } = require('../utils/mail')
 
+
 //schemas
 const UserData = require('../models/UsersModel')
 const VerificationToken = require('../models/VerificationToken');
@@ -58,13 +59,14 @@ router.post('/api/register', async (req,res) => {
 })
 
 //verify
-router.post('/api/verify', async (req,res) =>{
-	const { otp, userID} = (req.body)
-	
+router.post('/api/verify/:_id', async (req,res) =>{
+	var ObjectId = require('mongoose').Types.ObjectId;
+	const otp = req.body.otp
+	const _id = new ObjectId (req.params._id)
 
-	if(!isValidObjectId(userID)) res.json({status: 'error', error: 'invalid user id'})
+	if(!isValidObjectId(_id)) res.json({status: 'error', error: 'invalid user id'})
 
-	const user = await UserData.findById({userID})
+	const user = await UserData.findById({_id})
 	if(!user) res.json({status: 'error', error: 'User not found'})
 	
 	if(user.isVerified){
@@ -72,7 +74,7 @@ router.post('/api/verify', async (req,res) =>{
 		// res.redirect
 	}
 
-	const verify = await VerificationToken.findOne({owner: userID})			
+	const verify = await VerificationToken.findOne({owner: _id})			
 	if(!verify) res.json({status: 'error', error: 'token not found'})
 
 	const isMatch = await bcrypt.compare(otp, verify.token)
@@ -81,7 +83,7 @@ router.post('/api/verify', async (req,res) =>{
 	user.isVerified = true
 
 	await VerificationToken.findByIdAndDelete(verify._id)
-	user.isVerified = true
+	user.save()
 
 	mailTransport().sendMail({
 		from: 'shenxaioting@gmail.com',
@@ -90,7 +92,7 @@ router.post('/api/verify', async (req,res) =>{
 		html: `<h1> you are now verified </h1>`
 
 	})
-
+	res.json({status:'ok'})
 })
 
 //login
