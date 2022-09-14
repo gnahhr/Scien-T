@@ -56,7 +56,17 @@
         }
 
         .description {
-            margin-top: 2rem;
+            margin: 2rem 4rem 0;
+            padding: 1rem;
+            overflow-y: auto;
+
+            p::before {
+                content: "-";
+            }
+            p {
+                text-align: justify;
+                margin-top: 1rem;
+            }
         }
     }
 }

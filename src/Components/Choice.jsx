@@ -1,9 +1,9 @@
 import React from 'react'
 import "./Choice.css";
 
-const Choice = ({data, selectedAnswer}) => {
+const Choice = ({data, selectedAnswer, answered, category}) => {
   return (
-    <div className="choice" onClick={() => selectedAnswer(data)}>
+    <div className={answered ? `choice ${category}` : "choice"} onClick={() => selectedAnswer(data)}>
         {data}
     </div>
   )

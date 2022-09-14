@@ -1,52 +1,77 @@
 #intelliment {
-    color: white;
     margin-left: 15vw;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 3fr 1fr;
-    height: 92vh;
-
-    .total-questions {
-        justify-self: start;
-    }
-
-    .question-wrapper{
-        justify-self: center;
-        display: flex;
-        flex-direction: column;
-        margin-right: 3rem;
-        width: 80%;
-
-        .question {
-            margin: 1rem;
-
-        }
-
-        .choices-wrapper {
+    .intellimain {
+        color: white;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 3fr 1fr;
+        height: 92vh;
+    
+        .header {
             display: grid;
-            grid-template-rows: repeat(2, 1fr);
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 5px;
-        }
-    }
-
-    .timer {
-        display: flex;
-
-        .text-timer {
-            margin-right: 5px;
-            align-self: center;
-        }
-
-        .bar-timer {
+            grid-template-columns: 1fr 1fr 1fr;
             width: 100%;
-            height: 5px;
-            border-radius: 5px;
-            background-color: #D0CE8D;
-            align-self: center;
-            transition: width .5ms;
+
+            .total-questions {
+                justify-self: start;
+                margin: 1rem;
+            }
+
+            .score {
+                justify-self: end;
+                margin: 1rem;
+            }
+
+            .multiplier {
+                justify-self: center;
+                margin: 1rem;
+                display: flex;
+                flex-direction: column;
+
+                .multi {
+                    font-size: 2rem;
+                }
+            }
         }
 
-        margin-right: 3rem;
+        .question-wrapper{
+            justify-self: center;
+            display: flex;
+            flex-direction: column;
+            margin-right: 3rem;
+            width: 80%;
+
+            .question {
+                margin: 1rem;
+
+            }
+
+            .choices-wrapper {
+                display: grid;
+                grid-template-rows: repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 5px;
+            }
+        }
+
+        .timer {
+            display: flex;
+
+            .text-timer {
+                margin-right: 5px;
+                align-self: center;
+            }
+
+            .bar-timer {
+                width: 100%;
+                height: 5px;
+                border-radius: 5px;
+                background-color: #D0CE8D;
+                align-self: center;
+                transition: width .5ms;
+            }
+
+            margin-right: 3rem;
+        }
     }
 }

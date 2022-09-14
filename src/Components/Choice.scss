@@ -15,7 +15,17 @@
     color: white;
 }
 
+.correct:hover {
+    background-color: #206E28;
+    color: white;
+}
+
 .wrong {
+    background-color: #5f1c1c;
+    color: white;
+}
+
+.wrong:hover {
     background-color: #5f1c1c;
     color: white;
 }

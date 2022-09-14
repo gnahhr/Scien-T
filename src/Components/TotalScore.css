@@ -1,0 +1,40 @@
+.total-score {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  margin-top: 20vh;
+}
+
+.total-score .wrapper {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 25px;
+  padding: 2rem 6rem;
+  color: white;
+}
+
+.total-score .wrapper h2 {
+  margin: 2rem 0 1rem;
+}
+
+.total-score .wrapper .data-wrapper {
+  display: grid;
+  grid-template: repeat(5, 1fr)/repeat(2, 1fr);
+}
+
+.total-score .wrapper .data-wrapper .left-data {
+  justify-self: start;
+}
+
+.total-score .wrapper .data-wrapper .right-data {
+  justify-self: end;
+}
+
+.total-score .wrapper button {
+  text-align: center;
+}
+
+.total-score .wrapper button:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}

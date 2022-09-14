@@ -5,7 +5,7 @@
   flex-direction: column;
   margin: 1rem;
   margin-left: 15vw;
-  max-width: fit-content;
+  flex-grow: 1;
 }
 
 .icons-wrapper {
@@ -41,6 +41,7 @@
   grid-template-columns: repeat(18, 24px);
   grid-gap: 2rem;
   padding: 2rem;
+  align-self: center;
 
   div {
     color: black;
