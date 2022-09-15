@@ -46,8 +46,14 @@ router.post('/api/register', async (req,res) => {
 
 		})
 
-		res.json(response)
-		console.log(verificationToken)
+		const token = jwt.sign(
+			{
+				id: response._id,
+			},
+			JWT_SECRET
+		)
+		return res.json({ status: 'ok', user: token })
+
 	} catch (error) {
 		if (error.code === 11000) {
 			return res.json({ status: 'error', error: 'Username/Email already in use' })
@@ -59,10 +65,14 @@ router.post('/api/register', async (req,res) => {
 })
 
 //verify
-router.post('/api/verify/:_id', async (req,res) =>{
+router.post('/api/verify', async (req,res) =>{
 	var ObjectId = require('mongoose').Types.ObjectId;
-	const otp = req.body.otp
-	const _id = new ObjectId (req.params._id)
+
+
+	
+	const token = req.body.access
+	const otp = req.body.OTP
+	const _id = new ObjectId (token)
 
 	if(!isValidObjectId(_id)) res.json({status: 'error', error: 'invalid user id'})
 
@@ -71,7 +81,6 @@ router.post('/api/verify/:_id', async (req,res) =>{
 	
 	if(user.isVerified){
 		res.json({status: 'error', error: 'user already verified'})
-		// res.redirect
 	}
 
 	const verify = await VerificationToken.findOne({owner: _id})			
@@ -101,7 +110,7 @@ router.post('/api/login', async (req,res) => {
 	const user = await UserData.findOne({ username }).lean()
 
 	if (!user) {
-		return res.json({ status: 'error', error: 'Invalid username/password' })
+		return res.json({ status: 'error', error: 'Invalid username' })
 	}
 
 	if (await bcrypt.compare(password, user.password)) {
@@ -117,10 +126,12 @@ router.post('/api/login', async (req,res) => {
 			},
 			JWT_SECRET
 		)
-		return res.json({ status: 'ok', token: token })
+		return res.json({ status: 'ok', user: token })
 	}
 
-	res.json({ status: 'error', error: 'Invalid username/password' })
+	else{
+		res.json({ status: 'error', user: false })
+	}
 })
 
 
