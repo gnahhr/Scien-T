@@ -14,4 +14,18 @@ router.post('/api/mixElements', async (req,res) =>{ //save user's progress
     )
 })
 
+router.get('api/mixElements', async (req, res) => {
+
+})
+
+router.post('api/electronConfiguration', async (req,res) => {
+
+})
+
+router.get('api/electronConfiguration', async (req,res) => {
+    
+})
+
+
+
 module.exports = router
