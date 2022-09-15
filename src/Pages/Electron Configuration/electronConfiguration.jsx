@@ -34,6 +34,7 @@ const electronConfiguration = () => {
 
   // }
 
+  // for outputting/accessing data stored in localStorage that was sent from the backend- kagagawan ni juicewah
   useEffect (() => {
     const token = localStorage.getItem('token')
     if (token){
