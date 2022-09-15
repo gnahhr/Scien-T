@@ -19,20 +19,31 @@ import LoginPage from './Pages/Login/loginPage';
 import RegisterPage from './Pages/Register/registerPage';
 import MixingTable from './Pages/Mixing Table/mixingTable';
 import Intelliment from './Pages/Intelliment/Intelliment';
+import ElectronConfiguration from './Pages/Electron Configuration/electronConfiguration'
+import VerifyUser from './Pages/Verify User/verifyUser'
+
 
 function App() {
   return (
-    <DndProvider backend={HTML5Backend}>
-      <div className="App">
-        <img src={Honeycombs} alt="honeycombs" className="honeycombs"/>
-        <Navbar />
-        {/* <MixingTable /> */}
-        {/* <RegisterPage /> */}
-        {/* <LoginPage /> */}
-        <LandingPage />
-        {/* <Intelliment /> */}
-      </div>
-    </DndProvider>
+    <BrowserRouter>
+      <DndProvider backend={HTML5Backend}>
+        
+        <div className="App">
+          <img src={Honeycombs} alt="honeycombs" className="honeycombs"/>
+          <Routes>
+            {/* <Navbar /> */}
+            {/* <MixingTable /> */}
+            <Route path="/register" element={<RegisterPage />}/>
+            <Route path="/verify" element={<VerifyUser />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/" element={<LandingPage />} />
+            {/* <Intelliment /> */}
+            <Route path="/electronConfiguration" element={<ElectronConfiguration />}/>
+          </Routes>
+        </div>
+        
+      </DndProvider>
+    </BrowserRouter>
   );
 }
 
