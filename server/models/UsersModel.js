@@ -8,6 +8,8 @@ const UserData = new mongoose.Schema(
         username: {type: String, required: true, index: { unique: true }},
         password: {type: String, required: true},
         mixingElements : { type : Array},
+        electronConfiguration : {type: Array},
+        intelliment: {type: Number},
         isVerified: {type: Boolean, default: false, required: true, }
     },
     { collection: 'UserData' }
