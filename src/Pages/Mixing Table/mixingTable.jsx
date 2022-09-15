@@ -1,6 +1,9 @@
 //Libraries
 import React, { useState } from 'react';
 import { DndProvider, useDrop } from "react-dnd";
+import { useNavigate } from 'react-router-dom'
+import jwt_decode from "jwt-decode"
+
 
 //Data
 import elements from '../../Data/PeriodicTableJSON.json';
@@ -21,6 +24,7 @@ import unmuted from "../../Assets/Images/music.svg";
 
 
 const mixingTable = () => {
+  const navigate = useNavigate()
   const listElems = elements.elements;
 
   //Data States
@@ -42,6 +46,19 @@ const mixingTable = () => {
   //     })
   //   })
   // }
+
+  // useEffect (() => {
+  //   const token = localStorage.getItem('token')
+  //   if (token){
+  //     const user = jwt_decode(token)                                 for outputting/accessing data stored in localStorage that was sent from the backend- kagagawan ni juicewah
+  //     if(!user){
+  //       localStorage.clear()
+  //       navigate('/login')
+  //     }
+  //     else{
+  //     }
+  //   }
+  // })
 
   //Modals
   const [ showModal, setShowModal ] = useState(false);
