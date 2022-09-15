@@ -58,5 +58,16 @@
 }
 
 #compound-modal .wrapper .description {
-  margin-top: 2rem;
+  margin: 2rem 4rem 0;
+  padding: 1rem;
+  overflow-y: auto;
+}
+
+#compound-modal .wrapper .description p::before {
+  content: "-";
+}
+
+#compound-modal .wrapper .description p {
+  text-align: justify;
+  margin-top: 1rem;
 }

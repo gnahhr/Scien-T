@@ -1,0 +1,24 @@
+.toast-message {
+  position: fixed;
+  margin-left: 15vw;
+  left: 40%;
+  bottom: 3vh;
+  transform: translate(-40%, 0);
+  padding: 1rem 3rem;
+  background-color: rgba(179, 19, 179, 0.357);
+  border-radius: 25px;
+  transition: .3s ease-in;
+}
+
+.hidden {
+  bottom: -10vh;
+  transition: .3s ease-in;
+}
+
+.success {
+  background-color: rgba(32, 110, 40, 0.7);
+}
+
+.warning {
+  background-color: rgba(95, 28, 28, 0.7);
+}

@@ -20,7 +20,7 @@ const CompoundModal = ({showModal, data}) => {
                 </div>
             </div>
             
-            <p className="description">{data.description}</p>
+            <div className="description">{data.description.map(description => <p key={Math.random()}>{description}</p>)}</div>
         </div>
     </div>
   )

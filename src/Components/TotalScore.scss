@@ -1,0 +1,40 @@
+.total-score {
+    display: grid;
+    align-content: center;
+    justify-items: center;
+    margin-top: 20vh;
+
+    .wrapper {
+        background-color: rgba(0, 0, 0, .5);
+        border-radius: 25px;
+        padding: 2rem 6rem;
+        color: white;
+
+        h2 {
+            margin: 2rem 0 1rem
+        }
+
+        .data-wrapper {
+            display: grid;
+            grid-template: repeat(5, 1fr) / repeat(2, 1fr); 
+
+            .left-data {
+                justify-self: start;
+            }
+
+            .right-data {
+                justify-self: end;
+            }
+        }
+
+        button {
+            text-align: center;
+        }
+
+        button:hover {
+            background-color: black;
+            color: white;
+            cursor: pointer;
+        }
+    }
+}
