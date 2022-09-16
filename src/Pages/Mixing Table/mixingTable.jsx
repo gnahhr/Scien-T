@@ -1,9 +1,11 @@
 //Libraries
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DndProvider, useDrop } from "react-dnd";
 import { useNavigate } from 'react-router-dom'
 import jwt_decode from "jwt-decode"
 
+//Hooks
+import pushEProg from '../../Hooks/pushEProg.js'
 
 //Data
 import elements from '../../Data/PeriodicTableJSON.json';
@@ -32,33 +34,26 @@ const mixingTable = () => {
   const [ selectedCompound, setSelectedCompound] = useState([]);
   const [ knownCompound, setKnownCompound ] = useState([]);
   const [ newDiscover, setNewDiscover ] = useState("");
+  const [ userProgress, setUserProgress] = useState({})
 
-  //save user progress to the database
-  // async function mixElements(element){                             
-  //   const username = 'josh'
-  //   const response = await fetch('/api/mixElements',{              remain as a comment until further notice - kagagawan ni juicewah
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //       username,element
-  //     })
-  //   })
-  // }
-
-  // useEffect (() => {
-  //   const token = localStorage.getItem('token')
-  //   if (token){
-  //     const user = jwt_decode(token)                                 for outputting/accessing data stored in localStorage that was sent from the backend- kagagawan ni juicewah
-  //     if(!user){
-  //       localStorage.clear()
-  //       navigate('/login')
-  //     }
-  //     else{
-  //     }
-  //   }
-  // })
+  // save user progress to the database
+  const [access, setAccess] = useState('')
+  
+  //localStorage
+  useEffect (() => {
+    const token = localStorage.getItem('token')
+    if (token){
+      const user = jwt_decode(token)                                
+      if(!user){
+        localStorage.clear()
+        navigate('/login')
+      }
+      else{
+        setAccess(user.id)
+        setUserProgress(user.mixingElements)
+      }
+    }
+  }, [mixData])
 
   //Modals
   const [ showModal, setShowModal ] = useState(false);
@@ -103,6 +98,7 @@ const mixingTable = () => {
   	if(mixed.length === 0){
   		alert("No compound of this mixture.");
   	} else {
+      pushEProg(...mixed,access);
       setKnownCompound((knownCompound) => {
         if (knownCompound.length < 1){
           return [...knownCompound, ...mixed];
@@ -188,6 +184,7 @@ const mixingTable = () => {
 
         {showModal && <CompoundModal showModal={setShowModal} data={selectedCompound} />}
         {showNew && <DiscoverModal showNew={setShowNew} data={newDiscover}/>}
+        
     </div>
   )
 }

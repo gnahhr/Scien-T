@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import "./loginPage.css";
 
 const loginPage = () => {
-  const navigate = useNavigate
+  const navigate = useNavigate()
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
 
@@ -34,9 +34,9 @@ const loginPage = () => {
 
     const data = await response.json()
 
-    if (data.user){
+    if (data.status === 'ok'){
       localStorage.setItem('token', data.user)
-      navigate('/electronConfiguration')
+      navigate('/mixingTable')
     }
     else{
       alert('Incorrect username/password')

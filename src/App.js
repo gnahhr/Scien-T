@@ -32,7 +32,7 @@ function App() {
           <img src={Honeycombs} alt="honeycombs" className="honeycombs"/>
           <Routes>
             {/* <Navbar /> */}
-            {/* <MixingTable /> */}
+            <Route path="/mixingTable" element={<MixingTable/>}/>
             <Route path="/register" element={<RegisterPage />}/>
             <Route path="/verify" element={<VerifyUser />} />
             <Route path="/login" element={<LoginPage />} />
