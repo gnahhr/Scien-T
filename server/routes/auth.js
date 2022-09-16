@@ -122,7 +122,10 @@ router.post('/api/login', async (req,res) => {
 				username: user.username,
                 firstName: user.firstName,
 				lastName: user.lastName,
-				email: user.email
+				email: user.email,
+				mixingElements: user.mixingElements,
+				electronConfiguration: user.electronConfiguration,
+				intelliment: user.intelliment
 			},
 			JWT_SECRET
 		)
