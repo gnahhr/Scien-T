@@ -1,14 +1,20 @@
-import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-import { periodicTable } from '../../Data/PeriodicTableJSON'
-import jwt_decode from "jwt-decode"
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { periodicTable } from '../../Data/PeriodicTableJSON';
+import "./electronConfiguration.css";
+import jwt_decode from "jwt-decode";
+import ElementQuestion from "../../Components/ElementQuestion.jsx";
+
+
+//Perodic Table
+//Electron Configuration Chart
 
 const electronConfiguration = () => {
-  const navigate = useNavigate()
-  const [question, setQuestion] = useState(periodicTable[Math.floor(Math.random() * 120)])
-  const [userProgress, setUserProgress] = useState([])
-  const [answer, setAnswer] = useState('')
-  const [username, setUsername] = useState('')
+  const navigate = useNavigate();
+  const [question, setQuestion] = useState(periodicTable[Math.floor(Math.random() * 120)]);
+  const [userProgress, setUserProgress] = useState([]);
+  const [answer, setAnswer] = useState('');
+  const [username, setUsername] = useState('');
   
   // async function electronConfig(answer){                             
   //   const username = 'josh'
@@ -79,21 +85,28 @@ const electronConfiguration = () => {
   }
 
   const onInputChange = (e) => {
-  const value = e.target.value;
-  const name = e.target.name;
+    const value = e.target.value;
+    const name = e.target.name;
 
-  setText[name](value);
+    setText[name](value);
   }
 
   const handler = localStorage.getItem('token')
 
   return (
-    <div>
-      <h1>{valid() ? question.name : ''}</h1>
+    <div className="electron-config">
+      {/* <div className="element">
+        <div className="atomic-number">
+            {question.number}
+        </div>
+        <div className="symbol">
+            {question.symbol}
+        </div>
+      </div> */}
+      <h1>{question.name}</h1>
       <input type='text'  name="answer" value={answer} onChange={(e) => onInputChange(e)}></input>
       <button onClick={() => checkAnswer(answer)}>Enter</button>
       <h1>{username}</h1>
-        
     </div>
   )
 }

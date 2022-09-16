@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-
-import { useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const registerPage = () => {
   const navigate = useNavigate()
@@ -54,7 +53,6 @@ const registerPage = () => {
 	}
 
   return (
-    <div className="main">
         <div className="main">
         <h2>Register</h2>
         <form onSubmit={registerUser} id="login">
@@ -72,7 +70,6 @@ const registerPage = () => {
             <input type="text" name="lastName" id="lastName" value={lastName} onChange={(e) => onInputChange(e)}/>
             <button type="submit" value="Register">Submit</button>
         </form>
-    </div>
     </div>
   )
 }

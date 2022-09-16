@@ -1,31 +1,38 @@
 import React, { useState, useEffect } from 'react';
+
+//Components
 import Choice from '../../Components/Choice';
 import Toast from '../../Components/Toast';
 import ElementQuestion from '../../Components/ElementQuestion';
-import { sampleQuestions } from '../../Data/SampleQuestion';
-import "./Intelliment.css";
 import TotalScore from '../../Components/TotalScore';
 
+//Data
+import { periodicTable } from '../../Data/PeriodicTableJSON';
+import { sampleQuestions } from '../../Data/SampleQuestion.js';
+
+//Styles
+import "./Intelliment.css";
+
 const Intelliment = () => {
-  //Miscellaneous States
+  //Question States
   const [ timer, setTimer ] = useState(10);
   const [ step, setStep ] = useState(0);
+  const [ nthQuestion, setNthQuestion ] = useState(0);
+  const [ answered, setAnswered ] = useState(false);
+  const [ finished, setFinished ] = useState(false);
+  const [ questions, setQuestions ] = useState(sampleQuestions);
+  
+  //Performance States
   const [ score, setScore ] = useState(0);
   const [ numCorrect, setNumCorrect ] = useState(0);
   const [ multiplier, setMultiplier ] = useState(1);
   const [ combo, setCombo ] = useState(0);
   const [ maxCombo, setMaxCombo ] = useState(0);
-  const [ nthQuestion, setNthQuestion ] = useState(0);
-  const [ answered, setAnswered ] = useState(false);
-  const [ finished, setFinished ] = useState(false);
 
   //Toast States
   const [ showToast, setShowToast ] = useState(false);
   const [ toastState, setToastState ] = useState("");
   const [ toastMsg, setToastMsg ] = useState("");
-
-  //Question Related States
-  const [ questions, setQuestions ] = useState(sampleQuestions);
 
   const phases = {
     0: "family",
@@ -34,12 +41,22 @@ const Intelliment = () => {
     3: "atomicMass"
   }
 
+  const familyBGs = {
+    "diatomic nonmetal": "blue",
+    "noble gas": "red"
+  };
+
   const guides = {
     0: "What is the group of the element?",
     1: "What is the name of the element?",
     2: "What is it's atomic number?",
     3: "What is it's atomic mass?"
   }
+
+  useEffect(() => {
+    setQuestions(shuffleArray(generateQsDiff(119)));
+    // generateQsCategory("noble gas");
+  }, [])
 
   useEffect(() => {
     if (step === 4) {
@@ -59,6 +76,7 @@ const Intelliment = () => {
     if (timer === 0) {
       selectAns("");
       prepToast("Time's up!", "warning");
+      setTimer(10)
     }
 
     if (answered) {
@@ -89,6 +107,7 @@ const Intelliment = () => {
     setShowToast(true);
   }
 
+  //Verify Answer
   const selectAns = (choice) => {
     if (!answered) {
       let final = choice === questions[nthQuestion][phases[step]] ? true : false;
@@ -106,6 +125,89 @@ const Intelliment = () => {
       setTimeout(() => {setAnswered(false); setStep(step + 1);}, 3000);
     }
   }
+
+  //Generate Questions
+  const generateQsDiff = (difficulty) => {
+    let totalQs = [];
+    for(let i=0; i<difficulty; i++) {
+      totalQs.push({
+        "atomicNum": periodicTable[i].number,
+        "elemSym": periodicTable[i].symbol,
+        "elemName": periodicTable[i].name,
+        "atomicMass": periodicTable[i].atomic_mass,
+        "family": periodicTable[i].category,
+        "bgColor": familyBGs[periodicTable[i].category],
+        "choices": [
+
+        ]
+      });
+    }
+
+    totalQs.map(el => el["choices"] = generateChoices(totalQs, el));
+    return totalQs;
+  };
+
+  const generateQsCategory = (selected) => {
+    let totalQs = [];
+    periodicTable.filter((el) => selected === el.category).map((el) => {
+      totalQs.push({
+        "atomicNum": el.number,
+        "elemSym": el.symbol,
+        "elemName": el.name,
+        "atomicMass": el.atomic_mass,
+        "family": el.category,
+        "bgColor": familyBGs[el.category],
+        "choices": [
+          
+        ]
+      });
+    })
+
+    totalQs.map(el => el["choices"] = generateChoices(totalQs, el));
+    return totalQs;
+  };
+
+  //Generate choices
+  const generateChoices = (array, currElem) => {
+    let choices = [], tempChoices = [];
+    let temp;
+
+    for(let x = 0; x < 4; x++){
+      tempChoices.push(currElem[phases[x]]);
+      for(let y = 0; y < 3; ){
+        temp = array[Math.floor(Math.random() * array.length)][phases[x]];
+        if (!verifyDupe(temp, tempChoices)) {
+          tempChoices.push(temp)
+          y++;
+        }
+      }
+      choices.push(shuffleArray(tempChoices));
+      tempChoices = [];
+    }
+
+    return choices;
+  }
+
+  //Verify if the choices will be duplicated
+  const verifyDupe = (currData, finalData) => {
+    console.log ()
+    return finalData.filter(el => el === currData).length > 0 ? true : false;
+  };
+
+  //Shuffle Arrays
+  const shuffleArray = (currArray) => {
+    let currentIndex = currArray.length,  randomIndex;
+
+    while (currentIndex != 0) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+      [currArray[currentIndex], currArray[randomIndex]] = [
+        currArray[randomIndex], currArray[currentIndex]];
+    }
+
+    return currArray;
+  };
+
   return (
     <div id="intelliment">
       {!finished &&

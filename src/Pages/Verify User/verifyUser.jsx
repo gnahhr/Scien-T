@@ -48,10 +48,10 @@ const verifyUser = (event) => {
   })
 
   const onInputChange = (e) => {
-  const value = e.target.value;
-  const name = e.target.name;
+    const value = e.target.value;
+    const name = e.target.name;
 
-  setText[name](value);
+    setText[name](value);
   }
 
   return (

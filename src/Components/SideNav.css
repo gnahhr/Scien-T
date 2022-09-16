@@ -1,0 +1,47 @@
+.sideNav {
+  width: 13vw;
+  background-color: rgba(46, 42, 42, 0.394);
+  color: white;
+  position: fixed;
+  left: 0;
+  top: 7vh;
+  height: 93vh;
+  padding: 4rem 1rem;
+}
+
+.category {
+  display: flex;
+  flex-direction: column;
+}
+
+.category ul li {
+  text-align: left;
+  margin-left: 2rem;
+  list-style: none;
+}
+
+.category ul li a {
+  text-decoration: none;
+  padding: 0 .5rem;
+  color: white;
+}
+
+.category ul li .active {
+  color: #e9f732;
+}
+
+.category ul li:hover {
+  background-color: rgba(255, 255, 255, 0.218);
+  border-radius: 16px;
+}
+
+.category-header {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+.category-header h2 {
+  margin: 0;
+  font-size: 2rem;
+}

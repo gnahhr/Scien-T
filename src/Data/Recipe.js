@@ -1,6 +1,8 @@
+//https://byjus.com/chemical-compound-formulas/
 export const recipe = [
 	{
 		name: "Acetic acid",
+		compoundPic: "acetic-acid.png",
 		elements: ["C", "H", "O"],
 		formula: "CH<sub>3</sub>COOH",
 		moleWeight: "60.052 g/mol",
@@ -17,6 +19,7 @@ export const recipe = [
 	},
 	{
 		name: "Hydropcholoric acid",
+		compoundPic: "hydrochloric-acid.png",
 		elements: ["H", "Cl"],
 		formula: "HCl",
 		moleWeight: "36.458 g/mol",
@@ -28,6 +31,7 @@ export const recipe = [
 	},
 	{
 		name: "Sulfuric acid",
+		compoundPic: "acetic-acid.png",
 		elements: ["H", "S", "O"],
 		formula: "H<sub>2</sub>SO<sub>4</sub>",
 		moleWeight: "98.072 g/mol",

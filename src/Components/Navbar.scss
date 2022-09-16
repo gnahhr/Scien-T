@@ -1,8 +1,21 @@
-@import url("../Pages/global.scss");
-
 nav {
     border-bottom: 1px solid #E6CCFF;
     height: 7vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    a {
+        justify-self: start;
+        text-decoration: none;
+        h2 {
+            margin: .5rem 2rem;
+        }
+        h2:hover {
+            color:red
+        }
+    }
+        
+
     ul {
         display: flex;
         flex-direction: row-reverse;
