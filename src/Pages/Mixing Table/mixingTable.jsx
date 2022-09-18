@@ -6,6 +6,7 @@ import jwt_decode from "jwt-decode"
 
 //Hooks
 import pushEProg from '../../Hooks/pushEProg.js'
+import getUserProgME from '../../Hooks/getUserProgME.js';
 
 //Data
 import elements from '../../Data/PeriodicTableJSON.json';
@@ -50,7 +51,7 @@ const mixingTable = () => {
       }
       else{
         setAccess(user.id)
-        setUserProgress(user.mixingElements)
+        setUserProgress(getUserProgME(access))
       }
     }
   }, [mixData])
