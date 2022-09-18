@@ -8,9 +8,7 @@ export default async function pushEProg(element,access){
         access, element
       })
     })
-    localStorage.clear(
-
-    )
+    
     const data = await response.json()
     if (data.status === 'ok'){
       localStorage.setItem('token', data.user)

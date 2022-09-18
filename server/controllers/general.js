@@ -20,7 +20,7 @@ exports.mixElements = async (req, res, next) => {
     })
 
     if(compoundElement){
-        return res.json({ status: 'ok', user: token })
+        return res.json({ status: 'ok'})
     }
     else{
         return res.json({ status: 'error', error: 'Invalid access token' })
@@ -30,7 +30,7 @@ exports.mixElements = async (req, res, next) => {
 //get user prog mixing table
 exports.getME = async (req, res, next) => {
     var ObjectId = require('mongoose').Types.ObjectId;
-    const access = req.header['token']
+    const access = req.params['access']
     const _id = new ObjectId (access)
 
     const userProg = await UserData.findById({_id})
