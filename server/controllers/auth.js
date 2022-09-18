@@ -118,10 +118,7 @@ exports.login = async (req, res, next) => {
 				username: user.username,
                 firstName: user.firstName,
 				lastName: user.lastName,
-				email: user.email,
-				mixingElements: user.mixingElements,
-				electronConfiguration: user.electronConfiguration,
-				intelliment: user.intelliment
+				email: user.email
 			},
 			JWT_SECRET
 		)
