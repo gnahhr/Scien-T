@@ -33,7 +33,7 @@ exports.getME = async (req, res, next) => {
     const access = req.params['access']
     const _id = new ObjectId (access)
 
-    const userProg = await UserData.findById({_id})
+    const userProg = await UserData.findById({_id}, {mixingElements:1})
     
     if(userProg)
         return res.json({userProg})
