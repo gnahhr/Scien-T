@@ -1,7 +1,9 @@
 export default async function getUserProgME(access){ 
-  const reponse = await fetch('/api/userProgME', {
+  const reponse = await fetch('/api/userProgME' + access, {
+    method: 'GET',
     headers: {
-      'token': access,
+      Accept: 'application/json',
+        'Content-Type': 'application/json',
     },
   })
 

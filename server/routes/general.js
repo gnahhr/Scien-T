@@ -9,6 +9,6 @@ router.route('/electronConfiguration').post(electronConfiguration)
 
 router.route('/intelliment').post(intelliment)
 
-router.route('/userProgME').get(getME)
+router.route('/userProgME/:access').get(getME)
 
 module.exports = router
