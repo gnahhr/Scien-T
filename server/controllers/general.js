@@ -30,7 +30,7 @@ exports.mixElements = async (req, res, next) => {
 //get user prog mixing table
 exports.getME = async (req, res, next) => {
     var ObjectId = require('mongoose').Types.ObjectId;
-    const access = req.body.access
+    const access = req.header['token']
     const _id = new ObjectId (access)
 
     const userProg = await UserData.findById({_id})

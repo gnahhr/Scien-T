@@ -1,7 +1,7 @@
 export default async function getUserProgME(access){ 
   const reponse = await fetch('/api/mixElements', {
     headers: {
-      'x-access-token': access,
+      'token': access,
     },
   })
 
