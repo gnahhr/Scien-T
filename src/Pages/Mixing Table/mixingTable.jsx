@@ -39,22 +39,6 @@ const mixingTable = () => {
 
   // save user progress to the database
   const [access, setAccess] = useState('')
-  
-  //localStorage
-  useEffect (() => {
-    const token = localStorage.getItem('token')
-    if (token){
-      const user = jwt_decode(token)                                
-      if(!user){
-        localStorage.clear()
-        navigate('/login')
-      }
-      else{
-        setAccess(user.id)
-        setUserProgress(getUserProgME(access))
-      }
-    }
-  }, [mixData])
 
   //Modals
   const [ showModal, setShowModal ] = useState(false);
@@ -69,6 +53,22 @@ const mixingTable = () => {
       isOver: !!monitor.isOver(),
     })
   }))
+
+  //localStorage
+  useEffect (() => {
+    const token = localStorage.getItem('token')
+    if (token){
+      const user = jwt_decode(token)                                
+      if(!user){
+        localStorage.clear()
+        navigate('/login')
+      }
+      else{
+        setAccess(user.id)
+        setUserProgress(getUserProgME(access))
+      }
+    }
+  }, [])
 
   //Add an element into mixData
   const addElement = (symbol) => {

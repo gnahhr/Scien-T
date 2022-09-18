@@ -37,7 +37,6 @@ exports.getME = async (req, res, next) => {
     
     if(userProg)
         return res.json({userProg})
-    
     else
         return res.json({ status: 'error', error: 'Invalid access token' })
 }

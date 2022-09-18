@@ -6,6 +6,7 @@
   transform: translate(-40%, 0);
   padding: 1rem 3rem;
   background-color: rgba(179, 19, 179, 0.357);
+  color: white;
   border-radius: 25px;
   transition: .3s ease-in;
 }

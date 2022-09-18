@@ -4,6 +4,7 @@ import { periodicTable } from '../../Data/PeriodicTableJSON';
 import "./electronConfiguration.css";
 import jwt_decode from "jwt-decode";
 import ElementQuestion from "../../Components/ElementQuestion.jsx";
+import Toast from '../../Components/Toast';
 
 
 //Perodic Table
@@ -15,6 +16,11 @@ const electronConfiguration = () => {
   const [userProgress, setUserProgress] = useState([]);
   const [answer, setAnswer] = useState('');
   const [username, setUsername] = useState('');
+
+  //Toast States
+  const [ showToast, setShowToast ] = useState(false);
+  const [ toastState, setToastState ] = useState("");
+  const [ toastMsg, setToastMsg ] = useState("");
   
   // async function electronConfig(answer){                             
   //   const username = 'josh'
@@ -60,13 +66,14 @@ const electronConfiguration = () => {
   const checkAnswer = (answer) =>{
     if(answer === question.electron_configuration){
       setUserProgress([userProgress => [...userProgress, question.number]])
-      console.log('correct')
+      prepToast('Correct', "success");
       setAnswer('')
       setQuestion(periodicTable[Math.floor(Math.random() * 120)])
       return
     }
     else{
-      console.log('incorrect')
+      prepToast('Incorrect!', "warning");
+
     }
   }
 
@@ -91,22 +98,33 @@ const electronConfiguration = () => {
     setText[name](value);
   }
 
+  const prepToast = (message, toastState) => {
+    setToastState(toastState);
+    setToastMsg(message);
+    setShowToast(true);
+  }
+
   const handler = localStorage.getItem('token')
 
   return (
     <div className="electron-config">
-      {/* <div className="element">
-        <div className="atomic-number">
-            {question.number}
-        </div>
-        <div className="symbol">
-            {question.symbol}
-        </div>
-      </div> */}
-      <h1>{question.name}</h1>
+      <ElementQuestion data={
+        {
+          atomicNum: question.number,
+          elemSym: question.symbol,
+          elemName: question.name,
+          atomicMass: question.atomic_mass,
+          bgColor: "rgba(58, 32, 32, 0.501)",
+        }}
+        
+        sequence={2}/>
       <input type='text'  name="answer" value={answer} onChange={(e) => onInputChange(e)}></input>
       <button onClick={() => checkAnswer(answer)}>Enter</button>
-      <h1>{username}</h1>
+      <Toast message={toastMsg}
+               timer={3000}
+               toastType={toastState}
+               showToast={setShowToast}
+               toastState={showToast}/>
     </div>
   )
 }

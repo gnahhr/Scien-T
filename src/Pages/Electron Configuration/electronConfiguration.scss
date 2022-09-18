@@ -1,11 +1,18 @@
 .electron-config {
     margin-left: 15vw;
-
+    height: 92vh;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    flex-grow: 1;
 
     input[type=text] {
-        width: 80vw;
+        width: 50%;
+    }
+
+    button {
+        padding: .5rem 5rem;
+        width: max-content;
     }
 }

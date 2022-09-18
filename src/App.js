@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { ReactDOM } from 'react';
 import { Routes, Route } from "react-router-dom";
+import jwtDecode from 'jwt-decode';
 
 //Drag and Drop
 import { DndProvider } from 'react-dnd';
@@ -26,7 +27,8 @@ import SideNav from './Components/SideNav';
 
 
 function App() {
-  const [ user, setUser ] = useState(false);
+  const [ user, setUser ] = useState(true);
+  const [ loggedIn, setLoggedIn ] = useState(false);
 
   return (
     <DndProvider backend={HTML5Backend}>
@@ -39,7 +41,7 @@ function App() {
           <Route index path="/" element={<LandingPage />} />
           <Route path="/register" element={<RegisterPage />}/>
           <Route path="/verify" element={<VerifyUser />} />
-          <Route path="/login" element={<LoginPage />} />
+          <Route path="/login" element={<LoginPage setUser={setLoggedIn}/>} />
           <Route path="*" element={<LandingPage />}/> 
         </Routes>}
         
