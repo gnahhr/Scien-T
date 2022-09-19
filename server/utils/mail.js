@@ -9,11 +9,22 @@ exports.generateOTP = () =>{
 	return otp
 }
 
+// exports.mailTransport = () => nodemailer.createTransport({
+//         host: "smtp.mailtrap.io",
+//         port: 2525,
+//         auth: {
+//           user: process.env.MAIL_USERNAME,
+//           pass: process.env.MAIL_PASSWORD
+//         }
+//       });
+
+
 exports.mailTransport = () => nodemailer.createTransport({
-        host: "smtp.mailtrap.io",
-        port: 2525,
+        service: 'gmail',
+        host: "smtp.gmail.com",
+        secure: false,
         auth: {
-          user: process.env.MAIL_USERNAME,
-          pass: process.env.MAIL_PASSWORD
+          user: process.env.MAIL_USERNAME_APP,
+          pass: process.env.MAIL_PASSWORD_APP
         }
       });

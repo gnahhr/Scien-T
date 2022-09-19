@@ -37,7 +37,7 @@ exports.register = async (req, res, next) => {
 		})
 
 		mailTransport().sendMail({
-			from: 'shenxaioting@gmail.com',
+			from: process.env.MAIL_USERNAME_APP,
 			to: response.email,
 			subject: 'verify email',
 			html: `<h1> ${OTP} </h1>`
@@ -64,8 +64,6 @@ exports.register = async (req, res, next) => {
 exports.verify = async (req, res, next) => {
 	var ObjectId = require('mongoose').Types.ObjectId;
 
-
-	
 	const token = req.body.access
 	const otp = req.body.OTP
 	const _id = new ObjectId (token)
