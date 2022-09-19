@@ -8,8 +8,11 @@ const UserData = new mongoose.Schema(
         username: {type: String, required: true, index: { unique: true }},
         password: {type: String, required: true},
         mixingElements : { type : Array},
-        electronConfiguration : {type: Array},
-        intelliment: {type: Number},
+        electronConfiguration : {
+            points: {type: Number, default: 0},
+            atomicNumber:{type: Array}
+        },
+        intelliment: {type: Number, default: 0},
         isVerified: {type: Boolean, default: false, required: true, }
     },
     { collection: 'UserData' }
@@ -19,3 +22,6 @@ const UserData = new mongoose.Schema(
 const model = mongoose.model('UserData', UserData)
 
 module.exports = model
+
+//electronConfigPoints: {type: Number, default: 0},
+//electronConfigAtomicNumber: {type: Array},

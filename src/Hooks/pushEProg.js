@@ -11,7 +11,7 @@ export default async function pushEProg(element,access){
     
     const data = await response.json()
     if (data.status === 'ok'){
-      localStorage.setItem('token', data.user)
+      console.log('ok')
     }
     else{
       alert(data.error)

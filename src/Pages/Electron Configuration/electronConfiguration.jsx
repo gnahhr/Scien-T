@@ -5,6 +5,8 @@ import "./electronConfiguration.css";
 import jwt_decode from "jwt-decode";
 import ElementQuestion from "../../Components/ElementQuestion.jsx";
 import Toast from '../../Components/Toast';
+import pushProgEC from '../../Hooks/pushProgEC.js'
+import getUserProgEC from '../../Hooks/getUserProgEC.js'
 
 
 //Perodic Table
@@ -12,41 +14,20 @@ import Toast from '../../Components/Toast';
 
 const electronConfiguration = () => {
   const navigate = useNavigate();
-  const [question, setQuestion] = useState(periodicTable[Math.floor(Math.random() * 120)]);
+  const [index, setIndex] = useState();
+  const [question, setQuestion] = useState();
   const [userProgress, setUserProgress] = useState([]);
   const [answer, setAnswer] = useState('');
   const [username, setUsername] = useState('');
+  const [points, setPoints] = useState(5);
+  const [access, setAccess] = useState('')
 
   //Toast States
   const [ showToast, setShowToast ] = useState(false);
   const [ toastState, setToastState ] = useState("");
   const [ toastMsg, setToastMsg ] = useState("");
   
-  // async function electronConfig(answer){                             
-  //   const username = 'josh'
-  //   const response = await fetch('/api/electronConfiguration',{              
-  //     method: 'POST',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //     },
-  //     body: JSON.stringify({
-  //       username,element
-  //     })
-  //   })
-  // }
 
-  // async function populateProgress(){
-  //   const response = await fetch('/api/electronConfiguration', {
-  //     headers: {
-  //       'x-access-token': localStorage.getItem('token')
-  //     }
-  //   })
-
-  //   const data = await response.json()
-
-  // }
-
-  // for outputting/accessing data stored in localStorage that was sent from the backend- kagagawan ni juicewah
   useEffect (() => {
     const token = localStorage.getItem('token')
     if (token){
@@ -56,36 +37,45 @@ const electronConfiguration = () => {
         navigate('/login')
       }
       else{
-        // populateProgess()
-        setUsername(user.email)
+        setAccess(user.id);
+        setUsername(user.email);
+        setUserProgress(getUserProgEC(user.id));
+        setQuestion(periodicTable[randomNumberGenerator(userProgress, 117)]);
       }
     }
-  })
+  }, [])
 
+  useEffect (() => {
+    
+  }, [index])
 
   const checkAnswer = (answer) =>{
     if(answer === question.electron_configuration){
-      setUserProgress([userProgress => [...userProgress, question.number]])
+      pushProgEC(access, question.number, points)
+      setUserProgress(getUserProgEC(access))
+      setQuestion(periodicTable[index])
       prepToast('Correct', "success");
-      setAnswer('')
-      setQuestion(periodicTable[Math.floor(Math.random() * 120)])
-      return
+      setAnswer('');
     }
     else{
       prepToast('Incorrect!', "warning");
-
     }
   }
 
-  const valid = () =>{
-    if(!userProgress.includes(question.number))
-      return true
-      
-    else{
-      setQuestion(periodicTable[Math.floor(Math.random() * 120)])
-    }
-  }
+  const randomNumberGenerator = (userProgress, range) => {
+    let flag = true;
+    let rng = rng = Math.floor(Math.random() * range);
 
+    while (flag) {
+      if (userProgress.filter((num) => num === rng).length > 1){
+        rng = Math.floor(Math.random() * range);
+      } else {
+        flag = false;
+      }
+    }
+
+    return rng;
+  }
 
   const setText = {
     "answer": setAnswer,
@@ -104,11 +94,10 @@ const electronConfiguration = () => {
     setShowToast(true);
   }
 
-  const handler = localStorage.getItem('token')
 
   return (
     <div className="electron-config">
-      <ElementQuestion data={
+      {question && <ElementQuestion data={
         {
           atomicNum: question.number,
           elemSym: question.symbol,
@@ -117,7 +106,7 @@ const electronConfiguration = () => {
           bgColor: "rgba(58, 32, 32, 0.501)",
         }}
         
-        sequence={2}/>
+        sequence={2}/>}
       <input type='text'  name="answer" value={answer} onChange={(e) => onInputChange(e)}></input>
       <button onClick={() => checkAnswer(answer)}>Enter</button>
       <Toast message={toastMsg}
@@ -125,6 +114,7 @@ const electronConfiguration = () => {
                toastType={toastState}
                showToast={setShowToast}
                toastState={showToast}/>
+
     </div>
   )
 }

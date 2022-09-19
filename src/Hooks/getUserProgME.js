@@ -1,5 +1,5 @@
 export default async function getUserProgME(access){ 
-  const response = await fetch('/api/userProgME' + access, {
+  const response = await fetch('/api/userProgME/' + access, {
     method: 'GET',
       headers: {
         Accept: 'application/json',
@@ -11,7 +11,7 @@ export default async function getUserProgME(access){
   
   if(data.status === 'ok')
     return data
-  
+
   else
     alert(data.error)
 }

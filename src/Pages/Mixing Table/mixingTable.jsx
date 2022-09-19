@@ -36,6 +36,7 @@ const mixingTable = () => {
   const [ knownCompound, setKnownCompound ] = useState([]);
   const [ newDiscover, setNewDiscover ] = useState("");
   const [ userProgress, setUserProgress] = useState({})
+  
 
   // save user progress to the database
   const [access, setAccess] = useState('')
@@ -65,7 +66,7 @@ const mixingTable = () => {
       }
       else{
         setAccess(user.id)
-        setUserProgress(getUserProgME(access))
+        setUserProgress(getUserProgME(user.id))
       }
     }
   }, [])
@@ -99,7 +100,7 @@ const mixingTable = () => {
   	if(mixed.length === 0){
   		alert("No compound of this mixture.");
   	} else {
-      pushEProg(...mixed,access);
+      pushEProg(...mixed, access);
       setKnownCompound((knownCompound) => {
         if (knownCompound.length < 1){
           return [...knownCompound, ...mixed];

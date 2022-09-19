@@ -27,7 +27,7 @@ import SideNav from './Components/SideNav';
 
 
 function App() {
-  const [ user, setUser ] = useState(false);
+  const [ user, setUser ] = useState(true);//true
   const [ loggedIn, setLoggedIn ] = useState(false);
 
   return (
