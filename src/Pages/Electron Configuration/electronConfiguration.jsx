@@ -8,7 +8,6 @@ import Toast from '../../Components/Toast';
 import pushProgEC from '../../Hooks/pushProgEC.js'
 import getUserProgEC from '../../Hooks/getUserProgEC.js'
 
-
 //Perodic Table
 //Electron Configuration Chart
 
@@ -20,7 +19,9 @@ const electronConfiguration = () => {
   const [answer, setAnswer] = useState('');
   const [username, setUsername] = useState('');
   const [points, setPoints] = useState(5);
-  const [access, setAccess] = useState('')
+  const [access, setAccess] = useState('');
+  const [finished, setFinished] = useState(false);
+  const [solved, setSolved] = useState()
 
   //Toast States
   const [ showToast, setShowToast ] = useState(false);
@@ -39,21 +40,41 @@ const electronConfiguration = () => {
       else{
         setAccess(user.id);
         setUsername(user.email);
-        setUserProgress(getUserProgEC(user.id));
-        setQuestion(periodicTable[randomNumberGenerator(userProgress, 117)]);
+
+        (async () => {
+          const progress = await getUserProgEC(user.id);
+          setUserProgress(progress.atomicNumber);
+        })()
+        // console.log(userProgress)
+        // checkProgress(userProgress,5)
+        
       }
     }
   }, [])
 
   useEffect (() => {
-    
+    setSolved(userProgress.length)
+    if(!checkProgress(userProgress, 119)){
+      setIndex(randomNumberGenerator(userProgress, 119));
+    } else {
+      setFinished(true);
+    }
+
+  }, [userProgress])
+
+  useEffect (() => {
+    setQuestion(periodicTable[index]);
+    console.log(userProgress)
   }, [index])
+
+
 
   const checkAnswer = (answer) =>{
     if(answer === question.electron_configuration){
       pushProgEC(access, question.number, points)
-      setUserProgress(getUserProgEC(access))
-      setQuestion(periodicTable[index])
+
+      setUserProgress([...userProgress,question.number])
+
       prepToast('Correct', "success");
       setAnswer('');
     }
@@ -64,17 +85,20 @@ const electronConfiguration = () => {
 
   const randomNumberGenerator = (userProgress, range) => {
     let flag = true;
-    let rng = rng = Math.floor(Math.random() * range);
+    let rng = Math.floor(Math.random() * range);
 
     while (flag) {
-      if (userProgress.filter((num) => num === rng).length > 1){
+      if (userProgress.filter((num) => num === rng + 1).length > 0){
         rng = Math.floor(Math.random() * range);
       } else {
         flag = false;
       }
     }
-
     return rng;
+  }
+
+  const checkProgress = (userProgress, max) => {
+    return userProgress.length === max ? true : false;
   }
 
   const setText = {
@@ -97,7 +121,8 @@ const electronConfiguration = () => {
 
   return (
     <div className="electron-config">
-      {question && <ElementQuestion data={
+      <h1>{solved} out of 119</h1>
+      {finished ? <h1>finished na</h1> : question && <><ElementQuestion data={
         {
           atomicNum: question.number,
           elemSym: question.symbol,
@@ -106,14 +131,15 @@ const electronConfiguration = () => {
           bgColor: "rgba(58, 32, 32, 0.501)",
         }}
         
-        sequence={2}/>}
+        sequence={2}/>
       <input type='text'  name="answer" value={answer} onChange={(e) => onInputChange(e)}></input>
       <button onClick={() => checkAnswer(answer)}>Enter</button>
+      <h1>{finished}</h1>
       <Toast message={toastMsg}
                timer={3000}
                toastType={toastState}
                showToast={setShowToast}
-               toastState={showToast}/>
+               toastState={showToast}/></>}
 
     </div>
   )
