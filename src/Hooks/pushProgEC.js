@@ -11,7 +11,6 @@ export default async function pushProgEC(access,atomicNumber,points) {
     const data = await response.json()
 
     if (data.status === 'ok'){
-        console.log('ok')
     }
     else{
         alert(data.error)

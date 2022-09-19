@@ -48,9 +48,7 @@ exports.electronConfiguration = async (req, res, next) => {
 
     const atomicNumber = req.body.atomicNumber
     const points = req.body.points
-
-    console.log(atomicNumber)
-    console.log(points)
+    
     const pushProg = await UserData.findByIdAndUpdate({_id},{
         $inc: {"electronConfiguration.points": points},
         $push: {"electronConfiguration.atomicNumber": atomicNumber}

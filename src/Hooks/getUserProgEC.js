@@ -8,9 +8,9 @@ export default async function getUserProgEC(access){
       })
     
       const data = await response.json()
-      
+      // console.log(data.userProg.electronConfiguration)
       if(data.status === 'ok')
-        return data
+        return data.userProg.electronConfiguration
       else
         alert(data.error)
 }

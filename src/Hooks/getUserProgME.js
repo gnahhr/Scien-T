@@ -10,7 +10,7 @@ export default async function getUserProgME(access){
   const data = await response.json()
   
   if(data.status === 'ok')
-    return data
+    return data.userProg
 
   else
     alert(data.error)
