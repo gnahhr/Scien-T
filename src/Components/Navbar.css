@@ -5,6 +5,20 @@ nav {
   grid-template-columns: 1fr 1fr;
 }
 
+nav .user {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-right: 2rem;
+}
+
+nav .sample:hover {
+  color: red;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
 nav a {
   justify-self: start;
   text-decoration: none;

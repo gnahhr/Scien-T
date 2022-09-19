@@ -20,6 +20,7 @@ const Intelliment = () => {
   const [ nthQuestion, setNthQuestion ] = useState(0);
   const [ answered, setAnswered ] = useState(false);
   const [ finished, setFinished ] = useState(false);
+  const [ pickedDifficulty, setPickedDifficulty ] = useState(false);
   const [ questions, setQuestions ] = useState(sampleQuestions);
   
   //Performance States
@@ -49,14 +50,14 @@ const Intelliment = () => {
   const guides = {
     0: "What is the group of the element?",
     1: "What is the name of the element?",
-    2: "What is it's atomic number?",
-    3: "What is it's atomic mass?"
+    2: "What is its atomic number?",
+    3: "What is its atomic mass?"
   }
 
   useEffect(() => {
     setQuestions(shuffleArray(generateQsDiff(119)));
     // generateQsCategory("noble gas");
-  }, [])
+  }, [setPickedDifficulty])
 
   useEffect(() => {
     if (step === 4) {
@@ -105,6 +106,11 @@ const Intelliment = () => {
     setToastState(toastState);
     setToastMsg(message);
     setShowToast(true);
+  }
+
+  const setDifficulty = (difficulty) => {
+    setPickedDifficulty(true);
+    setQuestions(shuffleArray(generateQsDiff(difficulty)));
   }
 
   //Verify Answer
@@ -161,6 +167,8 @@ const Intelliment = () => {
           
         ]
       });
+      
+      return true;
     })
 
     totalQs.map(el => el["choices"] = generateChoices(totalQs, el));
@@ -198,7 +206,7 @@ const Intelliment = () => {
   const shuffleArray = (currArray) => {
     let currentIndex = currArray.length,  randomIndex;
 
-    while (currentIndex != 0) {
+    while (currentIndex !== 0) {
       randomIndex = Math.floor(Math.random() * currentIndex);
       currentIndex--;
       [currArray[currentIndex], currArray[randomIndex]] = [
@@ -210,7 +218,16 @@ const Intelliment = () => {
 
   return (
     <div id="intelliment">
-      {!finished &&
+      {!pickedDifficulty &&
+        <div className="difficulty-chooser">
+        <h2>Choose a difficulty:</h2>
+        <button onClick={() => setDifficulty(30)}>Easy</button>
+        <button onClick={() => setDifficulty(60)}>Medium</button>
+        <button onClick={() => setDifficulty(90)}>Hard</button>
+        <button onClick={() => setDifficulty(118)}>Hardcore</button>
+      </div>}
+      
+      {(!finished && pickedDifficulty) &&
       <div className="intellimain">
         <div className="header">
           <div className="total-questions">Total Elements Encountered: {nthQuestion+1}/{questions.length}</div>
@@ -231,7 +248,9 @@ const Intelliment = () => {
             </div>
             <div className="choices-wrapper">
                 {questions[nthQuestion].choices[step] && questions[nthQuestion].choices[step].map((ans) => {
-                    return <Choice data={ans}
+                    return <Choice 
+                                   key={ans}
+                                   data={ans}
                                    selectedAnswer={selectAns}
                                    answered={answered}
                                    category={ans === questions[nthQuestion][phases[step]] ? "correct" : "wrong"}/>

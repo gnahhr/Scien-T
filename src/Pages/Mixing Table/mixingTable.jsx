@@ -5,18 +5,20 @@ import { useNavigate } from 'react-router-dom'
 import jwt_decode from "jwt-decode"
 
 //Hooks
-import pushEProg from '../../Hooks/pushEProg.js'
+import pushMixElems from '../../Hooks/pushMixElems.js'
 import getUserProgME from '../../Hooks/getUserProgME.js';
 
 //Data
 import elements from '../../Data/PeriodicTableJSON.json';
 import { recipe } from '../../Data/Recipe.js';
+import sampleBGM from '../../Assets/Audio/sample-bgm.mp3'
 
 //Components
 import Elements from '../../Components/Elements.jsx';
 import DiscoverList from '../../Components/DiscoverList.jsx';
 import CompoundModal from '../../Components/CompoundModal.jsx';
 import DiscoverModal from '../../Components/DiscoverModal.jsx';
+import Toast from '../../Components/Toast.jsx';
 
 //Design
 import "./mixingTable.css";
@@ -27,16 +29,15 @@ import unmuted from "../../Assets/Images/music.svg";
 
 
 const mixingTable = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const listElems = elements.elements;
+  const bgm = new Audio(sampleBGM);
 
   //Data States
   const [ mixData, setMixData ] = useState([]);
   const [ selectedCompound, setSelectedCompound] = useState([]);
   const [ knownCompound, setKnownCompound ] = useState([]);
   const [ newDiscover, setNewDiscover ] = useState("");
-  const [ userProgress, setUserProgress] = useState({})
-  
 
   // save user progress to the database
   const [access, setAccess] = useState('')
@@ -45,7 +46,14 @@ const mixingTable = () => {
   const [ showModal, setShowModal ] = useState(false);
   const [ showDiscover, setShowDiscover ] = useState(false);
   const [ showNew, setShowNew ] = useState(false);
+  const [ initMusic, setInitMusic ] = useState(false);
   const [ music, setMusic ] = useState(true);
+
+  //Toast States
+  const [ showToast, setShowToast ] = useState(false);
+  const [ toastState, setToastState ] = useState("");
+  const [ toastMsg, setToastMsg ] = useState("");
+
 
   const [{isOver}, drop ] = useDrop(() => ({
     accept: "element",
@@ -57,7 +65,7 @@ const mixingTable = () => {
 
   //localStorage
   useEffect (() => {
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem('token');
     if (token){
       const user = jwt_decode(token)                                
       if(!user){
@@ -65,11 +73,24 @@ const mixingTable = () => {
         navigate('/login')
       }
       else{
-        setAccess(user.id)
-        setUserProgress(getUserProgME(user.id))
+        setAccess(user.id);
+        (async () => {
+          const progress = await getUserProgME(user.id);
+          setKnownCompound(progress);
+        })();
       }
     }
   }, [])
+
+  useEffect(() => {
+  }, [music])
+
+  //Function to format toast message
+  const prepToast = (message, toastState) => {
+    setToastState(toastState);
+    setToastMsg(message);
+    setShowToast(true);
+  }
 
   //Add an element into mixData
   const addElement = (symbol) => {
@@ -100,7 +121,6 @@ const mixingTable = () => {
   	if(mixed.length === 0){
   		alert("No compound of this mixture.");
   	} else {
-      pushEProg(...mixed, access);
       setKnownCompound((knownCompound) => {
         if (knownCompound.length < 1){
           return [...knownCompound, ...mixed];
@@ -113,8 +133,11 @@ const mixingTable = () => {
       
       //Just show modal if newly discovered
       if (!checkCompounds(mixed, knownCompound)) {
+        pushMixElems(...mixed, access);
         setNewDiscover(mixed);
         setShowNew(true); 
+      } else {
+        prepToast("You already discovered that compound!", "warning");
       }
       
       // mixElements(mixed); remain as a comment until further notice - kagagawan ni juicewah
@@ -151,15 +174,25 @@ const mixingTable = () => {
   	return flag;
   }
 
+  //Start Music
+  const startMusic = (bgm) => {
+    if (!initMusic) {
+      bgm.play();
+      setInitMusic(true);
+    }
+  }
+
   //Toggle Music
-  const toggleMusic = () => {
+  const toggleMusic = (bgm) => {
+    // bgm.muted = true;
+    // console.log(bgm.muted);
     setMusic(!music);
   }
 
   return (
-    <div className="main-wrapper">
+    <div className="main-wrapper" onClick={() => startMusic(bgm)}>
         <div className="icons-wrapper">
-          <div className="icon" onClick={() => toggleMusic()}><img src={music ? unmuted : muted}/></div>
+          <div className="icon" onClick={() => toggleMusic(bgm)}><img src={music ? unmuted : muted}/></div>
           <div className="icon" onClick={() => setShowDiscover(!showDiscover)}><img src={listIcon}/></div>
           <div className="icon" ><img src={gear}/></div>
         </div>
@@ -168,7 +201,7 @@ const mixingTable = () => {
             {mixData.length > 0 ? mixData.map(element => <div key={element}>{element}</div>) : "Please drag elements here for mixing."}
           </div>
 
-          <button id="mix-button" onClick={() => mixElems(mixData)}>Mix</button>
+          <button id="mix-button" onClick={() => {mixElems(mixData);}}>Mix</button>
 
           {listElems.map(element => <Elements 
             key={element.name}
@@ -187,6 +220,11 @@ const mixingTable = () => {
         {showModal && <CompoundModal showModal={setShowModal} data={selectedCompound} />}
         {showNew && <DiscoverModal showNew={setShowNew} data={newDiscover}/>}
         
+        <Toast message={toastMsg}
+               timer={3000}
+               toastType={toastState}
+               showToast={setShowToast}
+               toastState={showToast}/>
     </div>
   )
 }

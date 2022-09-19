@@ -9,9 +9,9 @@ export default async function getUserProgME(access){
 
   const data = await response.json()
   
-  if(data.status === 'ok')
-    return data.userProg
-
+  if(data.status === 'ok'){
+    return data.userProg.mixingElements;
+  }
   else
     alert(data.error)
 }

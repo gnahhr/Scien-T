@@ -4,6 +4,19 @@ nav {
     display: grid;
     grid-template-columns: 1fr 1fr;
 
+    .user {
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        margin-right: 2rem;
+    }
+
+    .sample:hover {
+        color: red;
+        text-decoration: underline;
+        cursor: pointer;
+    }
     a {
         justify-self: start;
         text-decoration: none;

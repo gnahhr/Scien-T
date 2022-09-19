@@ -27,6 +27,11 @@ button {
     margin: 2rem;
 }
 
+button:hover {
+    cursor: pointer;
+    background-color: #c08a02;
+}
+
 label {
     justify-self: left;
     color: white;

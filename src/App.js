@@ -27,21 +27,20 @@ import SideNav from './Components/SideNav';
 
 
 function App() {
-  const [ user, setUser ] = useState(true);//true
-  const [ loggedIn, setLoggedIn ] = useState(false);
+  const [ user, setUser ] = useState(localStorage.token ? localStorage.token : null); //true
 
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="App">
         <img src={Honeycombs} alt="honeycombs" className="honeycombs"/>
 
-        <Navbar />
+        <Navbar setUser={setUser}/>
         {!user && 
         <Routes>
           <Route index path="/" element={<LandingPage />} />
           <Route path="/register" element={<RegisterPage />}/>
           <Route path="/verify" element={<VerifyUser />} />
-          <Route path="/login" element={<LoginPage setUser={setLoggedIn}/>} />
+          <Route path="/login" element={<LoginPage setUser={setUser}/>} />
           <Route path="*" element={<LandingPage />}/> 
         </Routes>}
         

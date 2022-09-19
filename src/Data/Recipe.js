@@ -41,6 +41,18 @@ export const recipe = [
 			"Sulfuric acid is also known as Mattling acid or Oil of vitriol. It has a strong acidic nature and is corrosive. At higher concentrations, it acts as an oxidizing agent and dehydrating agent. It is a syrupy liquid which is odourless and has no colour. It is water-soluble and releases heat when dissolved in water. It is widely used in the manufacturing of fertilizers. It is also used in chemical synthesis and wastewater processes."
 		],
 	},
+	{
+		name: "Sodium chloride",
+		compoundPic: "acetic-acid.png",
+		elements: ["Na", "Cl"],
+		formula: "H<sub>2</sub>SO<sub>4</sub>",
+		moleWeight: "98.072 g/mol",
+		description: [
+			"Sulfuric acid is a strong acid with hygroscopic and oxidizing properties.",
+			"Sulfuric Acid is a mineral acid.",
+			"Sulfuric acid is also known as Mattling acid or Oil of vitriol. It has a strong acidic nature and is corrosive. At higher concentrations, it acts as an oxidizing agent and dehydrating agent. It is a syrupy liquid which is odourless and has no colour. It is water-soluble and releases heat when dissolved in water. It is widely used in the manufacturing of fertilizers. It is also used in chemical synthesis and wastewater processes."
+		],
+	},
 	// ==== TEMPLATE ====
 	// {
 	// 	name: "",

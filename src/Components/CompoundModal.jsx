@@ -16,7 +16,7 @@ const CompoundModal = ({showModal, data}) => {
                 <div className="picture">Pic</div>
                 <div className="text">
                     <h2 className="name">{data.name}</h2>
-                    <h3 id="formula"></h3>
+                    <h3 id="formula">formula</h3>
                 </div>
             </div>
             

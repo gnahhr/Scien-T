@@ -1,12 +1,7 @@
-import React from 'react'
-import { useEffect } from 'react';
+import React from 'react';
 import "./DiscoverList.css";
 
 const DiscoverList = ({knownCompound, showDiscover, discoverState, selectedCompound, showModal}) => {
-
-    useEffect(() => {
-      console.log("Known: ", knownCompound);
-    }, [])
     
     const selected = (element) => {
       selectedCompound(element);

@@ -43,7 +43,7 @@ const electronConfiguration = () => {
 
         (async () => {
           const progress = await getUserProgEC(user.id);
-          setUserProgress(progress.atomicNumber);
+          setUserProgress(progress);
         })()
         // console.log(userProgress)
         // checkProgress(userProgress,5)
@@ -64,7 +64,6 @@ const electronConfiguration = () => {
 
   useEffect (() => {
     setQuestion(periodicTable[index]);
-    console.log(userProgress)
   }, [index])
 
 

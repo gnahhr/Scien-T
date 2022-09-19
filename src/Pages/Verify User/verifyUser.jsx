@@ -7,8 +7,8 @@ const verifyUser = (event) => {
   const navigate = useNavigate()
   const [OTP, setOTP] = useState('')
   const [access, setAccess] = useState('')
-  async function verify() {
 
+  async function verify() {
     const response = await fetch ('/api/verify', {
       method: 'POST',
       headers:{
@@ -18,6 +18,7 @@ const verifyUser = (event) => {
         OTP, access
       })
     })
+
     const data = await response.json()
 
     if(data.status === 'ok'){
@@ -55,7 +56,7 @@ const verifyUser = (event) => {
   }
 
   return (
-    <div>
+    <div className="OTP-main">
       <h1>Enter OTP</h1>
       <input type='number'  name="OTP" value={OTP} onChange={(e) => onInputChange(e)}></input>
       <button onClick={() => verify(OTP)}>Enter</button>

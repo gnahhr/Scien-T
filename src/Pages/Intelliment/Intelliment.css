@@ -58,7 +58,7 @@
 
 #intelliment .intellimain .timer {
   display: flex;
-  margin-right: 3rem;
+  margin: 0 3rem;
 }
 
 #intelliment .intellimain .timer .text-timer {

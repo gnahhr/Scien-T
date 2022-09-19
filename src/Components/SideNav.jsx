@@ -7,7 +7,7 @@ const SideNav = () => {
     <div className="sideNav">
       <div className="category">
         <div className="category-header">
-          <div className="p">🧢</div>
+          <span role="img" aria-label='emoji'>🧢</span>
           <h2>Learn</h2>
         </div>
         <ul>

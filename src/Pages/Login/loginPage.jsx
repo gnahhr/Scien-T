@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom'
 import "./loginPage.css";
 
-const loginPage = () => {
+const loginPage = ({setUser}) => {
   const navigate = useNavigate()
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
@@ -35,8 +35,9 @@ const loginPage = () => {
     const data = await response.json()
 
     if (data.status === 'ok'){
-      localStorage.setItem('token', data.user)
-      navigate('/mixingTable')
+      localStorage.setItem('token', data.user);
+      localStorage.setItem('username', username);
+      setUser(localStorage.token);
     }
     else{
       alert('Incorrect username/password')
@@ -51,7 +52,7 @@ const loginPage = () => {
             <input type="text" name="username" id="username" value={username} onChange={(e) => onInputChange(e)}/>
             <label htmlFor="password">Password </label>
             <input type="password" name="password" id="password" value={password} onChange={(e) => onInputChange(e)}/>
-            <button type="submit" value="Login" >Submit</button>
+            <button type="submit" value="Login">Submit</button>
         </form>
     </div>
   )
