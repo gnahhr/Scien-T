@@ -44,10 +44,9 @@ const registerPage = () => {
 		})
 
 		const data = await response.json()
-
-    localStorage.setItem('token', data.user)
     
 		if (data.status === 'ok') {
+      localStorage.setItem('verify', data.user)
 			navigate('/verify')
 		}
 	}

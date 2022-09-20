@@ -21,7 +21,7 @@ const verifyUser = (event) => {
 
     const data = await response.json()
 
-    if(data.status === 'ok'){
+    if(data.status === 'ok' || data.status === 'user already verified'){
       localStorage.clear()
       navigate('/login')
       console.log('ok')
@@ -35,16 +35,13 @@ const verifyUser = (event) => {
   }
 
   useEffect (() => {
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem('verify')
     if (token){
-      const user = jwt_decode(token)
-      if(!user){
-        localStorage.clear()
-        useNavigate('/login')
-      }
-      else{
-        setAccess(user.id)
-      }
+        const user = jwt_decode(token)
+        setAccess(user.id)  
+    }
+    else{
+      navigate('/login')
     }
   })
 

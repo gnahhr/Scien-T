@@ -71,59 +71,95 @@ exports.verify = async (req, res, next) => {
 	if(!isValidObjectId(_id)) res.json({status: 'error', error: 'invalid user id'})
 
 	const user = await UserData.findById({_id})
-	if(!user) res.json({status: 'error', error: 'User not found'})
 	
-	if(user.isVerified){
-		res.json({status: 'error', error: 'user already verified'})
+	if(!user.isVerified){
+		const verify = await VerificationToken.findOne({owner: _id})			
+		if(!verify) res.json({status: 'error', error: 'token not found'})
+
+		const isMatch = await bcrypt.compare(otp, verify.token)
+		if(!isMatch) res.json({status: 'error', error: 'wrong OTP'})
+
+		else{
+			user.isVerified = true
+
+			await VerificationToken.findByIdAndDelete(verify._id)
+			user.save()
+
+			mailTransport().sendMail({
+				from: 'shenxaioting@gmail.com',
+				to: user.email,
+				subject: 'verify email',
+				html: `<h1> you are now verified </h1>`
+
+			})
+			res.json({status:'ok'})
+		}
 	}
-
-	const verify = await VerificationToken.findOne({owner: _id})			
-	if(!verify) res.json({status: 'error', error: 'token not found'})
-
-	const isMatch = await bcrypt.compare(otp, verify.token)
-	if(!isMatch) res.json({status: 'error', error: 'wrong token'})
-
-	user.isVerified = true
-
-	await VerificationToken.findByIdAndDelete(verify._id)
-	user.save()
-
-	mailTransport().sendMail({
-		from: 'shenxaioting@gmail.com',
-		to: user.email,
-		subject: 'verify email',
-		html: `<h1> you are now verified </h1>`
-
-	})
-	res.json({status:'ok'})
+	else{
+		res.json({status: 'user already verified', error: 'user already verified'})
+	}
 }
 
 //login
 exports.login = async (req, res, next) => {
 	const { username, password } = req.body
-	const user = await UserData.findOne({ username }).lean()
+
+	const user = await UserData.findOne({ username })
 
 	if (!user) {
 		return res.json({ status: 'error', error: 'Invalid username' })
 	}
 
 	if (await bcrypt.compare(password, user.password)) {
-		// the username, password combination is successful
 
-		const token = jwt.sign(
-			{
-				id: user._id,
-				username: user.username,
-                firstName: user.firstName,
-				lastName: user.lastName,
-				email: user.email
-			},
-			JWT_SECRET
-		)
-		return res.json({ status: 'ok', user: token })
+		if(!user.isVerified){
+			console.log('asdfasdf')
+			const OTP = generateOTP()
+			const hashOTP = await bcrypt.hash(OTP, 10)
+
+			const verificationToken = await VerificationToken.updateOne({ owner: user._id },{
+				$set: {
+					owner: user._id,
+					token: hashOTP
+				}},{ upsert: true })
+
+			console.log(verificationToken)
+
+			mailTransport().sendMail({
+				from: process.env.MAIL_USERNAME_APP,
+				to: user.email,
+				subject: 'verify email',
+				html: `<h1> ${OTP} </h1>`
+		
+			})
+		
+			const token = jwt.sign(
+				{
+					id: user._id,
+				},
+				JWT_SECRET
+			)
+
+			return res.json({ status: 'verify user', user: token })
+			
+		}
+
+		else{
+			const token = jwt.sign(
+				{
+					id: user._id,
+					username: user.username,
+					firstName: user.firstName,
+					lastName: user.lastName,
+					email: user.email
+				},
+				JWT_SECRET
+			)
+			return res.json({ status: 'ok', user: token })
+		}
 	}
 
 	else{
-		res.json({ status: 'error', user: false })
+		res.json({ status: 'error', error: 'wrong password' })
 	}
 }

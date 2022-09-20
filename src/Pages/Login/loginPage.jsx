@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import "./loginPage.css";
 
@@ -6,6 +6,8 @@ const loginPage = ({setUser}) => {
   const navigate = useNavigate()
   const [username, setUsername] = useState();
   const [password, setPassword] = useState();
+  const [counter, setCounter] = useState(0)
+  const [forgot, setForgot] = useState('');
 
   const setText = {
         "username": setUsername,
@@ -39,10 +41,22 @@ const loginPage = ({setUser}) => {
       localStorage.setItem('username', username);
       setUser(localStorage.token);
     }
-    else{
-      alert('Incorrect username/password')
+
+    else if(data.status === 'error'){
+      alert(data.error)
+      setCounter(counter + 1)
+    }
+
+    else if(data.status === 'verify user'){// if user returned not verified, redirect to verify page with new OTP and updated verification token
+      localStorage.setItem('verify', data.user);
+      navigate('/verify')
     }
   }
+
+  useEffect (() => {
+    if(counter === 3)
+      setForgot('Forgot Password?')
+  }, [counter]) 
 
   return (
     <div className="main">
@@ -54,6 +68,7 @@ const loginPage = ({setUser}) => {
             <input type="password" name="password" id="password" value={password} onChange={(e) => onInputChange(e)}/>
             <button type="submit" value="Login">Submit</button>
         </form>
+        {forgot > 1 ? <button>{forgot}</button> : ''}
     </div>
   )
 }
