@@ -1,5 +1,5 @@
 //Libraries
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { DndProvider, useDrop } from "react-dnd";
 import { useNavigate } from 'react-router-dom'
 import jwt_decode from "jwt-decode"
@@ -31,7 +31,7 @@ import unmuted from "../../Assets/Images/music.svg";
 const mixingTable = () => {
   const navigate = useNavigate();
   const listElems = elements.elements;
-  const bgm = new Audio(sampleBGM);
+  const bgm = useRef(new Audio(sampleBGM));
 
   //Data States
   const [ mixData, setMixData ] = useState([]);
@@ -177,15 +177,14 @@ const mixingTable = () => {
   //Start Music
   const startMusic = (bgm) => {
     if (!initMusic) {
-      bgm.play();
+      bgm.current.play()
       setInitMusic(true);
     }
   }
 
   //Toggle Music
   const toggleMusic = (bgm) => {
-    // bgm.muted = true;
-    // console.log(bgm.muted);
+    music ? bgm.current.pause() : bgm.current.play();
     setMusic(!music);
   }
 
