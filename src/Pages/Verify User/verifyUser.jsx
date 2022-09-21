@@ -3,9 +3,12 @@ import { useNavigate } from 'react-router-dom'
 
 import jwt_decode from "jwt-decode"
 
+import './verifyUser.css'
+
+
 const verifyUser = (event) => {
   const navigate = useNavigate()
-  const [OTP, setOTP] = useState('')
+  const [OTP, setOTP] = useState(new Array(4).fill(''));
   const [access, setAccess] = useState('')
 
   async function verify() {
@@ -30,9 +33,7 @@ const verifyUser = (event) => {
       console.log('not ok')
     }
   }
-  const setText = {
-    "OTP": setOTP,
-  }
+ 
 
   useEffect (() => {
     const token = localStorage.getItem('verify')
@@ -43,20 +44,42 @@ const verifyUser = (event) => {
     else{
       navigate('/login')
     }
-  })
+  },[])
 
-  const onInputChange = (e) => {
-    const value = e.target.value;
-    const name = e.target.name;
+  const handleChange = (element, index) => {
+    if (isNaN(element.value)) return false;
 
-    setText[name](value);
-  }
+    setOTP([...OTP.map((d, idx) => (idx === index ? element.value : d))]);
+    if (element.nextSibling) {
+        element.nextSibling.focus();
+    }
+};
+
+  
 
   return (
-    <div className="OTP-main">
-      <h1>Enter OTP</h1>
-      <input type='number'  name="OTP" value={OTP} onChange={(e) => onInputChange(e)}></input>
-      <button onClick={() => verify(OTP)}>Enter</button>
+    <div className="container">
+        <h2>Enter the OTP sent to you to verify your email</h2>
+        <div className="otp-container">
+        {OTP.map((data, index) => {
+          return (
+            <input
+                className="otp-field"
+                type="text"
+                name="OTP"
+                maxLength="1"
+                key={index}
+                value={data}
+                onChange={e => handleChange(e.target, index)}
+                onFocus={e => e.target.select()}
+            />
+          )
+          })}
+          </div> 
+        
+          <button className="btn" onClick={e => setOTP([...OTP.map(v => "")])} >Clear</button>
+          <button className="btn" onClick={() => verify(OTP)}>Verify OTP</button>
+        
     </div>
   )
 }

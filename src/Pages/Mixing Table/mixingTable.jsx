@@ -2,7 +2,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { DndProvider, useDrop } from "react-dnd";
 import { useNavigate } from 'react-router-dom'
-import jwt_decode from "jwt-decode"
+import jwtDecode from "jwt-decode"
 
 //Hooks
 import pushMixElems from '../../Hooks/pushMixElems.js'
@@ -67,7 +67,7 @@ const mixingTable = () => {
   useEffect (() => {
     const token = localStorage.getItem('token');
     if (token){
-      const user = jwt_decode(token)                                
+      const user = jwtDecode(token)                                
       if(!user){
         localStorage.clear()
         navigate('/login')
