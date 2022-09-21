@@ -10,7 +10,6 @@
   align-items: center;
   z-index: 10;
 }
-
 #compound-modal .wrapper {
   width: 50vw;
   height: 60vh;
@@ -23,50 +22,42 @@
   align-items: center;
   z-index: 11;
 }
-
 #compound-modal .wrapper .exit {
   align-self: flex-end;
   font-size: 1.5rem;
   border: 2px solid black;
   border-radius: 50%;
-  padding: .05rem;
+  padding: 0.05rem;
   aspect-ratio: 1;
 }
-
 #compound-modal .wrapper .exit:hover {
-  border-color: #810e0e;
-  color: #810e0e;
+  border-color: rgb(129, 14, 14);
+  color: rgb(129, 14, 14);
   cursor: pointer;
 }
-
 #compound-modal .wrapper .header {
   display: flex;
   justify-content: space-around;
   width: 100%;
 }
-
 #compound-modal .wrapper .header h2 {
   color: black;
   margin: 0;
   font-size: 3rem;
 }
-
 #compound-modal .wrapper .header .picture {
   border: 1px solid black;
   width: 128px;
   height: 128px;
 }
-
 #compound-modal .wrapper .description {
   margin: 2rem 4rem 0;
   padding: 1rem;
   overflow-y: auto;
 }
-
 #compound-modal .wrapper .description p::before {
   content: "-";
 }
-
 #compound-modal .wrapper .description p {
   text-align: justify;
   margin-top: 1rem;

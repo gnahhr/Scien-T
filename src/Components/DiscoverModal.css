@@ -10,7 +10,6 @@
   align-items: center;
   z-index: 10;
 }
-
 #discover-modal .wrapper {
   width: 50vw;
   height: 25vh;
@@ -22,28 +21,24 @@
   flex-direction: column;
   align-items: center;
 }
-
 #discover-modal .wrapper .exit {
   align-self: flex-end;
   font-size: 1.5rem;
   border: 2px solid black;
   border-radius: 50%;
-  padding: .05rem;
+  padding: 0.05rem;
   aspect-ratio: 1;
 }
-
 #discover-modal .wrapper .exit:hover {
-  border-color: #810e0e;
-  color: #810e0e;
+  border-color: rgb(129, 14, 14);
+  color: rgb(129, 14, 14);
   cursor: pointer;
 }
-
 #discover-modal .wrapper .compound-wrapper {
   overflow-y: auto;
   width: 100%;
   margin: 0;
 }
-
 #discover-modal .wrapper .compound-wrapper .compound {
   display: grid;
   grid-template-columns: 1fr 4fr;
@@ -51,13 +46,11 @@
   width: 80%;
   margin: 1rem auto;
 }
-
 #discover-modal .wrapper .compound-wrapper .compound .text h2 {
   color: black;
   margin: 0;
   font-size: 2rem;
 }
-
 #discover-modal .wrapper .compound-wrapper .compound .picture {
   border: 1px solid black;
   width: 50%;

@@ -13,23 +13,19 @@
   display: flex;
   flex-direction: column;
 }
-
 .category ul li {
   text-align: left;
   margin-left: 2rem;
   list-style: none;
 }
-
 .category ul li a {
   text-decoration: none;
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
   color: white;
 }
-
 .category ul li .active {
-  color: #e9f732;
+  color: rgb(233, 247, 50);
 }
-
 .category ul li:hover {
   background-color: rgba(255, 255, 255, 0.218);
   border-radius: 16px;
@@ -40,7 +36,6 @@
   align-items: center;
   justify-items: center;
 }
-
 .category-header h2 {
   margin: 0;
   font-size: 2rem;
