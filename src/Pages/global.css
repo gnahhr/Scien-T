@@ -2,12 +2,12 @@
   margin: 0;
   padding: 0;
   font-size: 16px;
-  font-family: 'Secular One', sans-serif;
+  font-family: "Secular One", sans-serif;
 }
 
 html {
-  background: #48149c;
-  background: linear-gradient(129deg, #48149c 0%, #48149c 14%, #ffb3b3 100%);
+  background: rgb(72, 20, 156);
+  background: linear-gradient(129deg, rgb(72, 20, 156) 0%, rgb(72, 20, 156) 14%, rgb(255, 179, 179) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#48149c",endColorstr="#ffb3b3",GradientType=1);
   background-repeat: no-repeat;
   background-size: cover;
@@ -40,7 +40,7 @@ input {
   height: 2rem;
   border-radius: 25px;
   border: none;
-  padding: .1rem 1rem;
+  padding: 0.1rem 1rem;
   background-color: rgba(255, 255, 255, 0.4);
   color: white;
 }
@@ -55,7 +55,7 @@ button {
   font-size: 1.5rem;
   border-radius: 15px;
   z-index: 2;
-  padding: .5rem 2rem;
+  padding: 0.5rem 2rem;
   width: 60%;
   border: none;
   box-shadow: none;
