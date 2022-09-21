@@ -65,8 +65,11 @@ exports.verify = async (req, res, next) => {
 	var ObjectId = require('mongoose').Types.ObjectId;
 
 	const token = req.body.access
-	const otp = req.body.OTP
+	const holder = req.body.OTP
+	const otp = holder.join('')
 	const _id = new ObjectId (token)
+
+	console.log(otp)
 
 	if(!isValidObjectId(_id)) res.json({status: 'error', error: 'invalid user id'})
 
@@ -115,6 +118,7 @@ exports.login = async (req, res, next) => {
 		if(!user.isVerified){
 			console.log('asdfasdf')
 			const OTP = generateOTP()
+			console.log(OTP)
 			const hashOTP = await bcrypt.hash(OTP, 10)
 
 			const verificationToken = await VerificationToken.updateOne({ owner: user._id },{

@@ -78,9 +78,33 @@ exports.getEC = async (req, res, next) => {
 }
 
 exports.intelliment = async (req, res, next) => {
-    res.json('aadfasdf')
+    var ObjectId = require('mongoose').Types.ObjectId;
+    const access = req.body.access
+    const _id = new ObjectId (access)
+
+    const score = req.body.score
+
+    const pushProg = await UserData.findByIdAndUpdate({_id},{
+        $inc: {intelliment: score}
+    })
+
+    if(pushProg)
+        res.json({status: 'ok', pushProg})
+    
+    else
+        return res.json({ status: 'error', error: 'Invalid access token' })
+
 }
 
+exports.rankings = async (req, res, next) => {
+    const getRankings = await UserData.find({},{username: 1, intelliment: 1}).sort({intelliment: -1})
+
+    if(getRankings)
+        res.json({status:'ok', rankings: getRankings})
+
+    else
+        res.json({status:'error', erro:'error'})
+}
 
 // const pushProgPoints = await UserData.findByIdAndUpdate({_id},{
 //     $inc: {electronConfigPoints: points}
