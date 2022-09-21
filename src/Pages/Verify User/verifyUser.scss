@@ -1,0 +1,19 @@
+.container{
+    display: grid;
+    place-items:  center;
+
+    .otp-container{
+        grid-template-columns: 100px 100px 100px 100px;
+        grid-template-rows: auto;
+
+        input{
+            font-size: 120px;
+            text-align: center; 
+            box-sizing: border-box;
+            margin-left: 10px;
+            width: 125px;
+            height: 125px;
+        }
+    }
+}
+
