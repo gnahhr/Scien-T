@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import jwtDecode from "jwt-decode"
+
+//Hooks
+import pushIntelliment from '../../Hooks/pushIntelliment';
 
 //Components
 import Choice from '../../Components/Choice';
@@ -22,6 +26,7 @@ const Intelliment = () => {
   const [ finished, setFinished ] = useState(false);
   const [ pickedDifficulty, setPickedDifficulty ] = useState(false);
   const [ questions, setQuestions ] = useState(sampleQuestions);
+  const [ access, setAccess ] = useState('')
   
   //Performance States
   const [ score, setScore ] = useState(0);
@@ -54,8 +59,23 @@ const Intelliment = () => {
     3: "What is its atomic mass?"
   }
 
+  //get user credentials from localStorage
   useEffect(() => {
-    setQuestions(shuffleArray(generateQsDiff(119)));
+    const token = localStorage.getItem('token')
+    const user = jwtDecode(token)
+    setAccess(user.id)
+  },[])
+
+  useEffect(() => {
+    if(finished){
+      pushIntelliment(score, access)
+    }
+  },[finished])
+
+
+  
+  useEffect(() => {
+    setQuestions(shuffleArray(generateQsDiff(pickedDifficulty)));
     // generateQsCategory("noble gas");
   }, [setPickedDifficulty])
 
