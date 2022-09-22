@@ -6,7 +6,6 @@
   grid-template-columns: 100px 100px 100px 100px;
   grid-template-rows: auto;
 }
-
 .container .otp-container input {
   font-size: 120px;
   text-align: center;
