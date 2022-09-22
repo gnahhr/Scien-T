@@ -24,7 +24,7 @@ import Intelliment from './Pages/Intelliment/Intelliment';
 import ElectronConfiguration from './Pages/Electron Configuration/electronConfiguration'
 import VerifyUser from './Pages/Verify User/verifyUser'
 import SideNav from './Components/SideNav';
-
+import Leaderboard from './Pages/Leaderboard/leaderboard';
 
 function App() {
   const [ user, setUser ] = useState(localStorage.token ? localStorage.token : null); //true
@@ -53,6 +53,7 @@ function App() {
             <Route path="/intelliment" element={<Intelliment />} />
             <Route path="/electronConfiguration" element={<ElectronConfiguration />}/>
             <Route path="/electronConfiguration" element={<ElectronConfiguration />}/>
+            <Route path="leaderboard" element={<Leaderboard />}/>
             {/* Placeholder for default logged in page */}
             <Route path="*" element={<MixingTable />}/> 
           </Routes>
