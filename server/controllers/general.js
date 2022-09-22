@@ -50,9 +50,13 @@ exports.electronConfiguration = async (req, res, next) => {
     const points = req.body.points
     
     const pushProg = await UserData.findByIdAndUpdate({_id},{
-        $inc: {"electronConfiguration.points": points},
-        $push: {"electronConfiguration.atomicNumber": atomicNumber}
+        $push: {atomicNumberEC: atomicNumber}
     })
+
+    const pushProgPoints = await UserData.findByIdAndUpdate({_id},{
+        $inc: {pointsEC: points}
+    })
+
 
     if(pushProg)
         res.json({status: 'ok'})
@@ -69,7 +73,7 @@ exports.getEC = async (req, res, next) => {
     const access = req.params['access']
     const _id = new ObjectId (access)
 
-    const userProg = await UserData.findById({_id}, {"electronConfiguration.atomicNumber":1})
+    const userProg = await UserData.findById({_id}, {atomicNumberEC:1})
     
     if(userProg)
         return res.json({status:'ok', userProg: userProg})
@@ -96,7 +100,7 @@ exports.intelliment = async (req, res, next) => {
 
 }
 
-exports.rankings = async (req, res, next) => {
+exports.rankings = async (req, res, next) => {//rankings for intelliment || will modify later
     const getRankings = await UserData.find({},{username: 1, intelliment: 1}).sort({intelliment: -1})
 
     if(getRankings)
@@ -105,6 +109,19 @@ exports.rankings = async (req, res, next) => {
     else
         res.json({status:'error', erro:'error'})
 }
+
+exports.getElectronConfigRankings = async (req, res, next) => {
+    const getRankings = await UserData.find({}, {username: 1, pointsEC: 1}).sort({pointsEC: -1})
+
+    if(getRankings)
+        res.json({status:'ok', rankings: getRankings})
+
+    else
+        res.json({status:'error', erro:'error'})
+}
+
+
+
 
 // const pushProgPoints = await UserData.findByIdAndUpdate({_id},{
 //     $inc: {electronConfigPoints: points}
