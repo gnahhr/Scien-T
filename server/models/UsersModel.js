@@ -8,10 +8,8 @@ const UserData = new mongoose.Schema(
         username: {type: String, required: true, index: { unique: true }},
         password: {type: String, required: true},
         mixingElements : { type : Array},
-        electronConfiguration : {
-            points: {type: Number, default: 0},
-            atomicNumber:{type: Array}
-        },
+        pointsEC: {type: Number, default: 0},
+        atomicNumberEC:{type: Array},
         intelliment: {type: Number, default: 0},
         isVerified: {type: Boolean, default: false, required: true, }
     },
