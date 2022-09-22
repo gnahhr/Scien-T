@@ -8,12 +8,12 @@
   background-color: rgba(179, 19, 179, 0.357);
   color: white;
   border-radius: 25px;
-  transition: .3s ease-in;
+  transition: 0.3s ease-in;
 }
 
 .hidden {
   bottom: -10vh;
-  transition: .3s ease-in;
+  transition: 0.3s ease-in;
 }
 
 .success {

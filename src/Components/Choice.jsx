@@ -1,9 +1,10 @@
 import React from 'react'
+import { useEffect } from 'react';
 import "./Choice.css";
 
-const Choice = ({data, selectedAnswer, answered, category}) => {
+const Choice = ({data, selectedAnswer, answered, category, selHighlight}) => {
   return (
-    <div className={answered ? `choice ${category}` : "choice"} onClick={() => selectedAnswer(data)}>
+    <div className={answered ? `choice ${category} ${selHighlight}` : "choice"} onClick={() => selectedAnswer(data)}>
         {data}
     </div>
   )

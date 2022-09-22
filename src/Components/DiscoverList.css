@@ -12,16 +12,16 @@
   width: 20vw;
   height: calc(100vh - var(--navHeight));
   padding: 0 1rem;
-  background-color: black;
+  background-color: rgb(0, 0, 0);
   z-index: 5;
   overflow-y: auto;
   align-items: center;
-  transition: .25s ease-in;
+  transition: 0.25s ease-in;
 }
-
 #discover-list #exit-icon {
   font-size: 1rem;
   align-self: flex-end;
+  text-align: center;
   color: white;
   border-radius: 50%;
   border: 2px white solid;
@@ -29,32 +29,27 @@
   margin: 5px;
   padding: 0;
 }
-
 #discover-list #total {
   color: white;
   font-size: 2rem;
 }
-
 #discover-list #exit-icon:hover {
-  color: #854759;
-  border-color: #854759;
+  color: rgb(133, 71, 89);
+  border-color: rgb(133, 71, 89);
 }
-
 #discover-list h2 {
   margin-top: 2rem;
   margin-bottom: 1rem;
   position: sticky;
 }
-
 #discover-list .known-elem {
   color: #000000;
-  padding: .5rem 4rem;
+  padding: 0.5rem 4rem;
   background-color: #FFE5FD;
   margin: 4px;
 }
-
 #discover-list .known-elem:hover {
-  background-color: #ffe5fd8e;
+  background-color: rgba(255, 229, 253, 0.5568627451);
 }
 
 .hidden {

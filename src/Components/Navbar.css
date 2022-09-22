@@ -4,7 +4,6 @@ nav {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-
 nav .user {
   color: white;
   display: flex;
@@ -12,44 +11,36 @@ nav .user {
   justify-content: flex-end;
   margin-right: 2rem;
 }
-
 nav .sample:hover {
   color: red;
   text-decoration: underline;
   cursor: pointer;
 }
-
 nav a {
   justify-self: start;
   text-decoration: none;
 }
-
 nav a h2 {
-  margin: .5rem 2rem;
+  margin: 0.5rem 2rem;
 }
-
 nav a h2:hover {
   color: red;
 }
-
 nav ul {
   display: flex;
   flex-direction: row-reverse;
 }
-
 nav ul li {
   list-style-type: none;
   padding: 1rem;
-  margin: .3rem;
+  margin: 0.3rem;
 }
-
 nav ul li a {
   color: white;
   text-decoration: none;
   padding: 1rem;
-  margin: .3rem;
+  margin: 0.3rem;
 }
-
 nav ul li a:hover {
   text-decoration: underline;
   background-color: rgba(0, 0, 0, 0.371);
