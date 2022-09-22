@@ -10,7 +10,7 @@ export default async function getUserProgEC(access){
       const data = await response.json()
       // console.log(data.userProg.electronConfiguration)
       if(data.status === 'ok')
-        return data.userProg.electronConfiguration.atomicNumber
+        return data.userProg.atomicNumberEC
       else
         alert(data.error)
 }

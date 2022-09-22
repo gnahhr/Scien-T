@@ -1,0 +1,32 @@
+.wrapper{
+    // overflow-y: scroll;
+    overflow: auto;
+    max-height: 500px;
+    max-width: fit-content;
+
+
+    .ranking-list {
+        border-collapse: collapse;
+        .table-header{
+            position: sticky;
+            top: 0px;
+            th{
+            font-size: 40px;
+            }
+        }
+    
+        .output-rankings{
+            background-color: #FFFFFF;
+            border: 15px solid #E2D9E5;
+            border-radius: 100px;
+            height: 5px;
+            img{
+                padding-top: 10px;
+            }
+            td{
+                font-size: 25px;
+                padding: 0 100px 0 100px;
+            }
+        }
+    }
+}

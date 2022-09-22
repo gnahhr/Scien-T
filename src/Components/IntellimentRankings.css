@@ -1,0 +1,31 @@
+.wrapper {
+  overflow: auto;
+  max-height: 500px;
+  max-width: -webkit-fit-content;
+  max-width: -moz-fit-content;
+  max-width: fit-content;
+}
+.wrapper .ranking-list {
+  border-collapse: collapse;
+}
+.wrapper .ranking-list .table-header {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0px;
+}
+.wrapper .ranking-list .table-header th {
+  font-size: 40px;
+}
+.wrapper .ranking-list .output-rankings {
+  background-color: #FFFFFF;
+  border: 15px solid #E2D9E5;
+  border-radius: 100px;
+  height: 5px;
+}
+.wrapper .ranking-list .output-rankings img {
+  padding-top: 10px;
+}
+.wrapper .ranking-list .output-rankings td {
+  font-size: 25px;
+  padding: 0 100px 0 100px;
+}

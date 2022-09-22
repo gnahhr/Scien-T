@@ -14,6 +14,7 @@ const SideNav = () => {
           <li><NavLink to="/mix">Mixing Table</NavLink></li>
           <li><NavLink to="/intelliment">Intelliment</NavLink></li>
           <li><NavLink to="/electronConfiguration">Electron Config</NavLink></li>
+          <li><NavLink to="/leaderboard">Leaderboard</NavLink></li>
         </ul>
       </div>
     </div>
