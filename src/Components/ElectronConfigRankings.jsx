@@ -32,7 +32,7 @@ return (
           <tr key={rankings.username} className="output-rankings">
             {index < 3 ? <td className="rank"><img src={titleHolders(index)} alt="medal" width={40}/></td> : <td>{index+1}</td>}
             <td>{rankings.username}</td>
-            <td>{rankings.pointsEC}</td>
+            <td>{rankings.points}</td>
           </tr>
         )
       })}

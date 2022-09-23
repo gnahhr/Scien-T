@@ -1,11 +1,11 @@
-export default async function pushIntelliment(score, access){
+export default async function pushIntelliment(score, access, username, category){
     const response = await fetch ('/api/intelliment',{              
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access, score
+          access, score, username, category
         })
       })
       

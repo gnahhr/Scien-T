@@ -1,6 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const UserData = require('../models/UsersModel')
+const ElectronConfigRankings = require('../models/ElectronConfigRankings')
+const IntellimentEasyRankings = require('../models/IntellimentEasyRankings')
+const IntellimentNormalRankings = require('../models/IntellimentNormalRankings')
+const IntellimentHardRankings = require('../models/IntellimentHardRankings')
+const IntellimentHardcoreRankings = require('../models/IntellimentHardcoreRankings')
 const jwt = require('jsonwebtoken');
 
 const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk'
@@ -45,6 +50,7 @@ exports.electronConfiguration = async (req, res, next) => {
     var ObjectId = require('mongoose').Types.ObjectId;
     const access = req.body.access
     const _id = new ObjectId (access)
+    const username = req.body.username
 
     const atomicNumber = req.body.atomicNumber
     const points = req.body.points
@@ -57,9 +63,12 @@ exports.electronConfiguration = async (req, res, next) => {
         $inc: {pointsEC: points}
     })
 
-
+    const pushRankings = await ElectronConfigRankings.findOneAndUpdate({username},{
+        $inc: {points : points}
+    }, {upsert: true})
+    
     if(pushProg)
-        res.json({status: 'ok'})
+        res.json({status: 'ok', pushRankings})
     
     else
         return res.json({ status: 'error', error: 'Invalid access token' })
@@ -87,31 +96,108 @@ exports.intelliment = async (req, res, next) => {
     const _id = new ObjectId (access)
 
     const score = req.body.score
+    const category = req.body.category
+    const username = req.body.username
 
-    const pushProg = await UserData.findByIdAndUpdate({_id},{
-        $inc: {intelliment: score}
-    })
+    if(category == 30){
+        const pushRankings = await IntellimentEasyRankings.findOneAndUpdate({username},{
+            $inc: {points: score}
+        }, {upsert: true})
 
-    if(pushProg)
-        res.json({status: 'ok', pushProg})
+        const pushProg = await UserData.findByIdAndUpdate({_id},{
+            $push: {intellimentEasy: score}
+        })
+
+        const highScore = await UserData.findOneAndUpdate({username}, {
+            $max: { intellimentEasyHS: score} 
+        })
+
+        if(pushProg)
+        res.json({status: 'ok', pushRankings})
     
-    else
-        return res.json({ status: 'error', error: 'Invalid access token' })
+        else
+            return res.json({ status: 'error', error: 'Invalid access token' })
+    }
+
+    else if(category == 60){
+        const pushRankings = await IntellimentNormalRankings.findOneAndUpdate({username},{
+            $inc: {points: score}
+        }, {upsert: true})
+
+        const pushProg = await UserData.findByIdAndUpdate({_id},{
+            $push: {intellimentNormal: score}
+        })
+
+        const highScore = await UserData.findOneAndUpdate({username}, {
+            $max: { intellimentNormalHS: score} 
+        })
+
+        if(pushProg)
+        res.json({status: 'ok', pushRankings})
+    
+        else
+            return res.json({ status: 'error', error: 'Invalid access token' })
+    }
+
+    else if(category == 90){
+        const pushRankings = await IntellimentHardRankings.findOneAndUpdate({username},{
+            $inc: {points: score}
+        }, {upsert: true})
+
+        const pushProg = await UserData.findByIdAndUpdate({_id},{
+            $push: {intellimentHard: score}
+        })
+
+        const highScore = await UserData.findOneAndUpdate({username}, {
+            $max: { intellimentHardHS: score} 
+        })
+
+        if(pushProg)
+        res.json({status: 'ok', pushRankings})
+    
+        else
+            return res.json({ status: 'error', error: 'Invalid access token' })
+    }
+
+    else if(category == 118){
+        const pushRankings = await IntellimentHardcoreRankings.findOneAndUpdate({username},{
+            $inc: {points: score}
+        }, {upsert: true})
+
+        const pushProg = await UserData.findByIdAndUpdate({_id},{
+            $push: {intellimentHardcore: score}
+        })
+
+        const highScore = await UserData.findOneAndUpdate({username}, {
+            $max: { intellimentHardcoreHS: score} 
+        })
+
+        if(pushProg)
+        res.json({status: 'ok', pushRankings})
+    
+        else
+            return res.json({ status: 'error', error: 'Invalid access token' })
+    }
+
+    else{
+        return res.json({status: category})
+    }
 
 }
 
 exports.rankings = async (req, res, next) => {//rankings for intelliment || will modify later
-    const getRankings = await UserData.find({},{username: 1, intelliment: 1}).sort({intelliment: -1})
+    // const category = req.body.category
+    // const getRankings = await UserData.find({},{username: 1, intelliment: 1}).sort({intelliment: -1})
 
-    if(getRankings)
-        res.json({status:'ok', rankings: getRankings})
+    // if(getRankings)
+    //     res.json({status:'ok', rankings: getRankings})
 
-    else
-        res.json({status:'error', erro:'error'})
+    // else
+    //     res.json({status:'error', erro:'error'})
 }
 
 exports.getElectronConfigRankings = async (req, res, next) => {
-    const getRankings = await UserData.find({}, {username: 1, pointsEC: 1}).sort({pointsEC: -1})
+    const getRankings = await ElectronConfigRankings.find({}, {username: 1, points: 1}).sort({points: -1})
 
     if(getRankings)
         res.json({status:'ok', rankings: getRankings})

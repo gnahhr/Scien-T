@@ -18,6 +18,11 @@ import { sampleQuestions } from '../../Data/SampleQuestion.js';
 import "./Intelliment.css";
 
 const Intelliment = () => {
+  //Push Progress
+  const [ access, setAccess ] = useState('')
+  const [ username, setUsername] = useState('')
+  const [ category, setCategory] = useState(0)
+  
   //Question States
   const [ timer, setTimer ] = useState(10);
   const [ step, setStep ] = useState(0);
@@ -26,7 +31,6 @@ const Intelliment = () => {
   const [ finished, setFinished ] = useState(false);
   const [ pickedDifficulty, setPickedDifficulty ] = useState(false);
   const [ questions, setQuestions ] = useState(sampleQuestions);
-  const [ access, setAccess ] = useState('')
   
   //Performance States
   const [ score, setScore ] = useState(0);
@@ -64,11 +68,12 @@ const Intelliment = () => {
     const token = localStorage.getItem('token')
     const user = jwtDecode(token)
     setAccess(user.id)
+    setUsername(user.username)
   },[])
 
   useEffect(() => {
     if(finished){
-      pushIntelliment(score, access)
+      pushIntelliment(score, access, username, category)
     }
   },[finished])
 
@@ -129,6 +134,7 @@ const Intelliment = () => {
   }
 
   const setDifficulty = (difficulty) => {
+    setCategory(difficulty)
     setPickedDifficulty(true);
     setQuestions(shuffleArray(generateQsDiff(difficulty)));
   }

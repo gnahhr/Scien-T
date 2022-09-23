@@ -39,7 +39,7 @@ const electronConfiguration = () => {
       }
       else{
         setAccess(user.id);
-        setUsername(user.email);
+        setUsername(user.username);
 
         (async () => {
           const progress = await getUserProgEC(user.id);
@@ -70,7 +70,7 @@ const electronConfiguration = () => {
 
   const checkAnswer = (answer) =>{
     if(answer === question.electron_configuration){
-      pushProgEC(access, question.number, points)
+      pushProgEC(access, question.number, points, username)
 
       setUserProgress([...userProgress,question.number])
 
