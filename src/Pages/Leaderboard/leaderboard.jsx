@@ -11,8 +11,13 @@ import SideNav from '../../Components/SideNav'
 
 const leaderboard = () => {
   const [ rankings, setRankings] = useState([])
-  const [showIntelliment, setShowIntelliment] = useState(true)
-  const [showElectronConfig, setShowElectronConfig] = useState(false)
+
+  //Game States
+  const [showIntelliment, setShowIntelliment] = useState(true);
+  const [showElectronConfig, setShowElectronConfig] = useState(false);
+
+  //Difficulty States
+  const [ difficulty, setDifficulty ] = useState("easy");
 
   useEffect(()=>{
     (async () => {
@@ -37,6 +42,10 @@ const leaderboard = () => {
     else{
       return
     }
+  }
+
+  const toggleDifficulty  = (difficulty) => {
+    setDifficulty(difficulty);
   }
 
   const toggleElectronConfig = () => {
@@ -71,6 +80,19 @@ const leaderboard = () => {
         <div className="ranking-container">
           {showIntelliment ? <IntellimentRankings rankings={rankings}/> : <ElectronConfigRankings rankings={rankings}/>}
         </div>
+        {showIntelliment &&
+          <div className="difficulty-wrapper">
+            <button className={difficulty === "easy" ? "active-diff" : ""}
+                    onClick={() => toggleDifficulty("easy")}>Easy</button>
+            <button className={difficulty === "normal" ? "active-diff" : ""}
+                    onClick={() => toggleDifficulty("normal")}>Normal</button>
+            <button className={difficulty === "hard" ? "active-diff" : ""}
+                    onClick={() => toggleDifficulty("hard")}>Hard</button>
+            <button className={difficulty === "hardcore" ? "active-diff" : ""}
+                    onClick={() => toggleDifficulty("hardcore")}>Hardcore</button>
+          </div>
+        }
+        
       </div>
     </>
   )

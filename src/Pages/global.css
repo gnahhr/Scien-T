@@ -29,10 +29,18 @@ button, .button {
   width: 60%;
   border: none;
   box-sizing: border-box;
+  box-shadow: 0 3px 2px 1px rgba(0, 0, 0, 0.5);
 }
 
 button:hover, .button:hover {
+  background-color: #DE9F00;
+  color: #FFFFFF;
   cursor: pointer;
+}
+
+.active-diff {
+  background-color: #DE9F00;
+  color: #FFFFFF;
 }
 
 a {

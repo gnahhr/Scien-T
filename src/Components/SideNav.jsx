@@ -24,7 +24,7 @@ const SideNav = () => {
         </div>
         <div className="category-links">
         <ul>
-            <li><img src={Bullet} alt="-"/><NavLink to="/something">Periodic Table</NavLink></li>
+            <li><img src={Bullet} alt="-"/><NavLink to="/periodicTable">Periodic Table</NavLink></li>
         </ul>
         </div>
       </div>

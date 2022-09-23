@@ -25,6 +25,7 @@ import VerifyUser from './Pages/Verify User/verifyUser'
 import SideNav from './Components/SideNav';
 import Leaderboard from './Pages/Leaderboard/leaderboard';
 import MainPage from './Pages/Main Page/mainPage';
+import PeriodicTable from './Pages/Periodic Table/periodicTable';
 
 
 function App() {
@@ -52,7 +53,7 @@ function App() {
             <Route path="/mix" element={<MixingTable />} />
             <Route path="/intelliment" element={<Intelliment />} />
             <Route path="/electronConfiguration" element={<ElectronConfiguration />}/>
-            <Route path="/electronConfiguration" element={<ElectronConfiguration />}/>
+            <Route path="/periodicTable" element={<PeriodicTable />}/>
             <Route path="leaderboard" element={<Leaderboard />}/>
             {/* Placeholder for default logged in page */}
             <Route path="*" element={<MixingTable />}/> 
