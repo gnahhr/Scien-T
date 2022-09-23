@@ -26,12 +26,14 @@ import gear from "../../Assets/Images/gear.svg";
 import listIcon from "../../Assets/Images/list-icon.svg";
 import muted from "../../Assets/Images/muted.svg";
 import unmuted from "../../Assets/Images/music.svg";
+import ElemColors from '../../Data/ElemColors.js';
 
 
 const mixingTable = () => {
   const navigate = useNavigate();
   const listElems = elements.elements;
   const bgm = useRef(new Audio(sampleBGM));
+  const { familyBGs, familyBDs } = ElemColors;
 
   //Data States
   const [ mixData, setMixData ] = useState([]);
@@ -119,7 +121,7 @@ const mixingTable = () => {
   	});
 
   	if(mixed.length === 0){
-  		alert("No compound of this mixture.");
+      prepToast("No compound of this mixture.", "warning");
   	} else {
       setKnownCompound((knownCompound) => {
         if (knownCompound.length < 1){
@@ -174,57 +176,67 @@ const mixingTable = () => {
   	return flag;
   }
 
-  //Start Music
+  // //Start Music
   const startMusic = (bgm) => {
-    if (!initMusic) {
-      bgm.current.play()
-      setInitMusic(true);
-    }
+  //   if (!initMusic) {
+  //     bgm.current.play()
+  //     setInitMusic(true);
+  //   }
   }
 
-  //Toggle Music
+  // //Toggle Music
   const toggleMusic = (bgm) => {
-    music ? bgm.current.pause() : bgm.current.play();
-    setMusic(!music);
+  //   music ? bgm.current.pause() : bgm.current.play();
+  //   setMusic(!music);
   }
 
   return (
-    <div className="main-wrapper" onClick={() => startMusic(bgm)}>
-        <div className="icons-wrapper">
-          <div className="icon" onClick={() => toggleMusic(bgm)}><img src={music ? unmuted : muted}/></div>
-          <div className="icon" onClick={() => setShowDiscover(!showDiscover)}><img src={listIcon}/></div>
-          <div className="icon" ><img src={gear}/></div>
-        </div>
-        <div id="periodic-table">
-          <div id="mixing-table" ref={drop}>
-            {mixData.length > 0 ? mixData.map(element => <div key={element}>{element}</div>) : "Please drag elements here for mixing."}
+    <>
+      <div className="main-header">
+        <h1>Mixing Table</h1>
+      </div>
+      <div className="main-wrapper" onClick={() => startMusic(bgm)}>
+          <div className="icons-wrapper">
+            <div className="icon" onClick={() => toggleMusic(bgm)}><img src={music ? unmuted : muted}/></div>
+            <div className="icon" onClick={() => setShowDiscover(!showDiscover)}><img src={listIcon}/></div>
+            <div className="icon" ><img src={gear}/></div>
+          </div>
+        
+          <div className="mixing-table">
+            <div id="mixing-table" ref={drop}>
+                {mixData.length > 0 ? mixData.map(element => <div key={element} className="element">{element}</div>) : <h2>"Please drag elements here for mixing!"</h2>}
+            </div>
+
+            <button className="cta" onClick={() => {mixElems(mixData);}}>Mix</button>
           </div>
 
-          <button id="mix-button" onClick={() => {mixElems(mixData);}}>Mix</button>
+          <div id="periodic-table">
 
-          {listElems.map(element => <Elements 
-            key={element.name}
-            symbol={element.symbol}
-            xpos={element.xpos}
-            ypos={element.ypos}
-          />)}
-        </div>
-        
-        <DiscoverList knownCompound={knownCompound}
-                      discoverState={showDiscover}
-                      showDiscover={setShowDiscover}
-                      selectedCompound={setSelectedCompound}
-                      showModal={setShowModal} />
+            {listElems.map(element => <Elements 
+              key={element.name}
+              symbol={element.symbol}
+              xpos={element.xpos}
+              ypos={element.ypos}
+              category={element.category}
+            />)}
+          </div>
+          
+          <DiscoverList knownCompound={knownCompound}
+                        discoverState={showDiscover}
+                        showDiscover={setShowDiscover}
+                        selectedCompound={setSelectedCompound}
+                        showModal={setShowModal} />
 
-        {showModal && <CompoundModal showModal={setShowModal} data={selectedCompound} />}
-        {showNew && <DiscoverModal showNew={setShowNew} data={newDiscover}/>}
-        
-        <Toast message={toastMsg}
-               timer={3000}
-               toastType={toastState}
-               showToast={setShowToast}
-               toastState={showToast}/>
-    </div>
+          {showModal && <CompoundModal showModal={setShowModal} data={selectedCompound} />}
+          {showNew && <DiscoverModal showNew={setShowNew} data={newDiscover}/>}
+          
+          <Toast message={toastMsg}
+                timer={3000}
+                toastType={toastState}
+                showToast={setShowToast}
+                toastState={showToast}/>
+      </div>
+    </>
   )
 }
 

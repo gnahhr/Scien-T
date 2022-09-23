@@ -1,12 +1,12 @@
 .choice {
-  background-color: rgba(255, 255, 255, 0.5);
-  color: black;
+  background-color: #474747;
+  color: white;
   padding: 1rem 2rem;
   border-radius: 12px;
 }
 
 .choice:hover {
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: #625e5e;
   cursor: pointer;
 }
 
@@ -28,4 +28,8 @@
 .wrong:hover {
   background-color: #5f1c1c;
   color: white;
+}
+
+.answered {
+  box-shadow: 0 0 0 5px #474747;
 }

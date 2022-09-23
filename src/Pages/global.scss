@@ -15,55 +15,153 @@ html {
     background-size: cover;
     min-height: 100vh;
     min-width: 100vw;
+    overflow-x: hidden;
 }
 
-button {
-    color:black;
-    background-color: #FBB500;
+button, .button {
+    max-width: max-content;
     text-align: center;
-    padding: 1rem 2rem;
+    padding: .5rem 3rem;
     border-radius: 2rem;
-    box-shadow: 2px 2px #000000;
     margin: 2rem;
+    border-radius: 15px;
+    z-index: 2;
+    width: 60%;
+    border: none;
+    box-sizing: border-box;
 }
 
-button:hover {
+button:hover, .button:hover {
     cursor: pointer;
-    background-color: #c08a02;
+}
+
+a {
+    text-decoration: none;
+}
+
+.normal {
+    background-color: transparent;
+    box-shadow: 0 0 0 3px rgb(255, 255, 255);
+    color: white;
+    transition: background-color .500ms ease;
+}
+
+.normal {
+    background-color: transparent;
+    box-shadow: 0 0 0 3px rgb(255, 255, 255);
+    color: white;
+    transition: background-color .500ms ease;
+}
+
+.normal:hover {
+    background-color: #D34646;
+    box-shadow: 0 0 0 3px #D34646;
+    transition: background-color .500ms ease;
+}
+
+.cta {
+    background-color: #FFCD4E;
+    box-shadow: 0 0 0 3px #FFCD4E;
+    color: #0C004E;
+}
+
+.cta:hover {
+    background-color: #FFEAB6;
+    box-shadow: 0 0 0 3px #FFEAB6;
+    transition: background-color .500ms ease;
+}
+
+.teal {
+    background-color: #21AB97;
+    box-shadow: 0 0 0 3px #21AB97;
+    color: #ffffff;
+    font-size: 1.7rem;
+    
+}
+
+.teal:hover {
+    background-color: #AB2921;
+    box-shadow: 0 0 0 3px #AB2921;
+    transition: background-color .500ms ease;
+}
+
+.red {
+    background-color: #AB2921;
+    box-shadow: 0 0 0 3px #AB2921;
+    color: #ffffff;
+    font-size: 1.7rem;
+}
+
+.red:hover {
+    background-color: #21AB97;
+    box-shadow: 0 0 0 3px #21AB97;
+    transition: background-color .500ms ease;
 }
 
 label {
     justify-self: left;
-    color: white;
+    color: #8E3B77;
+    font-family: 'Secular One', sans-serif;
 }
 
 input {
     width: 100%;
     height: 2rem;
-    border-radius: 25px;
+    border-radius: 5px;
     border: none;
     padding: .1rem 1rem;
-    background-color: rgba(255,255,255,0.4);
-    color: white;
+    background-color: #8E3B77;
+    color: #ffffff;
+}
+
+input:active {
+    border-color:#fff;
 }
 
 h2 {
     color: white;
     font-size: 3rem;
-    margin-top: 6rem;
-}
-
-button {
-    font-size: 1.5rem;
-    border-radius: 15px;
-    z-index: 2;
-    padding: .5rem 2rem;
-    width: 60%;
-    border: none;
-    box-shadow: none;
-
+    margin-top: 4rem;
 }
 
 .main {
     margin: 0 30%;
 }
+
+.form-wrapper {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 15px;
+    margin: 3rem 0;
+
+    h2 {
+        color: 282054;
+        margin: 1rem auto 2rem;
+        font-size: 3rem;
+        color: #282054;
+        text-shadow: 0 3px 3px rgba(0, 0, 0, 0.284);
+    }
+}
+
+.icon {
+    background-color: #FBB500;
+    width: max-content;
+    height: max-content;
+    align-self: flex-end;
+    border-radius: 5px;
+    padding: .5rem;
+    display: grid;
+    align-content: center;
+    margin: 0 .5rem;
+
+    img {
+      height: 1.5rem;
+    }
+  }
+
+  .icon:hover {
+    background-color: #ffffff;
+  }

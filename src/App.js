@@ -8,7 +8,6 @@ import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 
 //Design
-import Honeycombs from "./Assets/Images/honeycombs.svg";
 import './Pages/global.css';
 import './App.css';
 
@@ -25,6 +24,8 @@ import ElectronConfiguration from './Pages/Electron Configuration/electronConfig
 import VerifyUser from './Pages/Verify User/verifyUser'
 import SideNav from './Components/SideNav';
 import Leaderboard from './Pages/Leaderboard/leaderboard';
+import MainPage from './Pages/Main Page/mainPage';
+
 
 function App() {
   const [ user, setUser ] = useState(localStorage.token ? localStorage.token : null); //true
@@ -32,9 +33,8 @@ function App() {
   return (
     <DndProvider backend={HTML5Backend}>
       <div className="App">
-        <img src={Honeycombs} alt="honeycombs" className="honeycombs"/>
 
-        <Navbar setUser={setUser}/>
+        {/* <Navbar setUser={setUser}/> */}
         {!user && 
         <Routes>
           <Route index path="/" element={<LandingPage />} />
@@ -44,11 +44,11 @@ function App() {
           <Route path="*" element={<LandingPage />}/> 
         </Routes>}
         
-        
+          
         {user &&
-        <>
-          <SideNav />
+        <> 
           <Routes>
+            <Route path="/" element={<MainPage />} />
             <Route path="/mix" element={<MixingTable />} />
             <Route path="/intelliment" element={<Intelliment />} />
             <Route path="/electronConfiguration" element={<ElectronConfiguration />}/>
@@ -57,6 +57,7 @@ function App() {
             {/* Placeholder for default logged in page */}
             <Route path="*" element={<MixingTable />}/> 
           </Routes>
+          {/* <SideNav /> */}
         </>}
       </div>
     </DndProvider>

@@ -1,17 +1,65 @@
 .sideNav {
-  width: 13vw;
-  background-color: rgba(46, 42, 42, 0.394);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  width: 15vw;
+  left: 0;
+  top: 0;
+  background-color: #220B42;
   color: white;
   position: fixed;
-  left: 0;
-  top: 7vh;
-  height: 93vh;
-  padding: 4rem 1rem;
+}
+
+.side-nav-logo {
+  width: 140px;
+  padding: 1rem;
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1rem auto 2rem;
+}
+.user img {
+  width: 32px;
+  background-color: #d0bfe9;
+  border-radius: 50%;
+  padding: 1rem;
+}
+.user p {
+  margin: 0.5rem;
 }
 
 .category {
   display: flex;
   flex-direction: column;
+  padding: 1rem;
+  border-radius: 15px;
+  width: 80%;
+}
+.category .category-header {
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+.category .category-header img {
+  width: 24px;
+}
+.category .category-header h3 {
+  font-size: 1.4rem;
+  margin-left: 0.5rem;
+}
+.category .category-header h3 a {
+  color: white;
+  font-size: 1.4rem;
+}
+.category .category-header h3 a .active {
+  color: #DE9F00;
+}
+.category .category-header h3 a:hover {
+  color: #DE9F00;
 }
 .category ul li {
   text-align: left;
@@ -23,20 +71,24 @@
   padding: 0 0.5rem;
   color: white;
 }
-.category ul li .active {
-  color: rgb(233, 247, 50);
+.category ul li:has(.active) {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 15px 0 0 15px;
+  padding: 0 0.5rem;
 }
 .category ul li:hover {
-  background-color: rgba(255, 255, 255, 0.218);
-  border-radius: 16px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 15px 0 0 15px;
+  padding: 0 0.5rem;
 }
 
-.category-header {
-  display: flex;
-  align-items: center;
-  justify-items: center;
+.cat-active {
+  background-color: rgba(158, 138, 187, 0.8);
 }
 .category-header h2 {
   margin: 0;
   font-size: 2rem;
+
+.footer {
+  margin: auto auto 2rem;
 }

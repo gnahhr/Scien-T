@@ -1,10 +1,22 @@
-/*Grid*/
+.main-header {
+  display: block;
+  width: 100%;
+  margin: 0;
+  border-bottom: 5px solid #220B42;
+}
+.main-header h1 {
+  font-size: 3rem;
+  color: white;
+  margin-left: 15vw;
+  text-align: center;
+}
+
 .main-wrapper {
   display: flex;
   flex-direction: column;
-  margin: 1rem;
-  margin-left: 15vw;
+  margin: 1rem 0 1rem 13vw;
   flex-grow: 1;
+  align-items: center;
 }
 
 .icons-wrapper {
@@ -31,51 +43,63 @@
 }
 .icons-wrapper .icon:hover {
   background-color: #ffffff;
+  align-self: flex-end;
+  margin-right: 1rem;
 }
 
 #periodic-table {
-  margin-top: 5vh;
   display: grid;
-  grid-template-rows: repeat(11, 24px);
-  grid-template-columns: repeat(18, 24px);
+  grid-template-rows: repeat(11, 28px);
+  grid-template-columns: repeat(18, 28px);
   grid-gap: 2rem;
-  padding: 2rem;
+  padding: 1rem 3rem;
+  margin: 1rem;
+  border-radius: 15px;
   align-self: center;
+  background-color: rgba(255, 255, 255, 0.8);
 }
-#periodic-table div {
-  color: black;
-  font-size: 16px;
-  font-weight: bolder;
-  padding: 1rem;
-  width: 1rem;
-  height: 1rem;
-  background: rgba(193, 210, 15, 0.21);
-  border: 1px red solid;
-  border-radius: 0 0 25% 0;
-  text-align: center;
-}
-#periodic-table #mixing-table {
-  width: 100%;
-  height: 100%;
-  grid-area: 1/4/3/12;
-  border: 1px red solid;
+
+#mixing-table {
+  width: 28vw;
+  height: 8vh;
   border-radius: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 0 5px #320D63;
+  margin-bottom: 1rem;
 }
-#periodic-table #mixing-table div {
+#mixing-table div {
   margin: 5px;
 }
-#periodic-table #mix-button {
-  width: 100%;
-  height: -webkit-max-content;
-  height: -moz-max-content;
+#mixing-table h2 {
+  color: #0B004A;
+  font-size: 1rem;
+  margin: 0;
+}
+
+.mixing-table {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+.mixing-table .element {
+  background-color: rgba(98, 26, 124, 0.8);
+  color: white;
+}
+.mixing-table .cta {
   height: max-content;
-  padding: 0;
-  font-size: 1.6rem;
-  background-color: #FBB400;
+  font-size: 1.4rem;
+  color: #0C004E;
+  background-color: #FFCD4E;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4666666667);
   margin-top: 0.5rem;
-  grid-area: 3/6/4/9;
+  margin-bottom: 0;
+}
+.mixing-table .cta:hover {
+  background-color: #FFEAB6;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4666666667);
 }

@@ -127,12 +127,12 @@ const electronConfiguration = () => {
           elemSym: question.symbol,
           elemName: question.name,
           atomicMass: question.atomic_mass,
-          bgColor: "rgba(58, 32, 32, 0.501)",
+          family: question.category,
         }}
         
         sequence={2}/>
       <input type='text'  name="answer" value={answer} onChange={(e) => onInputChange(e)}></input>
-      <button onClick={() => checkAnswer(answer)}>Enter</button>
+      <button className="cta" onClick={() => checkAnswer(answer)}>Enter</button>
       <h1>{finished}</h1>
       <Toast message={toastMsg}
                timer={3000}

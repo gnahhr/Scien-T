@@ -6,15 +6,16 @@ import pushIntelliment from '../../Hooks/pushIntelliment';
 
 //Components
 import Choice from '../../Components/Choice';
-import Toast from '../../Components/Toast';
 import ElementQuestion from '../../Components/ElementQuestion';
 import TotalScore from '../../Components/TotalScore';
+import AnswerModal from '../../Components/AnswerModal';
 
 //Data
 import { periodicTable } from '../../Data/PeriodicTableJSON';
 import { sampleQuestions } from '../../Data/SampleQuestion.js';
 
 //Styles
+import Music from '../../Assets/Images/music.svg';
 import "./Intelliment.css";
 
 const Intelliment = () => {
@@ -26,7 +27,7 @@ const Intelliment = () => {
   const [ finished, setFinished ] = useState(false);
   const [ pickedDifficulty, setPickedDifficulty ] = useState(false);
   const [ questions, setQuestions ] = useState(sampleQuestions);
-  const [ access, setAccess ] = useState('')
+  const [ clickedAns, setClickedAns ] = useState("");
   
   //Performance States
   const [ score, setScore ] = useState(0);
@@ -35,10 +36,10 @@ const Intelliment = () => {
   const [ combo, setCombo ] = useState(0);
   const [ maxCombo, setMaxCombo ] = useState(0);
 
-  //Toast States
-  const [ showToast, setShowToast ] = useState(false);
-  const [ toastState, setToastState ] = useState("");
-  const [ toastMsg, setToastMsg ] = useState("");
+  //Modal States
+  const [ showModal, setShowModal ] = useState(false);
+  const [ modalResult, setModalResult ] = useState("");
+  const [ scoreModal, setScoreModal ] = useState(0);
 
   const phases = {
     0: "family",
@@ -48,9 +49,17 @@ const Intelliment = () => {
   }
 
   const familyBGs = {
-    "diatomic nonmetal": "blue",
-    "noble gas": "red"
+    "diatomic nonmetal": "#A79F8E",
+    "noble gas": "#8999BE",
+    "alkali metal": "#A2406D",
+    "alkaline earh metal": "#A27571",
+    "transition metal": "#A96D88",
+    "post-transition metal": "#6797AF",
+    "metalloid": "#C16E77",
+    "actinide": "#9879BC",
+    "lanthanide": "#CE6F94",
   };
+
 
   const guides = {
     0: "What is the group of the element?",
@@ -72,8 +81,6 @@ const Intelliment = () => {
     }
   },[finished])
 
-
-  
   useEffect(() => {
     setQuestions(shuffleArray(generateQsDiff(pickedDifficulty)));
     // generateQsCategory("noble gas");
@@ -94,19 +101,23 @@ const Intelliment = () => {
   }, [step])
 
   useEffect(() => {
-    if (timer === 0) {
-      selectAns("");
-      prepToast("Time's up!", "warning");
-      setTimer(10)
-    }
+    if (pickedDifficulty){
+      if (timer === 0) {
+        selectAns("");
+        // prepToast("Time's up!", "warning");
+        prepToast("wrong", 0);
+        setTimer(10)
+      }
 
-    if (answered) {
-      setTimer(10);
+      if (answered) {
+        setTimer(10);
+      }
+          
+      setTimeout(() => setTimer(timer-1), 1000)
     }
     
-    setTimeout(() => setTimer(timer-1), 1000)
     
-  }, [timer, answered])
+  }, [timer, answered, pickedDifficulty])
 
   useEffect(() => {
     if (multiplier < 5) {
@@ -122,30 +133,32 @@ const Intelliment = () => {
 
 
   //Function to format toast message
-  const prepToast = (message, toastState) => {
-    setToastState(toastState);
-    setToastMsg(message);
-    setShowToast(true);
+  const prepToast = (result, points) => {
+    setModalResult(result);
+    setScoreModal(points);
+    setShowModal(true);
   }
 
   const setDifficulty = (difficulty) => {
-    setPickedDifficulty(true);
     setQuestions(shuffleArray(generateQsDiff(difficulty)));
+    setPickedDifficulty(true);
   }
 
   //Verify Answer
   const selectAns = (choice) => {
     if (!answered) {
       let final = choice === questions[nthQuestion][phases[step]] ? true : false;
+      setClickedAns(choice);
       if (final) {
-        prepToast("Correct!", "success");
+        prepToast("correct", 50 * multiplier);
         setCombo(combo + 1);
         setNumCorrect(numCorrect + 1);
         setScore(score + (50 * multiplier));
       } else {
         setCombo(0);
         setMultiplier(1);
-        prepToast("Wrong!", "warning");
+        // prepToast("Wrong!", "warning");
+        prepToast("wrong", 0);
       }
       setAnswered(true);
       setTimeout(() => {setAnswered(false); setStep(step + 1);}, 3000);
@@ -218,7 +231,6 @@ const Intelliment = () => {
 
   //Verify if the choices will be duplicated
   const verifyDupe = (currData, finalData) => {
-    console.log ()
     return finalData.filter(el => el === currData).length > 0 ? true : false;
   };
 
@@ -237,68 +249,79 @@ const Intelliment = () => {
   };
 
   return (
-    <div id="intelliment">
-      {!pickedDifficulty &&
-        <div className="difficulty-chooser">
-        <h2>Choose a difficulty:</h2>
-        <button onClick={() => setDifficulty(30)}>Easy</button>
-        <button onClick={() => setDifficulty(60)}>Medium</button>
-        <button onClick={() => setDifficulty(90)}>Hard</button>
-        <button onClick={() => setDifficulty(118)}>Hardcore</button>
-      </div>}
-      
-      {(!finished && pickedDifficulty) &&
-      <div className="intellimain">
-        <div className="header">
-          <div className="total-questions">Total Elements Encountered: {nthQuestion+1}/{questions.length}</div>
-          <div className="multiplier">
-            <div className="label">
-              Multiplier
+    <>
+      <div className="main-header">
+        <h1>Intelliment</h1>
+      </div>
+      <div id="intelliment">
+        {!pickedDifficulty &&
+          <div className="difficulty-chooser">
+            <h2>Choose a difficulty:</h2>
+            <button onClick={() => setDifficulty(30)}>Easy</button>
+            <button onClick={() => setDifficulty(60)}>Medium</button>
+            <button onClick={() => setDifficulty(90)}>Hard</button>
+            <button onClick={() => setDifficulty(118)}>Hardcore</button>
+          </div>}
+        
+        {(!finished && pickedDifficulty) &&
+        <div className="intellimain">
+          <div className="header">
+            <div className="left-header">
+              <div className="total-questions">Total Elements Encountered: {nthQuestion+1}/{questions.length}</div>
+              <div className="score">Score: {score}</div>
             </div>
-            <div className="multi">
-              {`x${multiplier}`} 
+            <div className="multiplier">
+              <div className="label">
+                Multiplier
+              </div>
+              <div className="multi">
+                {`x${multiplier}`} 
+              </div>
+            </div>
+            <div className="settings">
+              <div className="icon">
+                <img src={Music} alt="music"/>
+              </div>
             </div>
           </div>
-          <div className="score">Score: {score}</div>
-        </div>
-        <div className="question-wrapper">
-            <ElementQuestion data={questions[nthQuestion]} sequence={step-1}/>
-            <div className="question">
-                <p className="question">{guides[step]}</p>
-            </div>
-            <div className="choices-wrapper">
-                {questions[nthQuestion].choices[step] && questions[nthQuestion].choices[step].map((ans) => {
-                    return <Choice 
-                                   key={ans}
-                                   data={ans}
-                                   selectedAnswer={selectAns}
-                                   answered={answered}
-                                   category={ans === questions[nthQuestion][phases[step]] ? "correct" : "wrong"}/>
-                })}
-            </div>
-        </div>
+          <div className="question-wrapper">
+              <ElementQuestion data={questions[nthQuestion]} sequence={step-1}/>
+              <p className="question">{guides[step]}</p>
+              <div className="choices-wrapper">
+                  {questions[nthQuestion].choices[step] && questions[nthQuestion].choices[step].map((ans) => {
+                      return <Choice 
+                                    key={ans}
+                                    data={ans}
+                                    selectedAnswer={selectAns}
+                                    answered={answered}
+                                    category={ans === questions[nthQuestion][phases[step]] ? "correct" : "wrong"}
+                                    selHighlight={ans === clickedAns ? "answered" : ""}
+                              />
+                  })}
+              </div>
+          </div>
 
-        <div className="timer">
-            <div className="text-timer">
-                {timer}s
-            </div>
-            <div className="bar-timer" style={{width: `${10*timer}%`}}>
-                
-            </div>
-        </div>
-
-        <Toast message={toastMsg}
-               timer={3000}
-               toastType={toastState}
-               showToast={setShowToast}
-               toastState={showToast}/>
-      </div>}
-      {finished && <TotalScore totalQuestions={questions.length}
-                               totalCorrect={numCorrect}
-                               totalScore={score}
-                               highestCombo={maxCombo}
-                               highestMultiplier={multiplier} />}
-    </div>
+          <div className="timer">
+              <div className="text-timer">
+                  {timer}s
+              </div>
+              <div className="bar-timer" style={{width: `${10*timer}%`}}>
+                  
+              </div>
+          </div>
+          
+          {/* Modal for Correct Answers */}
+          {showModal &&
+            <AnswerModal results={modalResult} points={scoreModal} showModal={setShowModal} modalState={showModal}/>
+          }
+        </div>}
+        {finished && <TotalScore totalQuestions={questions.length}
+                                totalCorrect={numCorrect}
+                                totalScore={score}
+                                highestCombo={maxCombo}
+                                highestMultiplier={multiplier} />}
+      </div>
+    </>
   )
 }
 
