@@ -147,11 +147,7 @@ const Intelliment = () => {
   }
 
   const setDifficulty = (difficulty) => {
-<<<<<<< HEAD
     setCategory(difficulty)
-    setPickedDifficulty(true);
-=======
->>>>>>> f39c7e1d7cad0c3b7def867b558e891404234d1e
     setQuestions(shuffleArray(generateQsDiff(difficulty)));
     setPickedDifficulty(true);
   }
