@@ -1,0 +1,41 @@
+.popup {
+  background-color: white;
+  border: 5px solid #320D63;
+  width: max-content;
+  border-radius: 75px 15px 15px 0;
+  height: 375px;
+  width: 250px;
+  color: black;
+  padding: 1rem 2rem;
+  text-align: justify;
+  opacity: 0;
+  z-index: -1;
+  position: absolute;
+  transform: translate(12%, -105%);
+}
+.popup .pop-description {
+  margin-bottom: 1rem;
+}
+
+.pop-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 0.5rem;
+}
+.pop-header .pop-text {
+  text-align: center;
+  margin: auto;
+}
+.pop-header .pop-text .element-name {
+  font-size: 2rem;
+}
+.pop-header .pop-text .atomic-mass {
+  margin-top: -0.5rem;
+}
+
+.picture {
+  width: 64px;
+  height: 64px;
+  background-color: red;
+  border-radius: 2px;
+}

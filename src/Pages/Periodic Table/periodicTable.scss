@@ -1,3 +1,14 @@
-.pTable {
-    margin-left: 16vw;
+.element {
+    &:hover{
+        &+.popup {
+            opacity: 1;
+            z-index: 5;
+            // display:inline;
+            transition: opacity 500ms ease;
+        }
+    }
+}
+
+.main-wrapper {
+    overflow-x: hidden;
 }
