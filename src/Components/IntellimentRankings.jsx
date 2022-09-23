@@ -22,7 +22,7 @@ const IntellimentRankings = ({rankings}) => {
     }
 
   return (
-    <div className="wrapper">
+    <div className="wrapper"> 
       <table className="ranking-list">
         <tr className="table-header">
           <th>Rank</th>
@@ -34,7 +34,7 @@ const IntellimentRankings = ({rankings}) => {
             <tr key={rankings.username} className="output-rankings">
               {index < 3 ? <td className="rank"><img src={titleHolders(index)} alt="medal" width={40}/></td> : <td>{index+1}</td>}
               <td>{rankings.username}</td> 
-              <td>{rankings.intelliment}</td>
+              <td>{rankings.points}</td>
             </tr>
           )
         })}

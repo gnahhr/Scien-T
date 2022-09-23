@@ -1,5 +1,5 @@
-export default async function getRankings(){
-    const response = await fetch('/api/getRankings',{
+export default async function getIntellimentRankings(difficulty){
+    const response = await fetch('/api/getIntellimentRankings/' + difficulty,{
         method: 'GET',
         headers: {
             Accept: 'application/json',
@@ -9,6 +9,7 @@ export default async function getRankings(){
 
     const data = await response.json()
 
+    console.log(data.rankings)
     if(data.status === 'ok'){
         console.log('here')
         return data.rankings

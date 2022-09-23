@@ -101,7 +101,7 @@ exports.intelliment = async (req, res, next) => {
 
     if(category == 30){
         const pushRankings = await IntellimentEasyRankings.findOneAndUpdate({username},{
-            $inc: {points: score}
+            $max: {points: score}
         }, {upsert: true})
 
         const pushProg = await UserData.findByIdAndUpdate({_id},{
@@ -121,7 +121,7 @@ exports.intelliment = async (req, res, next) => {
 
     else if(category == 60){
         const pushRankings = await IntellimentNormalRankings.findOneAndUpdate({username},{
-            $inc: {points: score}
+            $max: {points: score}
         }, {upsert: true})
 
         const pushProg = await UserData.findByIdAndUpdate({_id},{
@@ -141,7 +141,7 @@ exports.intelliment = async (req, res, next) => {
 
     else if(category == 90){
         const pushRankings = await IntellimentHardRankings.findOneAndUpdate({username},{
-            $inc: {points: score}
+            $max: {points: score}
         }, {upsert: true})
 
         const pushProg = await UserData.findByIdAndUpdate({_id},{
@@ -161,7 +161,7 @@ exports.intelliment = async (req, res, next) => {
 
     else if(category == 118){
         const pushRankings = await IntellimentHardcoreRankings.findOneAndUpdate({username},{
-            $inc: {points: score}
+            $max: {points: score}
         }, {upsert: true})
 
         const pushProg = await UserData.findByIdAndUpdate({_id},{
@@ -185,15 +185,50 @@ exports.intelliment = async (req, res, next) => {
 
 }
 
-exports.rankings = async (req, res, next) => {//rankings for intelliment || will modify later
-    // const category = req.body.category
-    // const getRankings = await UserData.find({},{username: 1, intelliment: 1}).sort({intelliment: -1})
+exports.getIntellimentRankings = async (req, res, next) => {//rankings for intelliment || will modify later
+    const category = req.params['difficulty']
 
-    // if(getRankings)
-    //     res.json({status:'ok', rankings: getRankings})
+    if(category === "easy"){
+        const getRankings = await IntellimentEasyRankings.find({}, {username: 1, points: 1}).sort({points: -1})
 
-    // else
-    //     res.json({status:'error', erro:'error'})
+        if(getRankings)
+            res.json({status:'ok', rankings: getRankings})
+
+        else
+            res.json({status:'error', error:'error'})
+    }
+
+    else if(category === "normal"){
+        const getRankings = await IntellimentNormalRankings.find({}, {username: 1, points: 1}).sort({points: -1})
+
+        if(getRankings)
+            res.json({status:'ok', rankings: getRankings})
+
+        else
+            res.json({status:'error', error:'error'})
+    }
+
+    else if(category === "hard"){
+        const getRankings = await IntellimentHardRankings.find({}, {username: 1, points: 1}).sort({points: -1})
+        
+        if(getRankings)
+            res.json({status:'ok', rankings: getRankings})
+
+        else
+            res.json({status:'error', error:'error'})
+    }
+
+    else if(category === "hardcore"){
+        const getRankings = await IntellimentHardcoreRankings.find({}, {username: 1, points: 1}).sort({points: -1})
+        
+        if(getRankings)
+            res.json({status:'ok', rankings: getRankings})
+
+        else
+            res.json({status:'error', error:'error'})
+    }
+
+//    res.json({status:'ok', rankings: getRankings})
 }
 
 exports.getElectronConfigRankings = async (req, res, next) => {
@@ -203,7 +238,7 @@ exports.getElectronConfigRankings = async (req, res, next) => {
         res.json({status:'ok', rankings: getRankings})
 
     else
-        res.json({status:'error', erro:'error'})
+        res.json({status:'error', error:'error'})
 }
 
 

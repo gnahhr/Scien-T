@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 
 import "./leaderboard.css"
 
-import getRankings from "../../Hooks/getRankings.js" //rankings for intelliment || will modify later
+import getIntellimentRankings from "../../Hooks/getIntellimentRankings.js" //rankings for intelliment || will modify later
 import getElectronConfigRankings from '../../Hooks/getElectronConfigRankings'
 
 import IntellimentRankings from '../../Components/IntellimentRankings'
@@ -21,15 +21,24 @@ const leaderboard = () => {
 
   useEffect(()=>{
     (async () => {
-      const data = await getRankings();
+      const data = await getIntellimentRankings(difficulty);
       setRankings(data);
     })()
   },[])
 
+  useEffect(()=>{
+    (async () => {
+      const data = await getIntellimentRankings(difficulty);
+      setRankings(data);
+    })()
+  },[difficulty])
+
+
+
   const toggleIntelliment = () => {
     if(showIntelliment === false){
       (async () => {
-        const data = await getRankings();
+        const data = await getIntellimentRankings(difficulty);
         setRankings(data);
       })()
 
