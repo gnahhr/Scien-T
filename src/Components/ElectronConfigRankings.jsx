@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
 
-import rank1 from "../Assets/Images/rank1.png"
-import rank2 from "../Assets/Images/rank2.png"
-import rank3 from "../Assets/Images/rank3.png"
+import rank1 from "../Assets/Images/rank1.png";
+import rank2 from "../Assets/Images/rank2.png";
+import rank3 from "../Assets/Images/rank3.png";
+
+import "./ElectronConfigRankings.css"
 
 
 const ElectronConfigRankings = ({rankings}) => {

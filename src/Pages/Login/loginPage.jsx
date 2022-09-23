@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom'
+import Logo from '../../Assets/Images/logo.png';
+import { useNavigate } from 'react-router-dom';
 import "./loginPage.css";
 
 const loginPage = ({setUser}) => {
   const navigate = useNavigate()
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const [counter, setCounter] = useState(0)
   const [forgot, setForgot] = useState('');
 
@@ -60,15 +61,21 @@ const loginPage = ({setUser}) => {
 
   return (
     <div className="main">
-        <h2>Login</h2>
-        <form onSubmit={loginUser} id="login">
-            <label htmlFor="username">Username </label>
-            <input type="text" name="username" id="username" value={username} onChange={(e) => onInputChange(e)}/>
-            <label htmlFor="password">Password </label>
-            <input type="password" name="password" id="password" value={password} onChange={(e) => onInputChange(e)}/>
-            <button type="submit" value="Login">Submit</button>
-        </form>
-        {forgot > 1 ? <button>{forgot}</button> : ''}
+        <img src={Logo} alt="logo" className="logo" />
+        <h2>A more fun way to learn the periodic table!</h2>
+
+        <div className="form-wrapper">
+          <h2>Login</h2>
+          <form onSubmit={loginUser} id="login">
+              <label htmlFor="username">Username </label>
+              <input type="text" name="username" id="username" value={username} onChange={(e) => onInputChange(e)}/>
+              <label htmlFor="password">Password </label>
+              <input type="password" name="password" id="password" value={password} onChange={(e) => onInputChange(e)}/>
+              <button type="submit" value="Login" className="teal">LOGIN</button>
+          </form>
+          {forgot > 1 ? <button>{forgot}</button> : ''}
+        </div>
+        
     </div>
   )
 }

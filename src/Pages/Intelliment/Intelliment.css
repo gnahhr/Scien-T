@@ -6,12 +6,13 @@
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 3fr 1fr;
-  height: 92vh;
+  height: 90vh;
 }
 #intelliment .intellimain .header {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: 100%;
+  border-bottom: none;
 }
 #intelliment .intellimain .header .total-questions {
   justify-self: start;
@@ -29,6 +30,10 @@
 }
 #intelliment .intellimain .header .multiplier .multi {
   font-size: 2rem;
+  text-align: center;
+}
+#intelliment .intellimain .header .settings {
+  justify-self: end;
 }
 #intelliment .intellimain .question-wrapper {
   justify-self: center;
@@ -39,6 +44,7 @@
 }
 #intelliment .intellimain .question-wrapper .question {
   margin: 1rem;
+  text-align: center;
 }
 #intelliment .intellimain .question-wrapper .choices-wrapper {
   display: grid;
@@ -58,7 +64,21 @@
   width: 100%;
   height: 5px;
   border-radius: 5px;
-  background-color: #D0CE8D;
+  background-color: #CC7E00;
   align-self: center;
   transition: width 0.5ms;
+}
+
+.difficulty-chooser {
+  text-align: center;
+}
+.difficulty-chooser button {
+  display: block;
+  min-width: 80%;
+  margin: 2rem auto;
+  color: #282054;
+}
+.difficulty-chooser button:hover {
+  cursor: pointer;
+  background-color: #DE9F00;
 }

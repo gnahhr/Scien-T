@@ -1,0 +1,62 @@
+.answerModal-wrapper {
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+
+.answerModal {
+  margin-left: 12vw;
+  width: 35vw;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(255, 255, 255);
+  border-radius: 16px;
+  transform: translateY(-30%);
+}
+.answerModal h2 {
+  margin: 0;
+}
+.answerModal .result {
+  text-align: center;
+  width: max-content;
+  padding: 1rem 5rem;
+  border-radius: 15px;
+  font-size: 3rem;
+}
+.answerModal .points {
+  display: flex;
+  text-align: center;
+  justify-items: center;
+  align-items: center;
+  margin-top: 1rem;
+  width: max-content;
+  padding: 1rem 5rem;
+  border-radius: 500px;
+  color: #FFF171;
+  background-color: rgba(0, 0, 0, 0.32);
+}
+.answerModal .points img {
+  height: 64px;
+}
+.answerModal .points .plus {
+  font-size: 3rem;
+  margin-left: 2rem;
+}
+
+.correct, .correct:hover {
+  background-color: #008773;
+}
+
+.wrong, .wrong:hover {
+  background-color: #D34646;
+}

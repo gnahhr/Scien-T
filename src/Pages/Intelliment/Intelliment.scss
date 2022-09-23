@@ -5,12 +5,13 @@
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr 3fr 1fr;
-        height: 92vh;
+        height: 90vh;
     
         .header {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
             width: 100%;
+            border-bottom: none;
 
             .total-questions {
                 justify-self: start;
@@ -30,7 +31,12 @@
 
                 .multi {
                     font-size: 2rem;
+                    text-align: center;
                 }
+            }
+
+            .settings {
+                justify-self: end;
             }
         }
 
@@ -43,7 +49,7 @@
 
             .question {
                 margin: 1rem;
-
+                text-align: center;
             }
 
             .choices-wrapper {
@@ -66,12 +72,28 @@
                 width: 100%;
                 height: 5px;
                 border-radius: 5px;
-                background-color: #D0CE8D;
+                background-color: #CC7E00;
                 align-self: center;
                 transition: width .5ms;
             }
 
             margin: 0 3rem;
         }
+    }
+}
+
+.difficulty-chooser {
+    text-align: center;
+
+    button {
+        display: block;
+        min-width: 80%;
+        margin: 2rem auto;
+        color: #282054;
+    }
+
+    button:hover {
+        cursor: pointer;
+        background-color: #DE9F00;
     }
 }

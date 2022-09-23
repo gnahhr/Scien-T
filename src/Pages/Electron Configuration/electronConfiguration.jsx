@@ -5,8 +5,9 @@ import "./electronConfiguration.css";
 import jwt_decode from "jwt-decode";
 import ElementQuestion from "../../Components/ElementQuestion.jsx";
 import Toast from '../../Components/Toast';
-import pushProgEC from '../../Hooks/pushProgEC.js'
-import getUserProgEC from '../../Hooks/getUserProgEC.js'
+import pushProgEC from '../../Hooks/pushProgEC.js';
+import getUserProgEC from '../../Hooks/getUserProgEC.js';
+import SideNav from '../../Components/SideNav';
 
 //Perodic Table
 //Electron Configuration Chart
@@ -119,28 +120,30 @@ const electronConfiguration = () => {
 
 
   return (
-    <div className="electron-config">
-      <h1>{solved} out of 119</h1>
-      {finished ? <h1>finished na</h1> : question && <><ElementQuestion data={
-        {
-          atomicNum: question.number,
-          elemSym: question.symbol,
-          elemName: question.name,
-          atomicMass: question.atomic_mass,
-          bgColor: "rgba(58, 32, 32, 0.501)",
-        }}
-        
-        sequence={2}/>
-      <input type='text'  name="answer" value={answer} onChange={(e) => onInputChange(e)}></input>
-      <button onClick={() => checkAnswer(answer)}>Enter</button>
-      <h1>{finished}</h1>
-      <Toast message={toastMsg}
-               timer={3000}
-               toastType={toastState}
-               showToast={setShowToast}
-               toastState={showToast}/></>}
-
-    </div>
+    <>
+      <SideNav />
+      <div className="electron-config">
+        <h1>{solved} out of 119</h1>
+        {finished ? <h1>finished na</h1> : question && <><ElementQuestion data={
+          {
+            atomicNum: question.number,
+            elemSym: question.symbol,
+            elemName: question.name,
+            atomicMass: question.atomic_mass,
+            family: question.category,
+          }}
+          
+          sequence={2}/>
+        <input type='text'  name="answer" value={answer} onChange={(e) => onInputChange(e)}></input>
+        <button className="cta" onClick={() => checkAnswer(answer)}>Enter</button>
+        <h1>{finished}</h1>
+        <Toast message={toastMsg}
+                timer={3000}
+                toastType={toastState}
+                showToast={setShowToast}
+                toastState={showToast}/></>}
+      </div>
+    </>
   )
 }
 

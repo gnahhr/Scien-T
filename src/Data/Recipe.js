@@ -21,7 +21,7 @@ export const recipe = [
 		name: "Hydrocholoric acid",
 		compoundPic: "hydrochloric-acid.png",
 		elements: ["H", "Cl"],
-		formula: "HCl",
+		formula: `"(HCl)"`,
 		moleWeight: "36.458 g/mol",
 		description: [
 			"Hydrochloric acid is an inorganic chemical. It is a strong corrosive acid with a chemical formula HCl. It is also known as hydrogen chloride or muriatic acid.",

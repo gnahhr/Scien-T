@@ -1,50 +1,51 @@
 .container{
+    height: 90vh;
     display: grid;
     align-items: center;
-    margin-left: 120px;
-    
-    .selector{
-        justify-self: start;
-        margin-left: 190px;
-        padding: 0px;
-        float: left;
-        display: flex;
-        z-index: 101;
-        margin-bottom: 700px;
-        position: absolute;
-
-        button{
-            border: 5px solid #240E3F;
-            border-radius: 18px;
-            margin: 0 15px 0 0;
-            font-size: 20px;
-            width: fit-content;
-            height: fit-content;
-            padding: 8px 32px;
-        }
-
-        #electronConfig{
-            float: left;
-        }
-        
-        #intelliment{
-           
-            margin: 0px 0px 0px 0px;
-            float:right
-        }
-        
+    margin-left: 13vw;
 }
+
+.selector-wrapper {
+    margin-left: 13vw;
+    border-bottom: 5px solid #220B42;
+    width: 100%;
+}
+
+.selector{
+    justify-self: start;
+    display: flex;
+    z-index: 101;
+    margin-left: 4vw;
+    transform: translateY(50%);
+
+    button{
+        border: 5px solid #240E3F;
+        border-radius: 18px;
+        margin: 0 15px 0 0;
+        font-size: 20px;
+        width: fit-content;
+        min-height: 85px;
+        padding: 8px 32px;
+    }
+
+    #electronConfig{
+        float: left;
+    }
+    
+    #intelliment{
+        margin: 0px 0px 0px 0px;
+        float:right
+    }
 }
 
 .top-text{
-    margin-bottom: 520px;
-    position: absolute;
     background-color: #E8E8E8;
     border-style: none;
     border-radius: 10px;
     z-index: 99;
-    box-shadow: 0 4px 2px -2px black;
+    box-shadow: 0 4px 5px -2px black;
     padding: 20px;
+    transform: translateY(90%);
 
     h1{
         color: #0C004E;
@@ -60,7 +61,6 @@
     align-content: center;
     font-size: 50px;
     color: #220C41;
-    margin-top: 110px;
     padding: 50px;
 
     border: 10px solid #240E3F;
@@ -69,4 +69,14 @@
     width: 1000px;
     background: #E2D9E5;
     
+}
+
+.difficulty-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    button {
+        font-size: 1.5rem;
+        margin: 0;
+    }
 }
