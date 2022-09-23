@@ -9,6 +9,7 @@ import Choice from '../../Components/Choice';
 import ElementQuestion from '../../Components/ElementQuestion';
 import TotalScore from '../../Components/TotalScore';
 import AnswerModal from '../../Components/AnswerModal';
+import SideNav from '../../Components/SideNav';
 
 //Data
 import { periodicTable } from '../../Data/PeriodicTableJSON';
@@ -28,6 +29,7 @@ const Intelliment = () => {
   const [ pickedDifficulty, setPickedDifficulty ] = useState(false);
   const [ questions, setQuestions ] = useState(sampleQuestions);
   const [ clickedAns, setClickedAns ] = useState("");
+  const [access, setAccess] = useState('');
   
   //Performance States
   const [ score, setScore ] = useState(0);
@@ -250,6 +252,7 @@ const Intelliment = () => {
 
   return (
     <>
+      <SideNav />
       <div className="main-header">
         <h1>Intelliment</h1>
       </div>

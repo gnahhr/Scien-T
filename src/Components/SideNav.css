@@ -85,9 +85,6 @@
 .cat-active {
   background-color: rgba(158, 138, 187, 0.8);
 }
-.category-header h2 {
-  margin: 0;
-  font-size: 2rem;
 
 .footer {
   margin: auto auto 2rem;

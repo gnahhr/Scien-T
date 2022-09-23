@@ -1,39 +1,41 @@
 .container{
+    height: 90vh;
     display: grid;
     align-items: center;
-    margin-left: 120px;
-    
-    .selector{
-        justify-self: start;
-        margin-left: 190px;
-        padding: 0px;
-        float: left;
-        display: flex;
-        z-index: 101;
-        margin-bottom: 700px;
-        position: absolute;
-
-        button{
-            border: 5px solid #240E3F;
-            border-radius: 18px;
-            margin: 0 15px 0 0;
-            font-size: 20px;
-            width: fit-content;
-            height: fit-content;
-            padding: 8px 32px;
-        }
-
-        #electronConfig{
-            float: left;
-        }
-        
-        #intelliment{
-           
-            margin: 0px 0px 0px 0px;
-            float:right
-        }
-        
+    margin-left: 13vw;
 }
+
+.selector-wrapper {
+    margin-left: 13vw;
+    border-bottom: 5px solid #220B42;
+    width: 100%;
+}
+
+.selector{
+    justify-self: start;
+    display: flex;
+    z-index: 101;
+    margin-left: 4vw;
+    transform: translateY(50%);
+
+    button{
+        border: 5px solid #240E3F;
+        border-radius: 18px;
+        margin: 0 15px 0 0;
+        font-size: 20px;
+        width: fit-content;
+        min-height: 85px;
+        padding: 8px 32px;
+    }
+
+    #electronConfig{
+        float: left;
+    }
+    
+    #intelliment{
+        margin: 0px 0px 0px 0px;
+        float:right
+    }
 }
 
 .top-text{

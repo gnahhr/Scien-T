@@ -40,7 +40,6 @@
 #discover-list h2 {
   margin-top: 2rem;
   margin-bottom: 1rem;
-  position: -webkit-sticky;
   position: sticky;
 }
 #discover-list .known-elem {

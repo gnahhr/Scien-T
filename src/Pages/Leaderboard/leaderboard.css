@@ -1,35 +1,36 @@
 .container {
+  height: 90vh;
   display: grid;
   align-items: center;
-  margin-left: 120px;
+  margin-left: 13vw;
 }
-.container .selector {
+
+.selector-wrapper {
+  margin-left: 13vw;
+  border-bottom: 5px solid #220B42;
+  width: 100%;
+}
+
+.selector {
   justify-self: start;
-  margin-left: 190px;
-  padding: 0px;
-  float: left;
   display: flex;
   z-index: 101;
-  margin-bottom: 700px;
-  position: absolute;
+  margin-left: 4vw;
+  transform: translateY(50%);
 }
-.container .selector button {
+.selector button {
   border: 5px solid #240E3F;
   border-radius: 18px;
   margin: 0 15px 0 0;
   font-size: 20px;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
-  height: fit-content;
+  min-height: 85px;
   padding: 8px 32px;
 }
-.container .selector #electronConfig {
+.selector #electronConfig {
   float: left;
 }
-.container .selector #intelliment {
+.selector #intelliment {
   margin: 0px 0px 0px 0px;
   float: right;
 }

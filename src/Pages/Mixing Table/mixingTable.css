@@ -22,27 +22,6 @@
 .icons-wrapper {
   display: flex;
   justify-content: flex-end;
-}
-.icons-wrapper .icon {
-  background-color: #FBB500;
-  width: -webkit-max-content;
-  width: -moz-max-content;
-  width: max-content;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
-  align-self: flex-end;
-  border-radius: 5px;
-  padding: 0.5rem;
-  display: grid;
-  align-content: center;
-  margin: 0 0.5rem;
-}
-.icons-wrapper .icon img {
-  height: 1rem;
-}
-.icons-wrapper .icon:hover {
-  background-color: #ffffff;
   align-self: flex-end;
   margin-right: 1rem;
 }

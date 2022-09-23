@@ -19,6 +19,7 @@ import DiscoverList from '../../Components/DiscoverList.jsx';
 import CompoundModal from '../../Components/CompoundModal.jsx';
 import DiscoverModal from '../../Components/DiscoverModal.jsx';
 import Toast from '../../Components/Toast.jsx';
+import SideNav from '../../Components/SideNav.jsx';
 
 //Design
 import "./mixingTable.css";
@@ -236,6 +237,7 @@ const mixingTable = () => {
                 showToast={setShowToast}
                 toastState={showToast}/>
       </div>
+      <SideNav />
     </>
   )
 }

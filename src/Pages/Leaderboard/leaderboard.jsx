@@ -7,6 +7,7 @@ import getElectronConfigRankings from '../../Hooks/getElectronConfigRankings'
 
 import IntellimentRankings from '../../Components/IntellimentRankings'
 import ElectronConfigRankings from  '../../Components/ElectronConfigRankings'
+import SideNav from '../../Components/SideNav'
 
 const leaderboard = () => {
   const [ rankings, setRankings] = useState([])
@@ -57,21 +58,21 @@ const leaderboard = () => {
   }
 
   return (
-    <div className = "container">
-      <div className="selector">
-      <div id="intelliment"><button style={{backgroundColor: showIntelliment ? "#008773":"#F1F1F1"}} onClick={() => {toggleIntelliment()}}> Intelliment </button> </div>
-        <div id="electronConfig"><button style={{backgroundColor: showElectronConfig ? "#008773":"#F1F1F1"}} onClick={() => {toggleElectronConfig()}}>Electron <br></br>Configuration</button> </div>
-        
+    <>
+      <SideNav />
+      <div className="selector-wrapper">
+        <div className="selector">
+            <div id="intelliment"><button style={{backgroundColor: showIntelliment ? "#008773":"#F1F1F1"}} onClick={() => {toggleIntelliment()}}> Intelliment </button> </div>
+            <div id="electronConfig"><button style={{backgroundColor: showElectronConfig ? "#008773":"#F1F1F1"}} onClick={() => {toggleElectronConfig()}}>Electron <br></br>Configuration</button> </div>
+        </div>
       </div>
-      <div className="top-text"><h1>Leaderboard</h1></div>
-
-      <div className="ranking-container">
-        {showIntelliment ? <IntellimentRankings rankings={rankings}/> : <ElectronConfigRankings rankings={rankings}/>}
-        
-
+      <div className = "container">
+        <div className="top-text"><h1>Leaderboard</h1></div>
+        <div className="ranking-container">
+          {showIntelliment ? <IntellimentRankings rankings={rankings}/> : <ElectronConfigRankings rankings={rankings}/>}
+        </div>
       </div>
-
-    </div>
+    </>
   )
 }
 

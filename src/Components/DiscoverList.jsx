@@ -17,7 +17,7 @@ const DiscoverList = ({knownCompound, showDiscover, discoverState, selectedCompo
             <h2>Discover List</h2>
         </div>
         <div className="elements">
-            {knownCompound.length > 0 ? knownCompound.map((element) => <div className="known-elem" key={element.name} onClick={() => selected(element)}>{element.name}</div>) : <div>"Find it Jonathan"</div>}
+            {knownCompound.length > 0 ? knownCompound.map((element) => <div className="known-elem" key={element.name} onClick={() => selected(element)}>{element.name}</div>) : <div>"Discovered compounds will be found here."</div>}
         </div>
     </div>
   )
