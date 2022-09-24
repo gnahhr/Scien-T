@@ -18,5 +18,7 @@
 }
 .electron-config button {
   padding: 0.5rem 5rem;
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
 }

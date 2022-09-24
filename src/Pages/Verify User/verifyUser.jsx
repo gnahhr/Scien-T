@@ -5,6 +5,8 @@ import jwt_decode from "jwt-decode"
 
 import './verifyUser.css'
 
+import fingerprint from "../../Assets/Images/fingerprint.png"
+
 
 const verifyUser = (event) => {
   const navigate = useNavigate()
@@ -59,7 +61,11 @@ const verifyUser = (event) => {
 
   return (
     <div className="container">
-        <h2>Enter the OTP sent to you to verify your email</h2>
+
+      <div className="fingerprint"><img src={fingerprint} width={200}/></div>
+      <h1 className="header-text"> OTP Verification </h1>
+        <h2>Enter the OTP code sent to your email</h2>
+        <div className="wrapper">
         <div className="otp-container">
         {OTP.map((data, index) => {
           return (
@@ -77,8 +83,11 @@ const verifyUser = (event) => {
           })}
           </div> 
         
-          <button className="btn" onClick={e => setOTP([...OTP.map(v => "")])} >Clear</button>
-          <button className="btn" onClick={() => verify(OTP)}>Verify OTP</button>
+          <div className='btn-wrapper'>
+            <button onClick={e => setOTP([...OTP.map(v => "")])} >Clear</button>
+            <button onClick={() => verify(OTP)}>Verify OTP</button>
+          </div>
+        </div>
         
     </div>
   )

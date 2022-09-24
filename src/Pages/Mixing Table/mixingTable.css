@@ -70,6 +70,8 @@
   color: white;
 }
 .mixing-table .cta {
+  height: -webkit-max-content;
+  height: -moz-max-content;
   height: max-content;
   font-size: 1.4rem;
   color: #0C004E;

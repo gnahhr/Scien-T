@@ -7,8 +7,6 @@
 
 html {
   background: rgb(72, 20, 156);
-  background: -moz-linear-gradient(129deg, rgb(72, 20, 156) 0%, rgb(72, 20, 156) 14%, rgb(255, 179, 179) 100%);
-  background: -webkit-linear-gradient(129deg, rgb(72, 20, 156) 0%, rgb(72, 20, 156) 14%, rgb(255, 179, 179) 100%);
   background: linear-gradient(129deg, rgb(72, 20, 156) 0%, rgb(72, 20, 156) 14%, rgb(255, 179, 179) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#48149c",endColorstr="#ffb3b3",GradientType=1);
   background-repeat: no-repeat;
@@ -19,6 +17,8 @@ html {
 }
 
 button, .button {
+  max-width: -webkit-max-content;
+  max-width: -moz-max-content;
   max-width: max-content;
   text-align: center;
   padding: 0.5rem 3rem;
@@ -154,7 +154,11 @@ h2 {
 
 .icon {
   background-color: #FBB500;
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
+  height: -webkit-max-content;
+  height: -moz-max-content;
   height: max-content;
   align-self: flex-end;
   border-radius: 5px;
