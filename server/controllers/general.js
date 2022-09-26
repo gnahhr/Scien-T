@@ -12,16 +12,14 @@ const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhf
 
 //post user prog mixing table
 exports.mixElements = async (req, res, next) => {
-    var ObjectId = require('mongoose').Types.ObjectId;
-    const access = req.body.access
-    const _id = new ObjectId (access)
+    // var ObjectId = require('mongoose').Types.ObjectId;
+    // const access = req.body.access
+    // const _id = new ObjectId (access)
     
-
     const mixed = req.body.element
     console.log(mixed)
-
-    const pushProg = await UserData.findByIdAndUpdate({_id},{
-        $push: {mixingElements: mixed}
+    const pushProg = await UserData.findOneAndUpdate({username: "josh"},{
+        $push: {mixingElements: {$each: [...mixed]}}
     })
 
     if(pushProg){

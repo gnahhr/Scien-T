@@ -136,7 +136,13 @@ const mixingTable = () => {
       
       //Just show modal if newly discovered
       if (!checkCompounds(mixed, knownCompound)) {
-        pushMixElems(...mixed, access);
+        // pushMixElems(...mixed, access);
+        // mixed.map((mixed)=>{
+        //   console.log(mixed.name)
+        // })
+        // pushMixElems(...mixed.map((comp) => comp.name), access);
+        const element = mixed.map((comp) => comp.name)
+        pushMixElems(element, access);
         setNewDiscover(mixed);
         setShowNew(true); 
       } else {
