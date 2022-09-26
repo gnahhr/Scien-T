@@ -11,7 +11,6 @@ export default async function getIntellimentRankings(difficulty){
 
     console.log(data.rankings)
     if(data.status === 'ok'){
-        console.log('here')
         return data.rankings
     }
     else{

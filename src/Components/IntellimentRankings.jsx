@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect }  from 'react'
+import jwtDecode from "jwt-decode"
 
 import rank1 from "../Assets/Images/rank1.png"
 import rank2 from "../Assets/Images/rank2.png"
@@ -7,20 +8,39 @@ import rank3 from "../Assets/Images/rank3.png"
 import "./IntellimentRankings.css"
 
 const IntellimentRankings = ({rankings}) => {
+  const [ username, setUsername] = useState('');
+  const [ index, setIndex] = useState()
 
-    const titleHolders = (index) => {
-        if(index === 0){
-          return rank1
-        }
-        else if(index === 1){
-          return rank2
-        }
+  useEffect(()=>{
+    const token = localStorage.getItem('token')
+    const user = jwtDecode(token)
+    setUsername(user.username)
+    setIndex(rankings.findIndex(x => x.username === user.username))
+  })
+
+
+  const titleHolders = (index) => {
+    if(index === 0){
+      return rank1
+      }
+      else if(index === 1){
+        return rank2
+      }
     
-        else{
-          return rank3
-        }
-    }
+      else{
+        return rank3
+      }
+  }
 
+
+  const getPoints = (index) => {
+    return rankings.map((rankings, i)=>{
+      if(i === index){
+        return rankings.points
+      }
+    })
+  }
+//{index + 1}  {username}  {getPoints(index)} call out mo nalang itey para sa rank ng current user
   return (
     <div className="wrapper"> 
       <table className="ranking-list">
@@ -38,6 +58,11 @@ const IntellimentRankings = ({rankings}) => {
             </tr>
           )
         })}
+        {/* <tr className="user-rank">
+          <td>{index + 1}</td>
+          <td>{username}</td>
+          <td>{getPoints(index)}</td>
+        </tr> */}
       </table>
     </div>
   )

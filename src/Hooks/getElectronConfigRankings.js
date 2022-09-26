@@ -10,7 +10,6 @@ export default async function getElectronConfigRankings(){
     const data = await response.json()
 
     if(data.status === 'ok'){
-        console.log('here')
         return data.rankings
     }
     else{
