@@ -226,7 +226,6 @@ exports.getIntellimentRankings = async (req, res, next) => {//rankings for intel
             res.json({status:'error', error:'error'})
     }
 
-//    res.json({status:'ok', rankings: getRankings})
 }
 
 exports.getElectronConfigRankings = async (req, res, next) => {
@@ -239,6 +238,36 @@ exports.getElectronConfigRankings = async (req, res, next) => {
         res.json({status:'error', error:'error'})
 }
 
+exports.getIntellimentData = async(req, res, next) => {
+    var ObjectId = require('mongoose').Types.ObjectId;
+    const access = req.params['access']
+    const _id = new ObjectId (access)
+
+    const difficulty = req.params['difficulty']
+
+    if(difficulty === "easy"){
+        const data = await UserData.findById({_id},{intellimentEasy:1})
+        res.json({data: data.intellimentEasy})
+    }
+
+    else if(difficulty === "normal"){
+        const data = await UserData.findById({_id},{intellimentNormal:1})
+        res.json({data: data.intellimentNormal})
+    }
+
+    else if(difficulty === "hard"){
+        const data = await UserData.findById({_id},{intellimentHard:1})
+        res.json({data: data.intellimentHard})
+    }
+
+    else if(difficulty === "hardcore"){
+        const data = await UserData.findById({_id},{intellimentHardcore:1})
+        res.json({data: data.intellimentHardcore})
+    }
+    // const data = await UserData.findById({_id},{intellimentEasy:1})
+    // console.log(data)
+    // res.json({data: data.intellimentEasy})
+}
 
 
 
