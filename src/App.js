@@ -26,7 +26,7 @@ import SideNav from './Components/SideNav';
 import Leaderboard from './Pages/Leaderboard/leaderboard';
 import MainPage from './Pages/Main Page/mainPage';
 import PeriodicTable from './Pages/Periodic Table/periodicTable';
-
+import UserProfile from './Pages/User Profile/userProfile'
 
 function App() {
   const [ user, setUser ] = useState(localStorage.token ? localStorage.token : null); //true
@@ -57,6 +57,7 @@ function App() {
             <Route path="leaderboard" element={<Leaderboard />}/>
             {/* Placeholder for default logged in page */}
             <Route path="*" element={<MixingTable />}/> 
+            <Route path="/profile" element={<UserProfile/>}/>
           </Routes>
           {/* <SideNav /> */}
         </>}
