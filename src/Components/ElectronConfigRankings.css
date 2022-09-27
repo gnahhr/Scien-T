@@ -1,10 +1,10 @@
 .wrapper {
   overflow: auto;
-  max-height: 500px;
-  max-width: fit-content;
 }
 .wrapper .ranking-list {
   border-collapse: collapse;
+  background-color: #E2D9E5;
+  width: 100%;
 }
 .wrapper .ranking-list .table-header {
   position: sticky;
@@ -18,12 +18,16 @@
   background-color: #FFFFFF;
   border: 15px solid #E2D9E5;
   border-radius: 100px;
-  height: 5px;
+  text-align: center;
 }
 .wrapper .ranking-list .output-rankings img {
   padding-top: 10px;
 }
 .wrapper .ranking-list .output-rankings td {
-  font-size: 25px;
+  font-size: 2rem;
   padding: 0 100px 0 100px;
+}
+
+.rank-wrap {
+  width: 100%;
 }

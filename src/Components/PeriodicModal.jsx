@@ -5,7 +5,6 @@ import ElemColors from '../Data/ElemColors.js';
 
 const PeriodicModal = ({data, showModal}) => {
   const { familyBGs } = ElemColors;
-  console.log(familyBGs[data.category]);
 
   return (
     <div className="periodic-modal">

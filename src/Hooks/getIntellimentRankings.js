@@ -9,7 +9,7 @@ export default async function getIntellimentRankings(difficulty){
 
     const data = await response.json()
 
-    console.log(data.rankings)
+    // console.log(data.rankings)
     if(data.status === 'ok'){
         return data.rankings
     }

@@ -7,6 +7,5 @@ export default async function getIntellimentData(access, difficulty){
           }
       })
       const data = await response.json()
-      console.log(data.data)
       return data.data
 }

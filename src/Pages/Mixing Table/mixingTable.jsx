@@ -144,7 +144,8 @@ const mixingTable = () => {
         //   console.log(mixed.name)
         // })
         // pushMixElems(...mixed.map((comp) => comp.name), access);
-        const element = mixed.map((comp) => comp.name)
+        const element = mixed.map((comp) => comp.name);
+        console.log(element);
         pushMixElems(element, access);
         setNewDiscover(mixed);
         setShowNew(true); 

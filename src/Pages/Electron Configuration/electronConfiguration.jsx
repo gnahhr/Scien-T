@@ -1,13 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { periodicTable } from '../../Data/PeriodicTableJSON';
-import "./electronConfiguration.css";
 import jwt_decode from "jwt-decode";
+
+//Components
 import ElementQuestion from "../../Components/ElementQuestion.jsx";
 import Toast from '../../Components/Toast';
+import SideNav from '../../Components/SideNav';
+import ElectronFinish from '../../Components/ElectronFinish.jsx';
+
+//Hooks
 import pushProgEC from '../../Hooks/pushProgEC.js';
 import getUserProgEC from '../../Hooks/getUserProgEC.js';
-import SideNav from '../../Components/SideNav';
+
+//Data
+import { periodicTable } from '../../Data/PeriodicTableJSON';
+
+//Style
+import "./electronConfiguration.css";
+
 
 //Perodic Table
 //Electron Configuration Chart
@@ -117,6 +127,10 @@ const electronConfiguration = () => {
   return (
     <>
       <SideNav />
+      <div className="main-header">
+        <h1>Electron Configuration</h1>
+      </div>
+      {!finished ? 
       <div className="electron-config">
         <h1>{solved} out of 119</h1>
         {finished ? <h1>finished na</h1> : question && <><ElementQuestion data={
@@ -138,6 +152,8 @@ const electronConfiguration = () => {
                 showToast={setShowToast}
                 toastState={showToast}/></>}
       </div>
+      :
+      <ElectronFinish />}
     </>
   )
 }

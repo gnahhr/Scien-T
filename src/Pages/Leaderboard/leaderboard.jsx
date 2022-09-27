@@ -27,10 +27,12 @@ const leaderboard = () => {
   },[])
 
   useEffect(()=>{
-    (async () => {
-      const data = await getIntellimentRankings(difficulty);
-      setRankings(data);
-    })()
+    if (difficulty !== "") {
+      (async () => {
+        const data = await getIntellimentRankings(difficulty);
+        setRankings(data);
+      })()
+    }
   },[difficulty])
 
 
@@ -48,7 +50,6 @@ const leaderboard = () => {
         setShowElectronConfig(!showElectronConfig)
       }
     }
-
     else{
       return
     }
@@ -86,8 +87,8 @@ const leaderboard = () => {
         </div>
       </div>
       <div className = "container">
-        <div className="top-text"><h1>Leaderboard</h1></div>
         <div className="ranking-container">
+          <div className="top-text"><h1>Leaderboard</h1></div>
           {showIntelliment ? <IntellimentRankings rankings={rankings}/> : <ElectronConfigRankings rankings={rankings}/>}
         </div>
 

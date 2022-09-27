@@ -32,6 +32,12 @@
 .user p {
   margin: 0.5rem;
 }
+.user a {
+  color: white;
+}
+.user a:hover {
+  color: #DE9F00;
+}
 
 .category {
   display: flex;
@@ -71,6 +77,9 @@
   text-decoration: none;
   padding: 0 0.5rem;
   color: white;
+}
+.category ul li a:hover {
+  color: #DE9F00;
 }
 .category ul li:has(.active) {
   background-color: rgba(0, 0, 0, 0.5);

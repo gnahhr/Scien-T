@@ -19,7 +19,7 @@ const mainPage = () => {
             <img src={logo} alt="logo" />
             <div className="user-nav">
                 <div className="greeting">
-                    Hi, user!
+                    Hi, {localStorage.getItem("username")}!
                 </div>
                 <div className="user-pic">
                     <img src={user} alt="user" />

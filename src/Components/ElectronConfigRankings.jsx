@@ -5,7 +5,7 @@ import rank1 from "../Assets/Images/rank1.png";
 import rank2 from "../Assets/Images/rank2.png";
 import rank3 from "../Assets/Images/rank3.png";
 
-import "./ElectronConfigRankings.css"
+import "./IntellimentRankings"
 
 
 const ElectronConfigRankings = ({rankings}) => {
@@ -41,22 +41,26 @@ const getPoints = (index) => {
 }
 //{index + 1}  {username}  {getPoints(index)} call out mo nalang itey para sa rank ng current user
 return (
-<div className="wrapper">
+<div className="wrapper rank-wrap">
     <table className="ranking-list">
-      <tr className="table-header">
-        <th>Rank</th>
-        <th>Name</th>
-        <th>Total Score</th>
-      </tr>
-      {rankings.map((rankings,index) => {
-        return(
-          <tr key={rankings.username} className="output-rankings">
-            {index < 3 ? <td className="rank"><img src={titleHolders(index)} alt="medal" width={40}/></td> : <td>{index+1}</td>}
-            <td>{rankings.username}</td>
-            <td>{rankings.points}</td>
-          </tr>
-        )
-      })}
+      <thead>
+        <tr className="table-header">
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Total Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        {rankings.map((rankings,index) => {
+          return(
+            <tr key={rankings.username} className="output-rankings">
+              {index < 3 ? <td className="rank"><img src={titleHolders(index)} alt="medal" width={40}/></td> : <td>{index+1}</td>}
+              <td>{rankings.username}</td>
+              <td>{rankings.points}</td>
+            </tr>
+          )
+        })}
+      </tbody>
       {/* <tr className="user-rank">
         <td>{index + 1}</td>
         <td>{username}</td>

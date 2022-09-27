@@ -6,7 +6,7 @@ import { periodicTable } from '../../Data/PeriodicTableJSON';
 import { TriviasData } from '../../Data/Trivias';
 import { useEffect } from 'react';
 
-const Trivias = () => {
+const Trivias = ({data}) => {
   const [ curTrivia, setCurTrivia ] = useState(TriviasData[0]);
   const [ search, setSearch ] = useState("");
   const [ filtSearch, setFiltSearch ] = useState([]);

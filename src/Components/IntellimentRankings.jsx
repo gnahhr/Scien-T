@@ -16,7 +16,7 @@ const IntellimentRankings = ({rankings}) => {
     const user = jwtDecode(token)
     setUsername(user.username)
     setIndex(rankings.findIndex(x => x.username === user.username))
-  })
+  }, [])
 
 
   const titleHolders = (index) => {
@@ -44,20 +44,24 @@ const IntellimentRankings = ({rankings}) => {
   return (
     <div className="wrapper rank-wrap"> 
       <table className="ranking-list">
-        <tr className="table-header">
-          <th>Rank</th>
-          <th>Name</th>
-          <th>Total Score</th>
-        </tr>
+        <thead>
+          <tr className="table-header">
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Total Score</th>
+          </tr>
+        </thead>
+        <tbody>
         {rankings.map((rankings,index) => {
           return(
-            <tr key={rankings.username} className="output-rankings">
-              {index < 3 ? <td className="rank"><img src={titleHolders(index)} alt="medal" width={40}/></td> : <td>{index+1}</td>}
-              <td>{rankings.username}</td> 
-              <td>{rankings.points}</td>
-            </tr>
+              <tr key={rankings.username} className="output-rankings">
+                {index < 3 ? <td className="rank"><img src={titleHolders(index)} alt="medal" width={40}/></td> : <td>{index+1}</td>}
+                <td>{rankings.username}</td> 
+                <td>{rankings.points}</td>
+              </tr>
           )
         })}
+        </tbody>
         {/* <tr className="user-rank">
           <td>{index + 1}</td>
           <td>{username}</td>

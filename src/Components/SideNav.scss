@@ -36,6 +36,15 @@
     p {
         margin: .5rem;
     }
+
+    a {
+        color: white;
+    }
+
+    a:hover {
+        color: #DE9F00;
+    }
+
 }
 .category {
     display: flex;
@@ -81,6 +90,9 @@
                 text-decoration: none;
                 padding: 0 .5rem;
                 color: white;
+            }
+            a:hover {
+                color: #DE9F00;
             }
         }
 

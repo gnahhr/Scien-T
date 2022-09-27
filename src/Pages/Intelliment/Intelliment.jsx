@@ -115,24 +115,24 @@ const Intelliment = ({mode}) => {
     }
   }, [step])
 
-  useEffect(() => {
-    if (pickedDifficulty){
-      if (timer === 0) {
-        selectAns("");
-        // prepToast("Time's up!", "warning");
-        prepToast("wrong", 0);
-        setTimer(10)
-      }
-
-      if (answered) {
-        setTimer(10);
-      }
+  // useEffect(() => {
+  //   if (pickedDifficulty){
+  //     if (answered) {
+  //       setTimer(10);
+  //     }
+      
+  //     if (timer === 0) {
+  //       selectAns("");
+  //       // prepToast("Time's up!", "warning");
+  //       prepToast("wrong", 0);
+  //       setTimer(10)
+  //     }
           
-      setTimeout(() => setTimer(timer-1), 1000)
-    }
+  //     setTimeout(() => setTimer(timer-1), 1000)
+  //   }
     
     
-  }, [timer, answered, pickedDifficulty])
+  // }, [timer, answered, pickedDifficulty])
 
   useEffect(() => {
     if (multiplier < 5) {

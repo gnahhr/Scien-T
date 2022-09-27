@@ -61,7 +61,7 @@ function App() {
             <Route path="/leaderboard" element={<Leaderboard />}/>
             {/* Placeholder for default logged in page */}
             <Route path="*" element={<MixingTable />}/> 
-            <Route path="/profile" element={<UserProfile/>}/>
+            <Route path="/progress" element={<UserProfile/>}/>
           </Routes>
           {/* <SideNav /> */}
         </>}

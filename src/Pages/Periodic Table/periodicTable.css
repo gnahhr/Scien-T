@@ -3,7 +3,3 @@
   z-index: 5;
   transition: opacity 500ms ease;
 }
-
-.main-wrapper {
-  overflow-x: hidden;
-}

@@ -1,15 +1,12 @@
-.rank-wrap{
-    max-height: 500px;
-    min-width: 90%;
-}
-
 .wrapper{
     overflow: auto;
 
     .ranking-list {
-        border-collapse: collapse;
+        border-collapse: separate;
+        border-spacing: 0 1rem;
         background-color: #E2D9E5;
         width: 100%;
+        padding: 1rem 5rem;
         
         .table-header{
             position: sticky;
@@ -22,18 +19,33 @@
     
         .output-rankings{
             background-color: #FFFFFF;
-            border: 15px solid #E2D9E5;
-            border-radius: 100px;
+            border: 10px solid #E2D9E5;
+            border-radius: 200px;
             text-align: center;
 
             img{
+                width: 48px;
                 padding-top: 10px;
             }
 
             td{
                 font-size: 2rem;
-                padding: 0 100px 0 100px;
+                width: 33%;
             }
         }
     }
+}
+
+tr td:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    
+}
+tr td:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.rank-wrap {
+    width: 100%;
 }
