@@ -1,16 +1,15 @@
 :root {
-  --navHeight: 7vh;
+  --navHeight: 8vh;
 }
 
 #discover-list {
   position: fixed;
   display: flex;
-  margin-top: var(--navHeight);
   flex-direction: column;
   top: 0;
   right: 0;
   width: 20vw;
-  height: calc(100vh - var(--navHeight));
+  height: 100vh;
   padding: 0 1rem;
   background-color: rgb(0, 0, 0);
   z-index: 5;
@@ -40,7 +39,6 @@
 #discover-list h2 {
   margin-top: 2rem;
   margin-bottom: 1rem;
-  position: -webkit-sticky;
   position: sticky;
 }
 #discover-list .known-elem {

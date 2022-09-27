@@ -45,22 +45,18 @@ const electronConfiguration = () => {
         (async () => {
           const progress = await getUserProgEC(user.id);
           setUserProgress(progress);
+          setSolved(progress.length)
         })()
-        // console.log(userProgress)
-        // checkProgress(userProgress,5)
-        
       }
     }
   }, [])
 
   useEffect (() => {
-    setSolved(userProgress.length)
     if(!checkProgress(userProgress, 119)){
       setIndex(randomNumberGenerator(userProgress, 119));
     } else {
       setFinished(true);
     }
-
   }, [userProgress])
 
   useEffect (() => {
@@ -117,7 +113,6 @@ const electronConfiguration = () => {
     setToastMsg(message);
     setShowToast(true);
   }
-
 
   return (
     <>

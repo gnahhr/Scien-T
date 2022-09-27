@@ -1,0 +1,73 @@
+.periodic-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.periodic-modal .wrapper {
+  color: #220C41;
+  border: 10px solid #240E3F;
+  border-radius: 18px;
+  background: #E2D9E5;
+  min-width: 40vw;
+  min-height: 50vh;
+  margin-left: 15vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.periodic-modal .wrapper h2 {
+  margin-top: 2rem;
+  text-align: center;
+  color: #220C41;
+}
+.periodic-modal .wrapper .exit {
+  align-self: flex-end;
+  padding: 0.2rem;
+  width: 1rem;
+  text-align: center;
+  height: 1rem;
+  border: 2px solid black;
+  border-radius: 50%;
+  margin: 1rem 1rem 0 0;
+}
+.periodic-modal .wrapper .exit:hover {
+  color: #FF0000;
+  border: 2px solid #FF0000;
+  cursor: pointer;
+}
+.periodic-modal .wrapper .element-wrapper {
+  width: 80%;
+  padding: 3rem auto;
+}
+.periodic-modal .wrapper .element-wrapper .atomic-num {
+  font-size: 2rem;
+}
+.periodic-modal .wrapper .element-wrapper .element-sym {
+  font-size: 4rem;
+}
+.periodic-modal .wrapper .element-wrapper .element-name {
+  font-size: 2rem;
+}
+.periodic-modal .wrapper .description-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(5, 1fr);
+  width: 80%;
+}
+.periodic-modal .wrapper .description-wrapper .right-desc {
+  justify-self: end;
+}
+.periodic-modal .wrapper .bohr-img img {
+  width: 150px;
+  border-radius: 25px;
+}
+.periodic-modal .wrapper .summary {
+  margin: auto 4rem;
+}

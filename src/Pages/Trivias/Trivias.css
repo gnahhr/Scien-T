@@ -1,0 +1,58 @@
+.Trivias {
+  margin-left: 15vw;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.Trivias .search-wrapper {
+  position: absolute;
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.Trivias .search-wrapper .search {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  margin: 4rem auto 0 auto;
+  width: 70%;
+}
+.Trivias .search-wrapper .search input::placeholder {
+  color: white;
+}
+.Trivias .search-wrapper .search button {
+  font-size: 1rem;
+  padding: 0.3rem 1rem;
+  margin: 0.5rem 1rem;
+}
+.Trivias .search-wrapper .filt-data-wrapper {
+  margin-left: 15%;
+  margin-top: -10px;
+  align-self: flex-start;
+  background-color: rgb(255, 255, 255);
+  width: 51%;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: auto 1rem;
+  float: left;
+}
+.Trivias .search-wrapper .filt-data-wrapper .filt-data {
+  padding: 0 1rem;
+}
+.Trivias .search-wrapper .filt-data-wrapper .filt-data:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  cursor: pointer;
+}
+.Trivias .Trivia {
+  width: 80%;
+  height: 60%;
+  margin: 5rem auto;
+}
+.Trivias .Trivia .wrapper {
+  margin-top: 4rem;
+}

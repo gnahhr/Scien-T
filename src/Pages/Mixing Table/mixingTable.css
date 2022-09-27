@@ -69,9 +69,11 @@
   background-color: rgba(98, 26, 124, 0.8);
   color: white;
 }
+.mixing-table .element:hover {
+  background-color: #D34646;
+  cursor: pointer;
+}
 .mixing-table .cta {
-  height: -webkit-max-content;
-  height: -moz-max-content;
   height: max-content;
   font-size: 1.4rem;
   color: #0C004E;

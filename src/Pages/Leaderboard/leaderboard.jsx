@@ -38,7 +38,8 @@ const leaderboard = () => {
   const toggleIntelliment = () => {
     if(showIntelliment === false){
       (async () => {
-        const data = await getIntellimentRankings(difficulty);
+        const data = await getIntellimentRankings("easy");
+        setDifficulty("easy");
         setRankings(data);
       })()
 
@@ -62,11 +63,11 @@ const leaderboard = () => {
       (async () => {
         const data = await getElectronConfigRankings();
         setRankings(data);
-        console.log(data[0].electronConfiguration)
       })()
       setShowElectronConfig(!showElectronConfig)
       if(showIntelliment){
-        setShowIntelliment(!showIntelliment)
+        setShowIntelliment(!showIntelliment);
+        setDifficulty("");
     }
     }
 
@@ -89,18 +90,17 @@ const leaderboard = () => {
         <div className="ranking-container">
           {showIntelliment ? <IntellimentRankings rankings={rankings}/> : <ElectronConfigRankings rankings={rankings}/>}
         </div>
-        {showIntelliment &&
-          <div className="difficulty-wrapper">
-            <button className={difficulty === "easy" ? "active-diff" : ""}
-                    onClick={() => toggleDifficulty("easy")}>Easy</button>
-            <button className={difficulty === "normal" ? "active-diff" : ""}
-                    onClick={() => toggleDifficulty("normal")}>Normal</button>
-            <button className={difficulty === "hard" ? "active-diff" : ""}
-                    onClick={() => toggleDifficulty("hard")}>Hard</button>
-            <button className={difficulty === "hardcore" ? "active-diff" : ""}
-                    onClick={() => toggleDifficulty("hardcore")}>Hardcore</button>
-          </div>
-        }
+
+        <div className="difficulty-wrapper">
+          <button className={difficulty === "easy" ? "active-diff" : "" || showIntelliment ? "" : "hidden-button"}
+                  onClick={() => toggleDifficulty("easy")}>Easy</button>
+          <button className={difficulty === "normal" ? "active-diff" : ""  || showIntelliment ? "" : "hidden-button"}
+                  onClick={() => toggleDifficulty("normal")}>Normal</button>
+          <button className={difficulty === "hard" ? "active-diff" : ""  || showIntelliment ? "" : "hidden-button"}
+                  onClick={() => toggleDifficulty("hard")}>Hard</button>
+          <button className={difficulty === "hardcore" ? "active-diff" : ""  || showIntelliment ? "" : "hidden-button"}
+                  onClick={() => toggleDifficulty("hardcore")}>Hardcore</button>
+        </div>
         
       </div>
     </>

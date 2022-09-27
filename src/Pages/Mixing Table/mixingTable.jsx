@@ -79,14 +79,17 @@ const mixingTable = () => {
         setAccess(user.id);
         (async () => {
           const progress = await getUserProgME(user.id);
+          //Change Known Compound to get data from something
           setKnownCompound(progress);
+          getKnownCompound(progress);
         })();
       }
     }
   }, [])
 
-  useEffect(() => {
-  }, [music])
+  // useEffect(() => {
+  //   console.log(mixData);
+  // }, [mixData])
 
   //Function to format toast message
   const prepToast = (message, toastState) => {
@@ -183,7 +186,22 @@ const mixingTable = () => {
   	return flag;
   }
 
-  // //Start Music
+
+  //Extract data from JS File to sync progress
+  const getKnownCompound = (knownElems) => {
+    let knownData = knownElems.map((known) => {
+      let filtered = recipe.filter((data) => {
+        if(known === data.name){
+          return data;
+        }
+      });
+      return filtered[0];
+    });
+
+    setKnownCompound(knownData);
+  }
+
+ //Start Music
   const startMusic = (bgm) => {
   //   if (!initMusic) {
   //     bgm.current.play()
@@ -195,6 +213,11 @@ const mixingTable = () => {
   const toggleMusic = (bgm) => {
   //   music ? bgm.current.pause() : bgm.current.play();
   //   setMusic(!music);
+  }
+
+  const removeElement = (element) => { 
+    let newData = mixData.filter((cur) => cur !== element);
+    setMixData(newData);
   }
 
   return (
@@ -211,7 +234,7 @@ const mixingTable = () => {
         
           <div className="mixing-table">
             <div id="mixing-table" ref={drop}>
-                {mixData.length > 0 ? mixData.map(element => <div key={element} className="element">{element}</div>) : <h2>"Please drag elements here for mixing!"</h2>}
+                {mixData.length > 0 ? mixData.map(element => <div key={element} className="element" onClick={() => removeElement(element)}>{element}</div>) : <h2>"Please drag elements here for mixing!"</h2>}
             </div>
 
             <button className="cta" onClick={() => {mixElems(mixData);}}>Mix</button>

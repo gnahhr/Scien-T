@@ -73,6 +73,11 @@
     color: white;
   }
 
+  .element:hover {
+    background-color: #D34646;
+    cursor: pointer;
+  }
+
   .cta {
     height: max-content;
     font-size: 1.4rem;

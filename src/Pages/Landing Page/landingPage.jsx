@@ -11,7 +11,6 @@ import './landingPage.css';
 const landingPage = () => {
   const nav = useNavigate();
 
-
   return (
     <>
       <img src={Honeycomb} alt="honeycombs" className="honeycombs"/>

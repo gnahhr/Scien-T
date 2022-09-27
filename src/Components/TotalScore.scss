@@ -2,7 +2,7 @@
     display: grid;
     align-content: center;
     justify-items: center;
-    margin-top: 20vh;
+    margin: 20vh 20vw auto;
 
     .wrapper {
         background-color: rgba(0, 0, 0, .5);
@@ -11,7 +11,8 @@
         color: white;
 
         h2 {
-            margin: 2rem 0 1rem
+            margin: 2rem 0 1rem;
+            text-align: center;
         }
 
         .data-wrapper {
@@ -29,6 +30,8 @@
 
         button {
             text-align: center;
+            display:block;
+            margin: 2rem auto;
         }
 
         button:hover {

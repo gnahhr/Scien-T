@@ -42,7 +42,7 @@ const IntellimentRankings = ({rankings}) => {
   }
 //{index + 1}  {username}  {getPoints(index)} call out mo nalang itey para sa rank ng current user
   return (
-    <div className="wrapper"> 
+    <div className="wrapper rank-wrap"> 
       <table className="ranking-list">
         <tr className="table-header">
           <th>Rank</th>

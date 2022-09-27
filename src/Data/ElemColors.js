@@ -1,6 +1,7 @@
 const ElemColors = {
     familyBGs : {
         "diatomic nonmetal": "#A79F8E",
+        "polyatomic nonmetal": "#A79F8E",
         "noble gas": "#8999BE",
         "alkali metal": "#A2406D",
         "alkaline earth metal": "#A27571",
@@ -12,6 +13,7 @@ const ElemColors = {
     },
     familyBDs : {
         "diatomic nonmetal": "#B6C394",
+        "polyatomic nonmetal": "#B6C394",
         "noble gas": "#85B5D8",
         "alkali metal": "#CE5066",
         "alkaline earth metal": "#DCAF6B",

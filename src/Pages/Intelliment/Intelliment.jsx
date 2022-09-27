@@ -17,9 +17,10 @@ import { sampleQuestions } from '../../Data/SampleQuestion.js';
 
 //Styles
 import Music from '../../Assets/Images/music.svg';
+import ElemColors from '../../Data/ElemColors.js'
 import "./Intelliment.css";
 
-const Intelliment = () => {
+const Intelliment = ({mode}) => {
   //Push Progress
   const [ access, setAccess ] = useState('')
   const [ username, setUsername] = useState('')
@@ -41,6 +42,7 @@ const Intelliment = () => {
   const [ multiplier, setMultiplier ] = useState(1);
   const [ combo, setCombo ] = useState(0);
   const [ maxCombo, setMaxCombo ] = useState(0);
+  const [ highestMult, setHighestMult ] = useState(0);
 
   //Modal States
   const [ showModal, setShowModal ] = useState(false);
@@ -54,18 +56,7 @@ const Intelliment = () => {
     3: "atomicMass"
   }
 
-  const familyBGs = {
-    "diatomic nonmetal": "#A79F8E",
-    "noble gas": "#8999BE",
-    "alkali metal": "#A2406D",
-    "alkaline earh metal": "#A27571",
-    "transition metal": "#A96D88",
-    "post-transition metal": "#6797AF",
-    "metalloid": "#C16E77",
-    "actinide": "#9879BC",
-    "lanthanide": "#CE6F94",
-  };
-
+  const { familyBGs } = ElemColors;
 
   const guides = {
     0: "What is the group of the element?",
@@ -83,27 +74,44 @@ const Intelliment = () => {
   },[])
 
   useEffect(() => {
-    if(finished){
-      pushIntelliment(score, access, username, category)
+    if (mode === "game"){
+      if(finished){
+        pushIntelliment(score, access, username, category)
+      }
     }
   },[finished])
 
   useEffect(() => {
-    setQuestions(shuffleArray(generateQsDiff(pickedDifficulty)));
-    // generateQsCategory("noble gas");
-  }, [setPickedDifficulty])
+    if (mode === "game"){
+      setQuestions(shuffleArray(generateQsDiff(category)));
+    } else if (mode === "learn"){
+      setQuestions(shuffleArray(generateQsCategory(category)));
+    }
+  }, [pickedDifficulty])
 
   useEffect(() => {
-    if (step === 4) {
-      // Stops from going out of bounds
-      if (questions.length > nthQuestion+1) {
-        setNthQuestion(nthQuestion + 1);
-      } else {
-        setFinished(true);
+    if (mode === "game"){
+      if (step === 4) {
+        // Stops from going out of bounds
+        if (questions.length > nthQuestion+1) {
+          setNthQuestion(nthQuestion + 1);
+        } else {
+          setFinished(true);
+        }
+        // Resets the sequence
+        setStep(0);
       }
-
-      // Resets the sequence
-      setStep(0);
+    } else if (mode === "learn"){
+      if (step === 4) {
+        // Stops from going out of bounds
+        if (questions.length > nthQuestion+1) {
+          setNthQuestion(nthQuestion + 1);
+        } else {
+          setFinished(true);
+        }
+        // Resets the sequence
+        setStep(1);
+      }
     }
   }, [step])
 
@@ -138,6 +146,13 @@ const Intelliment = () => {
     }
   }, [combo])
 
+  useEffect(() => {
+    if (multiplier > highestMult) {
+      setHighestMult(multiplier);
+    }
+
+  }, [multiplier])
+
 
   //Function to format toast message
   const prepToast = (result, points) => {
@@ -147,9 +162,16 @@ const Intelliment = () => {
   }
 
   const setDifficulty = (difficulty) => {
-    setCategory(difficulty)
-    setQuestions(shuffleArray(generateQsDiff(difficulty)));
-    setPickedDifficulty(true);
+    if (mode === "game") {
+      setCategory(difficulty)
+      setQuestions(shuffleArray(generateQsDiff(difficulty)));
+      setPickedDifficulty(true);
+    } else if (mode === "learn"){
+      setCategory(difficulty);
+      setStep(1);
+      setQuestions(shuffleArray(generateQsCategory(difficulty)));
+      setPickedDifficulty(true);
+    }
   }
 
   //Verify Answer
@@ -196,7 +218,11 @@ const Intelliment = () => {
 
   const generateQsCategory = (selected) => {
     let totalQs = [];
-    periodicTable.filter((el) => selected === el.category).map((el) => {
+    periodicTable.filter((el) => {
+      if (selected === el.category) {
+        return el;
+      }
+    }).map((el) => {
       totalQs.push({
         "atomicNum": el.number,
         "elemSym": el.symbol,
@@ -208,7 +234,6 @@ const Intelliment = () => {
           
         ]
       });
-      
       return true;
     })
 
@@ -220,14 +245,19 @@ const Intelliment = () => {
   const generateChoices = (array, currElem) => {
     let choices = [], tempChoices = [];
     let temp;
-
     for(let x = 0; x < 4; x++){
-      tempChoices.push(currElem[phases[x]]);
-      for(let y = 0; y < 3; ){
-        temp = array[Math.floor(Math.random() * array.length)][phases[x]];
-        if (!verifyDupe(temp, tempChoices)) {
-          tempChoices.push(temp)
-          y++;
+      tempChoices.push(currElem[phases[x]])
+      if (mode === "learn" && x === 0) {
+        for(let y = 0; y < 3; y++){
+          tempChoices.push(currElem[phases[x]])
+        }
+      } else {
+        for(let y = 0; y < 3; ){
+          temp = array[Math.floor(Math.random() * array.length)][phases[x]];
+          if (!verifyDupe(temp, tempChoices)) {
+            tempChoices.push(temp)
+            y++;
+          }
         }
       }
       choices.push(shuffleArray(tempChoices));
@@ -263,13 +293,28 @@ const Intelliment = () => {
         <h1>Intelliment</h1>
       </div>
       <div id="intelliment">
-        {!pickedDifficulty &&
+        {(!pickedDifficulty && mode === "game") &&
           <div className="difficulty-chooser">
             <h2>Choose a difficulty:</h2>
             <button onClick={() => setDifficulty(30)}>Easy</button>
             <button onClick={() => setDifficulty(60)}>Medium</button>
             <button onClick={() => setDifficulty(90)}>Hard</button>
             <button onClick={() => setDifficulty(118)}>Hardcore</button>
+          </div>}
+
+        {(!pickedDifficulty && mode === "learn") &&
+          <div className="difficulty-chooser">
+            <h2>Choose a category</h2>
+            <button onClick={() => setDifficulty("diatomic nonmetal")}>Diatomic Nonmetals</button>
+            <button onClick={() => setDifficulty("polyatomic nonmetal")}>Polyatomic Nonmetals</button>
+            <button onClick={() => setDifficulty("noble gas")}>Noble Gases</button>
+            <button onClick={() => setDifficulty("alkali metal")}>Alkali Metals</button>
+            <button onClick={() => setDifficulty("alkaline earth metal")}>Alkaline Earth Metals</button>
+            <button onClick={() => setDifficulty("transition metal")}>Transition Metals</button>
+            <button onClick={() => setDifficulty("post-transition metal")}>Post-Transition Metals</button>
+            <button onClick={() => setDifficulty("metalloid")}>Metalloid</button>
+            <button onClick={() => setDifficulty("actinide")}>Actinide</button>
+            <button onClick={() => setDifficulty("lanthanide")}>Lanthanide</button>
           </div>}
         
         {(!finished && pickedDifficulty) &&
@@ -328,7 +373,7 @@ const Intelliment = () => {
                                 totalCorrect={numCorrect}
                                 totalScore={score}
                                 highestCombo={maxCombo}
-                                highestMultiplier={multiplier} />}
+                                highestMultiplier={highestMult} />}
       </div>
     </>
   )

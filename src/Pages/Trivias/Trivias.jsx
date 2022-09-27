@@ -1,0 +1,67 @@
+import React, {useState} from 'react';
+import './Trivias.css';
+import SideNav from '../../Components/SideNav.jsx';
+import Trivia from '../../Components/Trivia';
+import { periodicTable } from '../../Data/PeriodicTableJSON';
+import { TriviasData } from '../../Data/Trivias';
+import { useEffect } from 'react';
+
+const Trivias = () => {
+  const [ curTrivia, setCurTrivia ] = useState(TriviasData[0]);
+  const [ search, setSearch ] = useState("");
+  const [ filtSearch, setFiltSearch ] = useState([]);
+
+  useEffect(() => {
+    if (search === "") {
+      setFiltSearch([]);
+    } else {
+      setFiltSearch(TriviasData.filter((data) => {
+        if (data.name.toLowerCase().includes(search.toLowerCase())) {
+          return data;
+        }
+      }))
+    }
+  }, [search]);
+
+  //Get Trivia Data
+  const getTriviaData = (data) => {
+    setCurTrivia(data);
+    setSearch("");
+  }
+
+  const changeInput = (e) => {
+    e.preventDefault();
+    return setSearch(e.target.value);
+  }
+
+  return (
+    <>
+        <SideNav />
+        <div className="main-header">
+          <h1>Trivias</h1>
+        </div>
+        <div className="Trivias">
+          <div className="search-wrapper">
+            <div className="search">
+              <input type="text"
+                    name="search"
+                    id="search"
+                    placeholder='Search element...'
+                    value={search}
+                    onChange={(e) => changeInput(e)}/>
+              <button className="cta">Search</button>
+            </div>
+            <div className="filt-data-wrapper">
+              {filtSearch && filtSearch.map((filtData) =>
+                            <div className="filt-data"
+                                 onClick={() => getTriviaData(filtData)}>{filtData.name}</div>)}
+            </div>
+          </div>
+          
+          <Trivia data={curTrivia}/>
+        </div>
+    </>
+  )
+}
+
+export default Trivias

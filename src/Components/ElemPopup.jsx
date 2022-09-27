@@ -2,7 +2,7 @@ import React from 'react';
 import Elements from './Elements';
 import './ElemPopup.css';
 
-const ElemPopup = ({xpos, ypos}) => {
+const ElemPopup = ({xpos, ypos, element}) => {
   return (
     <div className="popup"
          style={{
@@ -16,17 +16,17 @@ const ElemPopup = ({xpos, ypos}) => {
            }}>
           <div className="pop-text">
             <p className="element-name">
-              Hydrogen
+              {element.name}
             </p>
             <p className="atomic-mass">
-              1.008
+              {element.atomic_number}
             </p>
           </div>
           <div className="picture">
           </div>
       </div>
       <div className="pop-description">
-        Description: Hydrogen is an explosive gas and also the lightest element.
+        Description: Hatdog
       </div>
       <div className="pop-used">
         Where It's Used: Hydrogen makes up about 90 percent of atoms in the entire universe. The chemical is used heavily as both a gas and liquid fuel. Hydrogen was used as a main fuel for the Space Shuttle program by NASA, as well as currently being used heavily by the petroleum and manufacturing industries.

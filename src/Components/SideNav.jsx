@@ -25,10 +25,12 @@ const SideNav = () => {
         <div className="category-links">
         <ul>
             <li><img src={Bullet} alt="-"/><NavLink to="/periodicTable">Periodic Table</NavLink></li>
+            <li><img src={Bullet} alt="-"/><NavLink to="/trivias">Trivias</NavLink></li>
+            <li><img src={Bullet} alt="-"/><NavLink to="/intellimentCategory">Intelliment</NavLink></li>
         </ul>
         </div>
       </div>
-      <div className="category cat-active">
+      <div className="category">
         <div className="category-header">
           <img src={Arrow} alt="arrow" />
           <h3>Game</h3>

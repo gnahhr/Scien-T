@@ -11,6 +11,8 @@
     background-color: #220B42;
     color: white;
     position:fixed;
+
+    overflow-y: auto;
 }
 
 .side-nav-logo {
@@ -96,9 +98,13 @@
     }
 }
 
-.cat-active {
+.category:has(.active) {
     background-color: rgba(158, 138, 187, 0.8);
 }
+
+// .cat-active {
+//     background-color: rgba(158, 138, 187, 0.8);
+// }
 
 .footer {
     margin: auto auto 2rem;

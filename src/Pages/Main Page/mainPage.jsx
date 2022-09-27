@@ -8,8 +8,11 @@ import mixingTable from '../../Assets/Images/mixingTable.png';
 import intelliment from '../../Assets/Images/intelliment.png';
 import Card from '../../Components/Card';
 import './mainPage.css';
+import { useNavigate } from 'react-router-dom';
 
 const mainPage = () => {
+  let nav = useNavigate();
+
   return (
     <div className="main-page">
         <div className="header">
@@ -49,7 +52,7 @@ const mainPage = () => {
                 <div className="main-table">
                     <img src={table} alt="periodic table" />
                 </div>
-                <button className="teal">
+                <button className="teal" onClick={() => nav("/periodicTable")}>
                     LEARN NOW!
                 </button>
             </div>
@@ -59,15 +62,18 @@ const mainPage = () => {
                 <Card picture={intelliment}
                       name={"Intelliment"}
                       description={"Identify the element based on its atomic number, weight and group."}
-                      btnType="teal" />
+                      btnType="teal"
+                      path="/intelliment"/>
                 <Card picture={mixingTable}
                       name={"Mixing Table"}
                       description={"Mix different elements and discover a new compound."}
-                      btnType="red" />
+                      btnType="red"
+                      path="/mix"/>
                 <Card picture={intelliment}
                       name={"Electron Configuration"}
                       description={"Abracadbara"}
-                      btnType="teal" />
+                      btnType="teal"
+                      path="/electronConfiguration"/>
             </div>
         </main>
         <footer>

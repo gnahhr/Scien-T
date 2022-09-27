@@ -27,6 +27,8 @@ import Leaderboard from './Pages/Leaderboard/leaderboard';
 import MainPage from './Pages/Main Page/mainPage';
 import PeriodicTable from './Pages/Periodic Table/periodicTable';
 import UserProfile from './Pages/User Profile/userProfile'
+import Trivias from './Pages/Trivias/Trivias';
+
 
 function App() {
   const [ user, setUser ] = useState(localStorage.token ? localStorage.token : null); //true
@@ -51,10 +53,12 @@ function App() {
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/mix" element={<MixingTable />} />
-            <Route path="/intelliment" element={<Intelliment />} />
+            <Route path="/intellimentCategory" element={<Intelliment mode="learn"/>} />
+            <Route path="/intelliment" element={<Intelliment mode="game"/>} />
             <Route path="/electronConfiguration" element={<ElectronConfiguration />}/>
             <Route path="/periodicTable" element={<PeriodicTable />}/>
-            <Route path="leaderboard" element={<Leaderboard />}/>
+            <Route path="/trivias" element={<Trivias/>}/>
+            <Route path="/leaderboard" element={<Leaderboard />}/>
             {/* Placeholder for default logged in page */}
             <Route path="*" element={<MixingTable />}/> 
             <Route path="/profile" element={<UserProfile/>}/>
