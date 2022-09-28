@@ -289,8 +289,6 @@ const Intelliment = ({mode}) => {
   };
 
   return (
-    <>
-      <SideNav />
       <main>
         <div className="main-header">
           <h1>Intelliment</h1>
@@ -379,7 +377,6 @@ const Intelliment = ({mode}) => {
                                   highestMultiplier={highestMult} />}
         </div>
       </main>
-    </>
   )
 }
 

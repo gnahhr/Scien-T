@@ -26,8 +26,11 @@ import SideNav from './Components/SideNav';
 import Leaderboard from './Pages/Leaderboard/leaderboard';
 import MainPage from './Pages/Main Page/mainPage';
 import PeriodicTable from './Pages/Periodic Table/periodicTable';
-import UserProfile from './Pages/User Profile/userProfile'
+import UserProgress from './Pages/User Progress/userProgress';
 import Trivias from './Pages/Trivias/Trivias';
+import UserProfile from './Pages/User Profile/userProfile';
+import AboutUs from './Pages/About Us/aboutUs';
+import Settings from './Pages/Settings/Settings';
 
 
 function App() {
@@ -50,19 +53,23 @@ function App() {
           
         {user &&
         <> 
-          <Routes>
-            <Route path="/" element={<MainPage />} />
-            <Route path="/mix" element={<MixingTable />} />
-            <Route path="/intellimentCategory" element={<Intelliment mode="learn"/>} />
-            <Route path="/intelliment" element={<Intelliment mode="game"/>} />
-            <Route path="/electronConfiguration" element={<ElectronConfiguration />}/>
-            <Route path="/periodicTable" element={<PeriodicTable />}/>
-            <Route path="/trivias" element={<Trivias/>}/>
-            <Route path="/leaderboard" element={<Leaderboard />}/>
-            {/* Placeholder for default logged in page */}
-            <Route path="*" element={<MixingTable />}/> 
-            <Route path="/progress" element={<UserProfile/>}/>
-          </Routes>
+          <SideNav >
+            <Routes>
+              <Route path="/" element={<MainPage />} />
+              <Route path="/mix" element={<MixingTable />} />
+              <Route path="/intellimentCategory" element={<Intelliment mode="learn"/>} />
+              <Route path="/intelliment" element={<Intelliment mode="game"/>} />
+              <Route path="/electronConfiguration" element={<ElectronConfiguration />}/>
+              <Route path="/periodicTable" element={<PeriodicTable />}/>
+              <Route path="/trivias" element={<Trivias/>}/>
+              <Route path="/leaderboard" element={<Leaderboard />}/>
+              <Route path="/profile" element={<UserProfile />}/>
+              <Route path="/progress" element={<UserProgress/>}/>
+              <Route path="/about" element={<AboutUs/>}/>
+              <Route path="/settings" element={<Settings/>}/>
+              <Route path="*" element={<MixingTable />}/> 
+            </Routes>
+          </SideNav>
           {/* <SideNav /> */}
         </>}
       </div>

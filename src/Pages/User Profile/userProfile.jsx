@@ -1,16 +1,21 @@
 import React, { useState, useEffect }from 'react'
 import jwtDecode from 'jwt-decode'
 import regression from 'regression'
-
-import SideNav from '../../Components/SideNav'
-import LineChart from '../../Components/LineChart'
-
+import User from '../../Assets/Images/user.png';
 import "./userProfile.css"
 
 import getIntellimentData from '../../Hooks/getIntellimentData'
 import getUserProgEC from '../../Hooks/getUserProgEC'
 import getUserProgME from '../../Hooks/getUserProgME'
 import getIntellimentCounter from '../../Hooks/getIntellimentCounter'
+
+// const userProfile = ({user}) => {
+//   const [ username, setUsername ] = useState('');
+//   const [ email, setEmail ] = useState('');
+//   const [ firstName, setfName]  = useState('');
+//   const [ lastName, setlName ] = useState('');
+
+
 
 
 const userProfile = () => {
@@ -93,14 +98,21 @@ const userProfile = () => {
   const setText = {
     "username": setUsername,
     "email": setEmail,
-    "firstName": setFirstName,
-    "lastName": setLastName
+    "firstName": setfName,
+    "lastName": setlName
   }
 
-  //text input
+  useEffect(() => {
+    setUsername(user ? user.username : "USERNAME");
+    setEmail(user ? user.email : "EMAIL");
+    setfName(user ? user.fname : "FIRST NAME");
+    setlName(user ? user.lname : "LAST NAME");
+  }, [])
+
   const onInputChange = (e) => {
     const value = e.target.value;
     const name = e.target.name;
+
     setText[name](value);
   }
 
@@ -154,29 +166,8 @@ const userProfile = () => {
             </div>
           </div>
         </div>
-        {/* <div className="main-wrapper user-profile">
-          <div className="progress-header">
-            <h2>Check your progress!</h2>
-            <div className="progress-wrapper">
-              <div className="mix-progress progress-div">
-                <h3>Mixing Table Progress</h3>
-                <p>100/273</p>
-                <p></p>
-              </div>
-              <div className="electron-progress progress-div">
-                <h3>Electron Configuration Progress</h3>
-                <p>100/118</p>
-                <p></p>
-              </div>
-              <div className="mastery progress-div">
-                <h3>Level of Mastery</h3>
-                <p>Newbie</p>
-                <p className="side">
-                  You are something else.
-                </p>
-              </div>
-            </div>
-          </div> */}
+        </div>
+    
           <div className="progress-body">
             <div className="category-wrapper">
                 <h1>Intelliment</h1>
@@ -201,33 +192,24 @@ const userProfile = () => {
                           onClick={() => toggleDifficulty("hardcore")}>Hardcore</button>
               </div>
 
+            <div className="user-body">
+                <form className="form-wrapper profile-form">
+                    <label htmlFor="username">Username</label>
+                    <input type="text" name="username" id="username" value={username} onChange={(e) => onInputChange(e)}/>
+                    <label htmlFor="firstName">First Name</label>
+                    <input type="text" name="firstName" id="firstName" value={firstName} onChange={(e) => onInputChange(e)}/>
+                    <label htmlFor="lastName">Last Name</label>
+                    <input type="text" name="lastName" id="lastName" value={lastName} onChange={(e) => onInputChange(e)}/>
+                    <label htmlFor="email">E-mail</label>
+                    <input type="email" name="email" id="email" value={email} onChange={(e) => onInputChange(e)}/>
+                </form>
             </div>
+            
           </div>
-        {/* </div> */}
         </div>
-      </main>
+    </main>
     </>
   )
 }
 
 export default userProfile
-
-{/* <>
-        <div className="main-wrapper">
-        <div className="form-wrapper">
-          <h2>User Profile</h2>
-          <form  id="login">
-              <label htmlFor="firstName">First Name</label>
-              <input type="text" name="firstName" id="firstName" value={firstName} onChange={(e) => onInputChange(e)} disabled={isDisabled}/>
-              <label htmlFor="lastName">Last Name</label>
-              <input type="text" name="lastName" id="lastName" value={lastName} onChange={(e) => onInputChange(e)} disabled={isDisabled}/>
-              <label htmlFor="username">Username</label>
-              <input type="text" name="username" id="username" value={username} onChange={(e) => onInputChange(e)} disabled={isDisabled}/>
-              <label htmlFor="email">E-mail</label>
-              <input type="email" name="email" id="email" value={email} onChange={(e) => onInputChange(e)} disabled={isDisabled}/>
-          </form>
-        </div>
-        </div>
-        <LineChart/>
-        <SideNav/>
-    </> */}

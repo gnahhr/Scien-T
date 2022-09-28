@@ -25,40 +25,37 @@ const periodicTable = () => {
   }
 
   return (
-    <>
-        <SideNav />
-        <main>
-            <div className="main-header">
-                <h1>Periodic Table</h1>
+    <main>
+        <div className="main-header">
+            <h1>Periodic Table</h1>
+        </div>
+        <div className="main-wrapper">
+            <div id="periodic-table">
+                {listElems.map(element =>
+                    <div className="elem-wrapper"
+                        style={{
+                            gridRow: element.ypos,
+                            gridColumn: element.xpos
+                        }}>
+                        <NoDragElem 
+                            key={element.name}
+                            symbol={element.symbol}
+                            category={element.category}
+                            elem={element}
+                            clickAct={updateModal}
+                            showModal={setShowModal}
+                            />
+                        <ElemPopup
+                            key={`${element.name}-pop`}
+                            ypos={element.ypos}
+                            xpos={element.xpos}
+                            element={element}/>
+                    </div>)}
             </div>
-            <div className="main-wrapper">
-                <div id="periodic-table">
-                    {listElems.map(element =>
-                        <div className="elem-wrapper"
-                            style={{
-                                gridRow: element.ypos,
-                                gridColumn: element.xpos
-                            }}>
-                            <NoDragElem 
-                                key={element.name}
-                                symbol={element.symbol}
-                                category={element.category}
-                                elem={element}
-                                clickAct={updateModal}
-                                showModal={setShowModal}
-                                />
-                            <ElemPopup
-                                key={`${element.name}-pop`}
-                                ypos={element.ypos}
-                                xpos={element.xpos}
-                                element={element}/>
-                        </div>)}
-                </div>
-            </div>
-            {showModal &&
-            <PeriodicModal data={activeElem} showModal={setShowModal}/>}
-        </main>
-    </>
+        </div>
+        {showModal &&
+        <PeriodicModal data={activeElem} showModal={setShowModal}/>}
+    </main>
   )
 }
 
