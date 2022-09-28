@@ -8,6 +8,7 @@ import getIntellimentData from '../../Hooks/getIntellimentData'
 import getUserProgEC from '../../Hooks/getUserProgEC'
 import getUserProgME from '../../Hooks/getUserProgME'
 import getIntellimentCounter from '../../Hooks/getIntellimentCounter'
+import LineChart from '../../Components/LineChart'
 
 // const userProfile = ({user}) => {
 //   const [ username, setUsername ] = useState('');
@@ -78,14 +79,10 @@ const userProfile = () => {
   },[difficulty])
 
   useEffect(() => {
-    // console.log(intellimentCounter)
     const formattedArray = intellimentCounter.map((ctr, index) => {
       return[index+1,ctr]
     })
     console.log(formattedArray)
-    // const mema = [[1, 100], [2, 123], [3, 58],[4, 250],[5, 120]]
-    // console.log(mema)
-    // const mema = [[1, 100], [2, 123], [3, 58],[4, 250],[5, 120]]
     const result = regression.linear(formattedArray)
     console.log(result.string)
     console.log(result.equation[0])
@@ -93,30 +90,6 @@ const userProfile = () => {
     console.log(result.predict(30))
   },[data])
 
-
-  //text input
-  const setText = {
-    "username": setUsername,
-    "email": setEmail,
-    "firstName": setfName,
-    "lastName": setlName
-  }
-
-  useEffect(() => {
-    setUsername(user ? user.username : "USERNAME");
-    setEmail(user ? user.email : "EMAIL");
-    setfName(user ? user.fname : "FIRST NAME");
-    setlName(user ? user.lname : "LAST NAME");
-  }, [])
-
-  const onInputChange = (e) => {
-    const value = e.target.value;
-    const name = e.target.name;
-
-    setText[name](value);
-  }
-
-  //format data for chart output
   const formatter = (data) => {
     return {
       labels: data.map((data,index) => `Game ${index + 1}`),
@@ -192,7 +165,7 @@ const userProfile = () => {
                           onClick={() => toggleDifficulty("hardcore")}>Hardcore</button>
               </div>
 
-            <div className="user-body">
+            {/* <div className="user-body">
                 <form className="form-wrapper profile-form">
                     <label htmlFor="username">Username</label>
                     <input type="text" name="username" id="username" value={username} onChange={(e) => onInputChange(e)}/>
@@ -203,7 +176,7 @@ const userProfile = () => {
                     <label htmlFor="email">E-mail</label>
                     <input type="email" name="email" id="email" value={email} onChange={(e) => onInputChange(e)}/>
                 </form>
-            </div>
+            </div> */}
             
           </div>
         </div>

@@ -5,6 +5,9 @@ import LineChart from '../../Components/LineChart'
 import "./userProgress.css";
 
 import getIntellimentData from '../../Hooks/getIntellimentData'
+import getUserProgEC from '../../Hooks/getUserProgEC'
+import getUserProgME from '../../Hooks/getUserProgME'
+import getIntellimentCounter from '../../Hooks/getIntellimentCounter'
 
 
 const userProfile = () => {
@@ -17,6 +20,9 @@ const userProfile = () => {
   const [ isDisabled, setIsDisabled ] = useState(true)
   const [ data, setData ] = useState([])
   const [ difficulty, setDifficulty ] = useState('easy')
+  const [ mixingTableCounter, setMixingTableCounter ] = useState(0)
+  const [ electronConfigCounter, setElectronConfigCounter ] = useState(0)
+  const [ intellimentCounter, setIntellimentCounter ] = useState([])
 
   //get data on refresh
   useEffect(()=>{
@@ -27,10 +33,26 @@ const userProfile = () => {
     setFirstName(user.firstName)
     setLastName(user.lastName)
     setAccess(user.id);
+
     (async () => {
       const progress = await getIntellimentData(user.id, "easy");
       setData(progress);
-    })()
+    })();
+    
+    (async () => {
+      const progress = await getIntellimentCounter(user.id, "easy");
+      setIntellimentCounter(progress);
+    })();
+
+    (async () => {
+      const progress = await getUserProgME(user.id);
+      setMixingTableCounter(progress.length);
+    })();
+
+    (async () => {
+      const progress = await getUserProgEC(user.id);
+      setElectronConfigCounter(progress.length);
+    })();
   },[])
 
   //get user data per difficulty change
@@ -90,12 +112,12 @@ const userProfile = () => {
             <div className="progress-wrapper">
               <div className="mix-progress progress-div">
                 <h3>Mixing Table Progress</h3>
-                <p>100/273</p>
+                <p>{mixingTableCounter}/273</p>
                 <p></p>
               </div>
               <div className="electron-progress progress-div">
                 <h3>Electron Configuration Progress</h3>
-                <p>100/118</p>
+                <p>{electronConfigCounter}/118</p>
                 <p></p>
               </div>
               <div className="mastery progress-div">
