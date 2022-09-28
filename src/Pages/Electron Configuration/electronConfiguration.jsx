@@ -127,33 +127,36 @@ const electronConfiguration = () => {
   return (
     <>
       <SideNav />
-      <div className="main-header">
-        <h1>Electron Configuration</h1>
-      </div>
-      {!finished ? 
-      <div className="electron-config">
-        <h1>{solved} out of 119</h1>
-        {finished ? <h1>finished na</h1> : question && <><ElementQuestion data={
-          {
-            atomicNum: question.number,
-            elemSym: question.symbol,
-            elemName: question.name,
-            atomicMass: question.atomic_mass,
-            family: question.category,
-          }}
-          
-          sequence={2}/>
-        <input type='text'  name="answer" value={answer} onChange={(e) => onInputChange(e)}></input>
-        <button className="cta" onClick={() => checkAnswer(answer)}>Enter</button>
-        <h1>{finished}</h1>
-        <Toast message={toastMsg}
-                timer={3000}
-                toastType={toastState}
-                showToast={setShowToast}
-                toastState={showToast}/></>}
-      </div>
-      :
-      <ElectronFinish />}
+      <main>
+        
+        <div className="main-header">
+          <h1>Electron Configuration</h1>
+        </div>
+        {!finished ? 
+        <div className="electron-config">
+          <h1>{solved} out of 119</h1>
+          {finished ? <h1>finished na</h1> : question && <><ElementQuestion data={
+            {
+              atomicNum: question.number,
+              elemSym: question.symbol,
+              elemName: question.name,
+              atomicMass: question.atomic_mass,
+              family: question.category,
+            }}
+            
+            sequence={2}/>
+          <input type='text'  name="answer" value={answer} onChange={(e) => onInputChange(e)}></input>
+          <button className="cta" onClick={() => checkAnswer(answer)}>Enter</button>
+          <h1>{finished}</h1>
+          <Toast message={toastMsg}
+                  timer={3000}
+                  toastType={toastState}
+                  showToast={setShowToast}
+                  toastState={showToast}/></>}
+        </div>
+        :
+        <ElectronFinish />}
+      </main>
     </>
   )
 }

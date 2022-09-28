@@ -18,6 +18,16 @@ html {
     overflow-x: hidden;
 }
 
+.App {
+    display: flex;
+}
+
+main {
+    width: 100%;
+    height: 100vh;
+    overflow-y: auto;
+}
+
 button, .button {
     max-width: max-content;
     text-align: center;

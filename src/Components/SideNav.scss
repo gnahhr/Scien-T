@@ -10,7 +10,7 @@
 
     background-color: #220B42;
     color: white;
-    position:fixed;
+    // position:fixed;
 
     overflow-y: auto;
 }
@@ -46,6 +46,7 @@
     }
 
 }
+
 .category {
     display: flex;
     flex-direction: column;
@@ -64,45 +65,55 @@
 
         h3 {
             font-size: 1.4rem;
-            margin-left: .5rem;
+            margin-left: .5rem; 
+        }
 
-            a {
-                color: white;
-                font-size: 1.4rem;
+        a {
+            color: white;
+            padding: 0;
 
-                .active {
-                    color: #DE9F00;
-                }
+            img {
+                width: 24px;
             }
 
-            a:hover {
-                color: #DE9F00;
+            .l-name {
+                font-size: 1.4rem;
+                margin-left: .5rem; 
             }
         }
+        
+        a.active {
+            color: #DE9F00;
+        }
+
+        a:hover {
+            color: #DE9F00;
+        }
+
     }
 
-    ul {
-        li {
-            text-align: left;
-            margin-left: 2rem;
-            list-style: none;
-            a {
-                text-decoration: none;
-                padding: 0 .5rem;
-                color: white;
-            }
-            a:hover {
-                color: #DE9F00;
-            }
-        }
 
-        li:has(.active){
+    a {
+        display: flex;
+        text-decoration: none;
+        padding: 0 .5rem;
+        color: white;
+
+        img {
+            margin-right: 5px;
+        }
+        
+    }
+
+    .category-links {
+        a.active{
             background-color: rgba(0, 0, 0, 0.5);
             border-radius: 15px 0 0 15px;
             padding: 0 .5rem;
         }
-
-        li:hover {
+    
+        a:hover {
+            color: #DE9F00;
             background-color: rgba(0, 0, 0, 0.5);
             border-radius: 15px 0 0 15px;
             padding: 0 .5rem;
@@ -120,4 +131,51 @@
 
 .footer {
     margin: auto auto 2rem;
+}
+
+.collapsed-nav {
+    .side-nav-logo {
+        width: 80%;
+        padding: 2rem;
+    }
+
+    .user {
+        
+        width: 16px;
+    }
+    .category {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .category-header {
+            img {
+                width: 32px;
+            }
+
+            a {
+                img {
+                    size: 120px;
+                }
+                .l-name {
+                    display: none;
+                }
+            }
+            h3 {
+                display: none;
+            }
+        }
+    
+        .category-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            a {
+                padding: 5px;
+                .l-name {
+                    display: none;
+                }
+            }
+        }
+    }
 }

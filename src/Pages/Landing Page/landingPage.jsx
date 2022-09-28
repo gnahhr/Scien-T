@@ -12,7 +12,7 @@ const landingPage = () => {
   const nav = useNavigate();
 
   return (
-    <>
+    <main>
       <img src={Honeycomb} alt="honeycombs" className="honeycombs"/>
       <div className="landing-page">
         <img src={Logo} lt="logo" className="logo" />
@@ -31,7 +31,7 @@ const landingPage = () => {
           <img src={Mound} alt="Mound" id="mound"/>
         </div>
       </div>
-    </>
+    </main>
   )
 }
 

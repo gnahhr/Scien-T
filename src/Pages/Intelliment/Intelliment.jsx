@@ -43,11 +43,18 @@ const Intelliment = ({mode}) => {
   const [ combo, setCombo ] = useState(0);
   const [ maxCombo, setMaxCombo ] = useState(0);
   const [ highestMult, setHighestMult ] = useState(0);
+  const [ corCategory, setCorCategory ] = useState(0);
+  const [ corNumber, setCorNumber ] = useState(0);
+  const [ corName, setCorName ] = useState(0);
+  const [ corMass, setCorMass ] = useState(0);
 
   //Modal States
   const [ showModal, setShowModal ] = useState(false);
   const [ modalResult, setModalResult ] = useState("");
   const [ scoreModal, setScoreModal ] = useState(0);
+
+  //Variables
+  const { familyBGs } = ElemColors;
 
   const phases = {
     0: "family",
@@ -56,13 +63,25 @@ const Intelliment = ({mode}) => {
     3: "atomicMass"
   }
 
-  const { familyBGs } = ElemColors;
-
   const guides = {
     0: "What is the group of the element?",
     1: "What is the name of the element?",
     2: "What is its atomic number?",
     3: "What is its atomic mass?"
+  }
+
+  const corTally = {
+    0: setCorCategory,
+    1: setCorName,
+    2: setCorNumber,
+    3: setCorMass
+  }
+
+  const corCounter = {
+    0: corCategory,
+    1: corName,
+    2: corNumber,
+    3: corMass
   }
 
   //get user credentials from localStorage
@@ -115,25 +134,6 @@ const Intelliment = ({mode}) => {
     }
   }, [step])
 
-  // useEffect(() => {
-  //   if (pickedDifficulty){
-  //     if (answered) {
-  //       setTimer(10);
-  //     }
-      
-  //     if (timer === 0) {
-  //       selectAns("");
-  //       // prepToast("Time's up!", "warning");
-  //       prepToast("wrong", 0);
-  //       setTimer(10)
-  //     }
-          
-  //     setTimeout(() => setTimer(timer-1), 1000)
-  //   }
-    
-    
-  // }, [timer, answered, pickedDifficulty])
-
   useEffect(() => {
     if (multiplier < 5) {
       if (combo % 4 === 0){
@@ -180,6 +180,7 @@ const Intelliment = ({mode}) => {
       let final = choice === questions[nthQuestion][phases[step]] ? true : false;
       setClickedAns(choice);
       if (final) {
+        corTally[step](corCounter[step] + 1);
         prepToast("correct", 50 * multiplier);
         setCombo(combo + 1);
         setNumCorrect(numCorrect + 1);
@@ -289,92 +290,94 @@ const Intelliment = ({mode}) => {
   return (
     <>
       <SideNav />
-      <div className="main-header">
-        <h1>Intelliment</h1>
-      </div>
-      <div id="intelliment">
-        {(!pickedDifficulty && mode === "game") &&
-          <div className="difficulty-chooser">
-            <h2>Choose a difficulty:</h2>
-            <button onClick={() => setDifficulty(30)}>Easy</button>
-            <button onClick={() => setDifficulty(60)}>Medium</button>
-            <button onClick={() => setDifficulty(90)}>Hard</button>
-            <button onClick={() => setDifficulty(118)}>Hardcore</button>
-          </div>}
+      <main>
+        <div className="main-header">
+          <h1>Intelliment</h1>
+        </div>
+        <div id="intelliment">
+          {(!pickedDifficulty && mode === "game") &&
+            <div className="difficulty-chooser">
+              <h2>Choose a difficulty:</h2>
+              <button onClick={() => setDifficulty(30)}>Easy</button>
+              <button onClick={() => setDifficulty(60)}>Medium</button>
+              <button onClick={() => setDifficulty(90)}>Hard</button>
+              <button onClick={() => setDifficulty(118)}>Hardcore</button>
+            </div>}
 
-        {(!pickedDifficulty && mode === "learn") &&
-          <div className="difficulty-chooser">
-            <h2>Choose a category</h2>
-            <button onClick={() => setDifficulty("diatomic nonmetal")}>Diatomic Nonmetals</button>
-            <button onClick={() => setDifficulty("polyatomic nonmetal")}>Polyatomic Nonmetals</button>
-            <button onClick={() => setDifficulty("noble gas")}>Noble Gases</button>
-            <button onClick={() => setDifficulty("alkali metal")}>Alkali Metals</button>
-            <button onClick={() => setDifficulty("alkaline earth metal")}>Alkaline Earth Metals</button>
-            <button onClick={() => setDifficulty("transition metal")}>Transition Metals</button>
-            <button onClick={() => setDifficulty("post-transition metal")}>Post-Transition Metals</button>
-            <button onClick={() => setDifficulty("metalloid")}>Metalloid</button>
-            <button onClick={() => setDifficulty("actinide")}>Actinide</button>
-            <button onClick={() => setDifficulty("lanthanide")}>Lanthanide</button>
-          </div>}
-        
-        {(!finished && pickedDifficulty) &&
-        <div className="intellimain">
-          <div className="header">
-            <div className="left-header">
-              <div className="total-questions">Total Elements Encountered: {nthQuestion+1}/{questions.length}</div>
-              <div className="score">Score: {score}</div>
-            </div>
-            <div className="multiplier">
-              <div className="label">
-                Multiplier
-              </div>
-              <div className="multi">
-                {`x${multiplier}`} 
-              </div>
-            </div>
-            <div className="settings">
-              <div className="icon">
-                <img src={Music} alt="music"/>
-              </div>
-            </div>
-          </div>
-          <div className="question-wrapper">
-              <ElementQuestion data={questions[nthQuestion]} sequence={step-1}/>
-              <p className="question">{guides[step]}</p>
-              <div className="choices-wrapper">
-                  {questions[nthQuestion].choices[step] && questions[nthQuestion].choices[step].map((ans) => {
-                      return <Choice 
-                                    key={ans}
-                                    data={ans}
-                                    selectedAnswer={selectAns}
-                                    answered={answered}
-                                    category={ans === questions[nthQuestion][phases[step]] ? "correct" : "wrong"}
-                                    selHighlight={ans === clickedAns ? "answered" : ""}
-                              />
-                  })}
-              </div>
-          </div>
-
-          <div className="timer">
-              <div className="text-timer">
-                  {timer}s
-              </div>
-              <div className="bar-timer" style={{width: `${10*timer}%`}}>
-                  
-              </div>
-          </div>
+          {(!pickedDifficulty && mode === "learn") &&
+            <div className="difficulty-chooser">
+              <h2>Choose a category</h2>
+              <button onClick={() => setDifficulty("diatomic nonmetal")}>Diatomic Nonmetals</button>
+              <button onClick={() => setDifficulty("polyatomic nonmetal")}>Polyatomic Nonmetals</button>
+              <button onClick={() => setDifficulty("noble gas")}>Noble Gases</button>
+              <button onClick={() => setDifficulty("alkali metal")}>Alkali Metals</button>
+              <button onClick={() => setDifficulty("alkaline earth metal")}>Alkaline Earth Metals</button>
+              <button onClick={() => setDifficulty("transition metal")}>Transition Metals</button>
+              <button onClick={() => setDifficulty("post-transition metal")}>Post-Transition Metals</button>
+              <button onClick={() => setDifficulty("metalloid")}>Metalloid</button>
+              <button onClick={() => setDifficulty("actinide")}>Actinide</button>
+              <button onClick={() => setDifficulty("lanthanide")}>Lanthanide</button>
+            </div>}
           
-          {/* Modal for Correct Answers */}
-          {showModal &&
-            <AnswerModal results={modalResult} points={scoreModal} showModal={setShowModal} modalState={showModal}/>
-          }
-        </div>}
-        {finished && <TotalScore totalQuestions={questions.length}
-                                totalCorrect={numCorrect}
-                                totalScore={score}
-                                highestCombo={maxCombo}
-                                highestMultiplier={highestMult} />}
-      </div>
+          {(!finished && pickedDifficulty) &&
+          <div className="intellimain">
+            <div className="header">
+              <div className="left-header">
+                <div className="total-questions">Total Elements Encountered: {nthQuestion+1}/{questions.length}</div>
+                <div className="score">Score: {score}</div>
+              </div>
+              <div className="multiplier">
+                <div className="label">
+                  Multiplier
+                </div>
+                <div className="multi">
+                  {`x${multiplier}`} 
+                </div>
+              </div>
+              <div className="settings">
+                <div className="icon">
+                  <img src={Music} alt="music"/>
+                </div>
+              </div>
+            </div>
+            <div className="question-wrapper">
+                <ElementQuestion data={questions[nthQuestion]} sequence={step-1}/>
+                <p className="question">{guides[step]}</p>
+                <div className="choices-wrapper">
+                    {questions[nthQuestion].choices[step] && questions[nthQuestion].choices[step].map((ans) => {
+                        return <Choice 
+                                      key={ans}
+                                      data={ans}
+                                      selectedAnswer={selectAns}
+                                      answered={answered}
+                                      category={ans === questions[nthQuestion][phases[step]] ? "correct" : "wrong"}
+                                      selHighlight={ans === clickedAns ? "answered" : ""}
+                                />
+                    })}
+                </div>
+            </div>
+
+            <div className="timer">
+                <div className="text-timer">
+                    {timer}s
+                </div>
+                <div className="bar-timer" style={{width: `${10*timer}%`}}>
+                    
+                </div>
+            </div>
+            
+            {/* Modal for Correct Answers */}
+            {showModal &&
+              <AnswerModal results={modalResult} points={scoreModal} showModal={setShowModal} modalState={showModal}/>
+            }
+          </div>}
+          {finished && <TotalScore totalQuestions={questions.length}
+                                  totalCorrect={numCorrect}
+                                  totalScore={score}
+                                  highestCombo={maxCombo}
+                                  highestMultiplier={highestMult} />}
+        </div>
+      </main>
     </>
   )
 }

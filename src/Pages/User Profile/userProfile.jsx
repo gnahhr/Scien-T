@@ -83,75 +83,76 @@ const userProfile = () => {
     
   return (
     <>
-      <div className="main-header">
-        <h1>User Progress</h1>
-      </div>
-      <div className="main-wrapper user-profile">
-        <div className="progress-header">
-          <h2>Check your progress!</h2>
-          <div className="progress-wrapper">
-            <div className="mix-progress progress-div">
-              <h3>Mixing Table Progress</h3>
-              <p>100/273</p>
-              <p></p>
-            </div>
-            <div className="electron-progress progress-div">
-              <h3>Electron Configuration Progress</h3>
-              <p>100/118</p>
-              <p></p>
-            </div>
-            <div className="mastery progress-div">
-              <h3>Level of Mastery</h3>
-              <p>Newbie</p>
-              <p className="side">
-                You are something else.
-              </p>
-            </div>
-          </div>
+      <SideNav/>
+      <main>
+        <div className="main-header">
+          <h1>User Progress</h1>
         </div>
-        <div className="progress-body">
-          <div className="category-wrapper">
-              <h1>Intelliment</h1>
-              {/* <button>Intelliment</button>
-              <button>Electron Configuration</button> */}
-          </div>
-          <div className="body-content">
-            <div className="left-progress">
-              <div className="chart"style={{ width: "95%" }}>
-                <LineChart chartData={formatter(data)} />
+        <div className="main-wrapper user-profile">
+          <div className="progress-header">
+            <h2>Check your progress!</h2>
+            <div className="progress-wrapper">
+              <div className="mix-progress progress-div">
+                <h3>Mixing Table Progress</h3>
+                <p>100/273</p>
+                <p></p>
+              </div>
+              <div className="electron-progress progress-div">
+                <h3>Electron Configuration Progress</h3>
+                <p>100/118</p>
+                <p></p>
+              </div>
+              <div className="mastery progress-div">
+                <h3>Level of Mastery</h3>
+                <p>Newbie</p>
+                <p className="side">
+                  You are something else.
+                </p>
               </div>
             </div>
-            <div className="right-progress">
-                <h2>Choose difficulty:</h2>
-                <button className={difficulty === "easy" ? "active-diff" : ""}
-                        onClick={() => toggleDifficulty("easy")}>Easy</button>
-                <button className={difficulty === "normal" ? "active-diff" : ""}
-                        onClick={() => toggleDifficulty("normal")}>Normal</button>
-                <button className={difficulty === "hard" ? "active-diff" : ""}
-                        onClick={() => toggleDifficulty("hard")}>Hard</button>
-                <button className={difficulty === "hardcore" ? "active-diff" : ""}
-                        onClick={() => toggleDifficulty("hardcore")}>Hardcore</button>
-            </div>
-
           </div>
+          <div className="progress-body">
+            <div className="category-wrapper">
+                <h1>Intelliment</h1>
+                {/* <button>Intelliment</button>
+                <button>Electron Configuration</button> */}
+            </div>
+            <div className="body-content">
+              <div className="left-progress">
+                <div className="chart"style={{ width: "95%" }}>
+                  <LineChart chartData={formatter(data)} />
+                </div>
+              </div>
+              <div className="right-progress">
+                  <h2>Choose difficulty:</h2>
+                  <button className={difficulty === "easy" ? "active-diff" : ""}
+                          onClick={() => toggleDifficulty("easy")}>Easy</button>
+                  <button className={difficulty === "normal" ? "active-diff" : ""}
+                          onClick={() => toggleDifficulty("normal")}>Normal</button>
+                  <button className={difficulty === "hard" ? "active-diff" : ""}
+                          onClick={() => toggleDifficulty("hard")}>Hard</button>
+                  <button className={difficulty === "hardcore" ? "active-diff" : ""}
+                          onClick={() => toggleDifficulty("hardcore")}>Hardcore</button>
+              </div>
+
+            </div>
+          </div>
+          {/* <div className="form-wrapper">
+            <h2>User Profile</h2>
+            <form  id="login">
+                <label htmlFor="firstName">First Name</label>
+                <input type="text" name="firstName" id="firstName" value={firstName} onChange={(e) => onInputChange(e)} disabled={isDisabled}/>
+                <label htmlFor="lastName">Last Name</label>
+                <input type="text" name="lastName" id="lastName" value={lastName} onChange={(e) => onInputChange(e)} disabled={isDisabled}/>
+                <label htmlFor="username">Username</label>
+                <input type="text" name="username" id="username" value={username} onChange={(e) => onInputChange(e)} disabled={isDisabled}/>
+                <label htmlFor="email">E-mail</label>
+                <input type="email" name="email" id="email" value={email} onChange={(e) => onInputChange(e)} disabled={isDisabled}/>
+            </form>
+          </div> */}
         </div>
-        {/* <div className="form-wrapper">
-          <h2>User Profile</h2>
-          <form  id="login">
-              <label htmlFor="firstName">First Name</label>
-              <input type="text" name="firstName" id="firstName" value={firstName} onChange={(e) => onInputChange(e)} disabled={isDisabled}/>
-              <label htmlFor="lastName">Last Name</label>
-              <input type="text" name="lastName" id="lastName" value={lastName} onChange={(e) => onInputChange(e)} disabled={isDisabled}/>
-              <label htmlFor="username">Username</label>
-              <input type="text" name="username" id="username" value={username} onChange={(e) => onInputChange(e)} disabled={isDisabled}/>
-              <label htmlFor="email">E-mail</label>
-              <input type="email" name="email" id="email" value={email} onChange={(e) => onInputChange(e)} disabled={isDisabled}/>
-          </form>
-        </div> */}
-      </div>
-      <SideNav/>
+      </main>
     </>
-    
   )
 }
 

@@ -29,14 +29,14 @@
   border-radius: 50%;
   padding: 5px;
 }
-.main-page main .hero-wrapper {
+.main-page .main-content .hero-wrapper {
   background-color: rgba(255, 255, 255, 0.8);
   border-radius: 25px;
   max-width: fit-content;
   padding: 0 7rem;
   margin: 4rem auto;
 }
-.main-page main .hero-wrapper .hero {
+.main-page .main-content .hero-wrapper .hero {
   height: 30vh;
   color: #282054;
   background-image: url("../../Assets/Images/border.png");
@@ -46,32 +46,32 @@
   text-align: center;
   padding: 4rem;
 }
-.main-page main .hero-wrapper .hero .texts {
+.main-page .main-content .hero-wrapper .hero .texts {
   margin: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-.main-page main .hero-wrapper .hero .texts h1 {
+.main-page .main-content .hero-wrapper .hero .texts h1 {
   font-size: 4rem;
   margin: 0.5rem;
 }
-.main-page main .hero-wrapper .hero .texts h3 {
+.main-page .main-content .hero-wrapper .hero .texts h3 {
   margin: 0.5rem;
   font-size: 2rem;
 }
-.main-page main .hero-wrapper .hero .texts p {
+.main-page .main-content .hero-wrapper .hero .texts p {
   margin: 0.5rem;
 }
-.main-page main h2 {
+.main-page .main-content h2 {
   text-align: center;
   color: #FFEFD7;
 }
-.main-page main .main-table-wrapper {
+.main-page .main-content .main-table-wrapper {
   display: flex;
   flex-direction: column;
 }
-.main-page main .main-table-wrapper .main-table {
+.main-page .main-content .main-table-wrapper .main-table {
   background-color: #220A49;
   border: 5px solid #E3D9E5;
   border-radius: 10px;
@@ -79,15 +79,15 @@
   margin: 1rem auto;
   max-width: max-content;
 }
-.main-page main .main-table-wrapper .main-table img {
+.main-page .main-content .main-table-wrapper .main-table img {
   width: 100%;
 }
-.main-page main .main-table-wrapper button {
+.main-page .main-content .main-table-wrapper button {
   margin: 0 auto;
   transform: translateY(-80%);
   box-shadow: 0 5px 2px 1px rgba(0, 0, 0, 0.5529411765);
 }
-.main-page main .games-wrapper {
+.main-page .main-content .games-wrapper {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;

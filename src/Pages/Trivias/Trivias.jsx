@@ -36,30 +36,32 @@ const Trivias = ({data}) => {
 
   return (
     <>
-        <SideNav />
-        <div className="main-header">
-          <h1>Trivias</h1>
-        </div>
-        <div className="Trivias">
-          <div className="search-wrapper">
-            <div className="search">
-              <input type="text"
-                    name="search"
-                    id="search"
-                    placeholder='Search element...'
-                    value={search}
-                    onChange={(e) => changeInput(e)}/>
-              <button className="cta">Search</button>
-            </div>
-            <div className="filt-data-wrapper">
-              {filtSearch && filtSearch.map((filtData) =>
-                            <div className="filt-data"
-                                 onClick={() => getTriviaData(filtData)}>{filtData.name}</div>)}
-            </div>
+      <SideNav />
+      <main>
+          <div className="main-header">
+            <h1>Trivias</h1>
           </div>
-          
-          <Trivia data={curTrivia}/>
-        </div>
+          <div className="Trivias">
+            <div className="search-wrapper">
+              <div className="search">
+                <input type="text"
+                      name="search"
+                      id="search"
+                      placeholder='Search element...'
+                      value={search}
+                      onChange={(e) => changeInput(e)}/>
+                <button className="cta">Search</button>
+              </div>
+              <div className="filt-data-wrapper">
+                {filtSearch && filtSearch.map((filtData) =>
+                              <div className="filt-data"
+                                  onClick={() => getTriviaData(filtData)}>{filtData.name}</div>)}
+              </div>
+            </div>
+            
+            <Trivia data={curTrivia}/>
+          </div>
+      </main>
     </>
   )
 }

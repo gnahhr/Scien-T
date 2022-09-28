@@ -223,51 +223,53 @@ const mixingTable = () => {
 
   return (
     <>
-      <div className="main-header">
-        <h1>Mixing Table</h1>
-      </div>
-      <div className="main-wrapper" onClick={() => startMusic(bgm)}>
-          <div className="icons-wrapper">
-            <div className="icon" onClick={() => toggleMusic(bgm)}><img src={music ? unmuted : muted}/></div>
-            <div className="icon" onClick={() => setShowDiscover(!showDiscover)}><img src={listIcon}/></div>
-            <div className="icon" ><img src={gear}/></div>
-          </div>
-        
-          <div className="mixing-table">
-            <div id="mixing-table" ref={drop}>
-                {mixData.length > 0 ? mixData.map(element => <div key={element} className="element" onClick={() => removeElement(element)}>{element}</div>) : <h2>"Please drag elements here for mixing!"</h2>}
+      <SideNav />
+      <main>
+        <div className="main-header">
+          <h1>Mixing Table</h1>
+        </div>
+        <div className="main-wrapper" onClick={() => startMusic(bgm)}>
+            <div className="icons-wrapper">
+              <div className="icon" onClick={() => toggleMusic(bgm)}><img src={music ? unmuted : muted}/></div>
+              <div className="icon" onClick={() => setShowDiscover(!showDiscover)}><img src={listIcon}/></div>
+              <div className="icon" ><img src={gear}/></div>
+            </div>
+          
+            <div className="mixing-table">
+              <div id="mixing-table" ref={drop}>
+                  {mixData.length > 0 ? mixData.map(element => <div key={element} className="element" onClick={() => removeElement(element)}>{element}</div>) : <h2>"Please drag elements here for mixing!"</h2>}
+              </div>
+
+              <button className="cta" onClick={() => {mixElems(mixData);}}>Mix</button>
             </div>
 
-            <button className="cta" onClick={() => {mixElems(mixData);}}>Mix</button>
-          </div>
+            <div id="periodic-table">
 
-          <div id="periodic-table">
+              {listElems.map(element => <Elements 
+                key={element.name}
+                symbol={element.symbol}
+                xpos={element.xpos}
+                ypos={element.ypos}
+                category={element.category}
+              />)}
+            </div>
+            
+            <DiscoverList knownCompound={knownCompound}
+                          discoverState={showDiscover}
+                          showDiscover={setShowDiscover}
+                          selectedCompound={setSelectedCompound}
+                          showModal={setShowModal} />
 
-            {listElems.map(element => <Elements 
-              key={element.name}
-              symbol={element.symbol}
-              xpos={element.xpos}
-              ypos={element.ypos}
-              category={element.category}
-            />)}
-          </div>
-          
-          <DiscoverList knownCompound={knownCompound}
-                        discoverState={showDiscover}
-                        showDiscover={setShowDiscover}
-                        selectedCompound={setSelectedCompound}
-                        showModal={setShowModal} />
-
-          {showModal && <CompoundModal showModal={setShowModal} data={selectedCompound} />}
-          {showNew && <DiscoverModal showNew={setShowNew} data={newDiscover}/>}
-          
-          <Toast message={toastMsg}
-                timer={3000}
-                toastType={toastState}
-                showToast={setShowToast}
-                toastState={showToast}/>
-      </div>
-      <SideNav />
+            {showModal && <CompoundModal showModal={setShowModal} data={selectedCompound} />}
+            {showNew && <DiscoverModal showNew={setShowNew} data={newDiscover}/>}
+            
+            <Toast message={toastMsg}
+                  timer={3000}
+                  toastType={toastState}
+                  showToast={setShowToast}
+                  toastState={showToast}/>
+        </div>
+      </main>
     </>
   )
 }

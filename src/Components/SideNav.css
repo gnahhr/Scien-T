@@ -8,7 +8,6 @@
   top: 0;
   background-color: #220B42;
   color: white;
-  position: fixed;
   overflow-y: auto;
 }
 
@@ -58,35 +57,39 @@
   font-size: 1.4rem;
   margin-left: 0.5rem;
 }
-.category .category-header h3 a {
+.category .category-header a {
   color: white;
+  padding: 0;
+}
+.category .category-header a img {
+  width: 24px;
+}
+.category .category-header a .l-name {
   font-size: 1.4rem;
+  margin-left: 0.5rem;
 }
-.category .category-header h3 a .active {
+.category .category-header a.active {
   color: #DE9F00;
 }
-.category .category-header h3 a:hover {
+.category .category-header a:hover {
   color: #DE9F00;
 }
-.category ul li {
-  text-align: left;
-  margin-left: 2rem;
-  list-style: none;
-}
-.category ul li a {
+.category a {
+  display: flex;
   text-decoration: none;
   padding: 0 0.5rem;
   color: white;
 }
-.category ul li a:hover {
-  color: #DE9F00;
+.category a img {
+  margin-right: 5px;
 }
-.category ul li:has(.active) {
+.category .category-links a.active {
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 15px 0 0 15px;
   padding: 0 0.5rem;
 }
-.category ul li:hover {
+.category .category-links a:hover {
+  color: #DE9F00;
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 15px 0 0 15px;
   padding: 0 0.5rem;
@@ -98,4 +101,40 @@
 
 .footer {
   margin: auto auto 2rem;
+}
+
+.collapsed-nav .side-nav-logo {
+  width: 80%;
+  padding: 2rem;
+}
+.collapsed-nav .user {
+  width: 16px;
+}
+.collapsed-nav .category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.collapsed-nav .category .category-header img {
+  width: 32px;
+}
+.collapsed-nav .category .category-header a img {
+  size: 120px;
+}
+.collapsed-nav .category .category-header a .l-name {
+  display: none;
+}
+.collapsed-nav .category .category-header h3 {
+  display: none;
+}
+.collapsed-nav .category .category-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.collapsed-nav .category .category-links a {
+  padding: 5px;
+}
+.collapsed-nav .category .category-links a .l-name {
+  display: none;
 }
