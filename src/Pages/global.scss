@@ -48,6 +48,17 @@ button:hover, .button:hover {
     cursor: pointer;
 }
 
+button:disabled {
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 2px 1px rgba(0, 0, 0, 0.5);
+}
+
+button:disabled:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 3px 2px 1px rgba(0, 0, 0, 0.5);
+    cursor: default;
+}
+
 .active-diff {
     background-color: #DE9F00;
     color: #FFFFFF;
@@ -149,8 +160,8 @@ h2 {
 .form-wrapper {
     background-color: rgba(255, 255, 255, 0.9);
     padding: 2rem 4rem;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    justify-items: center;
     align-items: center;
     border-radius: 15px;
     margin: 3rem 0;

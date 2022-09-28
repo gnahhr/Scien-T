@@ -125,8 +125,6 @@ const electronConfiguration = () => {
   }
 
   return (
-    <>
-      <SideNav />
       <main>
         
         <div className="main-header">
@@ -157,7 +155,6 @@ const electronConfiguration = () => {
         :
         <ElectronFinish />}
       </main>
-    </>
   )
 }
 

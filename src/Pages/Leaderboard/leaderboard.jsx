@@ -71,36 +71,32 @@ const leaderboard = () => {
   }
 
   return (
-    <>
-      <SideNav />
-      <main>
-        
-        <div className="selector-wrapper">
-          <div className="selector">
-              <div id="intelliment"><button style={{backgroundColor: showIntelliment ? "#008773":"#F1F1F1"}} onClick={() => {toggleIntelliment()}}> Intelliment </button> </div>
-              <div id="electronConfig"><button style={{backgroundColor: showElectronConfig ? "#008773":"#F1F1F1"}} onClick={() => {toggleElectronConfig()}}>Electron <br></br>Configuration</button> </div>
-          </div>
+    <main>
+      <div className="selector-wrapper">
+        <div className="selector">
+            <div id="intelliment"><button style={{backgroundColor: showIntelliment ? "#008773":"#F1F1F1"}} onClick={() => {toggleIntelliment()}}> Intelliment </button> </div>
+            <div id="electronConfig"><button style={{backgroundColor: showElectronConfig ? "#008773":"#F1F1F1"}} onClick={() => {toggleElectronConfig()}}>Electron <br></br>Configuration</button> </div>
         </div>
-        <div className = "container">
-          <div className="ranking-container">
-            <div className="top-text"><h1>Leaderboard</h1></div>
-            {showIntelliment ? <IntellimentRankings rankings={rankings}/> : <ElectronConfigRankings rankings={rankings}/>}
-          </div>
+      </div>
+      <div className = "container">
+        <div className="ranking-container">
+          <div className="top-text"><h1>Leaderboard</h1></div>
+          {showIntelliment ? <IntellimentRankings rankings={rankings}/> : <ElectronConfigRankings rankings={rankings}/>}
+        </div>
 
-          <div className="difficulty-wrapper">
-            <button className={difficulty === "easy" ? "active-diff" : "" || showIntelliment ? "" : "hidden-button"}
-                    onClick={() => toggleDifficulty("easy")}>Easy</button>
-            <button className={difficulty === "normal" ? "active-diff" : ""  || showIntelliment ? "" : "hidden-button"}
-                    onClick={() => toggleDifficulty("normal")}>Normal</button>
-            <button className={difficulty === "hard" ? "active-diff" : ""  || showIntelliment ? "" : "hidden-button"}
-                    onClick={() => toggleDifficulty("hard")}>Hard</button>
-            <button className={difficulty === "hardcore" ? "active-diff" : ""  || showIntelliment ? "" : "hidden-button"}
-                    onClick={() => toggleDifficulty("hardcore")}>Hardcore</button>
-          </div>
-          
+        <div className="difficulty-wrapper">
+          <button className={difficulty === "easy" ? "active-diff" : "" || showIntelliment ? "" : "hidden-button"}
+                  onClick={() => toggleDifficulty("easy")}>Easy</button>
+          <button className={difficulty === "normal" ? "active-diff" : ""  || showIntelliment ? "" : "hidden-button"}
+                  onClick={() => toggleDifficulty("normal")}>Normal</button>
+          <button className={difficulty === "hard" ? "active-diff" : ""  || showIntelliment ? "" : "hidden-button"}
+                  onClick={() => toggleDifficulty("hard")}>Hard</button>
+          <button className={difficulty === "hardcore" ? "active-diff" : ""  || showIntelliment ? "" : "hidden-button"}
+                  onClick={() => toggleDifficulty("hardcore")}>Hardcore</button>
         </div>
-      </main>
-    </>
+        
+      </div>
+    </main>
   )
 }
 

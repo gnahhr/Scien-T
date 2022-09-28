@@ -2,13 +2,27 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
   height: 100vh;
-  width: 15vw;
+  width: 17vw;
   left: 0;
   top: 0;
   background-color: #220B42;
   color: white;
+  transition: all 500ms ease-in;
   overflow-y: auto;
+}
+
+#side-nav-arrow {
+  position: absolute;
+  right: 0;
+  top: calc(7vh - 10px);
+  background-color: #3B2B52;
+  padding: 8px 5px;
+  transform: rotate(180deg);
+  margin-right: 2px;
+  box-shadow: 0 3px 10px 5px rgba(0, 0, 0, 0.431372549);
+  border-radius: 50%;
 }
 
 .side-nav-logo {
@@ -51,7 +65,7 @@
   justify-items: center;
 }
 .category .category-header img {
-  width: 24px;
+  width: 32px;
 }
 .category .category-header h3 {
   font-size: 1.4rem;
@@ -62,14 +76,11 @@
   padding: 0;
 }
 .category .category-header a img {
-  width: 24px;
+  width: 32px;
 }
 .category .category-header a .l-name {
   font-size: 1.4rem;
   margin-left: 0.5rem;
-}
-.category .category-header a.active {
-  color: #DE9F00;
 }
 .category .category-header a:hover {
   color: #DE9F00;
@@ -82,6 +93,12 @@
 }
 .category a img {
   margin-right: 5px;
+}
+.category .category-links {
+  margin-left: 2rem;
+}
+.category .category-links a img {
+  width: 14px;
 }
 .category .category-links a.active {
   background-color: rgba(0, 0, 0, 0.5);
@@ -102,27 +119,54 @@
 .footer {
   margin: auto auto 2rem;
 }
+.footer p {
+  text-align: center;
+}
 
+.collapsed-nav {
+  overflow-x: hidden;
+  width: 7vw;
+  transition: all 500ms ease-in;
+}
+.collapsed-nav #side-nav-arrow {
+  transform: rotate(0deg);
+  top: calc(9.5vh - 10px);
+}
 .collapsed-nav .side-nav-logo {
   width: 80%;
   padding: 2rem;
 }
-.collapsed-nav .user {
-  width: 16px;
+.collapsed-nav .user img {
+  width: 32px;
+  padding: 0.5rem;
 }
 .collapsed-nav .category {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 50%;
+  padding: 5px;
+}
+.collapsed-nav .category .category-header ~ .category-links {
+  border-top: 2px rgb(255, 255, 255) solid;
 }
 .collapsed-nav .category .category-header img {
   width: 32px;
+  margin: 0;
+}
+.collapsed-nav .category .category-header a {
+  padding: 0.5rem;
+  border-radius: 15px;
 }
 .collapsed-nav .category .category-header a img {
   size: 120px;
+  margin: 0;
 }
 .collapsed-nav .category .category-header a .l-name {
   display: none;
+}
+.collapsed-nav .category .category-header a:hover {
+  background-color: rgba(158, 138, 187, 0.8);
 }
 .collapsed-nav .category .category-header h3 {
   display: none;
@@ -131,10 +175,23 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-items: center;
+  margin-left: 0;
 }
 .collapsed-nav .category .category-links a {
   padding: 5px;
 }
+.collapsed-nav .category .category-links a img {
+  width: 16px;
+  margin: auto;
+}
 .collapsed-nav .category .category-links a .l-name {
   display: none;
+}
+.collapsed-nav .category .category-links a.active {
+  border-radius: 15px;
+}
+.collapsed-nav .category .category-links a:hover {
+  background-color: rgba(158, 138, 187, 0.8);
+  border-radius: 15px;
 }

@@ -4,25 +4,32 @@ import { NavLink } from 'react-router-dom';
 //Logos
 import Logo from '../Assets/Images/logo.png';
 import User from '../Assets/Images/user.png';
-import Arrow from '../Assets/Images/arrow.svg';
 import Bullet from '../Assets/Images/bullet.svg';
 import Rank from '../Assets/Images/rank.svg';
 import Gear from '../Assets/Images/gear.svg';
+import Arrow from '../Assets/Images/arrow.svg';
 import Info from '../Assets/Images/info.svg';
 import Progress from '../Assets/Images/progress.svg';
 import Game from '../Assets/Images/game.svg';
 import Learn from '../Assets/Images/learn.svg';
 import Home from '../Assets/Images/home.svg';
+import Intell from '../Assets/Images/intell-icon.svg';
+import Mix from '../Assets/Images/mix-icon.svg';
+import Trivia from '../Assets/Images/trivia-icon.svg';
+import PerIcon from '../Assets/Images/periodic-icon.svg';
 
 //Design
 import "./SideNav.css";
 
-const SideNav = () => {
+const SideNav = ({children}) => {
   const [ navOpen, setNavOpen ] = useState(true);
+
+  const toggleNav = (status) => setNavOpen(!status);
   
   return (
-    <div className={navOpen ? "sideNav" : "sideNav collapsed-nav"}
-         style={{width: navOpen ? "15vw" : "5vw"}}>
+    <>
+    <div className={navOpen ? "sideNav" : "sideNav collapsed-nav"}>
+      <img src={Arrow} alt="arrow" id="side-nav-arrow" onClick={() => toggleNav(navOpen)}/>
       <img src={Logo} alt="logo" className="side-nav-logo"/>
       <div className="user">
         <img src={User} alt="pfp"/>
@@ -41,9 +48,9 @@ const SideNav = () => {
           <h3>Learn</h3>
         </div>
         <div className="category-links">
-            <NavLink to="/periodicTable"><img src={Bullet} alt="-"/><div className="l-name">Periodic Table</div></NavLink>
-            <NavLink to="/trivias"><img src={Bullet} alt="-"/><div className="l-name">Trivias</div></NavLink>
-            <NavLink to="/intellimentCategory"><img src={Bullet} alt="-"/><div className="l-name">Intelliment</div></NavLink>
+            <NavLink to="/periodicTable"><img src={PerIcon} alt="-"/><div className="l-name">Periodic Table</div></NavLink>
+            <NavLink to="/trivias"><img src={Trivia} alt="-"/><div className="l-name">Trivias</div></NavLink>
+            <NavLink to="/intellimentCategory"><img src={Intell} alt="-"/><div className="l-name">Intelliment</div></NavLink>
         </div>
       </div>
       <div className="category">
@@ -52,8 +59,8 @@ const SideNav = () => {
           <h3>Game</h3>
         </div>
         <div className="category-links">
-            <NavLink to="/mix"><img src={Bullet} alt="-"/><div className="l-name">Mixing Table</div></NavLink>
-            <NavLink to="/intelliment"><img src={Bullet} alt="-"/><div className="l-name">Intelliment</div></NavLink>
+            <NavLink to="/mix"><img src={Mix} alt="-"/><div className="l-name">Mixing Table</div></NavLink>
+            <NavLink to="/intelliment"><img src={Intell} alt="-"/><div className="l-name">Intelliment</div></NavLink>
             <NavLink to="/electronConfiguration"><img src={Bullet} alt="-"/><div className="l-name">Electron Config</div></NavLink>
         </div>
       </div>
@@ -82,6 +89,8 @@ const SideNav = () => {
         {navOpen ? <p>All Rights Reserved &copy;2022</p> : <p>&copy;2022</p>}
       </div>
     </div>
+    <main>{children}</main>
+    </>
   )
 }
 
