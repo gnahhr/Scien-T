@@ -1,7 +1,7 @@
 const express = require ('express')
 const router = express.Router()
 
-const { mixElements, getME, electronConfiguration, getEC, intelliment, getIntellimentRankings, getElectronConfigRankings, getIntellimentData} = require('../controllers/general')
+const { mixElements, getME, electronConfiguration, getEC, intelliment, getIntellimentRankings, getElectronConfigRankings, getIntellimentData, getIntellimentCounter} = require('../controllers/general')
 
 router.route('/mixElements').post(mixElements)
 
@@ -18,6 +18,8 @@ router.route('/getIntellimentRankings/:difficulty').get(getIntellimentRankings)/
 router.route('/getElectronConfigRankings').get(getElectronConfigRankings)
 
 router.route('/getIntellimentData/:access/:difficulty').get(getIntellimentData)
+
+router.route('/getIntellimentCounter/:access/:difficulty').get(getIntellimentCounter)
 
 module.exports = router
 

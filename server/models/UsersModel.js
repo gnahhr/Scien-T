@@ -18,10 +18,15 @@ const UserData = new mongoose.Schema(
         intellimentHardHS:{type: Number, default: 0},
         intellimentHardcoreHS:{type: Number, default: 0},
 
-        intellimentEasy:{type: Array, default: 0},
-        intellimentNormal:{type: Array, default: 0},
-        intellimentHard:{type: Array, default: 0},
-        intellimentHardcore:{type: Array, default: 0},
+        intellimentEasy:{type: Array},
+        intellimentNormal:{type: Array},
+        intellimentHard:{type: Array},
+        intellimentHardcore:{type: Array},
+
+        intellimentEasyCounter:{type: Array},
+        intellimentNormalCounter:{type: Array},
+        intellimentHardCounter:{type: Array},
+        intellimentHardcoreCounter:{type: Array},
 
         isVerified: {type: Boolean, default: false, required: true, }
     },

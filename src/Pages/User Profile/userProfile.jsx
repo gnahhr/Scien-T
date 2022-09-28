@@ -1,5 +1,6 @@
 import React, { useState, useEffect }from 'react'
 import jwtDecode from 'jwt-decode'
+import regression from 'regression'
 
 import SideNav from '../../Components/SideNav'
 import LineChart from '../../Components/LineChart'
@@ -7,6 +8,9 @@ import LineChart from '../../Components/LineChart'
 import "./userProfile.css"
 
 import getIntellimentData from '../../Hooks/getIntellimentData'
+import getUserProgEC from '../../Hooks/getUserProgEC'
+import getUserProgME from '../../Hooks/getUserProgME'
+import getIntellimentCounter from '../../Hooks/getIntellimentCounter'
 
 
 const userProfile = () => {
@@ -18,7 +22,16 @@ const userProfile = () => {
   const [ access, setAccess ] = useState('')
   const [ isDisabled, setIsDisabled ] = useState(true)
   const [ data, setData ] = useState([])
+  const [ intellimentCounter, setIntellimentCounter ] = useState([])
   const [ difficulty, setDifficulty ] = useState('easy')
+  const [ mixingTableCounter, setMixingTableCounter ] = useState(0)
+  const [ electronConfigCounter, setElectronConfigCounter ] = useState(0)
+
+  // const formatArray = (intellimentCounter) => { // format to 2D array for linear regression
+  //   return intellimentCounter.map((ctr, index) => {
+  //     return[index+1,ctr]
+  //   })
+  // }
 
   //get data on refresh
   useEffect(()=>{
@@ -29,10 +42,26 @@ const userProfile = () => {
     setFirstName(user.firstName)
     setLastName(user.lastName)
     setAccess(user.id);
+
     (async () => {
       const progress = await getIntellimentData(user.id, "easy");
       setData(progress);
-    })()
+    })();
+
+    (async () => {
+      const progress = await getIntellimentCounter(user.id, "easy");
+      setIntellimentCounter(progress);
+    })();
+
+    (async () => {
+      const progress = await getUserProgME(user.id);
+      setMixingTableCounter(progress.length);
+    })();
+
+    (async () => {
+      const progress = await getUserProgEC(user.id);
+      setElectronConfigCounter(progress.length);
+    })();
   },[])
 
   //get user data per difficulty change
@@ -42,6 +71,22 @@ const userProfile = () => {
       setData(progress);
     })()
   },[difficulty])
+
+  useEffect(() => {
+    // console.log(intellimentCounter)
+    const formattedArray = intellimentCounter.map((ctr, index) => {
+      return[index+1,ctr]
+    })
+    console.log(formattedArray)
+    // const mema = [[1, 100], [2, 123], [3, 58],[4, 250],[5, 120]]
+    // console.log(mema)
+    // const mema = [[1, 100], [2, 123], [3, 58],[4, 250],[5, 120]]
+    const result = regression.linear(formattedArray)
+    console.log(result.string)
+    console.log(result.equation[0])
+    console.log(result.equation[1])
+    console.log(result.predict(30))
+  },[data])
 
 
   //text input
@@ -61,7 +106,6 @@ const userProfile = () => {
 
   //format data for chart output
   const formatter = (data) => {
-    console.log(data.map((data) => data));
     return {
       labels: data.map((data,index) => `Game ${index + 1}`),
       datasets: [
@@ -83,12 +127,34 @@ const userProfile = () => {
     
   return (
     <>
-      <SideNav/>
-      <main>
-        <div className="main-header">
-          <h1>User Progress</h1>
+    <main>
+      <div className="main-header">
+        <h1>User Progress</h1>
+      </div>
+      <div className="main-wrapper user-profile">
+        <div className="progress-header">
+          <h2>Check your progress!</h2>
+          <div className="progress-wrapper">
+            <div className="mix-progress progress-div">
+              <h3>Mixing Table Progress</h3>
+              <p>{mixingTableCounter}/273</p>
+              <p></p>
+            </div>
+            <div className="electron-progress progress-div">
+              <h3>Electron Configuration Progress</h3>
+              <p>{electronConfigCounter}/118</p>
+              <p></p>
+            </div>
+            <div className="mastery progress-div">
+              <h3>Level of Mastery</h3>
+              <p>Newbie</p>
+              <p className="side">
+                You are something else.
+              </p>
+            </div>
+          </div>
         </div>
-        <div className="main-wrapper user-profile">
+        {/* <div className="main-wrapper user-profile">
           <div className="progress-header">
             <h2>Check your progress!</h2>
             <div className="progress-wrapper">
@@ -110,7 +176,7 @@ const userProfile = () => {
                 </p>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="progress-body">
             <div className="category-wrapper">
                 <h1>Intelliment</h1>
@@ -137,19 +203,7 @@ const userProfile = () => {
 
             </div>
           </div>
-          {/* <div className="form-wrapper">
-            <h2>User Profile</h2>
-            <form  id="login">
-                <label htmlFor="firstName">First Name</label>
-                <input type="text" name="firstName" id="firstName" value={firstName} onChange={(e) => onInputChange(e)} disabled={isDisabled}/>
-                <label htmlFor="lastName">Last Name</label>
-                <input type="text" name="lastName" id="lastName" value={lastName} onChange={(e) => onInputChange(e)} disabled={isDisabled}/>
-                <label htmlFor="username">Username</label>
-                <input type="text" name="username" id="username" value={username} onChange={(e) => onInputChange(e)} disabled={isDisabled}/>
-                <label htmlFor="email">E-mail</label>
-                <input type="email" name="email" id="email" value={email} onChange={(e) => onInputChange(e)} disabled={isDisabled}/>
-            </form>
-          </div> */}
+        {/* </div> */}
         </div>
       </main>
     </>

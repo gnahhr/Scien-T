@@ -95,7 +95,8 @@ const Intelliment = ({mode}) => {
   useEffect(() => {
     if (mode === "game"){
       if(finished){
-        pushIntelliment(score, access, username, category)
+        const corAve = (corCategory+corName+corNumber+corMass)/4;
+        pushIntelliment(score, access, username, category, corAve)
       }
     }
   },[finished])

@@ -98,6 +98,7 @@ exports.intelliment = async (req, res, next) => {
     const score = req.body.score
     const category = req.body.category
     const username = req.body.username
+    const corAve = req.body.corAve
 
     if(category == 30){
         const pushRankings = await IntellimentEasyRankings.findOneAndUpdate({username},{
@@ -105,12 +106,15 @@ exports.intelliment = async (req, res, next) => {
         }, {upsert: true})
 
         const pushProg = await UserData.findByIdAndUpdate({_id},{
-            $push: {intellimentEasy: score}
-        })
-
-        const highScore = await UserData.findOneAndUpdate({username}, {
+            $push: {intellimentEasy: score, intellimentEasyCounter: corAve},
             $max: { intellimentEasyHS: score} 
         })
+
+        // const push
+
+        // const highScore = await UserData.findOneAndUpdate({username}, {
+        //     $max: { intellimentEasyHS: score} 
+        // })
 
         if(pushProg)
         res.json({status: 'ok', pushRankings})
@@ -125,12 +129,13 @@ exports.intelliment = async (req, res, next) => {
         }, {upsert: true})
 
         const pushProg = await UserData.findByIdAndUpdate({_id},{
-            $push: {intellimentNormal: score}
+            $push: {intellimentNormal: score, intellimentNormalCounter: corAve},
+            $max: { intellimentNormalHS: score}
         })
 
-        const highScore = await UserData.findOneAndUpdate({username}, {
-            $max: { intellimentNormalHS: score} 
-        })
+        // const highScore = await UserData.findOneAndUpdate({username}, {
+        //     $max: { intellimentNormalHS: score} 
+        // })
 
         if(pushProg)
         res.json({status: 'ok', pushRankings})
@@ -145,12 +150,13 @@ exports.intelliment = async (req, res, next) => {
         }, {upsert: true})
 
         const pushProg = await UserData.findByIdAndUpdate({_id},{
-            $push: {intellimentHard: score}
+            $push: {intellimentHard: score, intellimentHardCounter: corAve},
+            $max: { intellimentHardHS: score}
         })
 
-        const highScore = await UserData.findOneAndUpdate({username}, {
-            $max: { intellimentHardHS: score} 
-        })
+        // const highScore = await UserData.findOneAndUpdate({username}, {
+        //     $max: { intellimentHardHS: score} 
+        // })
 
         if(pushProg)
         res.json({status: 'ok', pushRankings})
@@ -165,12 +171,10 @@ exports.intelliment = async (req, res, next) => {
         }, {upsert: true})
 
         const pushProg = await UserData.findByIdAndUpdate({_id},{
-            $push: {intellimentHardcore: score}
+            $push: {intellimentHardcore: score, intellimentHardcoreCounter: corAve},
+            $max: {intellimentHardcoreHS: score} 
         })
 
-        const highScore = await UserData.findOneAndUpdate({username}, {
-            $max: { intellimentHardcoreHS: score} 
-        })
 
         if(pushProg)
         res.json({status: 'ok', pushRankings})
@@ -265,6 +269,37 @@ exports.getIntellimentData = async(req, res, next) => {
     else if(difficulty === "hardcore"){
         const data = await UserData.findById({_id},{intellimentHardcore:1})
         res.json({data: data.intellimentHardcore})
+    }
+    // const data = await UserData.findById({_id},{intellimentEasy:1})
+    // console.log(data)
+    // res.json({data: data.intellimentEasy})
+}
+
+exports.getIntellimentCounter = async(req, res, next) => {
+    var ObjectId = require('mongoose').Types.ObjectId;
+    const access = req.params['access']
+    const _id = new ObjectId (access)
+
+    const difficulty = req.params['difficulty']
+
+    if(difficulty === "easy"){
+        const data = await UserData.findById({_id},{intellimentEasyCounter:1})
+        res.json({data: data.intellimentEasyCounter})
+    }
+
+    else if(difficulty === "normal"){
+        const data = await UserData.findById({_id},{intellimentNormalCounter:1})
+        res.json({data: data.intellimentNormalCounter})
+    }
+
+    else if(difficulty === "hard"){
+        const data = await UserData.findById({_id},{intellimentHardCounter:1})
+        res.json({data: data.intellimentHardCounter})
+    }
+
+    else if(difficulty === "hardcore"){
+        const data = await UserData.findById({_id},{intellimentHardcoreCounter:1})
+        res.json({data: data.intellimentHardcoreCounter})
     }
     // const data = await UserData.findById({_id},{intellimentEasy:1})
     // console.log(data)
