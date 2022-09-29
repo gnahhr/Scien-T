@@ -16,10 +16,7 @@ exports.mixElements = async (req, res, next) => {
     const access = req.body.access;
     const _id = new ObjectId (access);
     const mixed = req.body.element;
-
-    // const pushProg = await UserData.findOneAndUpdate({username: "josh"},{
-    //     $push: {mixingElements: {$each: [...mixed]}}
-    // })
+    
     const pushProg = await UserData.findByIdAndUpdate({_id},{
         $push: {mixingElements: {$each: [...mixed]}}
     })
@@ -270,9 +267,6 @@ exports.getIntellimentData = async(req, res, next) => {
         const data = await UserData.findById({_id},{intellimentHardcore:1})
         res.json({data: data.intellimentHardcore})
     }
-    // const data = await UserData.findById({_id},{intellimentEasy:1})
-    // console.log(data)
-    // res.json({data: data.intellimentEasy})
 }
 
 exports.getIntellimentCounter = async(req, res, next) => {
@@ -301,20 +295,7 @@ exports.getIntellimentCounter = async(req, res, next) => {
         const data = await UserData.findById({_id},{intellimentHardcoreCounter:1})
         res.json({data: data.intellimentHardcoreCounter})
     }
-    // const data = await UserData.findById({_id},{intellimentEasy:1})
-    // console.log(data)
-    // res.json({data: data.intellimentEasy})
 }
 
 
 
-// const pushProgPoints = await UserData.findByIdAndUpdate({_id},{
-//     $inc: {electronConfigPoints: points}
-// })
-
-// const pushProgAtomicNumber = await UserData.findByIdAndUpdate({_id},{
-//     $push: {electronConfigAtomicNumber: atomicNumber}
-// })
-
-// if(pushProgPoints && pushProgAtomicNumber )
-//     res.json(pushProgAtomicNumber)

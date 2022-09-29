@@ -1,8 +1,6 @@
 const express = require ('express')
 const cors = require ('cors')
 const bodyParser = require ('body-parser')
-// const authHandler = require('./routes/auth');
-// const genHandler = require('./routes/general.js')
 const mongoose = require ('mongoose')
 require('dotenv/config')
 
@@ -12,7 +10,6 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use('/api', require('./routes/auth'));
 app.use('/api', require('./routes/general'))
-// app.use('/', genHandler);
 
 // DB Connection
 mongoose.connect(process.env.DB_URI, {useNewUrlParser:true, useUnifiedTopology:true})
