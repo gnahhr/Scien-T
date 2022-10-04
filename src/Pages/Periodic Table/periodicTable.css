@@ -3,3 +3,7 @@
   z-index: 5;
   transition: opacity 500ms ease;
 }
+
+#periodic-table {
+  overflow-y: hidden;
+}

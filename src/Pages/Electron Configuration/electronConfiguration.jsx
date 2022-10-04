@@ -7,6 +7,7 @@ import ElementQuestion from "../../Components/ElementQuestion.jsx";
 import Toast from '../../Components/Toast';
 import SideNav from '../../Components/SideNav';
 import ElectronFinish from '../../Components/ElectronFinish.jsx';
+import ElectronChart from '../../Components/ElectronChart.jsx';
 
 //Hooks
 import pushProgEC from '../../Hooks/pushProgEC.js';
@@ -38,6 +39,9 @@ const electronConfiguration = () => {
   const [ showToast, setShowToast ] = useState(false);
   const [ toastState, setToastState ] = useState("");
   const [ toastMsg, setToastMsg ] = useState("");
+
+  //Modal State
+  const [ showModal, setShowModal] = useState(false);
   
 
   useEffect (() => {
@@ -126,12 +130,13 @@ const electronConfiguration = () => {
 
   return (
       <main>
-        
         <div className="main-header">
           <h1>Electron Configuration</h1>
         </div>
+        {showModal && <ElectronChart showModal={setShowModal}/>}
         {!finished ? 
         <div className="electron-config">
+          <button className="teal chart-btn" onClick={() => setShowModal(true)}>Show Chart</button>
           <h1>{solved} out of 119</h1>
           {finished ? <h1>finished na</h1> : question && <><ElementQuestion data={
             {

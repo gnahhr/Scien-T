@@ -1,0 +1,39 @@
+.about-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  place-items: center;
+  height: 88vh;
+}
+
+#logo-about {
+  margin: 1rem auto 0;
+}
+
+.short-desc {
+  width: 80%;
+  font-size: 1.4rem;
+  color: white;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  border-radius: 25px;
+}
+
+.members-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  align-items: center;
+  gap: 3rem 1rem;
+}
+.members-wrapper .picture {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+}
+.members-wrapper * {
+  margin: auto;
+  text-align: center;
+}

@@ -19,7 +19,7 @@
 #side-nav-arrow{
     position: absolute;
     right: 0;
-    top: calc(7vh - 10px);
+    top: calc(12% - 10px);
     background-color: #3B2B52;
     padding: 8px 5px;
     transform: rotate(180deg);
@@ -73,7 +73,7 @@
         justify-items: center;
         
         img {
-            width: 32px;
+            width: 24px;
         }
 
         h3 {
@@ -86,7 +86,7 @@
             padding: 0;
 
             img {
-                width: 32px;
+                width: 24px;
             }
 
             .l-name {
@@ -160,7 +160,7 @@
 
     #side-nav-arrow{
         transform: rotate(0deg);
-        top: calc(9.5vh - 10px);
+        top: calc(11% - 10px);
     }
 
     .side-nav-logo {
@@ -188,17 +188,17 @@
 
         .category-header {
             img {
-                width: 32px;
+                size: 120px;
                 margin: 0;
+                padding: .5rem;
             }
 
             a {
-                padding: .5rem;
                 border-radius: 15px;
                 img {
                     size: 120px;
                     margin: 0;
-
+                    padding: .5rem;
                 }
                 .l-name {
                     display: none;
@@ -220,7 +220,11 @@
             align-items: center;
             justify-items: center;
             margin-left: 0;
+            overflow: hidden;
+
             a {
+                display: none;
+                transform: translateY(-300%);
                 padding: 5px;
                 img {
                     width: 16px;
@@ -238,6 +242,17 @@
             a:hover {
                 background-color: rgba(158, 138, 187, 0.8);
                 border-radius: 15px;
+            }
+        }
+    }
+
+    .category:hover {
+        .category-header+.category-links{
+            a {
+                display:block;
+                transform: translateY(0);
+                transition: display 700ms ease-in;
+                transition: transform 700ms ease-in;
             }
         }
     }

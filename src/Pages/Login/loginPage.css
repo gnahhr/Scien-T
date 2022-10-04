@@ -3,6 +3,7 @@
   flex-direction: column;
   align-items: center;
   margin-top: 9vh;
+  width: 100%;
 }
 
 #login {

@@ -7,6 +7,7 @@ import User from '../Assets/Images/user.png';
 import Bullet from '../Assets/Images/bullet.svg';
 import Rank from '../Assets/Images/rank.svg';
 import Gear from '../Assets/Images/gear.svg';
+import UserW from '../Assets/Images/user-white.svg'
 import Arrow from '../Assets/Images/arrow.svg';
 import Info from '../Assets/Images/info.svg';
 import Progress from '../Assets/Images/progress.svg';
@@ -76,7 +77,7 @@ const SideNav = ({children}) => {
       </div>
       <div className="category">
         <div className="category-header">
-          <NavLink to="/settings"><img src={Gear} alt="settings" /><div className="l-name">Settings</div></NavLink>
+          <NavLink to="/profile"><img src={UserW} alt="settings" /><div className="l-name">Profile</div></NavLink>
         </div>
       </div>
       <div className="category">

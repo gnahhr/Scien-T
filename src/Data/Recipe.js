@@ -1695,4 +1695,1687 @@ export const recipe = [
 			"It may be toxic by ingestion, inhalation and skin absorption. It is used to make other chemicals."
 		]
 	},
+	
+	{
+		name: "Butanoic acid",
+		compoundPic: "Butanoic-acid.png",
+		elements: ["C", "H", "O"],
+		formula: "C<sub>4</sub>H<sub>8</sub>O<sub>2</sub>",
+		moleWeight: "88.11 g/mol",
+		description: [
+			"It is a short chain saturated fatty acid found in the form of esters in animal fats and plant oils.",
+			"It was prepared by the butyric fermentation of carbohydrates and by the oxidation of n-butyl alcohol.",
+			"It was discovered by Lieben and Rossi in 1869.",
+		]
+	},
+	{
+		name: "Calcium hydride",
+		compoundPic: "Calcium-hydride.jpg",
+		elements: ["Ca", "H"],
+		formula: "CaH<sub>2</sub>",
+		moleWeight: "42.094 g/mol",
+		description: [
+			"This chemical compound, when exposed to water, undergoes a vigorous reaction.",
+			"Calcium hydride possesses a salt-like structure, and thus is classed as a saline hydride.",
+			"This alkaline earth hydride possesses a cotunnite crystalline structure. Two ionic bonds exist between the calcium and hydrogen ions."
+		]
+	},
+	{
+		name: "Copper ii carbonate",
+		compoundPic: "Copper-ii-carbonate.jpg",
+		elements: ["Cu", "C", "O"],
+		formula: "CuCO<sub>3</sub>",
+		moleWeight: "123.55 g/mol",
+		description: [
+			"It is a non-flammable compound.",
+			"The Copper II Carbonate can react immediately with water and air and is a tedious process practically to prepare."
+		]
+	},
+	{
+		name: "Fluorine",
+		compoundPic: "Fluorine.jpg",
+		elements: ["F"],
+		formula: "F",
+		moleWeight: "18.998403 u",
+		description: [
+			"The element Fluorine is a poisonous gas.",
+			"It remains in the air for long when attached to tiny particles.",
+			"Fluorides are also added to toothpaste to prevent dental cavities."
+		]
+	},
+	{
+		name: "Lithium phosphate",
+		compoundPic: "Lithium-phosphate.png",
+		elements: ["Li", "P", "O"],
+		formula: "Li<sub>3</sub>PO<sub>4</sub>",
+		moleWeight: "115.79 g/mol",
+		description: [
+			"It is majorly used in the form of a conductive thin-film electrolyte for the fabrication of a variety of high performance energy storage devices such as lithium ion batteries and other lithium based rechargeable batteries."
+		]
+	},
+	{
+		name: "Glycerol",
+		compoundPic: "Glycerol.png",
+		elements: ["C", "H", "O"],
+		formula: "C<sub>3</sub>H<sub>8</sub>O<sub>3</sub>",
+		moleWeight: "92.09382 g/mol",
+		description: [
+			"It is an odorless liquid that is used as a solvent, sweetening agent, and also as medicine.",
+			"When glycerol is in the blood, it attracts water so that the water stays in the body longer. This might help an athlete exercise for longer."
+		]
+	},
+	{
+		name: "Hypobromous acid",
+		compoundPic: "Hypobromous-acid.jpg",
+		elements: ["H", "Br", "O"],
+		formula: "HBrO",
+		moleWeight: "96.911 g/mol",
+		description: [
+			"The hypobromous acid has the ability to kill the pathogens and bacterias hence we use it as a disinfectant, oxidizer, bleach, and deodorant at the same time."
+		]
+	},
+	{
+		name: "Hypoiodous acid",
+		compoundPic: "Hypoiodous-acid.png",
+		elements: ["H", "O", "I"],
+		formula: "HOI",
+		moleWeight: "143.89 g/mol",
+		description: [
+			"It is a volatile iodine species neither elemental nor organic, which has been found in steam/air atmospheres.",
+			"It is also formed along with iodide ions by dissolving iodine in dilute alkali or by the action of mercuric oxide upon iodine and water."
+		]
+	},
+	{
+		name: "Lead iodide",
+		compoundPic: "Lead-iodide.jpg",
+		elements: ["Pb", "I"],
+		formula: "PbI<sub>2</sub>",
+		moleWeight: "461.01 g/mol",
+		description: [
+			"It is a good oxidizing agent and burns with a green-coloured flame.",
+			"It is widely used in printing, photography, and seed clouds."
+		]
+	},
+	{
+		name: "Lithium iodide",
+		compoundPic: "Lithium-Iodide.jpg",
+		elements: ["Li", "I"],
+		formula: "LiI",
+		moleWeight: "133.844 g/mol",
+		description: [
+			"Used as an electrolyte for a high-temperature battery",
+			"In organic synthesis, it is useful for cleaving C–O bonds",
+			"Used as a phosphor for neutron detection"
+		]
+	},
+	{
+		name: "Magnesium oxide",
+		compoundPic: "Magnesium-oxide.jpg",
+		elements: ["Mg", "O"],
+		formula: "MgO",
+		moleWeight: "40.3044 g/mol",
+		description: [
+			"It is one of the most common forms sold in supplement form, either as a stand-alone supplement or in multinutrient products.",
+			"It’s found in a number of foods but can also be taken as a dietary supplement."
+		]
+	},
+	{
+		name: "Urethane",
+		compoundPic: "Urethane.png",
+		elements: ["C", "H", "NO"],
+		formula: "C<sub>3</sub>H<sub>7</sub>NO<sub>2</sub>",
+		moleWeight: "89.09 g/mol",
+		description: [
+			"urethane was formed from the reaction of DEDC with residual ammonia and that this mechanism could account for amounts found in orange juice, wine and beer.",
+			"Used as chemical products, for example, pharmaceuticals, in biochemical research and medicine, and as pharmaceuticals in biochemical research and drug and as a solubilizer and co-dissolvable for pesticides and fumigants.",
+			"It is a sealer used to secure many product forms but is most widely used to seal decorative concrete and stone."
+		]
+	},
+	{
+		name: "Nickel nitrate",
+		compoundPic: "Nickel-nitrate.jpg",
+		elements: ["Ni", "NO"],
+		formula: "Ni(NO<sub>3</sub>)<sub>2</sub>",
+		moleWeight: "182.703 g/mol",
+		description: [
+			"It is a green crystalline solid. It is soluble in water. It is noncombustible, but it will accelerate the burning of combustible materials.",
+			"If large quantities are involved in a fire or the combustible material is finely divided, an explosion may result.",
+			"It is used in nickel plating and to make nickel catalysts for use in chemical manufacture."
+		]
+	},
+	{
+		name: "Sodium dichromate",
+		compoundPic: "Sodium-dichromate.jpg",
+		elements: ["Na", "Cr", "O"],
+		formula: "Na<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>",
+		moleWeight: "261.97 g/mol",
+		description: [
+			"It is also called Bichromate of soda or Disodium dichromate or Sodium dichromate (VI).",
+			"It is a powerful oxidizing agent and highly corrosive.",
+			"It is odourless and dissolves in water, methanol as well as ethanol."
+		]
+	},
+	{
+		name: "Tartaric acid",
+		compoundPic: "Tartaric-acid.jpg",
+		elements: ["C", "H", "O"],
+		formula: "C<sub>4</sub>H<sub>6</sub>O<sub>6</sub>",
+		moleWeight: "150.087 g/mol",
+		description: [
+			"It is an organic acid found in many vegetables and fruits such as bananas, and grapes, but also in bananas, citrus, and tamarinds.",
+			"It is used to generate carbon dioxide.",
+			"High doses of tartaric acid can lead to paralysis or death."
+		]
+	},
+	{
+		name: "Zinc iodide",
+		compoundPic: "Zinc-iodide.png",
+		elements: ["Zn", "I"],
+		formula: "ZnI<sub>2</sub>",
+		moleWeight: "319.22 g/mol",
+		description: [
+			"It is a white solid that readily absorbs water from the atmosphere.",
+			"It can be manufactured directly by the reaction of zinc and iodine while refluxing ether.",
+			"Used as a stain in electron microscopy"
+		]
+	},
+	{
+		name: "Bromine",
+		compoundPic: "Bromine.jpg",
+		elements: ["Br"],
+		formula: "Br",
+		moleWeight: "54.9380 g/mol",
+		description: [
+			"This element has an appreciable vapour pressure at room temperature.",
+			"It is a good oxidising agent like other chlorine water and is more useful as it does not decompose readily.",
+			"Sulphurous acid is oxidised to sulphuric acid by bromine water."
+		]
+	},
+	{
+		name: "Aluminum bromide",
+		compoundPic: "Aluminum-Bromide.png",
+		elements: ["Al", "Br"],
+		formula: "AlBr<sub>3</sub>",
+		moleWeight: "266.69 g/mol",
+		description: [
+			"It is a product of the reaction of aluminum and bromine combined in a 1 to 3 ratio to produce a neutral compound.",
+			"As a liquid, it is a very corrosive yellow that is damaging to the skin, eyes, and mouth.",
+			"Aluminum bromide has very little commercial use but does electroplate aluminum to steel producing a smooth, thick, adherent, and shiny finish.",
+			"The benefits of the process is the formation of a thick dense surface on the steel that is corrosion resistant."
+		]
+	},
+	{
+		name: "Sodium Percarbonate",
+		compoundPic: "Sodium-Percarbonate.jpg",
+		elements: ["C", "H", "Na", "O"],
+		formula: "C<sub>2</sub>H<sub>6</sub>Na<sub>4</sub>O<sub>12</sub>",
+		moleWeight: "157.01 g/mol",
+		description: [
+			"It dissolves relatively fast in the water, releasing sodium carbonate and hydrogen peroxide in the solution.",
+			"The slight amount of moisture which is present already in the atmosphere is sufficient to bring about the decomposition of the percarbonate.",
+			"It has a beneficial effect on bicarbonate hydrogen peroxide mixtures in the area of oral hygiene and therapy."
+		]
+	},
+	{
+		name: "Nickel acetate",
+		compoundPic: "Nickel-acetate.jpeg",
+		elements: ["C", "H", "O", "Ni"],
+		formula: "C<sub>4</sub>H<sub>6</sub>O<sub>4</sub>Ni",
+		moleWeight: "178.797 g/mol",
+		description: [
+			"It is a greenish, crystalline inorganic compound that produces toxic gases upon heating.",
+			"It is used in textile dyeing processes, in electroplating, and as a catalyst intermediate.",
+			"Exposure to this substance can cause severe dermatitis, skin and asthma-like allergies and causes damage to the lungs, kidneys, gastrointestinal tract and neurological system."
+		]
+	},
+	{
+		name: "Sodium Thiosulfate",
+		compoundPic: "Sodium-Thiosulfate.jpg",
+		elements: ["Na", "S", "O"],
+		formula: "Na<sub>2</sub>S<sub>2</sub>O<sub>3</sub>",
+		moleWeight: "158.11 g/mol",
+		description: [
+			"In its solid form, it is a crystalline solid which has a tendency to readily lose water. Sodium thiosulfate is readily soluble in water and is also referred to as sodium hyposulfite.",
+			"This compound may cause mild skin irritation.",
+			"This compound can cause mechanical eye irritation."
+		]
+	},
+	{
+		name: "Acetaldehyde",
+		compoundPic: "Acetaldehyde.jpg",
+		elements: ["C", "H", "O"],
+		formula: "C<sub>2</sub>H<sub>4</sub>O",
+		moleWeight: "44.05 g/mol",
+		description: [
+			"It is miscible with napthalene, gasoline, xylene, ether, turpentine, alcohol and benzene.",
+			"It has no colour and is a flammable liquid. It has a suffocating smell.",
+			"It is non-corrosive to many metals but when It has a narcotic action and can cause mucous irritation."
+		]
+	},
+	{
+		name: "Copper sulfate",
+		compoundPic: "Copper-sulfate.jpg",
+		elements: ["Cu", "S", "O"],
+		formula: "CuSO<sub>4</sub>",
+		moleWeight: "159.609 g/mol",
+		description: [
+			"Can be prepared by treating metallic copper with heated and concentrated sulphuric acid, or by treating the oxides of copper with dilute sulphuric acid.",
+			"It is used in Benedict’s solution and in Fehling’s solution, which is used in testing for reducing sugars.",
+			"It is also used to test blood samples for diseases like anaemia"
+		]
+	},
+	{
+		name: "Mannitol",
+		compoundPic: "Mannitol.jpg",
+		elements: ["C", "H", "O"],
+		formula: "C<sub>6</sub>H<sub>14</sub>O<sub>6</sub>",
+		moleWeight: "182.172 g/mol",
+		description: [
+			"It is a naturally occurring alcohol found in vegetables and fruits.",
+			"It is the most effective and safe medicine in the health system which is listed on the World Health Organization’s List of Essential Medicines.",
+			"It is a prescribed drug used to reduce elevated pressure in the brain.",
+			"It is used to decrease pressure in the eyes, such as in the case of glaucoma."
+		]
+	},
+	{
+		name: "Calcium Chloride",
+		compoundPic: "Calcium-Chloride.jpg",
+		elements: ["Ca", "Cl"],
+		formula: "CaCl<sub>2</sub>",
+		moleWeight: "110.98 g/mol",
+		description: [
+			"It is an ionic compound of chlorine and calcium. At room temperature, it is a crystalline solid white in colour.",
+			"It is odourless and has a very high enthalpy change of solution. This compound is widely used for dust control and de-icing.",
+			"It is used to prevent ice formation and therefore used in deicing.",
+			"It is used to correct the mineral deficiencies in brewing beer",
+			"This compound is irritating and needs to be handled with gloves."
+		]
+	},
+	{
+		name: "Monosodium Glutamate",
+		compoundPic: "Monosodium-Glutamate.jpg",
+		elements: ["C", "H", "NO", "Na"],
+		formula: "C<sub>5</sub>H<sub>8</sub>NO<sub>4</sub>Na",
+		moleWeight: "169.111 g/mol",
+		description: [
+			"it is known to intensify meaty flavours in food, monosodium glutamate is widely used as a flavour enhancer in the food industry.",
+			"This compound is used in several canned food products and spice blends.",
+			"It also finds use in the treatment of hepatic coma."
+		]
+	},
+	{
+		name: "Polystyrene",
+		compoundPic: "Polystyrene.jpg",
+		elements: ["C", "H"],
+		formula: "(C<sub>8</sub>H<sub>8</sub>)<sup>n</sup>",
+		moleWeight: "104.1 g/mol",
+		description: [
+			"It is produced by the polymerization of styrene and is the most widely used plastic.",
+			"At room temperature, the thermoplastic polymer is a solid but when heated above 100 °C it flows.",
+			"Polystyrene is compound that is non-biodegradable with a couple of exceptions.",
+			"Medically it is used for sterilizing test tubes, diagnostic components, and other medical devices."
+		]
+	},
+	{
+		name: "Calcium Carbide",
+		compoundPic: "Calcium-Carbide.jpg",
+		elements: ["Ca", "C"],
+		formula: "CaC<sub>2</sub>",
+		moleWeight: "64.099 g/mol",
+		description: [
+			"Calcium Carbide in its pure form appears as a colourless crystalline solid and is a rock-like structure at room temperature.",
+			"It is used in the production of calcium hydroxide and acetylene.",
+			"It is used in bamboo cannons as well as big-bang cannons."
+		]
+	},
+	{
+		name: "Tetrachloroethylene",
+		compoundPic: "Tetrachloroethylene.png",
+		elements: ["C", "Cl"],
+		formula: "C<sub>2</sub>Cl<sub>4</sub>",
+		moleWeight: "165.83 g/mol",
+		description: [
+			"It is a non-flammable liquid at room temperature, evaporates easily into the air and has a sharp sweet odour.",
+			"introduced in 1925, replaced the more toxic carbon tetrachloride as the standard drug for the treatment of infection with chlorine.",
+			"Used in transformers, paint removers, inks, adhesive formulations, paper coatings and leather treatments as an insulating fluid and cooling gas in aerosol formulations.",
+		]
+	},
+	{
+		name: "Sodium Chlorate",
+		compoundPic: "Sodium-Chlorate.jpg",
+		elements: ["Na", "Cl", "O"],
+		formula: "NaClO<sub>3</sub>",
+		moleWeight: "106.44 g/mol",
+		description: [
+			"It is a powerful oxidising agent produced industrially by the electrolysis of sodium chloride solutions.",
+			"Used as an oxidising agent in the dye-stuffs industry and an oxidising and bleaching agent.",
+			"Finds additional use in the explosives, match and pharmaceutical industries."
+		]
+	},
+	{
+		name: "Potassium Iodate",
+		compoundPic: "Potassium-Iodate.jpg",
+		elements: ["K", "I", "O"],
+		formula: "KIO<sub>3</sub>",
+		moleWeight: "214.001 g/mol",
+		description: [
+			"It is the major chemical compound used for the iodization of edible common salts.",
+			"It provides a convenient way of performing iodometric work. Potassium iodate is also sometimes used to precipitate thorium especially to remove it from the rare earth elements.",
+			"Used in the iodination of table salt because iodide can be oxidised by molecular oxygen to iodine under wet conditions.",
+			"Used in food as a maturing agent and dough conditioner."
+		]
+	},
+	{
+		name: "Lead Acetate",
+		compoundPic: "Lead-Acetate.jpg",
+		elements: ["Pb", "C", "H", "O"],
+		formula: "Pb(C<sub>2</sub>H<sub>3</sub>O<sub>2</sub>)<sub>2</sub>",
+		moleWeight: "325.29 g/mol",
+		description: [
+			"It is poisonous in nature.",
+			"It is used in making white lead in medicines and as a mordant in dyeing. Lead acetate was first produced in the United States in 1944.",
+			"Also known as sugar of lead, is a white crystal made by the action of acetic acid on litharge. Lead acetate is used in gold toning baths to modify the pH.",
+			"Used as a water repellent, for mildew protection, and as a mordant for cotton dyes."
+		]
+	},
+	{
+		name: "Potassium Thiocyanate",
+		compoundPic: "Potassium-Thiocyanate.jpg",
+		elements: ["K", "S", "C", "N"],
+		formula: "KSCN",
+		moleWeight: "97.181 g/mol",
+		description: [
+			"It is formed by the fusion of sulfur with potassium cyanide, extraction with hot aqueous alcohol, evaporating and cooling.",
+			"It is odourless and has a cooling, saline taste.",
+			"Used in conjunction with ferric chloride volumetric solution, a red compound is produced at the endpoint."
+		]
+	},
+	{
+		name: "Butane",
+		compoundPic: "Butane.jpg",
+		elements: ["C", "H"],
+		formula: "C<sub>4</sub>H<sub>10</sub>",
+		moleWeight: "58.12 g/mol",
+		description: [
+			"It is primarily used as a gasoline mixture, either alone or in a propane mixture.",
+			"The butane is stored under pressure as a liquid. When the curler is switched on, butane is released and changes to a gas.",
+			"Used for gasoline blending, as fuel gas and as a feedstock in the production of ethylene and Butadiene."
+		]
+	},
+	{
+		name: "Maltose",
+		compoundPic: "Maltose.jpg",
+		elements: ["C", "H", "O"],
+		formula: "C<sub>12</sub>H<sub>22</sub>O<sub>11</sub>",
+		moleWeight: "342.3 g/mol",
+		description: [
+			"When the two molecules bond together, a molecule of water (H2O) is removed. Maltose, malt sugar, C12H22O11.H2O, is prepared from starch by diastase.",
+			"Behaves like an early product of photosynthesis, rather than a storage product such as starch and its degradation products.",
+			"Used as a carrying material for flavouring materials and volatile aromas. It is also used in infant foods.",
+			"Used for brewing as their composition is similar to wort. Also in doughs with strong fermenting yeasts as these are able to metabolize maltose quickly."
+		]
+	},
+	{
+		name: "Polyurethane Foam",
+		compoundPic: "Polyurethane-Foam.jpg",
+		elements: ["C", "H", "N", "O"],
+		formula: "C<sub>27</sub>H<sub>36</sub>N<sub>2</sub>O<sub>10</sub>",
+		moleWeight: "548.589 g/mol",
+		description: [
+			"It is formed by reacting a hydroxyl-terminated polyether or polyester with an isocyanate.",
+			"It is a linear polymer composed of organic units joined by links of carbamate.",
+			"Used extensively where stretch and strength are required in fabrics.",
+			"Used in technical fibre ropes, fishing lines, and some agricultural products."
+		]
+	},
+	{
+		name: "Formaldehyde",
+		compoundPic: "Formaldehyde.png",
+		elements: ["C", "H", "O"],
+		formula: "CH<sub>2</sub>O",
+		moleWeight: "30.031 g/mol",
+		description: [
+			"It is one of a large family of chemicals known as volatile organic compounds which evaporates and becomes gaseous at room temperature.",
+			"It is one of the most important industrial chemicals.",
+			"Usually described as a gas, but it also exists dissolved in water or other solvents.",
+			"Used in agriculture and medicine where it is used as a disinfectant, fungicide, fumigant and preservative."
+		]
+	},
+	{
+		name: "Formic Acid",
+		compoundPic: "Formic-Acid.jpg",
+		elements: ["H", "C", "O"],
+		formula: "HCOOH",
+		moleWeight: "46.03 g/mol",
+		description: [
+			"Although not widely used as a solvent, is of interest as an example of a protic solvent with high acidity.",
+			"Its salts are corrosive and skin sensitizers. Sodium formate is mildly irritating to the eyes.",
+			"Used in major industrial chemicals in the group of saturated monocarboxylic acids.",
+			"Useful material in the dyeing and tanning industries, but other competing acids have, as a rule, been cheaper and the use of formic acid has therefore been restricted to a few cases for which it has peculiar advantages"
+		]
+	},
+	{
+		name: "Sulfur Hexafluoride",
+		compoundPic: "Sulfur-Hexafluoride.png",
+		elements: ["S", "F"],
+		formula: "SF<sub>6</sub>",
+		moleWeight: "146.06 g/mol",
+		description: [
+			"It is one of the most stable gases known.",
+			"It is a very dense gas so it will mainly reside in the lowest layers of air. Exposure will be primarily occupational.",
+			"Used as a dating tool and as a tracer of igneous and volcanic fluids in groundwater.",
+			"Used as an electrical insulation, arc quenching and cooling medium in electrical switchgear, transformers and substations."
+		]
+	},
+	{
+		name: "Phosphorus Trichloride",
+		compoundPic: "Phosphorus-Trichloridel.jpg",
+		elements: ["P", "Cl"],
+		formula: "PCl<sub>3</sub>",
+		moleWeight: "137.33 g/mol",
+		description: [
+			"It is a colourless transparent motile liquid. It is the most important phosphorus halide.",
+			"It is manufactured by burning molten white phosphorus in dry chlorine.",
+			"Used as an important intermediate in the production of phosphate ester insecticides.",
+			"Used as a chlorinating agent for converting alkyl alcohols to alkyl chlorides and organic acids to organic acid chlorides and also as a catalyst."
+		]
+	},
+	{
+		name: "Ethane",
+		compoundPic: "Ethane.jpg",
+		elements: ["C", "H"],
+		formula: "C<sub>2</sub>H<sub>6</sub>",
+		moleWeight: "30.07 g/mol",
+		description: [
+			"It is the second simplest alkane followed by methane.",
+			"It is prepared by laboratory method using sodium propionate.",
+			"Natural gas components of ethane and heavier hydrocarbons are quite easily separated from the gas stream and liquefied under moderate pressure.",
+			"Used as the most specific volatile marker for the investigation of lipid peroxidation."
+		]
+	},
+	{
+		name: "Dinitrogen Pentoxide",
+		compoundPic: "Dinitrogen-Pentoxide.png",
+		elements: ["N", "O"],
+		formula: "N<sub>2</sub>O<sub>5</sub>",
+		moleWeight: "30.07 g/mol",
+		description: [
+			"It is unstable compound decompose spontaneously at room temperature into nitrogen dioxide and oxygen.",
+			"Are unstable and mildly explosive chemicals of no current commercial value.",
+			"Used as a robust oxidizer in high-fuel rockets.",
+			"Used in solvents that are not based on water, so that molecules that are very sensitive to water can be easily nitrated."
+		]
+	},
+	{
+		name: "Phosphorous Acid",
+		compoundPic: "Phosphorous-Acid.jpg",
+		elements: ["H", "P", "O"],
+		formula: "H<sub>3</sub>PO<sub>3</sub>",
+		moleWeight: "82 g/mol",
+		description: [
+			"Its salts are called phosphites.",
+			"It is conveniently prepared by allowing phosphorous trichloride to react with water.",
+			"Used as a strong reducing agent.",
+			"Used in the production of high efficient water treatment agent amino trimethylene phosphonic acid."
+		]
+	},
+	{
+		name: "Potassium Ferrocyanide",
+		compoundPic: "Potassium-Ferrocyanide.jpg",
+		elements: ["K", "Fe", "C", "N"],
+		formula: "K<sub>4</sub>Fe(CN)<sub>6</sub>",
+		moleWeight: "368.35 g/mol",
+		description: [
+			"It is also known as yellow potash prussiate, a yellow crystal.",
+			"It was made with either wool or horn clippings stirring hot potassium carbonate with an iron rod.",
+			"Used in the manufacture of potassium cyanide, which is used extensively in gold mining."
+		]
+	},
+	{
+		name: "Xenon Difluoride",
+		compoundPic: "Xenon-Difluoride.png",
+		elements: ["Xe", "F"],
+		formula: "XeF<sub>2</sub>",
+		moleWeight: "169.29 g/mol",
+		description: [
+			"It was discovered in the year 1962.",
+			"Has a negligible vapour pressure at -78° and about 3 mm-Hg at room temperature.",
+			"It is a hazardous chemical, reacting with water moisture to form hydrofluoric acid.",
+			"Used to kill bacteria, power lasers and tracers as an antiseptic. It is preferred to power spacecraft in deep space as fuel for ion engines."
+		]
+	},
+	{
+		name: "Diatomic Bromine",
+		compoundPic: "Diatomic-Bromine.png",
+		elements: ["Br"],
+		formula: "Br<sub>2</sub>",
+		moleWeight: "159.808 g/mol",
+		description: [
+			"It is a molecule formed when two bromine atoms combine together.",
+			"It is purified from the salts taken from rocks and seawater.",
+			"Used in gold mining extraction processes and in oil- and gas-well drilling."
+		]
+	},
+	{
+		name: "Phenyl",
+		compoundPic: "Phenyl.png",
+		elements: ["C", "H"],
+		formula: "C<sub>6</sub>H<sub>5</sub>",
+		moleWeight: "77.106 g/mol",
+		description: [
+			"It is formed when a hydrogen atom is removed from the benzene ring. It is represented using the symbol Ph in compounds sometimes.",
+			"Used to destroy odour and promote sanitation.",
+			"Used in public places like schools, hotels, stores and offices as a disinfectant."
+		]
+	},
+	{
+		name: "Phosphorus Triiodide",
+		compoundPic: "Phosphorus-Triiodide.jpg",
+		elements: ["P", "I"],
+		formula: "PI<sub>3</sub>",
+		moleWeight: "411.6872 g/mol",
+		description: [
+			"The molecule of phosphorus triiodide is pyramidal in shape with the very low polarity of the phosphorus iodine bond.",
+			"Used in the preparation of phosphoric acid by combining with water.",
+			"Used in the preparation of iodopyrazines instead of bromide yields 15-20% in refluxing 1,1,2-trichloroethane."
+		]
+	},
+	{
+		name: "Peroxydisulfuric Acid",
+		compoundPic: "Peroxydisulfuric-Acid.png",
+		elements: ["H", "S", "O"],
+		formula: "H<sub>2</sub>S<sub>2</sub>O<sub>8</sub>",
+		moleWeight: "194.14 g/mol",
+		description: [
+			"It can be generated from potassium or ammonium persulphate in an acidic solution.",
+			"Also called Marshall’s acid, peroxydisulphuric acid can be produced by electrolyzing an aqueous solution containing sulphate ions in an electrolysis reactor should be produced by electrolyzing.",
+			"Used as a strong oxidant but the quantity of the oxidising agent used can be varied in accordance with the desired reaction rate."
+		]
+	},
+	{
+		name: "Dipotassium Phosphate",
+		compoundPic: "Dipotassium-Phosphate.jpg",
+		elements: ["K", "H", "P", "O"],
+		formula: "K<sub>2</sub>HPO<sub>4</sub>",
+		moleWeight: "174.2 g/mol",
+		description: [
+			"It is freely soluble in water and insoluble in ethanol.",
+			"The reaction chemistry for the production of dipotassium phosphate appears as a condensation of phosphoric acid using potassium hydroxide.",
+			"Used as a food additive, but the grades are different for food versus fertilizer use.",
+			"Used as a competitive displacement of calcium by sodium in the micelles."
+		]
+	},
+	{
+		name: "Aluminium hydroxide",
+		compoundPic: "Aluminium-hydroxide.jpg",
+		elements: ["Al", "O", "H"],
+		formula: "Al(OH)<sub>3</sub>",
+		moleWeight: "78.00 g/mol",
+		description: [
+			"It is found in nature in the form of mineral gibbsite and its polymorphs viz doyleite, nordstrandite, and bayerite.",
+			"It is insoluble in water but soluble in alkaline and acidic solutions.",
+			"Used to manufacture activated alumina.",
+			"Used in waterproofing fabrics."
+		]
+	},
+	{
+		name: "Ammonium persulfate",
+		compoundPic: "Ammonium-persulfate.jpg",
+		elements: ["N", "H", "S", "O"],
+		formula: "(NH<sub>4</sub>)<sub>2</sub>S<sub>2</sub>O<sub>8</sub>",
+		moleWeight: "228.18 g/mol",
+		description: [
+			"It is also called Ammonium peroxydisulfate or Diammonium persulfate or Diammonium peroxydisulfate.",
+			"It has a wide range of applications in polymer chemistry, as a bleaching agent, cleaning, and an etchant.",
+			"Used to wash infected yeast.",
+			"Used as an additive to preserve food."
+		]
+	},
+	{
+		name: "Sodium borate",
+		compoundPic: "Sodium-borate.jpg",
+		elements: ["Na", "B", "O", "H"],
+		formula: "Na<sub>2</sub>[B<sub>4</sub>O<sub>5</sub>(OH)<sub>4</sub>].8H<sub>2</sub>O",
+		moleWeight: "201.22 g/mol",
+		description: [
+			"It is also called Borax or Disodium tetraborate, or Sodium tetraborate. It was first discovered in the 8th century AD in the dry lake beds in Tibet.",
+			"It was imported through the Silk Road to the Arabian Peninsula.",
+			"It moderately dissolves in methanol, and diethylene glycol and is slightly soluble in acetone.",
+			"Used in swimming pools to control the pH."
+		]
+	},
+	{
+		name: "Chloroacetic acid",
+		compoundPic: "Chloroacetic-acid.png",
+		elements: ["C", "H", "O", "Cl"],
+		formula: "C<sub>2</sub>H<sub>3</sub>O<sub>2</sub>Cl",
+		moleWeight: "94.49 g/mol",
+		description: [
+			"It functions as an herbicide and an alkylating agent. It is derived from acetic acid.",
+			"It was first prepared in the year 1843 by a French chemist named Felix LeBlanc.",
+			"In the year 1857 it was prepared by a German chemist named Reinhold Hoffmann by a method of refluxing glacial acetic acid in the presence of sunlight and chlorine.",
+			"Used as a preservative.",
+			"used as an intermediate in the production of ethyl chloroacetate."
+		]
+	},
+	{
+		name: "Potassium acetate",
+		compoundPic: "Potassium-acetate.jpg",
+		elements: ["C", "H", "O", "K"],
+		formula: "CH<sub>3</sub>CO<sub>2</sub>K",
+		moleWeight: "98.142 g/mol",
+		description: [
+			"It is also called Diuretic salt or Potassium ethanoate, or Acetic acid potassium salt.",
+			"It is soluble in water and has a pH value between 7.5-9.0.",
+			"Helps in maintaining intracellular tonicity, which is required for nerve conduction, smooth muscle contraction, normal renal function, and maintenance of blood pressure.",
+			"Used in the making of lubricants.",
+			"Used in agricultural chemicals."
+		]
+	},
+	{
+		name: "Barium oxide",
+		compoundPic: "Barium-oxide.jpg",
+		elements: ["Ba", "O"],
+		formula: "BaO",
+		moleWeight: "153.326 g/mol",
+		description: [
+			"It is widely used as a drying agent for solvents, in cathode ray tubes, catalysts, and crown glass.",
+			"Excessive quantities of BaO may result in death.",
+			"Can Causes irritation in eyes, mucous membranes, and skin."
+		]
+	},
+	{
+		name: "Copper(I) Oxide",
+		compoundPic: "Copper(I)-Oxide.jpg",
+		elements: ["Cu", "O"],
+		formula: "Cu<sub>2</sub>O",
+		moleWeight: "143.09 g/mol",
+		description: [
+			"It is easily reduced by hydrogen when heated.",
+			"It acts as a good corrosion resistance, due to reactions at the surface between the copper and the oxygen in air to give a thin protective oxide layer.",
+			"Used in paints for glass and porcelain."
+		]
+	},
+	{
+		name: "Copper Hydroxide",
+		compoundPic: "Copper-Hydroxide.jpg",
+		elements: ["Cu", "O", "H"],
+		formula: "Cu(OH)<sub>2</sub>",
+		moleWeight: "97.561 g/mol",
+		description: [
+			"It is crystalline but inert compound used in the preparation of a wide variety of salts.",
+			"A mixture of copper hydroxide and copper sulfate is used as insecticides and pesticides.",
+			"Used as an effective biocides as wood preservatives."
+		]
+	},
+	{
+		name: "Tin Oxide",
+		compoundPic: "Tin-Oxide.jpg",
+		elements: ["Sn", "O"],
+		formula: "SnO<sub>2</sub",
+		moleWeight: "97.561 g/mol",
+		description: [
+			"Tin metal is burned in the air to create synthetic tin(IV) oxide.",
+			"The annual production is in the kilotons scale.",
+			"The cosmetics ingredient review has determined that tin oxide is a healthy ingredient, based on the fact that it is not easily absorbed through the skin.",
+			"Tin oxide is used in dentistry and to render a precious metal polishing paste for high polishing of amalgam and precious metals when combined with water."
+		]
+	},
+	{
+		name: "Chlorine Trifluoride",
+		compoundPic: "Chlorine-Trifluoride.png",
+		elements: ["Cl", "F"],
+		formula: "ClF<sub>3</sub>",
+		moleWeight: "92.448 g/mol",
+		description: [
+			"Appears as a colourless gas or green liquid with a pungent odour.",
+			"Lung damage can be caused by exposure to this gas.",
+			"Used in nuclear fuel processing.",
+			"It may be used as an igniter and propellant in rockets."
+		]
+	},
+	{
+		name: "Ethylene",
+		compoundPic: "Ethylene.png",
+		elements: ["C", "H"],
+		formula: "C<sub>2</sub>H<sub>4</sub>",
+		moleWeight: "28.054 g/mol",
+		description: [
+			"It is widely used as a plant hormone, as a refrigerant, and as a food additive.",
+			"It is flammable and lighter when compared to air.",
+			"Used as a curing agent for tobacco.",
+			"Used to produce fabricated plastics."
+		]
+	},
+	{
+		name: "Acetylene",
+		compoundPic: "Acetylene.jpg",
+		elements: ["C", "H"],
+		formula: "C<sub>2</sub>H<sub>2</sub>",
+		moleWeight: "26.038 g/mol",
+		description: [
+			"It is widely used as a chemical building block and as a fuel.",
+			"It is an unsaturated compound the two carbon atoms in it are linked together with a double bond.",
+			"Used in the manufacturing of synthetic rubber.",
+			"Used in soldering metals."
+		]
+	},
+	{
+		name: "Chromic Oxide",
+		compoundPic: "Chromic-Oxide.jpg",
+		elements: ["Cr", "O"],
+		formula: "Cr<sub>2</sub>O<sub>3</sub>",
+		moleWeight: "151.9904 g/mol",
+		description: [
+			"It naturally occurs in a mineral eskolaite, which is mostly found in chromium-rich skarns, tremolite, chlorite veins, and meta quartzites.",
+			"It is amphoteric and insoluble in water.",
+			"Used in the manufacturing of chromium metal.",
+		]
+	},
+	{
+		name: "Sodium bisulfate",
+		compoundPic: "Sodium-bisulfate.jpg",
+		elements: ["Na", "H", "S", "O"],
+		formula: "NaHSO<sub>4</sub>",
+		moleWeight: "120.06 g/mol",
+		description: [
+			"It is also called Sodium acid sulfate or Bisulfate of soda or Sodium hydrosulfate.",
+			"It is a dry granular compound white in colour. It dissolves in water and is corrosive to tissues and metals.",
+			"Used in the manufacturing of paper products."
+		]
+	},
+	{
+		name: "Copper (II) chloride",
+		compoundPic: "Copper (II)-chloride.jpg",
+		elements: ["Cu", "Cl"],
+		formula: "CuCl<sub>2</sub>",
+		moleWeight: "134.45 g/mol",
+		description: [
+			"Occurs naturally as an anhydrous mineral called tolbachite and dehydrated eriochalcite.",
+			"It is widely used in printing, dyeing, as a wood preservative and in fungicides.",
+			"Used as a disinfectant.",
+			"Used in the manufacturing of agricultural chemicals."
+		]
+	},
+	{
+		name: "Mercuric chloride",
+		compoundPic: "Mercuric-chloride.jpg",
+		elements: ["Hg", "Cl"],
+		formula: "HgCl<sub>2</sub>",
+		moleWeight: "271.52 g/mol",
+		description: [
+			"It is highly a toxic compound and is corrosive to mucous membranes.",
+			"It is a triatomic molecule where a mercury atom is bonded with two chlorines. It dissolves in water.",
+			"Used as a catalyst in the conversion of acetylene to vinyl chloride."
+		]
+	},
+	{
+		name: "Tin (II) chloride",
+		compoundPic: "Tin-(II)-chloride.jpg",
+		elements: ["Sn", "Cl"],
+		formula: "SnCl<sub>2</sub>",
+		moleWeight: "189.60 g/mol",
+		description: [
+			"It has a lone pair of electrons where the molecule in the gaseous phase is bent.",
+			"It is toxic when swallowed and irritates eyes and skin when comes in contact.",
+			"It is widely used in the manufacturing of pharmaceuticals, as a tanning agent, and in the production of dyes."
+		]
+	},
+	{
+		name: "Propane",
+		compoundPic: "Propane.jpg",
+		elements: ["C", "H"],
+		formula: "C<sub>3</sub>H<sub>8</sub>",
+		moleWeight: "44.097 g/mol",
+		description: [
+			"It is a gas molecular entity and acts as a food propellant.",
+			"It was discovered in the year 1857 by Marcellin Berthelot who was a French chemist.",
+			"It is usually obtained as a by-product of two other processes viz petroleum refining and natural gas processing. It is widely used as a fuel.",
+			"Used as improvised explosive devices."
+		]
+	},
+	{
+		name: "Lead (IV) oxide",
+		compoundPic: "Lead-(IV)-oxide.jpg",
+		elements: ["Pb", "O"],
+		formula: "PbO<sub>2</sub>",
+		moleWeight: "239.1988 g/mol",
+		description: [
+			"It is a powerful oxidising agent.",
+			"It is a dark-brown crystalline powder which is insoluble in water and alcohol. It dissolves in dilute nitric acid, hydrochloric acid, oxalic acid, etc. It is widely used in explosives, matches, and electrodes.",
+			"Used in lead-acid storage batteries."
+		]
+	},
+	//https://byjus.com/chemical-compound-formulas/
+
+	{
+		name: "Phosphorus pentachloride",
+		compoundPic: "phosphorus-pentachloride.png",
+		elements: ["P", "Cl"],
+		formula: "PCl<sub>5</sub>",
+		moleWeight: "208.24 g/mol",
+		description: [
+			"Phosphorus pentachloride is known to have a salt-like structure in the crystalline state and to be partly dissociated in solution, especially in polar solvents such as nitrobenzene.",
+			"It can be prepared by the action of dry chlorine on phosphorus trichloride.",
+			"As per the law of mass action, Phosphorus pentachloride vaporises almost without dissociation in an atmosphere of chlorine gas or phosphorus trichloride, the dissociation equilibrium is shifted to the left by the presence of the product."
+		],
+	},
+	{
+		name: "Potassium oxide",
+		compoundPic: "Potassium-oxide.png",
+		elements: ["K", "O"],
+		formula: "K<sub>2</sub>O",
+		moleWeight: "94.2 g/mol",
+		description: [
+			"Potassium oxide is an ionic compound formed by combining potassium and oxygen. It carries the chemical formula K2O.",
+			"Potassium cannot be found free because it is too reactive. It has valency +1 and combines readily with oxygen atoms forming K2O. The oxide, K2O, is obtained as a grey crystalline substance when potassium is oxidised; potassium is burnt in excess oxygen to form potassium oxide. Potassium oxide is a strongly corrosive alkali, when dissolved in water."
+		],
+	},
+	{
+		name: "Monopotassium phosphate",
+		compoundPic: "Monopotassium-phosphate.png",
+		elements: ["K", "H", "P", "O"],
+		formula: "KH<sub>2</sub>PO<sub>4</sub>",
+		moleWeight: "136.084 g/mol",
+		description: [
+			"Monopotassium Phosphate is the monopotassium salt of phosphoric acid with the formula KH2PO4. It is freely soluble in water and insoluble in ethanol.",
+			"Commercially available as pure KH2PO4, when reacted with MgO, produces high-quality ceramics.",
+			"It is formed by the chloride or potassium carbonate reaction with phosphoric acid, and the phosphate is derived in a pure form as a crystalline material."
+		],
+	},
+	{
+		name: "Silver acetate",
+		compoundPic: "Silver-acetate.png",
+		elements: ["Ag", "C", "H", "O"],
+		formula: "AgC<sub>2</sub>H<sub>3</sub>O<sub>2</sub>",
+		moleWeight: "166.91 g/mol",
+		description: [
+			"Silver Acetate is a moderately water soluble crystalline Silver source that decomposes to Silver oxide on heating. It is generally immediately available in most volumes.",
+			"All metallic acetates are inorganic salts containing a metal cation and the acetate anion, a univalent (-1 charge) polyatomic ion composed of two carbon atoms ionically bound to three hydrogen and two oxygen atoms (Symbol: CH3COO) for a total formula weight of 59.05.",
+			"Acetates are excellent precursors for production of ultra high purity compounds, catalysts, and nanoscale materials. We also produce Silver Acetate Solution."
+		],
+	},
+	{
+		name: "Sodium citrate",
+		compoundPic: "Sodium-citrate.png",
+		elements: ["Na", "C", "H", "O"],
+		formula: "Na<sub>3</sub>C<sub>6</sub>H<sub>5</sub>O<sub>7</sub>",
+		moleWeight: "258.06 g/mol",
+		description: [
+			"Sodium Citrate is also called Trisodium Citrate or Citrosodine or Natrocitral.",
+			"It is widely used as a food preservative, for alkalization of urine to prevent kidney stones, as an anticoagulant for stored blood, and buffer."
+		],
+	},
+	{
+		name: "Sodium fluoride",
+		compoundPic: "Sodium-fluoride.png",
+		elements: ["Na", "F"],
+		formula: "NaF",
+		moleWeight: "41.98817 g/mol",
+		description: [
+			"Sodium fluoride is an inorganic salt of fluoride having molecular formula NaF.",
+			"The most inexpensive chemical available for fluoridation is sodium fluorosilicate, formerly known as sodium silicofluoride.",
+			"Sodium fluoride solutions are used with hard water insoluble compounds of calcium and magnesium fluoride can form.",
+			"It is a dry chemical used in fluoridation of drinking water, it should be manually weighed and added to the mixing tank."
+		],
+	},
+	{
+		name: "Sodium nitrite",
+		compoundPic: "Sodium-nitrite.png",
+		elements: ["Na", "N", "O"],
+		formula: "NaNO<sub>2</sub>",
+		moleWeight: "68.9953 g/mol",
+		description: [
+			"Sodium nitrite appears as a yellowish white crystalline solid. Noncombustible but will accelerate the burning of combustible material.",
+			"If large quantities are involved in a fire or if the combustible material is finely divided, an explosion may result. If contaminated by ammonium compounds, spontaneous decomposition can occur and the resulting heat may ignite surrounding combustible material. Prolonged exposure heat may result in an explosion.",
+			"Sodium nitrite is an inorganic sodium salt having nitrite as the counterion.",
+			"Used as a food preservative and antidote to cyanide poisoning.",
+			"It has a role as an antimicrobial food preservative, an antihypertensive agent, a food antioxidant, a poison and an antidote to cyanide poisoning. It is a nitrite salt and an inorganic sodium salt."
+		],
+	},
+	{
+		name: "Sulfate ion",
+		compoundPic: "Sulfate-ion.png",
+		elements: ["S", "O"],
+		formula: "SO<sub>4</sub><sup>2-</sup>",
+		moleWeight: "96.06 g/mol",
+		description: [
+			"Sulfate ion is an Osmotic Laxative.",
+			"The mechanism of action of sulfate ion is as an Osmotic Activity.",
+			"The physiologic effect of sulfate ion is by means of Increased Large Intestinal Motility, and Inhibition Large Intestine Fluid/Electrolyte Absorption."
+		],
+	},
+	{
+		name: "Barium carbonate",
+		compoundPic: "Barium-carbonate.png",
+		elements: ["Ba", "C", "O"],
+		formula: "BaCO<sub>3</sub>",
+		moleWeight: "197.34 g/mol",
+		description: [
+			"Barium carbonate is a white solid precipitated from a solution of barium hydroxide and urea.",
+			" The chemical formula for barium carbonate is BaCO3. It also occurs in minerals known as witherite and is also prepared from barytes through precipitation.",
+			"It is toxic in nature. It is also common in turquoise glazes.  It should be kept under low quality below 20% and protective measure to be taken while handling the chemical compound."
+		],
+	},
+
+	{
+		name: "Calcium iodide",
+		compoundPic: "Calcium-iodide.png",
+		elements: ["Cal"],
+		formula: "Cal<sub>2</sub>",
+		moleWeight: "293.887 g/mol",
+		description: [
+			"Calcium iodide is an inorganic compound that is made of calcium and iodine. It has a chemical formula CaI2.",
+			"Calcium iodide can be formed using either calcium oxide, calcium carbonate or calcium hydroxide with hydrochloric acid. In this short piece of article, learn about the calcium iodide formula along with its chemical structure, uses and properties."
+		],
+	},
+
+	{
+		name: "Hydrogen sulfate",
+		compoundPic: "Hydrogen-sulfate.png",
+		elements: ["H", "S", "O"],
+		formula: "HSO<sub>4</sub><sup>-</sup>",
+		moleWeight: "97.064 g/mol",
+		description: [
+			"Hydrogen Sulfate is an anion with the chemical formula HSO4–. It forms sulfuric acid when exposed to water.",
+			"HSO4– very small hydrogen sulfate ion. Sodium Bisulfate which is the pure substance NaHS04 melts at 185°C and begins to lose water with a good deal of spattering.",
+			"It consists of sulfur atom in the center surrounded by four oxygen atoms form a tetrahedral arrangement. The structure is similar to the structure of methane."
+		],
+	},
+
+	{
+		name: "Lithium oxide",
+		compoundPic: "Lithium-oxide.png",
+		elements: ["Li", "O"],
+		formula: "Li<sub>2</sub>O",
+		moleWeight: "29.88 g/mol",
+		description: [
+			"Lithium oxide, also known as Lithia, is a white inorganic chemical compound. Lithium oxide is produced by thermal dehydration of lithium hydroxide.",
+			"Although not explicitly important, many materials are evaluated based on the lithium oxide content in them.",
+			"Lithium oxide has a molecular formula as Li2O. In this short piece of article, let us learn more about the lithium oxide formula, its properties, its chemical structure and uses."
+		],
+	},
+
+	{
+		name: "Dimethylglyoxime",
+		compoundPic: "Dimethylglyoxime.png",
+		elements: ["C", "H", "N", "O"],
+		formula: "C<sub>4</sub>H<sub>8</sub>N<sub>2</sub>O<sub>2</sub>",
+		moleWeight: "116.12 g/mol",
+		description: [
+			"Dimethylglyoxime is soluble in methanol or in sodium hydroxide solution. It is one of the first selective organic reagents applied in analytical chemistry."
+		],
+	},
+	{
+		name: "	Potassium Permanganate",
+		compoundPic: "	Potassium-Permanganate.png",
+		elements: ["K", "Mn", "O"],
+		formula: "KMnO<sub>4</sub>",
+		moleWeight: "158.034 g/mol",
+		description: [
+			"Potassium Permanganate (KMnO4) is an inorganic chemical compound. It is also known as Condy’s crystals or permanganate of potash.",
+			"A German-Dutch chemist Johann Rudolf Glauber was the first to discover the production of KMnO4 in the year 1659.",
+			"This compound is water-soluble and consists of two ions: Permanganate ion and potassium ion. It is a dark purple odourless solid in its physical state."
+		],
+	},
+	{
+		name: "Silver phosphate",
+		compoundPic: "Silver-phosphate.png",
+		elements: ["Ag", "P", "O"],
+		formula: "Ag<sub>3</sub>PO<sub>4</sub>",
+		moleWeight: "418.58 g/mol",
+		description: [
+			"Silver Phosphate is a moderately water and acid soluble Silver source for uses compatible with Phosphates.",
+			"Silver Phosphate is generally immediately available in most volumes. High purity, submicron and nanopowder forms may be considered.",
+		],
+	},
+	{
+		name: "Ammonium bromide",
+		compoundPic: "Ammonium-bromide.png",
+		elements: ["N", "H", "Br"],
+		formula: "NH<sub>4</sub>Br",
+		moleWeight: "97.943 g/mol",
+		description: [
+			"Ammonium bromide, NH₄Br, is the ammonium salt of hydrobromic acid.",
+			"The chemical crystallizes in colorless prisms, possessing a saline taste; it sublimes on heating and is easily soluble in water.",
+			"On exposure to air it gradually assumes a yellow color because of the oxidation of traces of bromide to bromine.",
+		],
+	},
+	{
+		name: "Calcium phosphate",
+		compoundPic: "Calcium-phosphate.png",
+		elements: ["Ca", "P", "O"],
+		formula: "Ca<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub>",
+		moleWeight: "310.18 g/mol",
+		description: [
+			"Calcium phosphate is a calcium salt of phosphoric acid with a chemical formula Ca3(PO4)2. It is also known as Calcium phosphate tribasic or Tricalcium Phosphate.",
+			"Calcium phosphate appears as a white amorphous or crystalline powder that is odourless and tasteless. It is insoluble in ethanol, and acetic acid but soluble in dilute nitric acid and hydrochloric acid.",
+			"It slightly dissolves in water. It is found in bones, milk, teeth, and ground."
+		],
+	},
+	{
+		name: "Dichromate",
+		compoundPic: "Dichromate.png",
+		elements: ["K", "Cr", "O"],
+		formula: "K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>",
+		moleWeight: "294.185 g/mol",
+		description: [
+			"Dichromate is an anion with the chemical formula Cr2O72-. It is used as a strong oxidising agent in organic chemistry as well as a primary standard solution in volumetric analysis.",
+			"The most common compound known is potassium dichromate which is an orange crystalline solid which readily decomposes to give potassium chromate and chromic oxide."
+		],
+	},
+	{
+		name: "Aluminum sulfide",
+		compoundPic: "Aluminum-sulfide.png",
+		elements: ["Al", "S"],
+		formula: "Al<sub>2</sub>S<sub>3</sub>",
+		moleWeight: "150.158 g/mol",
+		description: [
+			"Aluminum Sulfide is a moderately water and acid soluble Aluminum source for uses compatible with sulfates.",
+			"Sulfate compounds are salts or esters of sulfuric acid formed by replacing one or both of the hydrogens with a metal.",
+			" Aluminum Sulfide is generally immediately available in most volumes."
+		],
+	},
+	{
+		name: "Ammonium carbonate",
+		compoundPic: "Ammonium-carbonate.png",
+		elements: ["N", "H", "C", "O"],
+		formula: "(NH<sub>4</sub>)<sub>2<sub/>CO<sub>3</sub>",
+		moleWeight: "96.086 g/mol",
+		description: [
+			"Ammonium carbonate is a salt with the chemical formula (NH4)2CO3. Since it readily degrades to gaseous ammonia and carbon dioxide upon heating, it is used as a leavening agent and also as smelling salt.",
+			"It is also known as baker's ammonia and was a predecessor to the more modern leavening agents baking soda and baking powder.",
+			"It is a component of what was formerly known as sal volatile and salt of hartshorn,[2] and produces a pungent smell when baked."
+		],
+	},
+	{
+		name: "Barium chloride",
+		compoundPic: "Barium-chloride.png",
+		elements: ["Ba", "Cl"],
+		formula: "BaCl<sub>2</sub>",
+		moleWeight: "208.23 g/mol",
+		description: [
+			"Barium Chloride is an inorganic salt that is made up of barium cations (Ba2+) and chloride anions (Cl–).",
+			"It is also called Barium Muriate or Barium dichloride.",
+			"t is a white solid which is water-soluble, hygroscopic and gives a slight yellow-green colour to a flame."
+		],
+	},
+	{
+		name: "Nitrogen monoxide",
+		compoundPic: "Nitrogen-monoxide.png",
+		elements: ["N", "O"],
+		formula: "NO",
+		moleWeight: "30.006 g/mol",
+		description: [
+			"A colourless gas, soluble in water, ethanol and ether. It is formed in many reactions involving the reduction of nitric acid, but more convenient reactions for the preparation of reasonably pure NO are reactions of sodium nitrite, sulphuric acid, etc."
+		],
+	},
+	{
+		name: "Fructose",
+		compoundPic: "Fructose.png",
+		elements: ["C", "H", "O"],
+		formula: "C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>",
+		moleWeight: "180.16 g/mol",
+		description: [
+			"Fructose, also called fruit sugar, is the only naturally occurring ketohexose . It is also referred to as levulose because it has an optical rotation that is strongly levorotatory.",
+			"Fructose is a simple ketonic monosaccharide.",
+			"Monosaccharides are the fundamental units of carbohydrates that cannot be further reduced to simpler compounds.",
+			"They are classified based on the functional group attached to the carbohydrate.",
+		],
+	},
+	{
+		name: "Magnesium iodide",
+		compoundPic: "Magnesium-iodide.png",
+		elements: ["Mgl"],
+		formula: "Mgl<sub>2</sub>",
+		moleWeight: "278.1139 g/mol",
+		description: [
+			"Magnesium iodide has few commercial uses, but can be used to prepare compounds for organic synthesis.",
+			"Magnesium iodide is the name for the chemical compounds with the formulas MgI2 and its various hydrates MgI2(H2O)x.",
+			"These salts are typical ionic halides, being highly soluble in water."
+		],
+	},
+	{
+		name: "Magnesium sulfide",
+		compoundPic: "Magnesium-sulfide.png",
+		elements: ["Mg", "S"],
+		formula: "MgS",
+		moleWeight: "56.38 g/mol",
+		description: [
+			"Magnesium Sulfide is a moderately water and acid soluble Magnesium source for uses compatible with sulfates.",
+			"Sulfate compounds are salts or esters of sulfuric acid formed by replacing one or both of the hydrogens with a metal.",
+			"Magnesium Sulfide is generally immediately available in most volumes."
+		],
+	},
+	{
+		name: "Ozone",
+		compoundPic: "Ozone.png",
+		elements: ["O"],
+		formula: "O<sub>3</sub>",
+		moleWeight: "48 g/mol",
+		description: [
+			"Ozone, O3, an unstable, blue, diamagnetic gas with a characteristic pungent odor, protects the earth and its inhabitants from intense ultraviolet radiation from the sun.",
+			"Ozone O3 is generated through the passage of oxygen O2 through a high voltage potential resulting in the attachment and formation of a third oxygen atom.",
+			" The word ‘ozone’ comes from the Greek word ‘ozein’ which means ‘to smell’. This meaning comes from ozone at the ground level, which gives off a pungent, acrid odour."
+		],
+	}, {
+		name: "Potassium cyanide",
+		compoundPic: "Potassium-cyanide.png",
+		elements: ["K", "C", "N"],
+		formula: "KCN",
+		moleWeight: "65.12 g/mol",
+		description: [
+			"Potassium cyanide is a form of cyanide salt which contains equal numbers of potassium cations(K+) and cyanide anions(CN-).",
+			"Potassium cyanide is also called cyanide of potassium or cyanopotassium. The chemical formula of Potassium cyanide is KCN.",
+			"It is a crystalline salt which has no colour and is highly toxic and soluble in water.",
+			"It has the smell of bitter almonds and tastes acrid with a burning sensation. It is a cyanide salt, potassium salt, and a one-carbon compound."
+		],
+	},
+	{
+		name: "Silver oxide",
+		compoundPic: "Silver-oxide.png",
+		elements: ["Ag", "O"],
+		formula: "Ag<sub>2</sub>O",
+		moleWeight: "231.735 g/mol",
+		description: [
+			"Silver oxides (both Ag2O and AgO) serve as the cathodic materials in silver-zinc primary and secondary (i.e., rechargeable) batteries.",
+			"The high energy density of the primary batteries (as measured by available electrical energy per unit weight) is responsible for their employment as miniature power cells for cameras and timepieces."
+		],
+	},
+	{
+		name: "Sodium chromate",
+		compoundPic: "Sodium-chromate.png",
+		elements: ["Na", "Cr", "O"],
+		formula: "Na<sub>2</sub>CrO<sub>4</sub>",
+		moleWeight: "161.97 g/mol",
+		description: [
+			"It exists as a yellow hygroscopic solid, which can form tetra-, hexa-, and decahydrates. It is an intermediate in the extraction of chromium from its ores."
+		],
+	},
+	{
+		name: "Sodium peroxide",
+		compoundPic: "Sodium-peroxide.png",
+		elements: ["Na", "O"],
+		formula: "Na<sub>2</sub>O<sub>2</sub>",
+		moleWeight: "77.98 g/mol",
+		description: [
+			"Sodium peroxide appears as a yellow-white to yellow granular solid. Mixtures with combustible material are readily ignited by friction, heat, or contact with moisture. May vigorously decompose under prolonged exposure to heat, causing the rupture of the containers."
+		],
+	},
+	{
+		name: "Toluene",
+		compoundPic: "Toluene.png",
+		elements: ["C", "H"],
+		formula: "C<sub>7</sub>H<sub>8</sub>",
+		moleWeight: "92.14 g/mol",
+		description: [
+			"Toluene is a naturally occurring compound derived primarily from petroleum or petrochemical processes.",
+			"Toluene is a common component in gasoline, glues, and paint products. Toluene is a liquid, which is colourless, water-insoluble and smells like paint thinners.",
+			"It is a mono-substituted colourless liquid, consisting of a CH3 group that is attached to a phenyl group. "
+		],
+	},
+	{
+		name: "Zinc carbonate",
+		compoundPic: "Zinc-carbonate.png",
+		elements: ["Zn", "C", "O"],
+		formula: "ZnCO<sub>3</sub>",
+		moleWeight: "125.388 g/mol",
+		description: [
+			"Zinc carbonate is a white crystalline powder that occurs naturally as granular or earthy masses.",
+			"It is referred to as smithsonite or calamine or zinc spar.",
+		],
+	},
+	{
+		name: "Zinc phosphate",
+		compoundPic: "Zinc-phosphate.png",
+		elements: ["Zn", "P", "O"],
+		formula: "Zn<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub>",
+		moleWeight: "386.11 g/mol",
+		description: [
+			"Zinc phosphate is an inorganic chemical compound consisting of zinc, phosphorous and oxygen.",
+			" It is commonly used as a corrosion inhibitor when applied to metallic surfaces.",
+			"Zinc phosphate is used to produce corrosion resistant coatings that are typically applied either as part of an electroplating process or as a primer pigment.",
+			"It reacts moderately with water and is acid soluble with zinc sources, allowing it to have good moisture resistance and galvanic substitution properties."
+		],
+	},
+	{
+		name: "Zinc sulfide",
+		compoundPic: "Zinc-sulfide.png",
+		elements: ["Zn", "S"],
+		formula: "ZnS",
+		moleWeight: "97.474 g/mol",
+		description: [
+			"Zinc sulfide (ZnS), a naturally occurring salt, is the main source of zinc.",
+			"It has two common crystalline forms (polymorphs): Sphalerite (“zinc blende”), with a cubic crystal structure, is the form that predominates in nature.",
+			"Wurtzite, with hexagonal crystals, is scarcer, but it can be made by heating sphalerite to ≈1020 ºC."
+		],
+	},
+	{
+		name: "Para dichlorobenzene",
+		compoundPic: "Para-dichlorobenzene.png",
+		elements: ["C", "H", "Cl"],
+		formula: "C<sub>6</sub>H<sub>4</sub>Cl<sub>2</sub>",
+		moleWeight: "147.01 g/mol",
+		description: [
+			"Para dichlorobenzene is a chlorine substituted organic compound.",
+			"Para dichlorobenzene is an aromatic compound that forms a number of azeotropic mixtures.",
+			"Para dichlorobenzene is usually called 1,4-dichloro benzene and is also called para crystals and paracide."
+		],
+	},
+	{
+		name: "Boric acid",
+		compoundPic: "Boric-acid.png",
+		elements: ["H", "B", "O"],
+		formula: "H<sub>3</sub>BO<sub>3</sub>",
+		moleWeight: "61.83 g/mol",
+		description: [
+			"Boric Acid is a monobasic Lewis acid",
+			"It is an acid-containing four atoms of oxygen, one atom of phosphorus, and three atoms of hydrogen.",
+			"Boric acid is also known as acidum boricum, hydrogen borate, boracic acid, and orthoboric acid.",
+			"t is a weak acid and has antiviral, antifungal, and antiseptic properties.",
+			"Boric acid is soluble in water and does not have any characteristic odour.",
+			"Boric acid can be prepared by reacting borax with hydrochloric acid. It can be noted that Wilhelm Homberg was the first person to prepare boric acid from borax."
+		],
+	},
+	{
+		name: "Oxalate",
+		compoundPic: "Oxalate.png",
+		elements: ["C", "O"],
+		formula: "C<sub>2</sub>O<sub>4</sub><sup>2-</sup>",
+		moleWeight: "88.018 g/mol",
+		description: [
+			"C2O4−2 is a dicarboxylic acid dianion with chemical name Oxalate.",
+			"Oxalate is also called Ethanedioate or Oxalate Ion or Oxalic Acid Dianion.",
+			"It is obtained by deprotonation of both the carboxy groups of C2H2O4 (oxalic acid).",
+			"It is widely used for derivatives, such as salts of oxalic acid, for example, dimethyl oxalate or sodium oxalate.",
+			"It also forms coordination compounds and is sometimes abbreviated as ox."
+		],
+	},
+	{
+		name: "Potassium bicarbonate",
+		compoundPic: "Potassium-bicarbonate.png",
+		elements: ["K", "H", "C", "O"],
+		formula: "KHCO<sub>3</sub>",
+		moleWeight: "100.114 g/mol",
+		description: [
+			"KHCO3 is a monopotassium salt of H2CO3 (carbonic acid).",
+			"Similar to sodium bicarbonate (baking soda), potassium bicarbonate is alkaline in nature. It is widely used as an antacid since it has the ability to neutralize gastric acid."
+
+		],
+	},
+	{
+		name: "Potassium hypochlorite",
+		compoundPic: "Potassium-hypochlorite.png",
+		elements: ["K", "Cl", "O"],
+		formula: "KClO",
+		moleWeight: "90.55 g/mol",
+		description: [
+			"Potassium hypochlorite with the formula KClO is a pungent colourless solution with an irritating odour.",
+			"Potassium hypochlorite can be prepared by the reaction of chlorine with potassium hydroxide.",
+			"It can also be produced by the electrolysis of potassium chloride solution.",
+		],
+	},
+	{
+		name: "Potassium nitrite",
+		compoundPic: "Potassium-nitrite.png",
+		elements: ["K", "N", "O"],
+		formula: "KNO<sub>2</sub>",
+		moleWeight: "85.103 g/mol",
+		description: [
+			"Potassium Nitrite is a yellowish-white crystalline solid.",
+			"When potassium ions react with nitrate ions potassium nitrate is formed.",
+			"Potassium nitrate is a hygroscopic crystalline inorganic compound and is toxic in nature.",
+			"So when handling this compound, use preventive measures like Gloves and glasses to protect you."
+		],
+	},
+	{
+		name: "Bromothymol Blue",
+		compoundPic: "Bromothymol-Blue.png",
+		elements: ["C", "H", "Br", "O", "S"],
+		formula: "C<sub>27<s/sub>H<sub>28</sub>Br<sub>2</sub>O<sub>5</sub>S",
+		moleWeight: "624.384 g/mol",
+		description: [
+			"Bromothymol blue is the most commonly used pH indicator and is in low concentration and size container and low toxicity.",
+			"It contains a pH indicator, bromothymol blue, which causes the medium to change from yellow to blue-green; it contains antimicrobial agents, chloramphenicol and chlortetracycline, and an antimycotic agent, cycloheximide."
+		],
+	},
+	{
+		name: "Ammonium iodide",
+		compoundPic: "Ammonium-iodide.png",
+		elements: ["N", "Hl"],
+		formula: "NH<sub>4</sub>l",
+		moleWeight: "144.94 g/mol",
+		description: [
+			"Ammonium Iodide is a chemical compound with a formula NH4I and can be manufactured in a lab by treating ammonium hydroxide with hydrogen iodide gas.",
+			"It is easily soluble in water and ethanol. In moist air, it decomposes and turns yellow with the liberation of iodine."
+		],
+	},
+	{
+		name: "Ammonium nitrite",
+		compoundPic: "Ammonium-nitrite.png",
+		elements: ["N", "H", "O"],
+		formula: "NH<sub>4</sub>NO<sub>2</sub>",
+		moleWeight: "64.06 g/mol",
+		description: [
+			"Ammonium nitrite formula, also known as Ammoniumnitrit formula or Azanium nitrite formula is discussed in this article.",
+			"It is highly unstable hence not used in its pure form. At room temperature, it decomposes to nitrogen and water.",
+			"Ammonium nitrite is naturally formed in the air and it can be synthesized by the absorption of equal parts of nitric oxide and nitrogen dioxide in liquid ammonia.",
+			"It can also be obtained by oxidation of ammonia with hydrogen peroxide or ozone."
+		]
+	},
+	{
+		name: "	Ammonium oxide",
+		compoundPic: "Ammonium-oxide.png",
+		elements: ["N", "H", "O"],
+		formula: "(NH<sub>4</sub>)<sub>2</sub>O",
+		moleWeight: "52.0763 g/mol",
+		description: [
+			"Ammonium hydroxide appears as a colorless aqueous solution.",
+			"Concentration of ammonia ranges up to approximately 30%. Ammonia vapors (which arise from the solution) irritate the eyes.",
+			"Ammonium hydroxide is a solution of ammonia in water. It has a role as a food acidity regulator."
+		],
+	},
+	{
+		name: "Argon gas",
+		compoundPic: "Argon-gas.png",
+		elements: ["Ar"],
+		formula: "Ar",
+		moleWeight: "39.948 g/mol",
+		description: [
+			"Argon is the first noble gas to be discovered.",
+			"It was identified by the English physicist Lord Rayleigh and Scottish chemist William Ramsay in 1894.",
+			"Argon is from the Greek word “Argos” which means “lazy” or “inactive”.",
+			"It is the third most abundant gas in the atmosphere. Non-flammable cryogenics gases are sometimes referred to as inert gases."
+		],
+	},
+	{
+		name: "Barium bromide",
+		compoundPic: "Barium-bromide.png",
+		elements: ["Ba", "Br"],
+		formula: "BaBr<sub>2</sub>",
+		moleWeight: "297.14 g/mol",
+		description: [
+			"BaBr2 is an important chemical compound with the chemical name Barium bromide.",
+			"It is also called Barium (2+) dibromide or Barium bromide anhydrous.",
+			"It appears as a white solid which is soluble in water and is toxic in aqueous form."
+		],
+	},
+	{
+		name: "Barium iodide",
+		compoundPic: "Barium-iodide.png",
+		elements: ["Bal"],
+		formula: "Bal<sub>2</sub>",
+		moleWeight: "391.136 g/mol",
+		description: [
+			"Barium iodide (Bal2) obtained by the decomposition of the barium by means of metallic sodium.",
+			"Barium iodide crystallises in small, colourless needles, which deliquesce slightly, and are very soluble in water.",
+		],
+	},
+	{
+		name: "Bromate",
+		compoundPic: "Bromate.png",
+		elements: ["Br", "O"],
+		formula: "BrO<sub>3</sub><sup>-</sup>",
+		moleWeight: "127.901 g/mol",
+		description: [
+			"Potassium Bromate is a white crystalline powder and is a strong oxidizing agent.",
+			"It is used as a flour improver and the recent studies have classified it as a 2B carcinogen, hence it is toxic by nature.",
+		],
+	},
+	{
+		name: "Dinitrogen trioxide",
+		compoundPic: "Dinitrogen-trioxide.png",
+		elements: ["N", "O",],
+		formula: "N<sub>2</sub>O<sub>3</sub>",
+		moleWeight: "76.01 g/mol",
+		description: [
+			"N2O3 is a chemical compound formed by nitrogen and oxygen with the chemical name nitrogen trioxide.",
+			"It is also called dinitrogen trioxide, or nitrogen sesquioxide. It is a highly toxic compound and an irritant mucous membrane."
+		],
+	},
+	{
+		name: "Ethylene glycol",
+		compoundPic: "Ethylene-glycol.png",
+		elements: ["C", "H", "O"],
+		formula: "C<sub>2</sub>H<sub>6</sub>O<sub>2</sub>",
+		moleWeight: "62.07 g/mol",
+		description: [
+			"This organic compound is highly toxic.",
+			"It is also known as Ethane-1,2-diol or Monoethylene glycol.",
+			"It has no smell and is viscous.",
+			"It is colourless and has a sweet taste. It appears as a clear, colourless, liquid. It is widely used as an antifreeze and a raw material in the plastic industry.",
+			"Ethylene Glycol is produced when ethylene oxide reacts with water."
+		],
+	},
+	{
+		name: "Nickel sulfate",
+		compoundPic: "Nickel-sulfate.png",
+		elements: ["Ni", "S", "O"],
+		formula: "NiSO<sub>4</sub>",
+		moleWeight: "154.75 g/mol",
+		description: [
+			"Nickel sulphate is an inorganic compound that exists in different states depending on its hydrated forms. The chemical formula for nickel sulphate is NiSO4.",
+			"Based on the degree of hydration the colour of the compound differs. Nickel dust is highly flammable.",
+			"The salts of nickel compounds are toxic in nature and nickel sulphate is a known carcinogen. It is yellow and readily soluble in water."
+		],
+	},
+	{
+		name: "Helium",
+		compoundPic: "Helium.png",
+		elements: ["He"],
+		formula: "He",
+		moleWeight: "4.002602 u g/mol",
+		description: [
+			"Helium, the lightest of the noble gases, had actually been detected and helium is the only element in the periodic table that was discovered by an astronomer.",
+			"Helium is the element which you can find on the upper right side of the periodic table with atomic number 2. It comes first amongst the family of noble gases.",
+			"It holds one atomic orbital and was named by Lockyer and Frankland. Its name is derived from the Greek word “Helios” meaning Sun. Scientists knew there was an enormous amount of helium in the Sun before it was discovered.",
+			"Helium falls under inert gas since its outermost electron orbital is full of two electrons. Helium can also be found in lasers, compressed air tanks and coolant in nuclear reactors.",
+			"It holds the lowest boiling and melting points amongst all other elements. Nuclear fusion of hydrogen in stars generates a significant amount of helium."
+		],
+	},
+	{
+		name: "Iodide",
+		compoundPic: "Iodide.png",
+		elements: ["I"],
+		formula: "I<sup>-</sup>",
+		moleWeight: "253.809 g/mol",
+		description: [
+			"Iodide is an anion with a valency of -1.",
+			"Compounds of iodine with oxidation state of -1 are called iodides.",
+			"Iodine as an element is a halogen.",
+			"It tends to accept an electron and exists as a negatively charged ion. Therefore, the anion name iodide is used interchangeable with iodine."
+		],
+	},
+	{
+		name: "Lead ii acetate",
+		compoundPic: "Lead-ii-acetate.png",
+		elements: ["Pb", "C", "H", "O"],
+		formula: "Pb(C<sub>2</sub>H<sub>3</sub>O<sub>2</sub>)<sub>2</sub>",
+		moleWeight: "‎325.29 g/mol",
+		description: [
+			"Lead Acetate is poisonous in nature.",
+			" It is used in making white lead in medicines and as a mordant in dyeing.",
+			"Lead belongs to the group IV A elements and most of the compounds of lead have +2 state. Lead acetate is stable under ordinary conditions of use and storage.",
+			"Lead acetate, also known as sugar of lead, is a white crystal made by the action of acetic acid on litharge.",
+			" Lead acetate is used in gold toning baths to modify the pH."
+		],
+	},
+	{
+		name: "Lithium chloride",
+		compoundPic: "Lithium-chloride.png",
+		elements: ["Li", "Cl"],
+		formula: "LiCl",
+		moleWeight: "42.394 g/mol",
+		description: [
+			"Lithium Chloride is a white solid hygroscopic soluble in water, alcohol and ether.",
+			"It is made by the action of hydrochloric acid on lithium hydroxide.",
+		],
+	},
+	{
+		name: "Phosphate ion",
+		compoundPic: "Phosphate-ion.png",
+		elements: ["P", "O"],
+		formula: "PO<sub>4</sub><sup>3-</sup>",
+		moleWeight: "94.9714 g/mol",
+		description: [
+			"PO43- is a chemical derivative of phosphoric acid with a chemical name Phosphate.",
+			"Phosphate is also called Phosphate ion or Orthophosphate.",
+			"It is a trivalent inorganic anion and a conjugate base of hydrogen phosphate.",
+			"It is naturally found in food, human bodies, and water."
+		],
+	},
+	{
+		name: "Potassium fluoride",
+		compoundPic: "Potassium-fluoride.png",
+		elements: ["KF"],
+		formula: "KF",
+		moleWeight: "58.0967 g/mol",
+		description: [
+			"Potassium fluoride is a chemical compound that is the primary source of fluoride ion after hydrogen fluoride.",
+			"KF is the molecular formula of potassium fluoride.",
+			"It is a colourless or white crystalline compound with no odour. In this short piece of article, we will be discussing the potassium fluoride formula, its chemical structure, properties and uses."
+		],
+	},
+	{
+		name: "Potassium sulfite",
+		compoundPic: "Potassium-sulfite.png",
+		elements: ["K", "S", "O"],
+		formula: "K<sub>2</sub>SO<sub>3</sub>",
+		moleWeight: "158.26 g/mol",
+		description: [
+			"Potassium Sulfite is a non-flammable white soluble compound.",
+			"It is commonly used as a food preservative"
+		],
+	},
+	{
+		name: "Silver carbonate",
+		compoundPic: "Silver-carbonate.png",
+		elements: ["Ag", "C", "O"],
+		formula: "Ag<sub>2</sub>CO<sub>3</sub>",
+		moleWeight: "275.7453 g/mol",
+		description: [
+			"Silver carbonate is an unstable chemical compound",
+			"Silver carbonate on celite is also called as Fetizon’s reagent.",
+			"It is obtained by precipitation of solution of silver nitrate by an alkaline carbonate is white in colour and becomes yellow when the soluble salts are washed. It is sensitive to light, when it is exposed to light it changes its colour."
+		],
+	},
+	{
+		name: "Sodium cyanide",
+		compoundPic: "Sodium-cyanide.png",
+		elements: ["Na", "C", "N"],
+		formula: "NaCN",
+		moleWeight: "49.0072 g/mol",
+		description: [
+			"NaCN is a cyanide salt, a sodium salt, and a one-carbon compound with the chemical name Sodium cyanide.",
+			"It is also called Cyanogran, a Cyanide of sodium or Cyanobrik.",
+			"It is extremely poisonous and inhibits various metabolic processes.",
+			"It is widely used as a test reagent for the proper functioning of chemoreceptors and in industrial processes.",
+
+		],
+	},
+	{
+		name: "Sodium nitride",
+		compoundPic: "Sodium-nitride.png",
+		elements: ["Na", "N"],
+		formula: "Na<sub>3</sub>N",
+		moleWeight: "82.976 g/mol",
+		description: [
+			"It is an inorganic compound which is a highly unstable alkali metal nitride.",
+			"It is obtained by uniting atomic beams of nitrogen and sodium deposited on a low-temperature substrate of sapphire."
+		],
+	},
+	{
+		name: "Strontium chloride",
+		compoundPic: "Strontium-chloride.png",
+		elements: ["Sr", "Cl"],
+		formula: "SrCl<sub>2</sub>",
+		moleWeight: "158.52 g/mol",
+		description: [
+			"Strontium chloride is a typical salt of strontium and chlorine",
+			"Strontium chloride is a popular halide for making collodion chloride and printing out emulsions.",
+			"Strontium chloride is the first toothpaste ingredient thought to occlude tubules based on an often misinterpreted using radiolabeled strontium and auto-radiography.",
+			"The compounds of strontium have lower order of toxicity."
+		],
+	},
+	{
+		name: "Strontium nitrate",
+		compoundPic: "Strontium-nitrate.png",
+		elements: ["Sr", "N", "O"],
+		formula: "Sr(NO<sub>3</sub>)<sub>2</sub>",
+		moleWeight: "211.628g/mol",
+		description: [
+			"Strontium nitrate formula, also known as Strontium dinitrate formula or Nitrate de strontium formula",
+			" It is an inorganic compound which is made of two elements viz nitrogen and strontium.",
+			"Strontium dinitrate is a crystalline solid white in colour. It is a noncombustible compound but enhances the burning of combustible compounds.",
+			" It is widely used in pyrotechnics, to make chemicals, and in medicine."
+		],
+	},
+	{
+		name: "Urea",
+		compoundPic: "Urea.png",
+		elements: ["C", "H", "N", "O"],
+		formula: "CH<sub>4</sub>N<sub>2</sub>O",
+		moleWeight: "60.056 g/mol",
+		description: [
+			"Urea is a nitrogenous compound formed in the liver.",
+			"It is also known as Carbamide or Ureophil.",
+			"This compound is the final end product of protein metabolism.",
+			"It is a waste product and has no physiological function.",
+			"It dissolves in blood and kidney excretes it in urine.",
+			"This organic compound has two NH2 groups connected by a functional group carbonyl.",
+			"Urea dissolves in water and is non-toxic. It is colourless and has no smell.",
+			"It is widely used as an important raw material in industries and commonly used in fertilizers."
+		],
+	},
+	{
+		name: "Bleach",
+		compoundPic: "Bleach.png",
+		elements: ["Na", "Cl", "O"],
+		formula: "NaClO",
+		moleWeight: "74.439 g/mol",
+		description: [
+			"It is also known as liquid bleach.",
+			"It consists of hypochlorite anion and sodium cation. It usually appears as a pale greenish yellow dilute solution.",
+			"It is an anhydrous unstable compound which can decompose explosively. It has a sweetish and chlorine-like odour.",
+			"It is widely used as a cleaning agent or disinfectant and bleaching agent. It is a widely used household chemical."
+		],
+	},
+	{
+		name: "Lithium bromide",
+		compoundPic: "Lithium-bromide.png",
+		elements: ["Li", "Br"],
+		formula: "LiBr",
+		moleWeight: "86.844 g/mol",
+		description: [
+			"It is soluble in water, alcohol and ether",
+			"It is prepared by the action of hydrobromic acid on lithium hydroxide.",
+			"It has been utilized on a small scale for catalytic dehydrohalogenation for the synthesis of olefins.",
+			"Aqueous solutions of lithium bromide have usually low water vapour pressures.",
+			"Concentrated aqueous solutions of lithium bromide can dissolve significant quantities of polar organic substances such as cellulose."
+		],
+	},
+	{
+		name: "Aluminum fluoride",
+		compoundPic: "Aluminum-fluoride.png",
+		elements: ["Al", "F"],
+		formula: "AlF<sub>3</sub>",
+		moleWeight: "83.9767 g/mol",
+		description: [
+			"Aluminum fluoride appears as odorless white powder or granules.",
+			"Denser than water.",
+			"Aluminum Fluoride is an odorless, white or colorless, crystalline (sand-like) powder.",
+			"It is used in the production of Aluminum, as a flux in welding applications, and in ceramic glazes and enamels."
+		],
+	},
+	{
+		name: "Barium fluoride",
+		compoundPic: "Barium-fluoride.png",
+		elements: ["Ba", "F"],
+		formula: "BaF<sub>2</sub>",
+		moleWeight: "175.34 g/mol",
+		description: [
+			"Barium fluoride is a chemical compound composed of barium and fluorine",
+			" It occurs in nature in the form of a mineral known as frankdicksonite."
+		],
+	}
 ];

@@ -3,7 +3,7 @@
   border: 10px solid #240E3F;
   border-radius: 18px;
   background: #E2D9E5;
-  padding: 0 5rem;
+  padding: 1rem 5rem;
   min-width: 40vw;
   max-width: 40vw;
   min-height: 60vh;
@@ -12,6 +12,7 @@
   flex-direction: column;
   align-items: center;
   word-wrap: break-word;
+  overflow-y: auto;
 }
 .Trivia .wrapper h2 {
   margin-top: 2rem;
@@ -25,4 +26,8 @@
 .Trivia .wrapper h3 {
   margin-top: 1rem;
   font-size: 1.5rem;
+}
+.Trivia .wrapper .trivia-text {
+  text-align: justify;
+  text-indent: 2rem;
 }

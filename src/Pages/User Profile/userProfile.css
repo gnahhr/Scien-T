@@ -1,20 +1,20 @@
-.user-profile {
+.user-wrapper {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 2fr 3fr;
+  grid-template-rows: 1fr 2fr;
   align-content: center;
   justify-content: center;
 }
-.user-profile .user-header {
+.user-wrapper .user-header {
   margin: 5rem auto 2rem;
 }
-.user-profile .user-header img {
+.user-wrapper .user-header img {
   width: 108px;
   background-color: #FFF;
   border-radius: 50%;
   padding: 1rem;
 }
-.user-profile .user-header h3 {
+.user-wrapper .user-header h3 {
   color: white;
   font-size: 1.4rem;
   text-align: center;

@@ -2,7 +2,7 @@ import React from 'react';
 import Elements from './Elements';
 import './ElemPopup.css';
 
-const ElemPopup = ({xpos, ypos, element}) => {
+const ElemPopup = ({xpos, ypos, element, desc}) => {
   return (
     <div className="popup"
          style={{
@@ -19,18 +19,18 @@ const ElemPopup = ({xpos, ypos, element}) => {
               {element.name}
             </p>
             <p className="atomic-mass">
-              {element.atomic_number}
+              {element.atomic_mass}
             </p>
           </div>
           <div className="picture">
           </div>
       </div>
       <div className="pop-description">
-        Description: Hatdog
+        Description: {desc ? desc.used : "NONE"}
       </div>
-      <div className="pop-used">
+      {/* <div className="pop-used">
         Where It's Used: Hydrogen makes up about 90 percent of atoms in the entire universe. The chemical is used heavily as both a gas and liquid fuel. Hydrogen was used as a main fuel for the Space Shuttle program by NASA, as well as currently being used heavily by the petroleum and manufacturing industries.
-      </div>
+      </div> */}
     </div>
   )
 }

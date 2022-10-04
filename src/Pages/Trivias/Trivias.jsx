@@ -47,6 +47,7 @@ const Trivias = ({data}) => {
                     id="search"
                     placeholder='Search element...'
                     value={search}
+                    autocomplete="false"
                     onChange={(e) => changeInput(e)}/>
               <button className="cta">Search</button>
             </div>

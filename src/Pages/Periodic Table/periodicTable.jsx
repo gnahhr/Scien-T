@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 //Data
 import {periodicTable as elements} from '../../Data/PeriodicTableJSON.js';
+import {TriviasData} from '../../Data/Trivias.js';
 
 //Components
 import PeriodicModal from '../../Components/PeriodicModal';
@@ -49,7 +50,8 @@ const periodicTable = () => {
                             key={`${element.name}-pop`}
                             ypos={element.ypos}
                             xpos={element.xpos}
-                            element={element}/>
+                            element={element}
+                            desc={TriviasData[element.number-1]}/>
                     </div>)}
             </div>
         </div>
