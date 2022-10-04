@@ -66,7 +66,12 @@ const userProgress = () => {
     (async () => {
       const progress = await getIntellimentData(access, difficulty);
       setData(progress);
-    })()
+    })();
+
+    (async () => {
+      const progress = await getIntellimentCounter(access, difficulty);
+      setIntellimentCounter(progress);
+    })();
   },[difficulty])
 
   useEffect(() => {
@@ -75,7 +80,8 @@ const userProgress = () => {
     })
     const result = regression.linear(formattedArray)
     const predict = result.predict(intellimentCounter.length+1)
-    setPredictedValue(predict)
+    console.log(predict)
+    setPredictedValue(predict[1])
   },[intellimentCounter])
 
 
@@ -98,45 +104,65 @@ const userProgress = () => {
     setDifficulty(difficulty);
   }
 
-  const lvlOfMastery = () => {
+  const levelOfMastery = () => {
     if(difficulty === "easy"){
-      if(predictedValue >= 18){
-        return "Papasa Ka"
+      if(intellimentCounter.length < 5){
+        return "Insufficient Games Played"
       }
       else{
-        return "try harder bitch"
+        if(predictedValue >= 18){
+          return "A+"
+        }
+        else{
+          return "F-"
+        }
       }
     }
 
     else if(difficulty === "normal"){
-      if(predictedValue >= 36){
-        return "Papasa Ka"
+      if(intellimentCounter.length < 5){
+        return "Insufficient Games Played"
       }
       else{
-        return "try harder bitch"
+        if(predictedValue >= 36){
+          return "A+"
+        }
+        else{
+          return "F-"
+        }
       }
     }
 
     else if(difficulty === "hard"){
-      if(predictedValue >= 54){
-        return "Papasa Ka"
+      if(intellimentCounter.length < 5){
+        return "Insufficient Games Played"
       }
       else{
-        return "try harder bitch"
+        if(predictedValue >= 54){
+          return "A+"
+        }
+        else{
+          return "F-"
+        }
       }
     }
 
     else if(difficulty === "hardcore"){
-      if(predictedValue >= 72){
-        return "Papasa Ka"
+      if(intellimentCounter.length < 5){
+        return "Insufficient Games Played"
       }
       else{
-        return "try harder bitch"
+        if(predictedValue >= 72){
+          return "A+"
+        }
+        else{
+          return "F-"
+        }
       }
     }
 
   }
-  
+
   return (
     <>
     <main>
@@ -159,7 +185,7 @@ const userProgress = () => {
             </div>
             <div className="mastery progress-div">
               <h3>Level of Mastery</h3>
-              <p>{lvlOfMastery()}</p>
+              <p>{levelOfMastery()}</p>
               <p className="side">
                 You are something else.
               </p>
