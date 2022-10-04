@@ -26,7 +26,7 @@ const ElemPopup = ({xpos, ypos, element, desc}) => {
           </div>
       </div>
       <div className="pop-description">
-        Description: {desc ? desc.used : "NONE"}
+        {desc ? desc.used : "NULL"}
       </div>
       {/* <div className="pop-used">
         Where It's Used: Hydrogen makes up about 90 percent of atoms in the entire universe. The chemical is used heavily as both a gas and liquid fuel. Hydrogen was used as a main fuel for the Space Shuttle program by NASA, as well as currently being used heavily by the petroleum and manufacturing industries.

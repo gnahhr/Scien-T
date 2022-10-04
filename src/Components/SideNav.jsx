@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 //Logos
 import Logo from '../Assets/Images/logo.png';
@@ -23,9 +23,15 @@ import PerIcon from '../Assets/Images/periodic-icon.svg';
 import "./SideNav.css";
 
 const SideNav = ({children}) => {
+  const nav = useNavigate();
   const [ navOpen, setNavOpen ] = useState(true);
-
   const toggleNav = (status) => setNavOpen(!status);
+
+  const logOut = () => {
+    localStorage.clear();
+    nav("/");
+    window.reload();
+  }
   
   return (
     <>
@@ -37,6 +43,7 @@ const SideNav = ({children}) => {
         <NavLink to="/profile">
           <p className="username">{localStorage.getItem("username")}</p>
         </NavLink>
+        <div className="cta" onClick={() => logOut()}>Log out</div>
       </div>
       <div className="category">
         <div className="category-header">

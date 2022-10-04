@@ -1,26 +1,19 @@
-// .popup-wrapper {
-//     &:hover{
-//         .popup {
-//             opacity: 1;
-//         }
-//     }
-// }
-
 .popup {
     background-color: white;
     border: 5px solid #320D63;
     width: max-content;
     border-radius: 75px 15px 15px 0;
-    height: 375px;
+    max-height: 375px;
     width: 250px;
     color: black;
     padding: 1rem 2rem;
     text-align: justify;
     opacity: 0;
-    // display: none;
     z-index: -1;
     position: absolute;
     transform: translate(12%, -105%);
+    overflow: hidden;
+    text-overflow: ellipsis;
 
     .pop-description {
         font-size: 1rem;

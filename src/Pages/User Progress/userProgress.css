@@ -40,9 +40,7 @@
   align-self: center;
   justify-self: center;
   font-size: 3rem;
-}
-.progress-div .side {
-  font-size: 1rem;
+  text-align: center;
 }
 
 .progress-body {

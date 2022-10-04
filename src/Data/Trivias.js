@@ -145,152 +145,7 @@ export const TriviasData = [
         description: `"Under standard conditions copper is a soft orange-colored metal. It is an excellent conductor of electricity and heat. It is also very ductile allowing it to be easily bent and stretched into a wire. Copper is found in the Earth's crust. Because copper is slow to react, it is often found in its pure form. Copper has been known about since ancient times as far back as 10,000 years ago. The name comes from the word "Cuprum", which is the Latin name for the island of Cyprus."`,
         used: "Copper is found in the Earth's crust. Because copper is slow to react, it is often found in its pure form. This was how many ancient cultures were able to take advantage of the metal. Today, most copper is extracted from minerals such as copper sulfides or copper carbonates. The world-wide demand for copper has increased dramatically in recent years. This has caused an increase in the price of copper. Fortunately, copper is 100% recyclable and large percentage of copper each year comes from recycling. The number one producer of mined copper is Chile who produces around 33% of the world's mined copper."
     },
-    {
-        name: "Thorium",
-        description: "Thorium is a radioactive element that is long-lived.",
-        used: "Thorium is used to coat filaments in incandescent bulbs. It can be used as nuclear fuel in Thorium reactors, although this is a very new technology. Thorium is also an alloying agent in magnesium, and Thorium oxide is used as an industrial catalyst."     
-    },
-    {
-        name: "Protactinium",
-        description: "Protactinium is a radioactive element that is long-lived.",
-        used: "There are currently no commercial uses for protactinium due to its relative rarity."
-    },
-    {
-        name: "Uranium",
-        description: "Uranium is a radioactive element that is long-lived.",
-        used: " Uranium is used as nuclear fuel for nuclear power reactors and produces the material needed for nuclear weapons. It is also used as a colorant for glass. It is also the major material from which other synthetic transuranium elements are made."
-    },
-    {
-        name: "Neptunium",
-        description: "Neptunium is a radioactive element that is long-lived.",
-        used: "Neptunium does not have any known commercial uses."
-    },
-    {
-        name: "Plutonium",
-        description: "Plutonium is a radioactive element that is long-lived.",
-        used: "Plutonium is used as a nuclear fuel and in nuclear weapons."
-    },
-    {
-        name: "Americium",
-        description: "Americium is a radioactive element that is long-lived",
-        used: "Americium is used in smoke detectors and as a portable source of gamma rays."
-    },
-    {
-        name: "Curium",
-        description: "Curium is a radioactive element that is long-lived.",
-        used: "Curium is mainly used for research, but in the future, it could produce more nuclear energy per gram than plutonium"
-    },
-    {
-        name: "Berkelium",
-        description: "Berkelium is a radioactive element that is long-lived.",
-        used: "Berkelium has no commercial uses due to its rarity"
-    },
-    {
-        name: "Californium",
-        description: "Californium is a radioactive element that is long-lived.",
-        used: "Californium is a strong neutron emitter. It is used in metal detectors for silver and gold. It also can be used to identify oil layers underground and detect metal fatigue in aerospace applications."
-    },
-    {
-        name: "Einsteinium",
-        description: "Einsteinium is a radioactive element that is short-lived.",
-        used: "No uses outside research."
-    },
-    {
-        name: "Fermium",
-        description: "Fermium is a radioactive element that is short-lived.",
-        used: "No uses outside research."
-    },
-    {
-        name: "Mendelevium",
-        description: "Mendelevium is a radioactive element that is short-lived.",
-        used: "No uses outside research."
-    },
-    {
-        name: "Nobelium",
-        description: "Nobelium is a radioactive element that is short-lived",
-        used: "No uses outside research."
-    },
-    {
-        name: "Lawrencium",
-        description: "Lawrencium is a radioactive element that is short-lived.",
-        used: "No uses outside research."
-    },
-    {
-        name: "Rutherfordium",
-        description: "Rutherfordium is a radioactive element that is short-lived.",
-        used: "No uses outside research."
-    },
-    {
-        name: "Dubnium",
-        description: "Dubnium is a radioactive element that is short-lived.",
-        used: "No uses outside research."
-    },
-    {
-        name: "Seaborgium",
-        description: "Seaborgium is a radioactive element that is short-lived.",
-        used: "No uses outside research."
-    },
-    {
-        name: "Bohrium",
-        description: "Bohrium is a radioactive element that is short-lived.",
-        used: "No uses outside research."
-    },
-    {
-        name: "Hassium",
-        description: "Hassium is a radioactive element that is short-lived.",
-        used: "No uses outside research."
-    },
-    {
-        name: "Meitnerium",
-        description: "Meitnerium is a radioactive element that is short-lived.",
-        used: "No uses outside research."
-    },
-    {
-        name: "Darmstadtium",
-        description: "Darmstadtium is a radioactive element that is short-lived.",
-        used: "No uses outside research."
-    },
-    {
-        name: "Roentgenium",
-        description: "Roentgenium is a radioactive element that is short-lived.",
-        used: "No uses outside research."
-    },
-    {
-        name: "Copernicium",
-        description: "Copernicium is a radioactive element that is short-lived.",
-        used: "No uses outside research."
-    },
-    {
-        name: "Nihonium",
-        description: "Nihonium is a radioactive element that is short-lived.",
-        used: "No uses outside research."
-    },
-    {
-        name: "Flerovium",
-        description: "Flerovium is a radioactive element that is short-lived.",
-        used: "No uses outside research."
-    },
-    {
-        name: "Moscovium",
-        description: "Moscovium is a radioactive element that is short-lived.",
-        used: "No uses outside research."
-    },
-    {
-        name: "Livermorium",
-        description: "Livermorium is a radioactive element that is short-lived.",
-        used: "No uses outside research."
-    },
-    {
-        name: "Tennessine",
-        description: "Tennessine is a radioactive element that is short-lived.",
-        used: "No uses outside research."
-    },
-    {
-        name: "Oganesson",
-        description: "Oganesson is a radioactive element that is short-lived. It is the heaviest element known to man (at the time of writing).",
-        used: "No uses outside research."
-    },
-    
+
     {
         name: "Zinc",
         description: "Zinc is a non-corroding metal. It is classified as a transition metal.",
@@ -441,12 +296,10 @@ export const TriviasData = [
         description: "Praseodymium is a soft metal.",
         used: "Praseodymium is used to make yellow glass goggles for welders. Praseodymium is also used in flint lighter products. Its main use, however, is to color glass and enamels."
     },
-    
     {
         name: "Neodymium",
         description: "Neodymium is a soft metal.",
-        used:
-            "The most important use for neodymium is in an alloy with iron and boron to make very strong permanent magnets. Neodymium is used to make flint for lighters and is a component of specialized welder's goggles. Neodymium glass is used to make lasers, while Neodymium oxide and nitrate are used as catalysts in polymerisation reactions."
+        used: "The most important use for neodymium is in an alloy with iron and boron to make very strong permanent magnets. Neodymium is used to make flint for lighters and is a component of specialized welder's goggles. Neodymium glass is used to make lasers, while Neodymium oxide and nitrate are used as catalysts in polymerisation reactions."
     },
     {
         name: "Promethium",
@@ -459,6 +312,11 @@ export const TriviasData = [
         used: "Samarium is used as a catalyst for dehydration and dehydrogenation of ethanol fuels. It can also be used to absorb infrared light rays and in the treatment of cancer."
     },
     {
+        name: "Europium",
+        description: "Europium is a soft metal.",
+        used: "Europium is a good absorber of neutrons, so it is often used in nuclear reactors. One of its compounds is also used in the production of red phosphorus in television sets."
+    },
+    {
         name: "Gadolinium",
         description: "Gadolinium is a soft metal that is the best neutron absorber and is magnetic.",
         used: "Gadolinium is often used in applications where microwaves are present. It can also be used in green phosphor television tubes. The element is magnetic, which has led to its use in MRI machines."
@@ -467,6 +325,11 @@ export const TriviasData = [
         name: "Terbium",
         description: "Terbium is a soft metal.",
         used: "Terbium is used as a stabilizer of high-temperature fuel cells. Its alloys are also used in electronic devices and as magnetic field indicators."
+    },
+    {
+        name: "Dysprosium",
+        description: "Dysprosium is a soft metal.",
+        used: "When combined with rare earth elements, Dysprosium is used as a laser material. It can also be used in nuclear reactor rods."
     },
     {
         name: "Holmium",
@@ -582,5 +445,152 @@ export const TriviasData = [
         name: "Actinium",
         description: "Actinium is a radioactive element that is long-lived.",
         used: "Actinium is used in medicine for radio-immunotherapy. It is only found in uranium ore, which makes it very expensive. One ton of uranium produces the equivalent of 1/10th of a gram of actinium."
-    }
+    },
+
+    {
+        name: "Thorium",
+        description: "Thorium is a radioactive element that is long-lived.",
+        used: "Thorium is used to coat filaments in incandescent bulbs. It can be used as nuclear fuel in Thorium reactors, although this is a very new technology. Thorium is also an alloying agent in magnesium, and Thorium oxide is used as an industrial catalyst."     
+    },
+    {
+        name: "Protactinium",
+        description: "Protactinium is a radioactive element that is long-lived.",
+        used: "There are currently no commercial uses for protactinium due to its relative rarity."
+    },
+    {
+        name: "Uranium",
+        description: "Uranium is a radioactive element that is long-lived.",
+        used: "Uranium is used as nuclear fuel for nuclear power reactors and produces the material needed for nuclear weapons. It is also used as a colorant for glass. It is also the major material from which other synthetic transuranium elements are made."
+    },
+    {
+        name: "Neptunium",
+        description: "Neptunium is a radioactive element that is long-lived.",
+        used: "Neptunium does not have any known commercial uses."
+    },
+    {
+        name: "Plutonium",
+        description: "Plutonium is a radioactive element that is long-lived.",
+        used: "Plutonium is used as a nuclear fuel and in nuclear weapons."
+    },
+    {
+        name: "Americium",
+        description: "Americium is a radioactive element that is long-lived",
+        used: "Americium is used in smoke detectors and as a portable source of gamma rays."
+    },
+    {
+        name: "Curium",
+        description: "Curium is a radioactive element that is long-lived.",
+        used: "Curium is mainly used for research, but in the future, it could produce more nuclear energy per gram than plutonium"
+    },
+    {
+        name: "Berkelium",
+        description: "Berkelium is a radioactive element that is long-lived.",
+        used: "Berkelium has no commercial uses due to its rarity"
+    },
+    {
+        name: "Californium",
+        description: "Californium is a radioactive element that is long-lived.",
+        used: "Californium is a strong neutron emitter. It is used in metal detectors for silver and gold. It also can be used to identify oil layers underground and detect metal fatigue in aerospace applications."
+    },
+    {
+        name: "Einsteinium",
+        description: "Einsteinium is a radioactive element that is short-lived.",
+        used: "No uses outside research."
+    },
+    {
+        name: "Fermium",
+        description: "Fermium is a radioactive element that is short-lived.",
+        used: "No uses outside research."
+    },
+    {
+        name: "Mendelevium",
+        description: "Mendelevium is a radioactive element that is short-lived.",
+        used: "No uses outside research."
+    },
+    {
+        name: "Nobelium",
+        description: "Nobelium is a radioactive element that is short-lived",
+        used: "No uses outside research."
+    },
+    {
+        name: "Lawrencium",
+        description: "Lawrencium is a radioactive element that is short-lived.",
+        used: "No uses outside research."
+    },
+    {
+        name: "Rutherfordium",
+        description: "Rutherfordium is a radioactive element that is short-lived.",
+        used: "No uses outside research."
+    },
+    {
+        name: "Dubnium",
+        description: "Dubnium is a radioactive element that is short-lived.",
+        used: "No uses outside research."
+    },
+    {
+        name: "Seaborgium",
+        description: "Seaborgium is a radioactive element that is short-lived.",
+        used: "No uses outside research."
+    },
+    {
+        name: "Bohrium",
+        description: "Bohrium is a radioactive element that is short-lived.",
+        used: "No uses outside research."
+    },
+    {
+        name: "Hassium",
+        description: "Hassium is a radioactive element that is short-lived.",
+        used: "No uses outside research."
+    },
+    {
+        name: "Meitnerium",
+        description: "Meitnerium is a radioactive element that is short-lived.",
+        used: "No uses outside research."
+    },
+    {
+        name: "Darmstadtium",
+        description: "Darmstadtium is a radioactive element that is short-lived.",
+        used: "No uses outside research."
+    },
+    {
+        name: "Roentgenium",
+        description: "Roentgenium is a radioactive element that is short-lived.",
+        used: "No uses outside research."
+    },
+    {
+        name: "Copernicium",
+        description: "Copernicium is a radioactive element that is short-lived.",
+        used: "No uses outside research."
+    },
+    {
+        name: "Nihonium",
+        description: "Nihonium is a radioactive element that is short-lived.",
+        used: "No uses outside research."
+    },
+    {
+        name: "Flerovium",
+        description: "Flerovium is a radioactive element that is short-lived.",
+        used: "No uses outside research."
+    },
+    {
+        name: "Moscovium",
+        description: "Moscovium is a radioactive element that is short-lived.",
+        used: "No uses outside research."
+    },
+    {
+        name: "Livermorium",
+        description: "Livermorium is a radioactive element that is short-lived.",
+        used: "No uses outside research."
+    },
+    {
+        name: "Tennessine",
+        description: "Tennessine is a radioactive element that is short-lived.",
+        used: "No uses outside research."
+    },
+    {
+        name: "Oganesson",
+        description: "Oganesson is a radioactive element that is short-lived. It is the heaviest element known to man (at the time of writing).",
+        used: "No uses outside research."
+    },
+
 ]

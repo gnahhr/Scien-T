@@ -186,9 +186,6 @@ const userProgress = () => {
             <div className="mastery progress-div">
               <h3>Level of Mastery</h3>
               <p>{levelOfMastery()}</p>
-              <p className="side">
-                You are something else.
-              </p>
             </div>
           </div>
         </div>
