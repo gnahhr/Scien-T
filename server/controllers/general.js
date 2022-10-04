@@ -106,13 +106,6 @@ exports.intelliment = async (req, res, next) => {
             $push: {intellimentEasy: score, intellimentEasyCounter: corAve},
             $max: { intellimentEasyHS: score} 
         })
-
-        // const push
-
-        // const highScore = await UserData.findOneAndUpdate({username}, {
-        //     $max: { intellimentEasyHS: score} 
-        // })
-
         if(pushProg)
         res.json({status: 'ok', pushRankings})
     
@@ -129,10 +122,6 @@ exports.intelliment = async (req, res, next) => {
             $push: {intellimentNormal: score, intellimentNormalCounter: corAve},
             $max: { intellimentNormalHS: score}
         })
-
-        // const highScore = await UserData.findOneAndUpdate({username}, {
-        //     $max: { intellimentNormalHS: score} 
-        // })
 
         if(pushProg)
         res.json({status: 'ok', pushRankings})

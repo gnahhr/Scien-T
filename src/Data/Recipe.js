@@ -971,7 +971,7 @@ export const recipe = [
 		],
 	},
 	{
-		name: "Ammonium acetate	",
+		name: "Ammonium acetate",
 		compoundPic: "ammonium-acetate	.png",
 		elements: ["C", "H", "O", "N"],
 		formula: "C<sub>2</sub>)H<sub>3</sub>O<sub>2</sub>NH<sub>4</sub>",

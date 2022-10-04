@@ -1,9 +1,11 @@
 import React, { useState, useEffect }from 'react'
 import jwtDecode from 'jwt-decode'
+import LineChart from '../../Components/LineChart'
 import regression from 'regression'
-import User from '../../Assets/Images/user.png';
-import "./userProgress.css"
 
+import "./userProgress.css";
+
+//Hooks
 import getIntellimentData from '../../Hooks/getIntellimentData'
 import getUserProgEC from '../../Hooks/getUserProgEC'
 import getUserProgME from '../../Hooks/getUserProgME'
@@ -69,15 +71,16 @@ const userProgress = () => {
 
   useEffect(() => {
     const formattedArray = intellimentCounter.map((ctr, index) => {
-      return[index+1,ctr]
+      return[index+1,+ctr]
     })
     console.log(formattedArray)
     const result = regression.linear(formattedArray)
     console.log(result.string)
     console.log(result.equation[0])
     console.log(result.equation[1])
-    console.log(result.predict(30))
-  },[data])
+    console.log(result.predict(12))
+  },[intellimentCounter])
+
 
   const formatter = (data) => {
     return {
