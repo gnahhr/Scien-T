@@ -30,7 +30,7 @@ const SideNav = ({children}) => {
   const logOut = () => {
     localStorage.clear();
     nav("/");
-    window.reload();
+    window.location.reload();
   }
   
   return (
