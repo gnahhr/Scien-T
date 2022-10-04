@@ -26,6 +26,7 @@
     margin-right: 2px;
     box-shadow: 0 3px 10px 5px #0000006e;
     border-radius: 50%;
+    transition: transform 1s;
 }
 
 .side-nav-logo {
@@ -161,6 +162,7 @@
     #side-nav-arrow{
         transform: rotate(0deg);
         top: calc(11% - 10px);
+        transition: transform 1s;
     }
 
     .side-nav-logo {
@@ -251,8 +253,8 @@
             a {
                 display:block;
                 transform: translateY(0);
-                transition: display 700ms ease-in;
-                transition: transform 700ms ease-in;
+                transition: display .5s;
+                transition: transform .5s;
             }
         }
     }

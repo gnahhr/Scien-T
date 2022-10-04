@@ -26,6 +26,8 @@ main {
     width: 100%;
     height: 100vh;
     overflow-y: auto;
+    
+    align-content: center;
 }
 
 button, .button {
@@ -177,13 +179,14 @@ h2 {
 
 .icon {
     background-color: #FBB500;
-    width: max-content;
-    height: max-content;
+    width: 34px;
+    height: 34px;
     align-self: flex-end;
     border-radius: 5px;
     padding: .5rem;
     display: grid;
     align-content: center;
+    justify-content: center;
     margin: 0 .5rem;
 
     img {

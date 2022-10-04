@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDrag } from 'react-dnd/dist/hooks';
 import ElemColors from '../Data/ElemColors.js';
 import './Elements.css';
 
-const Elements = ({symbol, xpos, ypos, category}) => {
+const Elements = ({symbol, xpos, ypos, category, isDragElem}) => {
   const { familyBGs, familyBDs } = ElemColors;
   const [{isDragging}, drag] = useDrag(() => ({
     type: "element",
@@ -12,6 +12,10 @@ const Elements = ({symbol, xpos, ypos, category}) => {
       isDragging: !!monitor.isDragging(),
     })
   }))
+
+  useEffect(() => {
+    isDragElem(isDragging);
+  }, [isDragging])
 
   return (
     <div
@@ -23,7 +27,7 @@ const Elements = ({symbol, xpos, ypos, category}) => {
         backgroundColor: familyBGs[category] ? familyBGs[category] : "grey"
      }}
      className="element"
-    >{symbol}</div>
+    ><p>{symbol}</p></div>
   )
 }
 

@@ -48,7 +48,6 @@
   flex-wrap: wrap;
   background-color: #FFFFFF;
   box-shadow: 0 0 0 5px #320D63;
-  margin-bottom: 1rem;
 
   div {
     margin: 5px;
@@ -63,7 +62,6 @@
 
 .mixing-table {
   display: flex;
-  flex-direction: column;
   text-align: center;
   align-items: center;
   
@@ -83,8 +81,12 @@
     color: #0C004E;
     background-color: #FFCD4E;
     box-shadow: 0 5px 5px #00000077;
-    margin-top: .5rem;
-    margin-bottom: 0;
+    height: 8vh;
+    margin: 0 0 0 1rem;
+
+    img {
+      height: 100%;
+    }
   }
   
   .cta:hover {

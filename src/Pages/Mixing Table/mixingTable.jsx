@@ -28,6 +28,7 @@ import listIcon from "../../Assets/Images/list-icon.svg";
 import muted from "../../Assets/Images/muted.svg";
 import unmuted from "../../Assets/Images/music.svg";
 import ElemColors from '../../Data/ElemColors.js';
+import Mix from "../../Assets/Images/mix.svg";
 
 
 const mixingTable = () => {
@@ -41,6 +42,7 @@ const mixingTable = () => {
   const [ selectedCompound, setSelectedCompound] = useState([]);
   const [ knownCompound, setKnownCompound ] = useState([]);
   const [ newDiscover, setNewDiscover ] = useState("");
+  const [ isDragElem, setIsDragElem ] = useState(false); 
 
   // save user progress to the database
   const [access, setAccess] = useState('')
@@ -221,6 +223,11 @@ const mixingTable = () => {
     setMixData(newData);
   }
 
+  const mixLabel = {
+    true: "Drop the element here",
+    false: "Click and Drag the Elements here in the box to discover a new composition"
+  }
+
   return (
     <main>
       <div className="main-header">
@@ -235,10 +242,10 @@ const mixingTable = () => {
         
           <div className="mixing-table">
             <div id="mixing-table" ref={drop}>
-                {mixData.length > 0 ? mixData.map(element => <div key={element} className="element" onClick={() => removeElement(element)}>{element}</div>) : <h2>"Please drag elements here for mixing!"</h2>}
+                {mixData.length > 0 ? mixData.map(element => <div key={element} className="element" onClick={() => removeElement(element)}>{element}</div>) : <h2>{mixLabel[isDragElem]}</h2>}
             </div>
 
-            <button className="cta" onClick={() => {mixElems(mixData);}}>Mix</button>
+            <button className="cta" onClick={() => {mixElems(mixData);}}><img src={Mix} alt="Mix Icon" /></button>
           </div>
 
           <div id="periodic-table">
@@ -249,6 +256,7 @@ const mixingTable = () => {
               xpos={element.xpos}
               ypos={element.ypos}
               category={element.category}
+              isDragElem={setIsDragElem}
             />)}
           </div>
           

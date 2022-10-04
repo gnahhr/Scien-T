@@ -23,6 +23,7 @@
   margin-right: 2px;
   box-shadow: 0 3px 10px 5px rgba(0, 0, 0, 0.431372549);
   border-radius: 50%;
+  transition: transform 1s;
 }
 
 .side-nav-logo {
@@ -131,6 +132,7 @@
 .collapsed-nav #side-nav-arrow {
   transform: rotate(0deg);
   top: calc(11% - 10px);
+  transition: transform 1s;
 }
 .collapsed-nav .side-nav-logo {
   width: 80%;
@@ -202,6 +204,6 @@
 .collapsed-nav .category:hover .category-header + .category-links a {
   display: block;
   transform: translateY(0);
-  transition: display 700ms ease-in;
-  transition: transform 700ms ease-in;
+  transition: display 0.5s;
+  transition: transform 0.5s;
 }
