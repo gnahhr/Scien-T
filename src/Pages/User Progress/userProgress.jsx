@@ -10,7 +10,6 @@ import getIntellimentData from '../../Hooks/getIntellimentData'
 import getUserProgEC from '../../Hooks/getUserProgEC'
 import getUserProgME from '../../Hooks/getUserProgME'
 import getIntellimentCounter from '../../Hooks/getIntellimentCounter'
-import LineChart from '../../Components/LineChart'
 
 const userProgress = () => {
   const [ username, setUsername ] = useState('');
@@ -78,7 +77,7 @@ const userProgress = () => {
     console.log(result.string)
     console.log(result.equation[0])
     console.log(result.equation[1])
-    console.log(result.predict(12))
+    console.log(result.predict(intellimentCounter.length+1))
   },[intellimentCounter])
 
 
