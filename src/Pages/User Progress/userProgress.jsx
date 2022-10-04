@@ -22,6 +22,7 @@ const userProgress = () => {
   const [ difficulty, setDifficulty ] = useState('easy')
   const [ mixingTableCounter, setMixingTableCounter ] = useState(0)
   const [ electronConfigCounter, setElectronConfigCounter ] = useState(0)
+  const [ predictedValue, setPredictedValue ] = useState(0)
 
   // const formatArray = (intellimentCounter) => { // format to 2D array for linear regression
   //   return intellimentCounter.map((ctr, index) => {
@@ -72,12 +73,9 @@ const userProgress = () => {
     const formattedArray = intellimentCounter.map((ctr, index) => {
       return[index+1,+ctr]
     })
-    console.log(formattedArray)
     const result = regression.linear(formattedArray)
-    console.log(result.string)
-    console.log(result.equation[0])
-    console.log(result.equation[1])
-    console.log(result.predict(intellimentCounter.length+1))
+    const predict = result.predict(intellimentCounter.length+1)
+    setPredictedValue(predict)
   },[intellimentCounter])
 
 
@@ -100,7 +98,45 @@ const userProgress = () => {
     setDifficulty(difficulty);
   }
 
-    
+  const lvlOfMastery = () => {
+    if(difficulty === "easy"){
+      if(predictedValue >= 18){
+        return "Papasa Ka"
+      }
+      else{
+        return "try harder bitch"
+      }
+    }
+
+    else if(difficulty === "normal"){
+      if(predictedValue >= 36){
+        return "Papasa Ka"
+      }
+      else{
+        return "try harder bitch"
+      }
+    }
+
+    else if(difficulty === "hard"){
+      if(predictedValue >= 54){
+        return "Papasa Ka"
+      }
+      else{
+        return "try harder bitch"
+      }
+    }
+
+    else if(difficulty === "hardcore"){
+      if(predictedValue >= 72){
+        return "Papasa Ka"
+      }
+      else{
+        return "try harder bitch"
+      }
+    }
+
+  }
+  
   return (
     <>
     <main>
@@ -123,7 +159,7 @@ const userProgress = () => {
             </div>
             <div className="mastery progress-div">
               <h3>Level of Mastery</h3>
-              <p>Newbie</p>
+              <p>{lvlOfMastery()}</p>
               <p className="side">
                 You are something else.
               </p>
