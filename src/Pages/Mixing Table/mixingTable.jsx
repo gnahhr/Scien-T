@@ -19,7 +19,7 @@ import DiscoverList from '../../Components/DiscoverList.jsx';
 import CompoundModal from '../../Components/CompoundModal.jsx';
 import DiscoverModal from '../../Components/DiscoverModal.jsx';
 import Toast from '../../Components/Toast.jsx';
-import SideNav from '../../Components/SideNav.jsx';
+import NoDragElem from '../../Components/NoDragElem.jsx';
 
 //Design
 import "./mixingTable.css";
@@ -41,9 +41,13 @@ const mixingTable = () => {
   const [ mixData, setMixData ] = useState([]);
   const [ selectedCompound, setSelectedCompound] = useState([]);
   const [ knownCompound, setKnownCompound ] = useState([]);
+  const [ filterElems, setFilterElems ] = useState([]);
+
+  //Conditional States
   const [ newDiscover, setNewDiscover ] = useState("");
   const [ isDragElem, setIsDragElem ] = useState(false); 
   const [ mixState, setMixState ] = useState("noDrag");
+  
 
   // save user progress to the database
   const [access, setAccess] = useState('')
@@ -52,6 +56,8 @@ const mixingTable = () => {
   const [ showModal, setShowModal ] = useState(false);
   const [ showDiscover, setShowDiscover ] = useState(false);
   const [ showNew, setShowNew ] = useState(false);
+
+  //Music States
   const [ initMusic, setInitMusic ] = useState(false);
   const [ music, setMusic ] = useState(true);
 
@@ -60,7 +66,7 @@ const mixingTable = () => {
   const [ toastState, setToastState ] = useState("");
   const [ toastMsg, setToastMsg ] = useState("");
 
-
+  //Drop module
   const [{isOver}, drop ] = useDrop(() => ({
     accept: "element",
     drop: (item) => addElement(item.symbol),
@@ -82,8 +88,6 @@ const mixingTable = () => {
         setAccess(user.id);
         (async () => {
           const progress = await getUserProgME(user.id);
-          //Change Known Compound to get data from something
-          setKnownCompound(progress);
           getKnownCompound(progress);
         })();
       }
@@ -98,6 +102,10 @@ const mixingTable = () => {
     }
     
   }, [isDragElem, mixState])
+
+  useEffect(() => {
+    GetFilterElems();
+  }, [mixData])
 
   const dragStateToggle = (param) => {
      param ? setMixState("drag") : setMixState("noDrag")
@@ -152,11 +160,6 @@ const mixingTable = () => {
       
       //Just show modal if newly discovered
       if (!checkCompounds(mixed, knownCompound)) {
-        // pushMixElems(...mixed, access);
-        // mixed.map((mixed)=>{
-        //   console.log(mixed.name)
-        // })
-        // pushMixElems(...mixed.map((comp) => comp.name), access);
         const element = mixed.map((comp) => comp.name);
         pushMixElems(element, access);
         setNewDiscover(mixed);
@@ -164,8 +167,6 @@ const mixingTable = () => {
       } else {
         prepToast("You already discovered that compound!", "warning");
       }
-      
-      // mixElements(mixed); remain as a comment until further notice - kagagawan ni juicewah
   	}
     
     setMixData([]);
@@ -181,7 +182,6 @@ const mixingTable = () => {
     if (mixed)
     return listCompound.filter((compound) => mixed[0].name === compound.name).length > 0 ? true : false;
   }
-  
 
   //Compare elements on the mixing table to the recipes list
   const compareElemArr = (elemArr1, elemArr2) => {
@@ -210,7 +210,6 @@ const mixingTable = () => {
       });
       return filtered[0];
     });
-
     setKnownCompound(knownData);
   }
 
@@ -240,6 +239,17 @@ const mixingTable = () => {
     doneCom: "You have already known this compound"
   }
 
+  const GetFilterElems = () => {
+    let filtered = [];
+    recipe.filter((filter) => {
+      if (mixData.every(data => filter.elements.includes(data))){
+        return filter;
+      }
+    }).every(data => filtered.push(...data.elements));
+    filtered = [...new Set(filtered)];
+    setFilterElems(filtered);
+  }
+
   return (
     <main>
       <div className="main-header">
@@ -262,14 +272,25 @@ const mixingTable = () => {
 
           <div id="periodic-table">
 
-            {listElems.map(element => <Elements 
-              key={element.name}
-              symbol={element.symbol}
-              xpos={element.xpos}
-              ypos={element.ypos}
-              category={element.category}
-              isDragElem={setIsDragElem}
-            />)}
+            {listElems.map(element =>
+              filterElems.includes(element.symbol) ?
+              <Elements 
+                key={element.name}
+                symbol={element.symbol}
+                xpos={element.xpos}
+                ypos={element.ypos}
+                category={element.category}
+                isDragElem={setIsDragElem}
+              />
+              :
+              <NoDragElem 
+                key={element.name}
+                symbol={element.symbol}
+                xpos={element.xpos}
+                ypos={element.ypos}
+              />)
+              
+              }
           </div>
           
           <DiscoverList knownCompound={knownCompound}

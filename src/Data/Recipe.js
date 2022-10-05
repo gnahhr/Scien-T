@@ -2826,7 +2826,7 @@ export const recipe = [
 	{
 		name: "Magnesium iodide",
 		compoundPic: "Magnesium-iodide.png",
-		elements: ["Mgl"],
+		elements: ["Mg", "I"],
 		formula: "Mgl<sub>2</sub>",
 		moleWeight: "278.1139 g/mol",
 		description: [
@@ -3032,7 +3032,7 @@ export const recipe = [
 		name: "Bromothymol Blue",
 		compoundPic: "Bromothymol-Blue.png",
 		elements: ["C", "H", "Br", "O", "S"],
-		formula: "C<sub>27<s/sub>H<sub>28</sub>Br<sub>2</sub>O<sub>5</sub>S",
+		formula: "C<sub>27</sub>H<sub>28</sub>Br<sub>2</sub>O<sub>5</sub>S",
 		moleWeight: "624.384 g/mol",
 		description: [
 			"Bromothymol blue is the most commonly used pH indicator and is in low concentration and size container and low toxicity.",
@@ -3042,7 +3042,7 @@ export const recipe = [
 	{
 		name: "Ammonium iodide",
 		compoundPic: "Ammonium-iodide.png",
-		elements: ["N", "Hl"],
+		elements: ["N", "H", "I"],
 		formula: "NH<sub>4</sub>l",
 		moleWeight: "144.94 g/mol",
 		description: [
@@ -3103,7 +3103,7 @@ export const recipe = [
 	{
 		name: "Barium iodide",
 		compoundPic: "Barium-iodide.png",
-		elements: ["Bal"],
+		elements: ["Ba", "I"],
 		formula: "Bal<sub>2</sub>",
 		moleWeight: "391.136 g/mol",
 		description: [
@@ -3191,7 +3191,7 @@ export const recipe = [
 		compoundPic: "Lead-ii-acetate.png",
 		elements: ["Pb", "C", "H", "O"],
 		formula: "Pb(C<sub>2</sub>H<sub>3</sub>O<sub>2</sub>)<sub>2</sub>",
-		moleWeight: "‎325.29 g/mol",
+		moleWeight: "325.29 g/mol",
 		description: [
 			"Lead Acetate is poisonous in nature.",
 			" It is used in making white lead in medicines and as a mordant in dyeing.",
@@ -3227,7 +3227,7 @@ export const recipe = [
 	{
 		name: "Potassium fluoride",
 		compoundPic: "Potassium-fluoride.png",
-		elements: ["KF"],
+		elements: ["K", "F"],
 		formula: "KF",
 		moleWeight: "58.0967 g/mol",
 		description: [

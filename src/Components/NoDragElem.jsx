@@ -5,6 +5,12 @@ import './Elements.css';
 const NoDragElem = ({symbol, xpos, ypos, category, clickAct, elem}) => {
   const { familyBGs, familyBDs } = ElemColors;
 
+  const clickAction = () => {
+    if (clickAct) {
+      clickAct(elem)
+    }
+  }
+
   return (
     <div
      style={{
@@ -14,7 +20,7 @@ const NoDragElem = ({symbol, xpos, ypos, category, clickAct, elem}) => {
         backgroundColor: familyBGs[category] ? familyBGs[category] : "grey"
      }}
      className="element"
-     onClick={() => clickAct(elem)}
+     onClick={() => clickAction}
     >{symbol}</div>
   )
 }
