@@ -137,7 +137,7 @@ const mixingTable = () => {
   	});
 
   	if(mixed.length === 0){
-      prepToast("No compound of this mixture.", "warning");
+      // prepToast("No compound of this mixture.", "warning");
       setMixState("noElem");
   	} else {
       setKnownCompound((knownCompound) => {
@@ -158,7 +158,6 @@ const mixingTable = () => {
         // })
         // pushMixElems(...mixed.map((comp) => comp.name), access);
         const element = mixed.map((comp) => comp.name);
-        console.log(element);
         pushMixElems(element, access);
         setNewDiscover(mixed);
         setShowNew(true); 
@@ -237,7 +236,8 @@ const mixingTable = () => {
   const mixContent = {
     drag: "Drop the element here",
     noDrag: "Click and Drag the Elements here in the box to discover a new composition",
-    noElem: "There is no compound of this mixture."
+    noElem: "There is no compound of this mixture.",
+    doneCom: "You have already known this compound"
   }
 
   return (
@@ -280,12 +280,12 @@ const mixingTable = () => {
 
           {showModal && <CompoundModal showModal={setShowModal} data={selectedCompound} />}
           {showNew && <DiscoverModal showNew={setShowNew} data={newDiscover}/>}
-{/*           
+          
           <Toast message={toastMsg}
                 timer={3000}
                 toastType={toastState}
                 showToast={setShowToast}
-                toastState={showToast}/> */}
+                toastState={showToast}/>
       </div>
     </main>
   )
