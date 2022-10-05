@@ -43,6 +43,7 @@ const mixingTable = () => {
   const [ knownCompound, setKnownCompound ] = useState([]);
   const [ newDiscover, setNewDiscover ] = useState("");
   const [ isDragElem, setIsDragElem ] = useState(false); 
+  const [ mixState, setMixState ] = useState("noDrag");
 
   // save user progress to the database
   const [access, setAccess] = useState('')
@@ -89,9 +90,18 @@ const mixingTable = () => {
     }
   }, [])
 
-  // useEffect(() => {
-  //   console.log(mixData);
-  // }, [mixData])
+  useEffect(() => {
+    if (mixState === "noElem") {
+      setTimeout(() => { dragStateToggle() }, 3000);
+    } else {
+      dragStateToggle(isDragElem);
+    }
+    
+  }, [isDragElem, mixState])
+
+  const dragStateToggle = (param) => {
+     param ? setMixState("drag") : setMixState("noDrag")
+  }
 
   //Function to format toast message
   const prepToast = (message, toastState) => {
@@ -128,6 +138,7 @@ const mixingTable = () => {
 
   	if(mixed.length === 0){
       prepToast("No compound of this mixture.", "warning");
+      setMixState("noElem");
   	} else {
       setKnownCompound((knownCompound) => {
         if (knownCompound.length < 1){
@@ -223,9 +234,10 @@ const mixingTable = () => {
     setMixData(newData);
   }
 
-  const mixLabel = {
-    true: "Drop the element here",
-    false: "Click and Drag the Elements here in the box to discover a new composition"
+  const mixContent = {
+    drag: "Drop the element here",
+    noDrag: "Click and Drag the Elements here in the box to discover a new composition",
+    noElem: "There is no compound of this mixture."
   }
 
   return (
@@ -241,8 +253,8 @@ const mixingTable = () => {
           </div>
         
           <div className="mixing-table">
-            <div id="mixing-table" ref={drop}>
-                {mixData.length > 0 ? mixData.map(element => <div key={element} className="element" onClick={() => removeElement(element)}>{element}</div>) : <h2>{mixLabel[isDragElem]}</h2>}
+            <div id="mixing-table" className={mixState === "noElem" ? "wrong-mix" : ""} ref={drop}>
+                {mixData.length > 0 ? mixData.map(element => <div key={element} className="element" onClick={() => removeElement(element)}>{element}</div>) : <h2>{mixContent[mixState]}</h2>}
             </div>
 
             <button className="cta" onClick={() => {mixElems(mixData);}}><img src={Mix} alt="Mix Icon" /></button>
@@ -268,12 +280,12 @@ const mixingTable = () => {
 
           {showModal && <CompoundModal showModal={setShowModal} data={selectedCompound} />}
           {showNew && <DiscoverModal showNew={setShowNew} data={newDiscover}/>}
-          
+{/*           
           <Toast message={toastMsg}
                 timer={3000}
                 toastType={toastState}
                 showToast={setShowToast}
-                toastState={showToast}/>
+                toastState={showToast}/> */}
       </div>
     </main>
   )

@@ -56,6 +56,12 @@
   font-size: 1rem;
   margin: 0;
 }
+#mixing-table.wrong-mix {
+  background-color: rgba(95, 28, 28, 1) !important;
+}
+#mixing-table.wrong-mix > h2 {
+  color: white !important;
+}
 
 .mixing-table {
   display: flex;
