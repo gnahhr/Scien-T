@@ -85,7 +85,7 @@ const userProgress = () => {
   },[intellimentCounter])
 
 
-  const formatter = (data) => {
+  const formatData = (data) => {
     return {
       labels: data.map((data,index) => `Game ${index + 1}`),
       datasets: [
@@ -198,7 +198,7 @@ const userProgress = () => {
           <div className="body-content">
             <div className="left-progress">
               <div className="chart"style={{ width: "95%" }}>
-                <LineChart chartData={formatter(data)} />
+                <LineChart chartData={formatData(data)} />
               </div>
             </div>
             <div className="right-progress">
