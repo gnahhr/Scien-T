@@ -20,6 +20,12 @@
   margin: 4rem auto 0 auto;
   width: 70%;
 }
+.Trivias .search-wrapper .search input::-moz-placeholder {
+  color: white;
+}
+.Trivias .search-wrapper .search input:-ms-input-placeholder {
+  color: white;
+}
 .Trivias .search-wrapper .search input::placeholder {
   color: white;
 }

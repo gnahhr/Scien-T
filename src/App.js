@@ -18,6 +18,8 @@ import Navbar from './Components/Navbar';
 import LandingPage from './Pages/Landing Page/landingPage';
 import LoginPage from './Pages/Login/loginPage';
 import RegisterPage from './Pages/Register/registerPage';
+import ForgotPasswordOTP from './Pages/Forgot Password - OTP/forgotPasswordOTP';
+import ForgotPassword from './Pages/Forgot Password/forgotPassword'
 import MixingTable from './Pages/Mixing Table/mixingTable';
 import Intelliment from './Pages/Intelliment/Intelliment';
 import ElectronConfiguration from './Pages/Electron Configuration/electronConfiguration'
@@ -47,6 +49,8 @@ function App() {
           <Route path="/register" element={<RegisterPage />}/>
           <Route path="/verify" element={<VerifyUser />} />
           <Route path="/login" element={<LoginPage setUser={setUser}/>} />
+          <Route path="/forgotPassword" element={<ForgotPassword/>} />
+          <Route path="/forgotPasswordOTP" element ={<ForgotPasswordOTP/>} />
           <Route path="*" element={<LandingPage />}/> 
         </Routes>}
         

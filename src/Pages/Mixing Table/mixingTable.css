@@ -56,10 +56,9 @@
   font-size: 1rem;
   margin: 0;
 }
+
 #mixing-table.wrong-mix {
-  background-color: rgba(95, 28, 28, 1) !important;
-}
-#mixing-table.wrong-mix > h2 {
+  background-color: rgb(95, 28, 28) !important;
   color: white !important;
 }
 
@@ -77,6 +76,8 @@
   cursor: pointer;
 }
 .mixing-table .cta {
+  height: -webkit-max-content;
+  height: -moz-max-content;
   height: max-content;
   font-size: 1.4rem;
   color: #0C004E;

@@ -3,12 +3,16 @@ import Logo from '../../Assets/Images/logo.png';
 import { useNavigate } from 'react-router-dom';
 import "./loginPage.css";
 
+//Hooks
+import getFailedAttempts from '../../Hooks/getFailedAttempts';
+import requestOTP from '../../Hooks/requestOTP';
+
 const loginPage = ({setUser}) => {
   const navigate = useNavigate()
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [counter, setCounter] = useState(0)
-  const [forgot, setForgot] = useState('');
+  const [forgot, setForgot] = useState(false);
+  const [counter, setCounter] = useState(0);
 
   const setText = {
         "username": setUsername,
@@ -37,27 +41,43 @@ const loginPage = ({setUser}) => {
 
     const data = await response.json()
 
+    //if successful, save data to localstorage and proceed
     if (data.status === 'ok'){
       localStorage.setItem('token', data.user);
       localStorage.setItem('username', username);
       setUser(localStorage.token);
     }
 
-    else if(data.status === 'error'){
-      alert(data.error)
-      setCounter(counter + 1)
+    else if(data.status === 'Wrong Password'){
+      alert(data.error);
+      (async () => {
+        const data = await getFailedAttempts(username)
+        setCounter(data)// set counter for failed attempts
+      })()
+      
     }
 
-    else if(data.status === 'verify user'){// if user returned not verified, redirect to verify page with new OTP and updated verification token
+    else if(data.status === 'Invalid Username'){
+      alert(data.error)
+    }
+
+    else if(data.status === 'Verify User'){// if user returned not verified, redirect to verify page with new OTP and updated verification token
       localStorage.setItem('verify', data.user);
       navigate('/verify')
     }
   }
 
   useEffect (() => {
-    if(counter === 3)
-      setForgot('Forgot Password?')
-  }, [counter]) 
+    if(counter >= 3){ // if failed attempts reaches equal or morethan 3 a button will appear
+      console.log('hi')
+      setForgot(true)
+    }
+  },[counter])
+
+  const handleClick = (username) => {
+    requestOTP(username)
+    navigate('/forgotPasswordOTP')
+  }
 
   return (
     <div className="main">
@@ -73,8 +93,9 @@ const loginPage = ({setUser}) => {
               <input type="password" name="password" id="password" value={password} onChange={(e) => onInputChange(e)}/>
               <button type="submit" value="Login" className="teal">LOGIN</button>
           </form>
-          {forgot > 1 ? <button>{forgot}</button> : ''}
+          {forgot ? <button className="teal" onClick={() => {handleClick(username)}}>Forgot Password?</button> : ''}
         </div>
+        
         
     </div>
   )

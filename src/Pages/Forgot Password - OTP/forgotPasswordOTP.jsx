@@ -3,18 +3,18 @@ import { useNavigate } from 'react-router-dom'
 
 import jwt_decode from "jwt-decode"
 
-import './verifyUser.css'
+import './forgotPasswordOTP.css'
 
 import fingerprint from "../../Assets/Images/fingerprint.png"
 
 
-const verifyUser = (event) => {
+const forgotPasswordOTP = (event) => {
   const navigate = useNavigate()
   const [OTP, setOTP] = useState(new Array(4).fill(''));
   const [access, setAccess] = useState('')
 
   async function verify() {
-    const response = await fetch ('/api/verify', {
+    const response = await fetch ('/api/verifyRequestOTP', {
       method: 'POST',
       headers:{
         'Content-Type': 'application/json',
@@ -26,13 +26,12 @@ const verifyUser = (event) => {
 
     const data = await response.json()
 
-    if(data.status === 'ok' || data.status === 'user already verified'){
-      localStorage.clear()
-      navigate('/login')
+    if(data.status === 'ok'){
+      navigate('/forgotPassword')
       console.log('ok')
     }
     else{
-      console.log('not ok')
+      alert(data.error)
     }
   }
  
@@ -93,4 +92,4 @@ const verifyUser = (event) => {
   )
 }
 
-export default verifyUser
+export default forgotPasswordOTP
