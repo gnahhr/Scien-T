@@ -38,13 +38,11 @@ const forgotPasswordOTP = (event) => {
 
   useEffect (() => {
     const token = localStorage.getItem('verify')
-    if (token){
+    
         const user = jwt_decode(token)
         setAccess(user.id)  
-    }
-    else{
-      navigate('/')
-    }
+    
+    
   },[])
 
   const handleChange = (element, index) => {

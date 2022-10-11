@@ -67,15 +67,18 @@ const loginPage = ({setUser}) => {
     }
   }
 
-  useEffect (() => {
-    if(counter >= 3){ // if failed attempts reaches equal or morethan 3 a button will appear
-      console.log('hi')
-      setForgot(true)
-    }
-  },[counter])
+  // useEffect (() => {
+  //   if(counter >= 3){ // if failed attempts reaches equal or morethan 3 a button will appear
+  //     console.log('hi')
+  //     setForgot(true)
+  //   }
+  // },[counter])
 
   const handleClick = (username) => {
-    requestOTP(username)
+    (async() =>{
+      const response = await requestOTP(username)
+      localStorage.setItem('verify', response)
+    })()
     navigate('/forgotPasswordOTP')
   }
 
@@ -93,7 +96,7 @@ const loginPage = ({setUser}) => {
               <input type="password" name="password" id="password" value={password} onChange={(e) => onInputChange(e)}/>
               <button type="submit" value="Login" className="teal">LOGIN</button>
           </form>
-          {forgot ? <button className="teal" onClick={() => {handleClick(username)}}>Forgot Password?</button> : ''}
+          <button className="teal" onClick={() => {handleClick(username)}}>Forgot Password?</button> 
         </div>
         
         

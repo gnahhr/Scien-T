@@ -12,6 +12,7 @@ const UserData = require('../models/UsersModel')
 const VerificationToken = require('../models/VerificationToken')
 const FailedAttempts = require('../models/FailedAttempts')
 const ChangePasswordToken = require('../models/ChangePasswordToken')
+const UserTimeout = require('../models/UserTimeout')
 const { isValidObjectId } = require('mongoose');
 
 
@@ -185,7 +186,12 @@ exports.getFailedAttempts = async (req, res, next) => {
 	const username = req.params['username']
 
 	const counter = await FailedAttempts.findOne({username}, {counter: 1})
-	
+
+	if(counter.counter >= 3){
+		const timeout = await UserTimeout.findOneAndUpdate({username:username},{
+			$dateAdd:{unit: 'second', amount: 1}
+		}, {upsert: true})
+	}
 	return res.json({counter: counter})
 }
 
@@ -282,4 +288,79 @@ exports.changePassword = async (req, res, next) =>{
 	else{
 		res.json({status: 'error', error: 'User Does Not Exist'})
 	}
+}
+
+exports.getRemainingTime = async (req, res, next) => {
+	const username = req.params['username']
+
+	const response = await UserTimeout.findOne({username: username}, {createdAt:1})
+
+	res.json({response})
+	console.log(response)
+}
+
+exports.editUser = async (req, res, next) => {
+	var ObjectId = require('mongoose').Types.ObjectId;
+	const token = req.params['access']
+	const _id = new ObjectId (token)
+	const { username, firstName, lastName, email } = req.body
+	
+
+	try {
+		const user = await UserData.findByIdAndUpdate({_id},{
+			$set:{
+				username: username,
+				firstName: firstName,
+				lastName: lastName,
+				email: email
+			}
+		},{upsert: true})
+
+		if(user){
+			const token = jwt.sign(
+				{
+					id: user._id,
+					username: username,
+					firstName: firstName,
+					lastName: lastName,
+					email: email
+				},
+				JWT_SECRET 
+			)
+
+			res.json({status: 'ok', user: token})
+		}
+	} catch (error) {
+		if (error.code === 11000) {
+			return res.json({ status: 'error', error: 'Username/Email already in use' })
+		}
+		throw error
+	}
+
+	// const user = await UserData.findByIdAndUpdate({_id},{
+	// 	$set:{
+	// 		username: username,
+	// 		firstName: firstName,
+	// 		lastName: lastName,
+	// 		email: email
+	// 	}
+	// },{upsert: true})
+
+	// if(user){
+	// 	const token = jwt.sign(
+	// 		{
+	// 			id: user._id,
+	// 			username: username,
+	// 			firstName: firstName,
+	// 			lastName: lastName,
+	// 			email: email
+	// 		},
+	// 		JWT_SECRET
+	// 	)
+
+	// 	res.json({status: 'ok', user: token})
+	// }
+	// else{
+	// 	res.json({status: 'error', error:'username/email already exist'})
+	// }
 }

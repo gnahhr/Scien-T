@@ -9,6 +9,6 @@ export default async function requestOTP(username){
 
     const data = await response.json()
     
-    localStorage.setItem('verify', data.user)
+    return data.user
 
 }

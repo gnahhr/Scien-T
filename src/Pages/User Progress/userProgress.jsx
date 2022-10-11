@@ -81,6 +81,7 @@ const userProgress = () => {
     const result = regression.linear(formattedArray)
     const predict = result.predict(intellimentCounter.length+1)
     console.log(predict)
+    console.log(formattedArray)
     setPredictedValue(predict[1])
   },[intellimentCounter])
 
