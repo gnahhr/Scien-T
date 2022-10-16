@@ -9,7 +9,7 @@
         background-color: rgba(0, 0, 0, .5);
         border-radius: 25px;
         padding: 2rem 6rem;
-        width: 60%;
+        width: 50%;
         color: white;
 
         h2 {
@@ -25,11 +25,11 @@
             
             .left-data {
                 justify-self: start;
-                font-size: 2rem;
+                font-size: max(20px, 2vw, 1.5rem);
             }
 
             .right-data {
-                font-size: 2rem;
+                font-size: max(20px, 2vw, 1.5rem);
                 justify-self: end;
             }
 
@@ -43,10 +43,6 @@
             grid-template-columns: 1fr 1fr 1fr;
             grid-template-rows: 1fr;
             justify-items: center;
-
-            button {
-                font-size: 1.5rem;
-            }
         }
     }
 }
@@ -60,9 +56,28 @@
 }
 
 #bflask-1 {
-    height: 180px;
+    height: 11.25rem;
 }
 
 #bflask-2 {
-    height: 130px;
+    height: 8.125rem;
+}
+
+@media only screen and (orientation: portrait) {
+    .button-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-basis: 100%;
+
+        button {
+            width: 100%;
+            margin: .5rem;
+            font-size: 1.5rem;
+        }
+    }
+
+    .wrapper {
+        padding: 2rem 4rem !important;
+    }
 }

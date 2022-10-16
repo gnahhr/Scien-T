@@ -15,7 +15,7 @@
   background-color: #E2D9E5;
 }
 .wrapper .ranking-list .table-header th {
-  font-size: 40px;
+  font-size: clamp(20px, 3vw, 3.2rem);
 }
 .wrapper .ranking-list .output-rankings {
   background-color: #FFFFFF;
@@ -24,11 +24,11 @@
   text-align: center;
 }
 .wrapper .ranking-list .output-rankings img {
-  width: 48px;
+  width: clamp(2rem, 5vw, 5rem);
   padding-top: 10px;
 }
 .wrapper .ranking-list .output-rankings td {
-  font-size: 2rem;
+  font-size: clamp(16px, 3vw, 2rem);
   width: 33%;
 }
 
@@ -44,4 +44,14 @@ tr td:last-child {
 
 .rank-wrap {
   width: 100%;
+}
+
+@media only screen and (orientation: portrait) {
+  .rank-wrap {
+    padding: 0 !important;
+  }
+  .ranking-list {
+    width: 100%;
+    padding: 1rem !important;
+  }
 }

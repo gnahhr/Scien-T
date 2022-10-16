@@ -97,3 +97,26 @@
         background-color: #DE9F00;
     }
 }
+
+@media only screen and (orientation: portrait) {
+    .question-wrapper{
+        margin-right: 0 !important;
+        width: 80%;
+
+        .question {
+            margin: 1rem;
+            text-align: center;
+        }
+
+        .choices-wrapper {
+            display: grid;
+            grid-template-rows: repeat(2, 1fr);
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 5px;
+        }
+    }
+    
+    .timer {
+        margin-top: 4px !important;
+    }
+}

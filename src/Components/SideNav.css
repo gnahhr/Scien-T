@@ -4,7 +4,7 @@
   align-items: center;
   position: relative;
   height: 100vh;
-  width: 17vw;
+  width: 270px;
   left: 0;
   top: 0;
   background-color: #220B42;
@@ -126,7 +126,7 @@
 
 .collapsed-nav {
   overflow-x: hidden;
-  width: 7vw;
+  width: 105px;
   transition: all 500ms ease-in;
 }
 .collapsed-nav #side-nav-arrow {
@@ -206,4 +206,10 @@
   transform: translateY(0);
   transition: display 0.5s;
   transition: transform 0.5s;
+}
+
+@media only screen and (orientation: portrait) {
+  .collapsed-nav {
+    display: none;
+  }
 }

@@ -54,7 +54,6 @@ const registerPage = () => {
 	}
 
   return (
-    <main>
       <div className="main">
           <img src={Logo} alt="logo" className="logo" />
           <h2>A more fun way to learn the periodic table!</h2>
@@ -77,7 +76,6 @@ const registerPage = () => {
             </form>
           </div>
       </div>
-    </main>
   )
 }
 

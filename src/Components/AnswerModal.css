@@ -31,9 +31,9 @@
   width: -webkit-max-content;
   width: -moz-max-content;
   width: max-content;
-  padding: 1rem 5rem;
+  padding: 1rem 4rem;
   border-radius: 15px;
-  font-size: 3rem;
+  font-size: min(42px, 3rem);
 }
 .answerModal .points {
   display: flex;
@@ -63,4 +63,19 @@
 
 .wrong, .wrong:hover {
   background-color: #D34646;
+}
+
+@media only screen and (orientation: portrait) {
+  .answerModal {
+    margin-left: 0;
+    width: auto;
+    padding: 2rem;
+  }
+  .result {
+    padding: 1rem 2rem !important;
+  }
+  .points {
+    width: max-content;
+    padding: 1rem !important;
+  }
 }

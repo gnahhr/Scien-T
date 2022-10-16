@@ -197,3 +197,26 @@ h2 {
   .icon:hover {
     background-color: #ffffff;
   }
+
+//Scrollbar
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #FFCD4E; 
+    border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #220B42; 
+    border-radius: 25px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #B884B0; 
+}

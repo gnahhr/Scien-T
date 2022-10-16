@@ -33,6 +33,8 @@ const mainPage = () => {
                     <div className="hero">
                         <div className="texts">
                             <h1>Welcome to Scien-T!</h1>
+                        </div>
+                        <div className="sub-text">
                             <h3>Let's have fun learning by gaming.</h3>
                             <p>A game based learning platform to learn the periodic table in a more interactive and fun way.</p>
                         </div>

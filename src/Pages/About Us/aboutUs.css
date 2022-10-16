@@ -3,6 +3,7 @@
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   place-items: center;
+  gap: 2rem;
   height: 88vh;
 }
 
@@ -36,4 +37,18 @@
 .members-wrapper * {
   margin: auto;
   text-align: center;
+}
+
+@media only screen and (orientation: portrait) {
+  #logo-about {
+    width: 80%;
+  }
+  .about-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .members-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
 }

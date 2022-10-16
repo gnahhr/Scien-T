@@ -26,3 +26,9 @@
         margin: 0;
     }
 }
+
+@media only screen and (orientation: portrait) {
+    .element-wrapper {
+        width: 75%;
+    }
+}

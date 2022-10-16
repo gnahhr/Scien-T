@@ -11,7 +11,7 @@
             top: 0px;
             background-color: #E2D9E5;
             th{
-                font-size: 40px;
+                font-size: clamp(20px, 1vw, 2rem);
             }
         }
     

@@ -2,7 +2,6 @@
     color: white;
     font-family: 'Secular One', sans-serif;
     
-
     .header {
         padding: 1rem;
         height: 6vh;
@@ -38,11 +37,13 @@
         .hero-wrapper {
             background-color: rgba(255, 255, 255, 0.8);
             border-radius: 25px;
+            width: max(95%, 50vw);
             max-width: fit-content;
             padding: 0 5rem;
             margin: 4rem auto;
+
             .hero{
-                height: 30vh;
+                // height: clamp(fit-content, 30vh, 30vh);
                 color: #282054;
                 background-image: url("../../Assets/Images/border.png");
                 background-repeat: no-repeat;
@@ -55,21 +56,26 @@
                     margin: 2rem;
                     display: flex;
                     flex-direction: column;
-                    align-items:center;
+                    align-items: center;
 
                     h1 {
-                        font-size: 4rem;
-                        margin: .5rem;
-                    }
-                    h3 {
-                        margin: .5rem;
-                        font-size: 2rem;
-                    }
-                    p {
+                        font-size: clamp(36px, 4vw, 4rem);
                         margin: .5rem;
                     }
                 }
                 
+                .sub-text {
+                    h3 {
+                        margin: .5rem auto;
+                        font-size: clamp(24px, 2vw, 2rem);
+                    }
+                    p {
+                        margin: .5rem auto;
+                        width: 80%;
+                        text-align: center;
+                        font-size: max(16px, 1.2rem)
+                    }
+                }
             }
         }
 
@@ -197,4 +203,28 @@
 
 #chemical-2 {
     width: 50px;
+}
+
+@media only screen and (orientation: portrait) {
+    .hero-wrapper {
+        padding: 2rem !important;
+    }
+
+    .hero {
+        padding: 0 !important;
+        background-image:none !important;
+        display: block !important;
+    }
+
+    .left-design {
+        transform: none !important;
+    }
+
+    .right-design {
+        transform: none !important;
+    }
+
+    form {
+        width: 80% !important;
+    }
 }

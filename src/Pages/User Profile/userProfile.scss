@@ -29,6 +29,12 @@
 }
 
 .profile-form {
-    width: 50%;
+    width: 40%;
     margin: auto;
+}
+
+@media only screen and (orientation: portrait) {
+    .profile-form {
+        padding: 2rem;
+    }
 }
