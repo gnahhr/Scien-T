@@ -62,10 +62,6 @@ const userProfile = () => {
     }
   }
 
-  
-
-
-
   return (
     <main>
       <div className="main-header">

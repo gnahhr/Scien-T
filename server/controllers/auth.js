@@ -197,7 +197,6 @@ exports.getFailedAttempts = async (req, res, next) => {
 
 exports.requestOTP = async (req, res, next) => {
 	const username = req.params['username']
-
 	const user = await UserData.findOne({ username })
 
 	const OTP = generateOTP()
@@ -363,4 +362,17 @@ exports.editUser = async (req, res, next) => {
 	// else{
 	// 	res.json({status: 'error', error:'username/email already exist'})
 	// }
+}
+
+exports.findUser = async (req, res, next) => {
+	const email = req.body.email
+
+	const user = await UserData.findOne({email},{username:1})
+
+	if(user){
+		res.json({status:'ok', user: user.username})
+	}
+	else{
+		res.json({status:'error', error:'User Not Found'})
+	}
 }

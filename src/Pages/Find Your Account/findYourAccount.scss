@@ -1,0 +1,16 @@
+.main {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 9vh;
+    width: 100%;
+}
+
+#login {
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 0 8rem;
+    width: 100%;
+}
