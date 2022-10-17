@@ -53,8 +53,8 @@ const Trivias = ({data}) => {
             </div>
             <div className="filt-data-wrapper">
               {filtSearch && filtSearch.map((filtData) =>
-                            <div className="filt-data"
-                                onClick={() => getTriviaData(filtData)}>{filtData.name}</div>)}
+                            <option
+                                onClick={() => getTriviaData(filtData)}>{filtData.name}</option>)}
             </div>
           </div>
           

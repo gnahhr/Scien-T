@@ -13,7 +13,9 @@ const CompoundModal = ({showModal, data}) => {
         <div className="wrapper">
             <div className="exit" onClick={() => {showModal(false)}}>X</div>
             <div className="header">
-                <div className="picture">Pic</div>
+                <div className="picture">
+                  <img src={`/images/Compounds/${data.compoundPic}`} alt="" />
+                </div>
                 <div className="text">
                     <h2 className="name">{data.name}</h2>
                     <h3 id="formula">formula</h3>

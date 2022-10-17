@@ -20,7 +20,7 @@ const NoDragElem = ({symbol, xpos, ypos, category, clickAct, elem}) => {
         backgroundColor: familyBGs[category] ? familyBGs[category] : "grey"
      }}
      className="element"
-     onClick={() => clickAction}
+     onClick={() => clickAction()}
     >{symbol}</div>
   )
 }

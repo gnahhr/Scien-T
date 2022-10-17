@@ -9,7 +9,7 @@
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 25px;
   padding: 2rem 6rem;
-  width: 60%;
+  width: 50%;
   color: white;
 }
 .total-score .wrapper h2 {
@@ -24,10 +24,10 @@
 }
 .total-score .wrapper .data-wrapper .left-data {
   justify-self: start;
-  font-size: 2rem;
+  font-size: max(20px, 2vw, 1.5rem);
 }
 .total-score .wrapper .data-wrapper .right-data {
-  font-size: 2rem;
+  font-size: max(20px, 2vw, 1.5rem);
   justify-self: end;
 }
 .total-score .wrapper .data-wrapper .total-data {
@@ -39,9 +39,6 @@
   grid-template-rows: 1fr;
   justify-items: center;
 }
-.total-score .wrapper .button-wrapper button {
-  font-size: 1.5rem;
-}
 
 .img-wrapper {
   position: absolute;
@@ -52,9 +49,26 @@
 }
 
 #bflask-1 {
-  height: 180px;
+  height: 11.25rem;
 }
 
 #bflask-2 {
-  height: 130px;
+  height: 8.125rem;
+}
+
+@media only screen and (orientation: portrait) {
+  .button-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-basis: 100%;
+  }
+  .button-wrapper button {
+    width: 100%;
+    margin: 0.5rem;
+    font-size: 1.5rem;
+  }
+  .wrapper {
+    padding: 2rem 4rem !important;
+  }
 }

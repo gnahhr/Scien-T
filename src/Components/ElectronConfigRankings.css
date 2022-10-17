@@ -13,7 +13,7 @@
   background-color: #E2D9E5;
 }
 .wrapper .ranking-list .table-header th {
-  font-size: 40px;
+  font-size: clamp(20px, 1vw, 2rem);
 }
 .wrapper .ranking-list .output-rankings {
   background-color: #FFFFFF;

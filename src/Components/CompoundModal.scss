@@ -50,9 +50,15 @@
             }
     
             .picture {
-                border: 1px solid black;
-                width: 128px;
                 height: 128px;
+                padding: .5rem;
+                background-color: transparent;
+                margin-right: 3rem;
+
+                img {
+                    border: 1px solid black;
+                    height: 100%;
+                }
             }
         }
 
@@ -62,7 +68,7 @@
             overflow-y: auto;
 
             p::before {
-                content: "-";
+                content: "•";
             }
             p {
                 text-align: justify;

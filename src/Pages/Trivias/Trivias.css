@@ -61,3 +61,18 @@
 .Trivias .Trivia .wrapper {
   margin-top: 4rem;
 }
+
+@media only screen and (orientation: portrait) {
+  .search-wrapper {
+    padding: 0;
+  }
+  .search-wrapper .search {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem !important;
+  }
+  .search-wrapper .search button {
+    padding: 0.2rem 2rem !important;
+  }
+}

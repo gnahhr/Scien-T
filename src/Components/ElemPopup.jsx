@@ -22,8 +22,9 @@ const ElemPopup = ({xpos, ypos, element, desc}) => {
               {element.atomic_mass}
             </p>
           </div>
-          <div className="picture">
-          </div>
+          {/* <div className="picture">
+            <img src={element.bohr_model_image} alt="" />
+          </div> */}
       </div>
       <div className="pop-description">
         {desc ? desc.used : "NULL"}

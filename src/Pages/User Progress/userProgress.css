@@ -39,7 +39,7 @@
 .progress-div p {
   align-self: center;
   justify-self: center;
-  font-size: 3rem;
+  font-size: clamp(35px, 3vw, 3rem);
   text-align: center;
 }
 
@@ -89,4 +89,31 @@
   grid-template-rows: 1fr 3fr;
   align-items: center;
   justify-content: center;
+}
+
+@media only screen and (orientation: portrait) {
+  .user-profile {
+    display: block;
+  }
+  .progress-header {
+    margin: auto;
+  }
+  .progress-wrapper {
+    display: block !important;
+  }
+  .progress-wrapper .progress-div {
+    display: block;
+    width: 100%;
+    margin: 2rem auto;
+  }
+  .progress-body {
+    margin: 0 auto;
+  }
+  .progress-body .body-content,
+.progress-body .body-content > * {
+    display: block;
+  }
+  .progress-body .body-content > * {
+    margin: 1rem auto;
+  }
 }

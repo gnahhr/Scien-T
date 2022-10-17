@@ -155,6 +155,26 @@ const Intelliment = ({mode}) => {
   }, [multiplier])
 
 
+  //Timer Use Effect
+  useEffect(() => {
+    if (pickedDifficulty){
+      if (timer === 0) {
+        selectAns("");
+        // prepToast("wrong", "warning");
+        prepToast("wrong", 0);
+        setTimer(10)
+      }
+      
+      if (answered) {
+        setTimer(10);
+      }
+          
+      setTimeout(() => setTimer(timer-1), 1000)
+    }
+    
+  }, [timer, answered, pickedDifficulty])
+
+
   //Function to format toast message
   const prepToast = (result, points) => {
     setModalResult(result);

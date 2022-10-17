@@ -37,6 +37,12 @@
 .pop-header .pop-text .atomic-mass {
   margin-top: -0.5rem;
 }
+.pop-header .pop-text .picture {
+  height: 100%;
+}
+.pop-header .pop-text .picture img {
+  height: 100%;
+}
 
 .picture {
   width: 64px;

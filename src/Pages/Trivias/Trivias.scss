@@ -65,3 +65,19 @@
         }
     }
 }
+
+@media only screen and (orientation: portrait) {
+    .search-wrapper {
+        padding: 0;
+        .search{
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            margin: 1rem !important;
+            button {
+                padding: .2rem 2rem !important;
+            }
+        }
+    }
+}

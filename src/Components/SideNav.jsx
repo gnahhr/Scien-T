@@ -24,7 +24,9 @@ import "./SideNav.css";
 
 const SideNav = ({children}) => {
   const nav = useNavigate();
-  const [ navOpen, setNavOpen ] = useState(true);
+  const [ navOpen, setNavOpen ] = useState(false);
+
+
   const toggleNav = (status) => setNavOpen(!status);
 
   const logOut = () => {
@@ -97,6 +99,11 @@ const SideNav = ({children}) => {
         {navOpen ? <p>All Rights Reserved &copy;2022</p> : <p>&copy;2022</p>}
       </div>
     </div>
+
+    <div className="nav-button">
+      
+    </div>
+
     <main>{children}</main>
     </>
   )

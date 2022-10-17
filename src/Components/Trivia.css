@@ -5,7 +5,6 @@
   background: #E2D9E5;
   padding: 1rem 5rem;
   min-width: 40vw;
-  max-width: 40vw;
   min-height: 60vh;
   margin: auto;
   display: flex;
@@ -30,4 +29,13 @@
 .Trivia .wrapper .trivia-text {
   text-align: justify;
   text-indent: 2rem;
+}
+
+@media only screen and (orientation: portrait) {
+  .Trivia {
+    margin: 3rem 0 !important;
+  }
+  .wrapper h2 {
+    font-size: clamp(20px, 4rem, 3rem) !important;
+  }
 }

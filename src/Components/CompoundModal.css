@@ -1,3 +1,4 @@
+@charset "UTF-8";
 #compound-modal {
   position: absolute;
   top: 0;
@@ -47,9 +48,14 @@
   font-size: 3rem;
 }
 #compound-modal .wrapper .header .picture {
-  border: 1px solid black;
-  width: 128px;
   height: 128px;
+  padding: 0.5rem;
+  background-color: transparent;
+  margin-right: 3rem;
+}
+#compound-modal .wrapper .header .picture img {
+  border: 1px solid black;
+  height: 100%;
 }
 #compound-modal .wrapper .description {
   margin: 2rem 4rem 0;
@@ -57,7 +63,7 @@
   overflow-y: auto;
 }
 #compound-modal .wrapper .description p::before {
-  content: "-";
+  content: "•";
 }
 #compound-modal .wrapper .description p {
   text-align: justify;

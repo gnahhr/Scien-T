@@ -10,7 +10,9 @@ const DiscoverModal = ({showNew, data}) => {
                 {data.map((compound) => {
                     return(
                     <div className="compound" key={compound.name}>
-                        <div className="picture">Pic</div>
+                        <div className="picture">
+                            <img src={`/images/Compounds/${compound.compoundPic}`} alt="" />
+                        </div>
                         <div className="text">
                             <h2 className="name">{compound.name}</h2>
                             <h3 className="formula">You have discoverd a new compound!</h3>
