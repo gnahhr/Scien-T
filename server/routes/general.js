@@ -26,4 +26,3 @@ router.route('/getElectronConfigRankings').get(getElectronConfigRankings)//get o
 module.exports = router
 
 
-//arrOTP, setArrOTP
