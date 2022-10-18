@@ -40,7 +40,7 @@
 
 #mixing-table {
   width: 28vw;
-  height: 8vh;
+  height: max(8vh, 4rem);
   border-radius: 15px;
   display: flex;
   align-items: center;
@@ -58,11 +58,15 @@
     font-size: 1rem;
     margin: 0;
   }
+
 }
 
 #mixing-table.wrong-mix {
   background-color: rgba(95, 28, 28, 1) !important;
-  color: white !important;
+  
+  h2 {
+    color: white !important;
+  }
 }
 
 .mixing-table {

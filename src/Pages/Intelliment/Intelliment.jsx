@@ -157,18 +157,19 @@ const Intelliment = ({mode}) => {
 
   //Timer Use Effect
   useEffect(() => {
+    if (answered) {
+      setTimer(10);
+    }
+
     if (pickedDifficulty){
+      
       if (timer === 0) {
         selectAns("");
         // prepToast("wrong", "warning");
         prepToast("wrong", 0);
         setTimer(10)
       }
-      
-      if (answered) {
-        setTimer(10);
-      }
-          
+
       setTimeout(() => setTimer(timer-1), 1000)
     }
     
@@ -342,7 +343,7 @@ const Intelliment = ({mode}) => {
           <div className="intellimain">
             <div className="header">
               <div className="left-header">
-                <div className="total-questions">Total Elements Encountered: {nthQuestion+1}/{questions.length}</div>
+                <div className="total-questions">Elements Encountered: {nthQuestion+1}/{questions.length}</div>
                 <div className="score">Score: {score}</div>
               </div>
               <div className="multiplier">

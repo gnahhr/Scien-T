@@ -43,10 +43,9 @@
         margin: 3rem 0 !important;
     }
     .wrapper {
-        
         h2 {
             font-size: clamp(20px, 4rem, 3rem) !important;
         }
-
+        overflow-x: hidden;
     }
 }

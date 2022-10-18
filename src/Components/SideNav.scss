@@ -11,7 +11,6 @@
 
     background-color: #220B42;
     color: white;
-    // position:fixed;
     transition: all 500ms ease-in;
     overflow-y: auto;
 }
@@ -27,6 +26,25 @@
     box-shadow: 0 3px 10px 5px #0000006e;
     border-radius: 50%;
     transition: transform 1s;
+}
+
+#side-nav-close {
+    display: none;
+    width: 25px;
+    align-self: flex-end;
+    margin: 1rem;
+}
+
+#nav-menu {
+    position: fixed;
+    width: 2rem;
+    right: .5rem;
+    top: 7rem;
+    display: none;
+}
+
+#nav-menu:hover {
+    cursor: pointer;
 }
 
 .side-nav-logo {
@@ -57,9 +75,12 @@
 
     a:hover {
         color: #DE9F00;
-        
     }
 
+    .cta {
+        border-radius: 25px;
+        padding: 0 .25rem;
+    }
 }
 
 .category {
@@ -263,6 +284,26 @@
 
 @media only screen and (orientation: portrait) {
     .collapsed-nav {
+        display: none;
+    }
+
+    .sideNav {
+        position:fixed;
+        height: 100vh;
+        width: 100vw;
+        z-index: 999;
+    }
+
+    #side-nav-close {
+        display: block;
+    }
+    
+    #nav-menu {
+        display: block;
+        z-index: 9;
+    }
+
+    #side-nav-arrow {
         display: none;
     }
 }

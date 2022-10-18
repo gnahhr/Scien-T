@@ -32,7 +32,7 @@ const aboutUs = () => {
     },
     {
       img: {},
-      name: "Joshua Kyule Ocampo",
+      name: "Joshua Kyle Ocampo",
       role: "Back-end Developer"
     },
     {

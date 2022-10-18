@@ -7,3 +7,43 @@
 #periodic-table {
   overflow-y: hidden;
 }
+
+#periodic-table-mobile {
+  display: none;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 2rem 1rem;
+  border-radius: 15px;
+}
+#periodic-table-mobile h2 {
+  margin-top: 1rem;
+}
+#periodic-table-mobile form {
+  margin-bottom: 1rem;
+}
+#periodic-table-mobile form label {
+  color: white;
+  margin-right: 1rem;
+}
+#periodic-table-mobile form select {
+  background-color: beige;
+}
+#periodic-table-mobile .elem-wrapper {
+  width: 100%;
+}
+#periodic-table-mobile .elem-wrapper button {
+  display: block;
+  min-width: 80%;
+  margin: 1rem auto;
+  color: #282054;
+  font-size: 1.5rem;
+}
+
+@media only screen and (orientation: portrait) {
+  #periodic-table {
+    display: none;
+  }
+  #periodic-table-mobile {
+    display: block;
+  }
+}

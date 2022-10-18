@@ -6,7 +6,6 @@ import Logo from '../Assets/Images/logo.png';
 import User from '../Assets/Images/user.png';
 import Bullet from '../Assets/Images/bullet.svg';
 import Rank from '../Assets/Images/rank.svg';
-import Gear from '../Assets/Images/gear.svg';
 import UserW from '../Assets/Images/user-white.svg'
 import Arrow from '../Assets/Images/arrow.svg';
 import Info from '../Assets/Images/info.svg';
@@ -18,6 +17,8 @@ import Intell from '../Assets/Images/intell-icon.svg';
 import Mix from '../Assets/Images/mix-icon.svg';
 import Trivia from '../Assets/Images/trivia-icon.svg';
 import PerIcon from '../Assets/Images/periodic-icon.svg';
+import Close from '../Assets/Images/close.svg';
+import Hamburger from '../Assets/Images/hamburger.svg'
 
 //Design
 import "./SideNav.css";
@@ -25,7 +26,6 @@ import "./SideNav.css";
 const SideNav = ({children}) => {
   const nav = useNavigate();
   const [ navOpen, setNavOpen ] = useState(false);
-
 
   const toggleNav = (status) => setNavOpen(!status);
 
@@ -39,6 +39,7 @@ const SideNav = ({children}) => {
     <>
     <div className={navOpen ? "sideNav" : "sideNav collapsed-nav"}>
       <img src={Arrow} alt="arrow" id="side-nav-arrow" onClick={() => toggleNav(navOpen)}/>
+      <img src={Close} alt="close" id="side-nav-close" onClick={() => toggleNav(navOpen)}/>
       <img src={Logo} alt="logo" className="side-nav-logo"/>
       <div className="user">
         <img src={User} alt="pfp"/>
@@ -59,7 +60,7 @@ const SideNav = ({children}) => {
         </div>
         <div className="category-links">
             <NavLink to="/periodicTable"><img src={PerIcon} alt="-"/><div className="l-name">Periodic Table</div></NavLink>
-            <NavLink to="/trivias"><img src={Trivia} alt="-"/><div className="l-name">Trivias</div></NavLink>
+            <NavLink to="/trivias/hydrogen"><img src={Trivia} alt="-"/><div className="l-name">Trivias</div></NavLink>
             <NavLink to="/intellimentCategory"><img src={Intell} alt="-"/><div className="l-name">Intelliment</div></NavLink>
         </div>
       </div>
@@ -100,11 +101,10 @@ const SideNav = ({children}) => {
       </div>
     </div>
 
-    <div className="nav-button">
-      
-    </div>
-
-    <main>{children}</main>
+    <main>
+      <img src={Hamburger} alt="hamburger" id="nav-menu" onClick={() => toggleNav(navOpen)}/>
+      {children}
+    </main>
     </>
   )
 }

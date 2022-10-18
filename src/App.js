@@ -33,7 +33,6 @@ import UserProgress from './Pages/User Progress/userProgress';
 import Trivias from './Pages/Trivias/Trivias';
 import UserProfile from './Pages/User Profile/userProfile';
 import AboutUs from './Pages/About Us/aboutUs';
-import Settings from './Pages/Settings/Settings';
 
 
 function App() {
@@ -67,12 +66,11 @@ function App() {
               <Route path="/intelliment" element={<Intelliment mode="game"/>} />
               <Route path="/electronConfiguration" element={<ElectronConfiguration />}/>
               <Route path="/periodicTable" element={<PeriodicTable />}/>
-              <Route path="/trivias" element={<Trivias/>}/>
+              <Route path="/trivias/:element" element={<Trivias/>}/>
               <Route path="/leaderboard" element={<Leaderboard />}/>
               <Route path="/profile" element={<UserProfile />}/>
               <Route path="/progress" element={<UserProgress/>}/>
               <Route path="/about" element={<AboutUs/>}/>
-              <Route path="/settings" element={<Settings/>}/>
               <Route path="*" element={<MixingTable />}/> 
             </Routes>
           </SideNav>

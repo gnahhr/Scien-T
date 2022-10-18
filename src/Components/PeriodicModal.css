@@ -17,7 +17,6 @@
   background: #E2D9E5;
   max-width: 45vw;
   max-height: 60vh;
-  margin-left: 15vw;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,6 +24,7 @@
 .periodic-modal .wrapper h2 {
   margin-top: 2rem;
   text-align: center;
+  font-size: clamp(12px, 2vw, 3rem);
   color: #220C41;
 }
 .periodic-modal .wrapper .exit {
@@ -70,4 +70,27 @@
 }
 .periodic-modal .wrapper .summary {
   margin: auto 4rem;
+}
+
+@media only screen and (orientation: portrait) {
+  .periodic-modal .wrapper {
+    max-width: 100vw;
+    max-height: 80vh;
+  }
+  .periodic-modal .wrapper .element-wrapper {
+    width: 100%;
+  }
+  .periodic-modal .wrapper .description-wrapper {
+    width: 100%;
+  }
+  .periodic-modal .wrapper .bohr-img img {
+    width: 150px;
+    border-radius: 25px;
+  }
+  .periodic-modal .wrapper .summary {
+    margin: auto 1rem;
+  }
+  .periodic-modal .wrapper .button.cta {
+    padding: 0.5rem;
+  }
 }

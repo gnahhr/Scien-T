@@ -24,7 +24,11 @@ h2 {
 }
 
 .logo {
-    height: 200px;
+    height: 20vh;
+}
+
+.description {
+    text-align: center;
 }
 
 .button-div {
@@ -33,11 +37,6 @@ h2 {
     background-color: #B884B0;
     width: 100%;
     height: 60%;
-}
-
-button {
-    padding: .5rem 3rem !important;
-
 }
 
 .footer-design {
@@ -50,6 +49,7 @@ button {
     position: absolute;
     z-index: -1;
     align-self: center;
+    height: 40vh;
     width: 100vw;
     transform: scaleY(70%) translateY(20%);
     bottom: 0;

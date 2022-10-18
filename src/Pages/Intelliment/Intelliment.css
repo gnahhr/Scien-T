@@ -13,20 +13,24 @@
 }
 #intelliment .intellimain .header .total-questions {
   justify-self: start;
+  font-size: clamp(1rem, 2vw, 3rem);
   margin: 1rem;
 }
 #intelliment .intellimain .header .score {
   justify-self: end;
+  font-size: clamp(1rem, 2vw, 3rem);
   margin: 1rem;
 }
 #intelliment .intellimain .header .multiplier {
   justify-self: center;
+  font-size: clamp(1rem, 2vw, 3rem);
   margin: 1rem;
   display: flex;
   flex-direction: column;
 }
 #intelliment .intellimain .header .multiplier .multi {
   font-size: 2rem;
+  font-size: clamp(1.2rem, 4vw, 4rem);
   text-align: center;
 }
 #intelliment .intellimain .header .settings {
@@ -61,7 +65,7 @@
   width: 100%;
   height: 5px;
   border-radius: 5px;
-  background-color: #CC7E00;
+  background-color: #dca44a;
   align-self: center;
   transition: width 0.5ms;
 }

@@ -9,7 +9,6 @@
   padding: 1rem 5rem;
 }
 .wrapper .ranking-list .table-header {
-  position: -webkit-sticky;
   position: sticky;
   top: 0px;
   background-color: #E2D9E5;

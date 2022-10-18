@@ -13,6 +13,48 @@
     overflow-y: hidden;
 }
 
-// .main-wrapper {
-//     overflow-x: hidden;
-// }
+#periodic-table-mobile {
+    display: none;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 2rem 1rem;
+    border-radius: 15px;
+    h2 {
+        margin-top: 1rem;
+    }
+
+    form {
+        margin-bottom: 1rem;
+
+        label {
+            color: white;
+            margin-right: 1rem;
+        }
+
+        select {
+            background-color: beige;
+        }
+    }
+
+    .elem-wrapper {
+        width: 100%;
+
+        button {
+            display: block;
+            min-width: 80%;
+            margin: 1rem auto;
+            color: #282054;
+            font-size: 1.5rem;
+        }
+    }
+}
+
+@media only screen and (orientation: portrait) {
+    #periodic-table {
+        display: none;
+    }
+    
+    #periodic-table-mobile {
+        display: block;
+    }
+}

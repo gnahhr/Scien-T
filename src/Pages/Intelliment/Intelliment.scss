@@ -1,5 +1,4 @@
 #intelliment {
-    
     .intellimain {
         color: white;
         display: grid;
@@ -15,22 +14,26 @@
 
             .total-questions {
                 justify-self: start;
+                font-size: clamp(1rem, 2vw, 3rem);
                 margin: 1rem;
             }
 
             .score {
                 justify-self: end;
+                font-size: clamp(1rem, 2vw, 3rem);
                 margin: 1rem;
             }
 
             .multiplier {
                 justify-self: center;
+                font-size: clamp(1rem, 2vw, 3rem);
                 margin: 1rem;
                 display: flex;
                 flex-direction: column;
 
                 .multi {
                     font-size: 2rem;
+                    font-size: clamp(1.2rem, 4vw, 4rem);
                     text-align: center;
                 }
             }
@@ -72,7 +75,7 @@
                 width: 100%;
                 height: 5px;
                 border-radius: 5px;
-                background-color: #CC7E00;
+                background-color: #dca44a;
                 align-self: center;
                 transition: width .5ms;
             }

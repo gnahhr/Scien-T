@@ -26,6 +26,25 @@
   transition: transform 1s;
 }
 
+#side-nav-close {
+  display: none;
+  width: 25px;
+  align-self: flex-end;
+  margin: 1rem;
+}
+
+#nav-menu {
+  position: fixed;
+  width: 2rem;
+  right: 0.5rem;
+  top: 7rem;
+  display: none;
+}
+
+#nav-menu:hover {
+  cursor: pointer;
+}
+
 .side-nav-logo {
   width: 140px;
   padding: 1rem;
@@ -51,6 +70,10 @@
 }
 .user a:hover {
   color: #DE9F00;
+}
+.user .cta {
+  border-radius: 25px;
+  padding: 0 0.25rem;
 }
 
 .category {
@@ -210,6 +233,22 @@
 
 @media only screen and (orientation: portrait) {
   .collapsed-nav {
+    display: none;
+  }
+  .sideNav {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: 999;
+  }
+  #side-nav-close {
+    display: block;
+  }
+  #nav-menu {
+    display: block;
+    z-index: 9;
+  }
+  #side-nav-arrow {
     display: none;
   }
 }

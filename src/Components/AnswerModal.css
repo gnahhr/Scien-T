@@ -12,9 +12,9 @@
 }
 
 .answerModal {
-  margin-left: 12vw;
   width: 35vw;
   height: 30vh;
+  padding: 2.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,8 +28,6 @@
 }
 .answerModal .result {
   text-align: center;
-  width: -webkit-max-content;
-  width: -moz-max-content;
   width: max-content;
   padding: 1rem 4rem;
   border-radius: 15px;
@@ -41,8 +39,6 @@
   justify-items: center;
   align-items: center;
   margin-top: 1rem;
-  width: -webkit-max-content;
-  width: -moz-max-content;
   width: max-content;
   padding: 1rem 5rem;
   border-radius: 500px;

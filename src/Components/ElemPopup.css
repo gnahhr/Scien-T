@@ -1,8 +1,6 @@
 .popup {
   background-color: white;
   border: 5px solid #320D63;
-  width: -webkit-max-content;
-  width: -moz-max-content;
   width: max-content;
   border-radius: 75px 15px 15px 0;
   max-height: 375px;

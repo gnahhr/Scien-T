@@ -138,7 +138,7 @@ const electronConfiguration = () => {
         <div className="electron-config">
           <button className="teal chart-btn" onClick={() => setShowModal(true)}>Show Chart</button>
           <h1>{solved} out of 119</h1>
-          {finished ? <h1>finished na</h1> : question && <><ElementQuestion data={
+          {finished ? <h1>Finished!</h1> : question && <><ElementQuestion data={
             {
               atomicNum: question.number,
               elemSym: question.symbol,

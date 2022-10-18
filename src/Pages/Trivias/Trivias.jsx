@@ -1,15 +1,24 @@
 import React, {useState} from 'react';
 import './Trivias.css';
-import SideNav from '../../Components/SideNav.jsx';
 import Trivia from '../../Components/Trivia';
-import { periodicTable } from '../../Data/PeriodicTableJSON';
 import { TriviasData } from '../../Data/Trivias';
 import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+
 
 const Trivias = ({data}) => {
+  let {element} = useParams();
   const [ curTrivia, setCurTrivia ] = useState(TriviasData[0]);
   const [ search, setSearch ] = useState("");
   const [ filtSearch, setFiltSearch ] = useState([]);
+
+  useEffect(() => {
+    setCurTrivia(TriviasData.filter((data) => {
+      if (data.name.toLowerCase().includes(element.toLowerCase())) {
+        return data;
+      }
+    })[0])
+  }, []);
 
   useEffect(() => {
     if (search === "") {
@@ -47,7 +56,7 @@ const Trivias = ({data}) => {
                     id="search"
                     placeholder='Search element...'
                     value={search}
-                    autocomplete="false"
+                    autoComplete="false"
                     onChange={(e) => changeInput(e)}/>
               <button className="cta">Search</button>
             </div>
