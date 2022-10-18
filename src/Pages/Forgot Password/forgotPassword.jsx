@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
-
-import jwt_decode from "jwt-decode"
-
-import './forgotPassword.css'
+import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import jwt_decode from "jwt-decode";
+import './forgotPassword.css';
 
 const forgotPassword = () => {
   const navigate = useNavigate()
@@ -63,18 +61,24 @@ const forgotPassword = () => {
   }
 
   return (
-    <div className='form-wrapper'>
-      <form onSubmit={changePassword}>
-        <label htmlFor="password">Password </label>
-        <input type={showPassword
-        ? 'text' : 'password'} name="password" id="password" value={password} onChange={(e) => onInputChange(e)}/>
+    <div className="main">
+      <div className='form-wrapper conPassword'>
+        <form onSubmit={changePassword}>
+          <h2>Change Password</h2>
+          <label htmlFor="password">Password </label>
+          <input type={showPassword
+          ? 'text' : 'password'} name="password" id="password" value={password} onChange={(e) => onInputChange(e)}/>
 
-        <label htmlFor="password">Confirm Password </label>
-        <input type={showPassword
-        ? 'text' : 'password'} name="confirmPassword" id="confirmPassword" value={confirmPassword} onChange={(e) => onInputChange(e)}/>
-        <input type='checkbox' onClick={() => {setShowPassword(!showPassword)}}></input>
-        <button type="submit" value="Login" className="teal">Change Password</button>
-      </form>
+          <label htmlFor="password">Confirm Password </label>
+          <input type={showPassword
+          ? 'text' : 'password'} name="confirmPassword" id="confirmPassword" value={confirmPassword} onChange={(e) => onInputChange(e)}/>
+          <div className="showPassword">
+            <label htmlFor="showPassword">Show Password:</label>
+            <input type='checkbox' id="showPassword" onClick={() => {setShowPassword(!showPassword)}}></input>
+          </div>
+          <button type="submit" value="Login" className="teal">Change Password</button>
+        </form>
+      </div>
     </div>
   )
 }

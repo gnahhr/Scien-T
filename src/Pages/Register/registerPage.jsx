@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Logo from '../../Assets/Images/logo.png';
 
-
 const registerPage = () => {
   const navigate = useNavigate()
   const [username, setUsername] = useState('');

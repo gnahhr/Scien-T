@@ -161,7 +161,7 @@ const Intelliment = ({mode}) => {
       setTimer(10);
     }
 
-    if (pickedDifficulty){
+    if (pickedDifficulty & !answered){
       
       if (timer === 0) {
         selectAns("");

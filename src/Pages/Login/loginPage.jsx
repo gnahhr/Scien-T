@@ -47,6 +47,7 @@ const loginPage = ({setUser}) => {
       localStorage.setItem('token', data.user);
       localStorage.setItem('username', username);
       setUser(localStorage.token);
+      navigate("/");
     }
 
     else if(data.status === 'Wrong Password'){

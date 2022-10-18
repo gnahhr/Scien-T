@@ -66,6 +66,7 @@ function App() {
               <Route path="/intelliment" element={<Intelliment mode="game"/>} />
               <Route path="/electronConfiguration" element={<ElectronConfiguration />}/>
               <Route path="/periodicTable" element={<PeriodicTable />}/>
+              <Route path="/trivias/" element={<Trivias/>}/>
               <Route path="/trivias/:element" element={<Trivias/>}/>
               <Route path="/leaderboard" element={<Leaderboard />}/>
               <Route path="/profile" element={<UserProfile />}/>

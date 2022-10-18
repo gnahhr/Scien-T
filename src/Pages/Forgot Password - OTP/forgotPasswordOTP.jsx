@@ -25,7 +25,7 @@ const forgotPasswordOTP = (event) => {
     })
 
     const data = await response.json()
-
+    console.log("OTP Data:", data);
     if(data.status === 'ok'){
       navigate('/forgotPassword')
       console.log('ok')
