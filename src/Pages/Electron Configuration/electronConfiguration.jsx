@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import jwt_decode from "jwt-decode";
+import jwtDecode from "jwt-decode"
 
 //Components
 import ElementQuestion from "../../Components/ElementQuestion.jsx";
@@ -11,121 +11,134 @@ import ElectronChart from '../../Components/ElectronChart.jsx';
 
 //Hooks
 import pushProgEC from '../../Hooks/pushProgEC.js';
-import getUserProgEC from '../../Hooks/getUserProgEC.js';
+import getUserProgEC from '../../Hooks/getUserProgEC';
 
 //Data
 import { periodicTable } from '../../Data/PeriodicTableJSON';
+import backCard from '../../Assets/Images/back-card.png';
+import star from '../../Assets/Images/Star1.png';
+import clock from '../../Assets/Images/clock.png'
 
 //Style
 import "./electronConfiguration.css";
-
-
-//Perodic Table
-//Electron Configuration Chart
+import { shuffle } from 'simple-statistics';
 
 const electronConfiguration = () => {
-  const navigate = useNavigate();
-  const [index, setIndex] = useState();
-  const [question, setQuestion] = useState();
-  const [userProgress, setUserProgress] = useState([]);
-  const [answer, setAnswer] = useState('');
-  const [username, setUsername] = useState('');
-  const [points, setPoints] = useState(5);
-  const [access, setAccess] = useState('');
-  const [finished, setFinished] = useState(false);
-  const [solved, setSolved] = useState()
+  const [ points, setPoints ] = useState(0)
+  const [ cell, setCell ] = useState([])
+  const [ answer, setAnswer ] = useState([])
+  const [ isCorrect, setCorrect ] = useState(false)
+  const [ shuffledCell, setShuffledCell ] = useState([])
+  const [ cellState, setCellState ] = useState(false)
+  // const [ clickCount, setClickCount ] = useState(0)
+  const [ clickState, setClickState ] = useState(true)
+  const [ gameProgress, setGameProgress ] = useState()
 
-  //Toast States
-  const [ showToast, setShowToast ] = useState(false);
-  const [ toastState, setToastState ] = useState("");
-  const [ toastMsg, setToastMsg ] = useState("");
-
-  //Modal State
-  const [ showModal, setShowModal] = useState(false);
   
+  const [ access, setAccess ] = useState('')
+  const [ username, setUsername] = useState('')
 
-  useEffect (() => {
+
+  useEffect(() => {
     const token = localStorage.getItem('token')
-    if (token){
-      const user = jwt_decode(token)
-      if(!user){
-        localStorage.clear()
-        navigate('/login')
+    const user = jwtDecode(token)
+    setAccess(user.id)
+    setUsername(user.username)
+    cellGenerator(119)
+  },[])
+
+  useEffect(() => {
+    if(cell.length > 0)
+      shuffleCells()
+  },[cell])
+
+  useEffect(() => {
+    console.log(shuffledCell)
+  },[shuffledCell])
+
+
+  useEffect(() => {
+    if(answer.length === 2){
+      if(answer[0][1] === answer[1][1]){
+        console.log('duplicate!')
+        answer.pop()
+        console.log(answer)
       }
-      else{
-        setAccess(user.id);
-        setUsername(user.username);
-
-        (async () => {
-          const progress = await getUserProgEC(user.id);
-          setUserProgress(progress);
-          setSolved(progress.length)
-        })()
-      }
-    }
-  }, [])
-
-  useEffect (() => {
-    if(!checkProgress(userProgress, 119)){
-      setIndex(randomNumberGenerator(userProgress, 119));
-    } else {
-      setFinished(true);
-    }
-  }, [userProgress])
-
-  useEffect (() => {
-    setQuestion(periodicTable[index]);
-  }, [index])
-
-
-
-  const checkAnswer = (answer) =>{
-    if(answer === question.electron_configuration){
-      pushProgEC(access, question.number, points, username)
-
-      setUserProgress([...userProgress,question.number])
-
-      prepToast('Correct', "success");
-      setAnswer('');
-    }
+    
     else{
-      prepToast('Incorrect!', "warning");
-    }
-  }
-
-  const randomNumberGenerator = (userProgress, range) => {
-    let flag = true;
-    let rng = Math.floor(Math.random() * range);
-
-    while (flag) {
-      if (userProgress.filter((num) => num === rng + 1).length > 0){
-        rng = Math.floor(Math.random() * range);
-      } else {
-        flag = false;
+        console.log('correct format')
+        console.log(answer)
+        setClickState(false)
+        setTimeout(() => checkAnswer(answer[0][0], answer[0][1], answer[0][2], answer[1][0], answer[1][1], answer[1][2]), 1500)
       }
     }
-    return rng;
+  },[answer])
+
+  useEffect(() => {
+    if(gameProgress === 10){
+      console.log('finish na')
+    }
+  },[gameProgress])
+
+  const cellGenerator = (range) =>{
+    setCell([])
+    for(let i = 0; i < 10; ++i){
+      const rng = Math.floor(Math.random() * range)
+      setCell((current) => [...current, [i,periodicTable[rng].symbol,isCorrect,cellState]])
+      setCell((current) => [...current, [i,periodicTable[rng].electron_configuration_semantic,isCorrect,cellState]])
+    }
   }
 
-  const checkProgress = (userProgress, max) => {
-    return userProgress.length === max ? true : false;
+  const shuffleCells = () => {
+    let duplicate = []
+
+    for(let i = 0; i < 20; ++i){
+      let flag = true
+      let rng = Math.floor(Math.random() * 20)
+
+      while(flag){
+        if(duplicate.filter((num) => num === rng).length > 0){
+          rng = Math.floor(Math.random() * 20)
+        }
+        else{
+          flag = false
+        }
+      }
+
+      setShuffledCell((current) => [...current, cell[rng]])
+      duplicate.push(rng)
+    }
+    console.log(duplicate)
   }
 
-  const setText = {
-    "answer": setAnswer,
+  const checkAnswer = (ans1, index1, cellState1, ans2, index2, cellState2) => {
+    if(ans1 === ans2){
+      console.log('correct')
+      let updatedCells = [...shuffledCell]
+      updatedCells[index1][2] = true
+      updatedCells[index2][2] = true
+      setShuffledCell(updatedCells)
+      setClickState(true)
+      setAnswer([])
+    }
+
+    else{
+      let updatedCells = [...shuffledCell]
+      updatedCells[index1][3] = false
+      updatedCells[index2][3] = false
+      setShuffledCell(updatedCells)
+      console.log('wrong')
+      setAnswer([])
+      setClickState(true)
+    }
+    
   }
 
-  const onInputChange = (e) => {
-    const value = e.target.value;
-    const name = e.target.name;
-
-    setText[name](value);
-  }
-
-  const prepToast = (message, toastState) => {
-    setToastState(toastState);
-    setToastMsg(message);
-    setShowToast(true);
+  const handelClick = (cell,index, cellState) => {
+    setAnswer((current) => [...current, [cell,index, cellState]])
+    let updatedCells = [...shuffledCell]
+    updatedCells[index][3] = true
+    setShuffledCell(updatedCells)
   }
 
   return (
@@ -133,35 +146,47 @@ const electronConfiguration = () => {
         <div className="main-header">
           <h1>Electron Configuration</h1>
         </div>
-        {showModal && <ElectronChart showModal={setShowModal}/>}
-        {!finished ? 
-        <div className="electron-config">
-          <button className="teal chart-btn" onClick={() => setShowModal(true)}>Show Chart</button>
-          <h1>{solved} out of 119</h1>
-          {finished ? <h1>Finished!</h1> : question && <><ElementQuestion data={
-            {
-              atomicNum: question.number,
-              elemSym: question.symbol,
-              elemName: question.name,
-              atomicMass: question.atomic_mass,
-              family: question.category,
-            }}
-            
-            sequence={2}/>
-          <input type='text'  name="answer" value={answer} onChange={(e) => onInputChange(e)}></input>
-          <button className="cta" onClick={() => checkAnswer(answer)}>Enter</button>
-          <h1>{finished}</h1>
-          <Toast message={toastMsg}
-                  timer={3000}
-                  toastType={toastState}
-                  showToast={setShowToast}
-                  toastState={showToast}/></>}
+        <div className='container-electron-config'>
+          <div className='electron-config'>
+            <div className='chena'>
+              <div className='points'>
+                <img src={star} alt="" />
+                <h1>Points: 100</h1>
+              </div>
+              <div className='time'>
+                <img src={clock} alt="" />
+                <h1>Time: 100</h1>
+              </div>
+            </div>
+
+            <div className='game-grid'>
+              { shuffledCell.map ((shuffledCell, index) => {
+                return (
+                  <>
+                    {
+                      shuffledCell[2] ? 
+                      <div className='game-cells' key={index}>
+                          <a></a>
+                      </div> : 
+                      <div className='' key={index} onClick={() => {clickState ? handelClick(shuffledCell[0],index, shuffledCell[3]) : console.log('sumosobra ka na')}}>
+                        {
+                          shuffledCell[3] ? 
+                            <div className='game-cells scale-up-horizontal-center'>
+                              <a>{shuffledCell[1]}</a>
+                            </div> : 
+                            <img className='game-cells scale-up-horizontal-center' src={backCard} alt="" />
+                        }
+                      </div>
+                    }
+                  </>
+                )
+              })}
+            </div>
+          </div>
         </div>
-        :
-        <ElectronFinish />}
       </main>
   )
 }
 
 export default electronConfiguration
-
+//<img className='back-card' src={backCard} alt="" />
