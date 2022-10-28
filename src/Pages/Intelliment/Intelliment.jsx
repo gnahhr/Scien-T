@@ -9,7 +9,6 @@ import Choice from '../../Components/Choice';
 import ElementQuestion from '../../Components/ElementQuestion';
 import TotalScore from '../../Components/TotalScore';
 import AnswerModal from '../../Components/AnswerModal';
-import SideNav from '../../Components/SideNav';
 
 //Data
 import { periodicTable } from '../../Data/PeriodicTableJSON';
@@ -92,6 +91,7 @@ const Intelliment = ({mode}) => {
     setUsername(user.username)
   },[])
 
+  //End of Game Trigger
   useEffect(() => {
     if (mode === "game"){
       if(finished){
@@ -101,6 +101,7 @@ const Intelliment = ({mode}) => {
     }
   },[finished])
 
+  //SetQuestions
   useEffect(() => {
     if (mode === "game"){
       setQuestions(shuffleArray(generateQsDiff(category)));
@@ -109,6 +110,7 @@ const Intelliment = ({mode}) => {
     }
   }, [pickedDifficulty])
 
+  //Next Question
   useEffect(() => {
     if (mode === "game"){
       if (step === 4) {
@@ -135,6 +137,7 @@ const Intelliment = ({mode}) => {
     }
   }, [step])
 
+  //Combo
   useEffect(() => {
     if (multiplier < 5) {
       if (combo % 4 === 0){
@@ -147,6 +150,7 @@ const Intelliment = ({mode}) => {
     }
   }, [combo])
 
+  //Set Multiplier
   useEffect(() => {
     if (multiplier > highestMult) {
       setHighestMult(multiplier);
@@ -218,7 +222,7 @@ const Intelliment = ({mode}) => {
     }
   }
 
-  //Generate Questions
+  //Generate Questions as per Difficulty
   const generateQsDiff = (difficulty) => {
     let totalQs = [];
     for(let i=0; i<difficulty; i++) {
@@ -239,6 +243,7 @@ const Intelliment = ({mode}) => {
     return totalQs;
   };
 
+  //Generate Questions as per Category
   const generateQsCategory = (selected) => {
     let totalQs = [];
     periodicTable.filter((el) => {

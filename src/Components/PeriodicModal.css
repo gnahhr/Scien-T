@@ -7,8 +7,7 @@
   width: 100vw;
   background-color: rgba(0, 0, 0, 0.5);
   display: grid;
-  justify-content: center;
-  align-items: center;
+  place-items: center;
 }
 .periodic-modal .wrapper {
   color: #220C41;
@@ -64,9 +63,12 @@
 .periodic-modal .wrapper .description-wrapper .right-desc {
   justify-self: end;
 }
-.periodic-modal .wrapper .bohr-img img {
-  width: 150px;
+.periodic-modal .wrapper .bohr-img {
+  width: 80%;
   border-radius: 25px;
+}
+.periodic-modal .wrapper .bohr-img * {
+  width: 100%;
 }
 .periodic-modal .wrapper .summary {
   margin: auto 4rem;

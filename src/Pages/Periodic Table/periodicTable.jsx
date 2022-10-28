@@ -60,7 +60,7 @@ const periodicTable = () => {
         <div className="main-header">
             <h1>Periodic Table</h1>
         </div>
-        <div className="main-wrapper">
+        <div className="periodic-wrapper">
             <div id="periodic-table">
                 {listElems.map(element =>
                     <div className="elem-wrapper"

@@ -7,8 +7,7 @@
     width: 100vw;
     background-color: rgba(0, 0, 0, 0.5);
     display: grid;
-    justify-content: center;
-    align-items: center;
+    place-items: center;
 
     .wrapper {
         color: #220C41;
@@ -73,9 +72,11 @@
         }
 
         .bohr-img {
-            img {
-                width: 150px;
-                border-radius: 25px;
+            width: 80%;
+            border-radius: 25px;
+
+            * {
+                width: 100%;
             }
         }
 
