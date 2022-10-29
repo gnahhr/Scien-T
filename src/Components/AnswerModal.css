@@ -71,8 +71,6 @@
     padding: 1rem 2rem !important;
   }
   .points {
-    width: -webkit-max-content;
-    width: -moz-max-content;
     width: max-content;
     padding: 1rem !important;
   }

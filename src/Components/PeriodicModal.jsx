@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './PeriodicModal.css';
 import ElemColors from '../Data/ElemColors.js';
+import Bohr3D from './Bohr3D';
 
 const PeriodicModal = ({data, showModal}) => {
   const { familyBGs } = ElemColors;
@@ -37,7 +38,8 @@ const PeriodicModal = ({data, showModal}) => {
             </div>
             <h2>Bohr Model</h2>
             <div className="bohr-img">
-                <img src={data.bohr_model_image} alt="bohr" />
+                <Bohr3D name={data.name} model3d={data.bohr_model_3d} model={data.bohr_model_image} />
+                {/* <img src={data.bohr_model_image} alt="bohr" /> */}
             </div>
             <p className="summary"><strong>Summary:</strong> {data.summary}</p>
             <NavLink to={`/trivias/${data.name}`} className="button cta">Learn more trivia!</NavLink>

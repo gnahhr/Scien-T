@@ -73,6 +73,7 @@ const SideNav = ({children}) => {
             <NavLink to="/mix"><img src={Mix} alt="-"/><div className="l-name">Mixing Table</div></NavLink>
             <NavLink to="/intelliment"><img src={Intell} alt="-"/><div className="l-name">Intelliment</div></NavLink>
             <NavLink to="/electronConfiguration"><img src={Bullet} alt="-"/><div className="l-name">Electron Config</div></NavLink>
+            <NavLink to="/test"><img src={Bullet} alt="-"/><div className="l-name">Test Battle</div></NavLink>
         </div>
       </div>
       <div className="category">

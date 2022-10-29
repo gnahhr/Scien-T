@@ -21,7 +21,7 @@
 
         .data-wrapper {
             display: grid;
-            grid-template: repeat(5, 1fr) / repeat(2, 1fr); 
+            grid-template: repeat(5, 1fr) / 2fr 1fr; 
             
             .left-data {
                 justify-self: start;

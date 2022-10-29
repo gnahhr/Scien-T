@@ -1,0 +1,39 @@
+.stage-wrapper {
+    margin: 1rem;
+    display: grid;
+    place-items: center;
+
+    h2 {
+        text-align: center;
+    }
+
+    .stages {
+        width: 50vw;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+
+        button {
+            width: max-content;
+            padding: 5px;
+            aspect-ratio: 1;
+            margin: 1rem auto;
+        }
+
+        button:has(img) {
+            display: grid;
+            place-items: center;
+        }
+
+        button:nth-last-child(1) {
+            grid-column: 1 / span 3;
+            grid-row: 5/5;
+            aspect-ratio: 16/9;
+            margin: auto;
+        }
+    }
+}
+
+.lock-icon {
+    width: 2rem;
+}
