@@ -18,10 +18,11 @@ import { periodicTable } from '../../Data/PeriodicTableJSON';
 import backCard from '../../Assets/Images/back-card.png';
 import star from '../../Assets/Images/Star1.png';
 import clock from '../../Assets/Images/clock.png'
+import frontCard from '../../Assets/Images/front-card.png';
+
 
 //Style
 import "./electronConfiguration.css";
-import { shuffle } from 'simple-statistics';
 
 const electronConfiguration = () => {
   const [ points, setPoints ] = useState(0)
@@ -30,9 +31,10 @@ const electronConfiguration = () => {
   const [ isCorrect, setCorrect ] = useState(false)
   const [ shuffledCell, setShuffledCell ] = useState([])
   const [ cellState, setCellState ] = useState(false)
-  // const [ clickCount, setClickCount ] = useState(0)
   const [ clickState, setClickState ] = useState(true)
   const [ gameProgress, setGameProgress ] = useState()
+
+  const [ overlayState, setOverlayState ] = useState(true)
 
   
   const [ access, setAccess ] = useState('')
@@ -45,6 +47,7 @@ const electronConfiguration = () => {
     setAccess(user.id)
     setUsername(user.username)
     cellGenerator(119)
+    setOverlayState(true)
   },[])
 
   useEffect(() => {
@@ -55,7 +58,6 @@ const electronConfiguration = () => {
   useEffect(() => {
     console.log(shuffledCell)
   },[shuffledCell])
-
 
   useEffect(() => {
     if(answer.length === 2){
@@ -119,6 +121,7 @@ const electronConfiguration = () => {
       updatedCells[index2][2] = true
       setShuffledCell(updatedCells)
       setClickState(true)
+      setPoints(points+1)
       setAnswer([])
     }
 
@@ -143,22 +146,32 @@ const electronConfiguration = () => {
 
   return (
       <main>
+        {overlayState && 
+          <div className='overlay' onClick={() => setOverlayState(!overlayState)}>
+            <div className='bg'></div>
+            <div className='opening-text'><h1>Click to Start</h1></div>
+          </div>
+        }
+
         <div className="main-header">
           <h1>Electron Configuration</h1>
         </div>
+
         <div className='container-electron-config'>
-          <div className='electron-config'>
+          <div className='left-container'>
+            <h1>P</h1>
+            <h1>I</h1>
+            <h1>C</h1>
+            <h1>K</h1>
+          </div>
+
+          <div className='middle-container'>
             <div className='chena'>
               <div className='points'>
                 <img src={star} alt="" />
-                <h1>Points: 100</h1>
-              </div>
-              <div className='time'>
-                <img src={clock} alt="" />
-                <h1>Time: 100</h1>
+                <h1>Points: {points}</h1>
               </div>
             </div>
-
             <div className='game-grid'>
               { shuffledCell.map ((shuffledCell, index) => {
                 return (
@@ -172,9 +185,12 @@ const electronConfiguration = () => {
                         {
                           shuffledCell[3] ? 
                             <div className='game-cells scale-up-horizontal-center'>
-                              <a>{shuffledCell[1]}</a>
+                              <img className='card' src={frontCard} alt="" />
+                              <a className='text'>{shuffledCell[1]}</a>
                             </div> : 
-                            <img className='game-cells scale-up-horizontal-center' src={backCard} alt="" />
+                            <div className='game-cells' >
+                              <img className='card scale-up-horizontal-center' src={backCard} alt="" />
+                            </div>
                         }
                       </div>
                     }
@@ -183,6 +199,15 @@ const electronConfiguration = () => {
               })}
             </div>
           </div>
+
+          <div className='right-container'>
+            <h1>M</h1>
+            <h1>A</h1>
+            <h1>T</h1>
+            <h1>C</h1>
+            <h1>H</h1>
+          </div>
+
         </div>
       </main>
   )

@@ -1,52 +1,98 @@
-.container-electron-config {
+.overlay {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1.5vh;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 1;
 }
-.container-electron-config .chena {
+.overlay > * {
+  position: absolute;
+}
+.overlay .bg {
+  background-color: #0C004E;
+  width: 100%;
+  height: 100vh;
+  opacity: 50%;
+}
+.overlay .opening-text {
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  background-color: #220A47;
+  width: 100%;
+}
+.overlay .opening-text h1 {
+  font-family: "Skranji", cursive;
+  color: #FFEFD7;
+  font-size: 10rem;
+  opacity: 100%;
+}
+
+.container-electron-config {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  margin: 1.5vh;
+  grid-template-columns: repeat(3, 1fr);
+}
+.container-electron-config .left-container {
+  display: grid;
+  justify-content: center;
+  padding-top: 1.5rem;
+  text-align: center;
+  gap: 3.7rem;
+}
+.container-electron-config .left-container h1 {
+  font-family: "Bebas Neue", cursive;
+  font-size: 8.8rem;
+  color: #D0D0D0;
+  opacity: 25%;
+}
+.container-electron-config .middle-container .chena {
   display: flex;
-  gap: 25rem;
+  color: #E2E2E2;
   margin-bottom: 1vh;
 }
-.container-electron-config .chena .points {
+.container-electron-config .middle-container .chena .points {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
-.container-electron-config .chena .points h1 {
+.container-electron-config .middle-container .chena .points h1 {
   font-size: 2rem;
 }
-.container-electron-config .chena .time {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.container-electron-config .chena .time h1 {
-  font-size: 2rem;
-}
-.container-electron-config .game-grid {
+.container-electron-config .middle-container .game-grid {
   display: grid;
+  justify-content: center;
+  text-align: center;
   grid-template-columns: repeat(5, 1fr);
   background-color: #d8c2c2;
   border-radius: 1rem;
   padding: 2rem;
   gap: 0.5rem;
 }
-.container-electron-config .game-grid .game-cells {
+.container-electron-config .middle-container .game-grid .game-cells {
   display: grid;
+  position: relative;
   justify-content: center;
   text-align: center;
-  width: 8.5vw;
-  height: 17vh;
-  background-color: #FFC42E;
-  border: solid 2px #FFFDF8;
-  border-radius: 1rem;
+  width: 9vw;
+  height: 18vh;
 }
-.container-electron-config .game-grid .game-cells a {
-  padding-top: 4.3rem;
+.container-electron-config .middle-container .game-grid .game-cells .text {
+  color: #0C004E;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
-.container-electron-config .game-grid .scale-up-horizontal-center {
+.container-electron-config .middle-container .game-grid .game-cells .card {
+  width: 100%;
+  height: 100%;
+}
+.container-electron-config .middle-container .game-grid .scale-up-horizontal-center {
   animation: scale-up-horizontal-center 0.5s;
 }
 @keyframes scale-up-horizontal-center {
@@ -56,6 +102,18 @@
   100% {
     transform: scaleX(1);
   }
+}
+.container-electron-config .right-container {
+  display: grid;
+  justify-content: center;
+  padding-top: 1.5rem;
+  text-align: center;
+}
+.container-electron-config .right-container h1 {
+  font-family: "Bebas Neue", cursive;
+  font-size: 8.8rem;
+  color: #E2E2E2;
+  opacity: 25%;
 }
 
 /* ----------------------------------------------
