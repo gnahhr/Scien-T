@@ -33,7 +33,6 @@ exports.register = async (req, res, next) => {
 
 		const OTP = generateOTP()
 		const hashOTP = await bcrypt.hash(OTP, 10)
-
 		const verificationToken = await VerificationToken.create({
 			owner: response._id,
 			token: hashOTP

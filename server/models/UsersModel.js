@@ -11,7 +11,6 @@ const UserData = new mongoose.Schema(
         mixingElements : {type : Array},
         
         pointsEC: {type: Number, default: 0},
-        atomicNumberEC:{type: Array},
 
         intellimentEasyHS:{type: Number, default: 0},
         intellimentNormalHS:{type: Number, default: 0},
@@ -27,6 +26,16 @@ const UserData = new mongoose.Schema(
         intellimentNormalCounter:{type: Array},
         intellimentHardCounter:{type: Array},
         intellimentHardcoreCounter:{type: Array},
+
+        battleElementName:{type: Number, default: 1},
+        battleAtomicNumber:{type: Number, default: 1},
+        battleAtomicMass:{type: Number, default: 1},
+        battleCategory:{type: Number, default: 1},
+
+        battleElementNameEndlessHS:{type: Number, default: 0},
+        battleAtomicNumberEndlessHS:{type: Number, default: 0},
+        battleAtomicMassEndlessHS:{type: Number, default: 0},
+        battleCategoryEndlessHS:{type: Number, default: 0},
 
         isVerified: {type: Boolean, default: false, required: true, }
     },
