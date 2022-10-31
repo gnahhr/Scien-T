@@ -14,7 +14,7 @@ const mainPage = () => {
   let nav = useNavigate();
 
   return (
-    <main>
+    <>
         <div className="main-page">
             <div className="header">
                 <img src={logo} alt="logo" />
@@ -93,7 +93,7 @@ const mainPage = () => {
                 <p>All Rights Reserved. &copy;2022</p>
             </footer>
         </div>
-    </main>
+    </>
   )
 }
 

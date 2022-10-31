@@ -63,7 +63,7 @@ const userProfile = () => {
   }
 
   return (
-    <main>
+    <>
       <div className="main-header">
         <h1>Profile</h1>
       </div>
@@ -88,7 +88,7 @@ const userProfile = () => {
           
         </div>
       </div>
-    </main>
+    </>
   )
 }
 

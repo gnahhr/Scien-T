@@ -55,7 +55,7 @@ const forgotPasswordOTP = (event) => {
   
 
   return (
-    <main>
+    <>
       <div className="container">
         <div className="fingerprint"><img src={fingerprint} width={200}/></div>
         <h1 className="header-text"> OTP Verification </h1>
@@ -84,7 +84,7 @@ const forgotPasswordOTP = (event) => {
             </div>
           </div>
       </div>
-    </main>
+    </>
   )
 }
 

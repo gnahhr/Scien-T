@@ -101,6 +101,7 @@ a {
 
 .cta:hover {
   background-color: #FFEAB6;
+  color: #0C004E;
   box-shadow: 0 0 0 3px #FFEAB6;
   transition: background-color 0.5ms ease;
 }

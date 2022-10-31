@@ -1,5 +1,12 @@
+//TO DO:
+//-Defeat Screen with the correct answer displayed
+//-Progression
+//-SFX
+//-ASSETS >>>>>>>>>
+
 import React, { useEffect, useState } from 'react';
 import Choice from './Choice';
+import jwtDecode from 'jwt-decode';
 
 //Data
 import { periodicTable } from '../Data/PeriodicTableJSON';
@@ -10,6 +17,7 @@ import Chuu from '../Assets/Images/chuu-pewpew.jpg';
 import Pewpew from '../Assets/Images/pewpew.png';
 import RedHeart from '../Assets/Images/red-heart.svg';
 import GrayHeart from '../Assets/Images/gray-heart.svg';
+import BattleBG from '../Assets/Images/battle-bg.png';
 
 
 //CSS
@@ -23,6 +31,15 @@ const BattleWindow = ({topic, stage, nextPhase, getScore, setMulti}) => {
   const [ highestMulti, setHighestMulti ] = useState(1);
   const [ conRight, setConRight ] = useState(0);
   const [ score, setScore ] = useState(0);
+  const [ access, setAccess ] = useState();
+  const [ username, setUsername] = useState(""); 
+
+  //Health State Renderer
+  const [ healthRender, setHealthRender ] = useState(<>
+    <img src={RedHeart} alt="red-heart" />
+    <img src={RedHeart} alt="red-heart" />
+    <img src={RedHeart} alt="red-heart" />
+  </>);
 
   //Animation States
   const [ isWrong, setIsWrong ] = useState(false);
@@ -36,6 +53,14 @@ const BattleWindow = ({topic, stage, nextPhase, getScore, setMulti}) => {
     "atomicNum": "What is its atomic number?",
     "atomicMass": "What is its atomic mass?"
   }
+
+  //Get User Info
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    const user = jwtDecode(token)
+    setAccess(user.id)
+    setUsername(user.username)
+  },[])
 
   //SetQuestions
   useEffect(() => {
@@ -55,6 +80,19 @@ const BattleWindow = ({topic, stage, nextPhase, getScore, setMulti}) => {
       setHighestMulti(multiplier);
     }
   }, [multiplier])
+
+  useEffect(() => {
+    let updatedHealth = [];
+    for (let x = 0; x < 3; x++){
+      if ( x >= health) {
+        updatedHealth.push(<img src={GrayHeart} alt="gray" />)
+      } else {
+        updatedHealth.push(<img src={RedHeart} alt="red" />)
+      }
+    }
+
+    setHealthRender(updatedHealth);
+  }, [health])
 
   useEffect(() => {
     if (health === 0) {
@@ -203,10 +241,10 @@ const BattleWindow = ({topic, stage, nextPhase, getScore, setMulti}) => {
             </div>
             <div className="player-info">
                 <div className="username">
-                    Sample Username
+                    {username}
                 </div>
                 <div className="user-health">
-                    {health}
+                    {healthRender}
                 </div>
             </div>
             <div className="entity enemy">

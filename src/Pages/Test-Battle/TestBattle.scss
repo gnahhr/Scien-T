@@ -20,6 +20,11 @@
         height: 90%;
         margin: auto;
 
+        background-image: url("../../Assets/Images/battle-bg.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: bottom;
+
         border-radius: 14px;
 
         .entity {
@@ -111,6 +116,11 @@
 
             .user-health {
                 align-self: center;
+                
+                img {
+                    width: 2rem;
+                    margin: auto 2px;
+                }
             }
         }
     }

@@ -166,7 +166,6 @@ const userProgress = () => {
 
   return (
     <>
-    <main>
       <div className="main-header">
         <h1>User Progress</h1>
       </div>
@@ -216,7 +215,6 @@ const userProgress = () => {
           </div>
         </div>
         </div>
-    </main>
     </>
   )
 }

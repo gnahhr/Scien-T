@@ -106,7 +106,7 @@ const leaderboard = () => {
   }
 
   return (
-    <main>
+    <>
       <div className="selector-wrapper">
         <div className="selector">
             <div id="intelliment"><button style={{backgroundColor: showIntelliment ? "#008773":"#F1F1F1"}} onClick={() => {toggleIntelliment()}}> Intelliment </button> </div>
@@ -147,7 +147,7 @@ const leaderboard = () => {
       }
         
       </div>
-    </main>
+    </>
   )
 }
 

@@ -18,6 +18,10 @@
   width: 90%;
   height: 90%;
   margin: auto;
+  background-image: url("../../Assets/Images/battle-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom;
   border-radius: 14px;
 }
 .battle-window .players-wrapper .entity {
@@ -97,6 +101,10 @@
 }
 .battle-window .players-wrapper .player-info .user-health {
   align-self: center;
+}
+.battle-window .players-wrapper .player-info .user-health img {
+  width: 2rem;
+  margin: auto 2px;
 }
 .battle-window .action-choices {
   margin-top: 1rem;

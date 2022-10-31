@@ -315,7 +315,7 @@ const Intelliment = ({mode}) => {
   };
 
   return (
-      <main>
+      <>
         <div className="main-header">
           <h1>Intelliment</h1>
         </div>
@@ -402,7 +402,7 @@ const Intelliment = ({mode}) => {
                                   highestCombo={maxCombo}
                                   highestMultiplier={highestMult} />}
         </div>
-      </main>
+      </>
   )
 }
 

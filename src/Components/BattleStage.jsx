@@ -72,7 +72,7 @@ const BattleStage = ({setStage, lastFinStage, nextPhase}) => {
                 if (indiv.stage > lastFinStage) {
                     return <button className="fluid-btn"><img src={Lock} alt="Lock" className="lock-icon"/></button>;
                 } else {
-                    return <button className="fluid-btn" onClick={() => onClickHandler(indiv.value)}>{indiv.stage}</button>;
+                    return <button className="fluid-btn" key={indiv.value} onClick={() => onClickHandler(indiv.value)}>{indiv.stage}</button>;
                 }
             })}
         </div>

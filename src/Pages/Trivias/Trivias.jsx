@@ -44,7 +44,7 @@ const Trivias = ({data}) => {
   }
 
   return (
-    <main>
+    <>
         <div className="main-header">
           <h1>Trivias</h1>
         </div>
@@ -69,7 +69,7 @@ const Trivias = ({data}) => {
           
           <Trivia data={curTrivia}/>
         </div>
-    </main>
+    </>
   )
 }
 

@@ -148,7 +148,7 @@ const electronConfiguration = () => {
   }
 
   return (
-      <main>
+      <>
         {overlayState && 
           <div className='overlay' onClick={() => setOverlayState(!overlayState)}>
             <div className='bg'></div>
@@ -213,7 +213,7 @@ const electronConfiguration = () => {
           </div>
 
         </div>
-      </main>
+      </>
   )
 }
 

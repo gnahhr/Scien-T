@@ -93,8 +93,6 @@ const loginPage = ({setUser}) => {
           </form>
           <button className="button red" id="forgot-pw" onClick={() => {handleClick()}}>Forgot Password?</button>
         </div>
-        
-        
     </div>
   )
 }

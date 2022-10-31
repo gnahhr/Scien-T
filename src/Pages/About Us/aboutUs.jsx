@@ -48,7 +48,7 @@ const aboutUs = () => {
   ]
 
   return (
-    <main>
+    <>
       <div className="main-header">
         <h1>
           About Us
@@ -69,7 +69,7 @@ const aboutUs = () => {
           )}
         </div>
       </div>
-    </main>
+    </>
   )
 }
 

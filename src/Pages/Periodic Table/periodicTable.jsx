@@ -56,7 +56,7 @@ const periodicTable = () => {
   }, [category]);
 
   return (
-    <main>
+    <>
         <div className="main-header">
             <h1>Periodic Table</h1>
         </div>
@@ -108,7 +108,7 @@ const periodicTable = () => {
         </div>
         {showModal &&
         <PeriodicModal data={activeElem} showModal={setShowModal}/>}
-    </main>
+    </>
   )
 }
 

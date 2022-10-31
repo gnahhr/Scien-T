@@ -68,7 +68,7 @@ const TestBattle = () => {
       </div>
       <div className="test-battle">
         {progPhase === 0 && <BattleTopic setTopic={setTopic} nextPhase={setProgPhase}/>}
-        {progPhase === 1 && <BattleStage setStage={setStage} lastFinStage={lastFinStage} nextPhase={setProgPhase}/>}
+        {progPhase === 1 && <BattleStage setStage={setStage} lastFinStage={5} nextPhase={setProgPhase}/>}
         {progPhase === 2 && <BattleWindow topic={topic} stage={stage} nextPhase={setProgPhase} setMulti={setMulti} getScore={setScore}/>}
         {progPhase === 3 && <BattleStats totalEnemies={10} totalScore={score} highMulti={multi} nextPhase={setProgPhase}/>}
       </div>

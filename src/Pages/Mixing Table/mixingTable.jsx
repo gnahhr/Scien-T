@@ -251,7 +251,7 @@ const mixingTable = () => {
   }
 
   return (
-    <main>
+    <>
       <div className="main-header">
         <h1>Mixing Table</h1>
       </div>
@@ -308,7 +308,7 @@ const mixingTable = () => {
                 showToast={setShowToast}
                 toastState={showToast}/>
       </div>
-    </main>
+    </>
   )
 }
 

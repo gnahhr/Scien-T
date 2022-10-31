@@ -30,7 +30,7 @@ const BattleTopic = ({setTopic, nextPhase}) => {
     <div className="topic-wrapper">
         <h2>Choose a topic:</h2>
         <div className="topics">
-          {topics.map(topic => <button class="fluid-btn" onClick={() => onClickHandler(topic.value)}>{topic.name}</button>)}
+          {topics.map(topic => <button className="fluid-btn" key={topic.name} onClick={() => onClickHandler(topic.value)}>{topic.name}</button>)}
         </div>
     </div>
   )

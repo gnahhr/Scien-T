@@ -1,0 +1,103 @@
+.mixDash-wrapper {
+    height: 100vh;
+}
+
+.mixDash-window {
+    display: grid;
+    grid-template-rows: 20% 40% 30%;
+    place-content: center;
+    margin: 1rem;
+    padding: .5rem;
+    background-color: rgba(25, 7, 54, 0.5);
+    border-radius: 16px;
+
+    .dash-status {
+        display: flex;
+        justify-content: space-between;
+        color: #FFF;
+        .progress-bar {
+            justify-self: center;
+        }
+
+        .goal-count {
+            justify-self: flex-end;
+        }
+    }
+
+    .customer-wrapper {
+        display: grid;
+        grid-template-rows: 1fr 2fr;
+        position: relative;
+        align-self: flex-end;
+
+        .order-wrapper {
+            background-color: #FFF;
+            height: 50%;
+            border-radius: 5px;
+            align-self: flex-end;
+            margin-bottom: 2vh;
+
+            .order {
+                display: grid;
+                align-items: center;
+                text-align: center;
+                height: 100%;
+            }
+        }
+
+        .order-wrapper::after{
+            content:"";
+            display: absolute;
+            width: 3rem;
+            height: 2rem;
+            border-left: 1.5rem #FFF solid;
+            border-bottom: 1rem transparent solid;
+            transform: translateY(-70%);
+            display: block;
+        }
+
+        #customer {
+            width: max(20vw, 100px);
+            justify-self: center;
+            align-self: flex-end;
+        }
+    }
+
+    .customer-wrapper::after {
+        content: "";
+        border-bottom: clamp(16px, 2vw, 2rem) solid brown;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        width: 90vw;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .elements-wrapper {
+        display: grid;
+        grid-template-rows: 3fr 1fr;
+        margin: 1rem;
+
+        .elements {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: .5rem;
+        }
+
+        .element {
+            background-color: #FFF;
+        }
+
+        .element.selected {
+            box-shadow: 0 0 0 .3rem green;
+        }
+    }
+    
+    .mix-wrapper {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+    }
+
+}
