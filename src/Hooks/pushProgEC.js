@@ -1,11 +1,11 @@
-export default async function pushProgEC(access,atomicNumber,points, username) {
+export default async function pushProgEC(access,points, username) {
     const response = await fetch('/api/electronConfiguration',{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            access, atomicNumber, points, username
+            access, points, username
         })
     })
     const data = await response.json()

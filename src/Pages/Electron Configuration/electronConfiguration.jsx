@@ -26,13 +26,14 @@ import "./electronConfiguration.css";
 
 const electronConfiguration = () => {
   const [ points, setPoints ] = useState(0)
+  const [ igPoints, setIGPoints ] = useState(0)
   const [ cell, setCell ] = useState([])
   const [ answer, setAnswer ] = useState([])
   const [ isCorrect, setCorrect ] = useState(false)
   const [ shuffledCell, setShuffledCell ] = useState([])
   const [ cellState, setCellState ] = useState(false)
   const [ clickState, setClickState ] = useState(true)
-  const [ gameProgress, setGameProgress ] = useState()
+  const [ gameProgress, setGameProgress ] = useState(0)
 
   const [ overlayState, setOverlayState ] = useState(true)
 
@@ -47,7 +48,11 @@ const electronConfiguration = () => {
     setAccess(user.id)
     setUsername(user.username)
     cellGenerator(119)
-    setOverlayState(true)
+    setOverlayState(true);
+    (async() => {
+      const data = await getUserProgEC(user.id)
+      setPoints(data)
+    })()
   },[])
 
   useEffect(() => {
@@ -62,14 +67,10 @@ const electronConfiguration = () => {
   useEffect(() => {
     if(answer.length === 2){
       if(answer[0][1] === answer[1][1]){
-        console.log('duplicate!')
         answer.pop()
-        console.log(answer)
       }
     
     else{
-        console.log('correct format')
-        console.log(answer)
         setClickState(false)
         setTimeout(() => checkAnswer(answer[0][0], answer[0][1], answer[0][2], answer[1][0], answer[1][1], answer[1][2]), 1500)
       }
@@ -78,6 +79,7 @@ const electronConfiguration = () => {
 
   useEffect(() => {
     if(gameProgress === 10){
+      pushProgEC(access,igPoints,username)
       console.log('finish na')
     }
   },[gameProgress])
@@ -121,8 +123,9 @@ const electronConfiguration = () => {
       updatedCells[index2][2] = true
       setShuffledCell(updatedCells)
       setClickState(true)
-      setPoints(points+1)
+      setIGPoints(igPoints+1)
       setAnswer([])
+      setGameProgress(gameProgress+1)
     }
 
     else{
@@ -169,7 +172,8 @@ const electronConfiguration = () => {
             <div className='chena'>
               <div className='points'>
                 <img src={star} alt="" />
-                <h1>Points: {points}</h1>
+                <h1>Points: {points+igPoints}</h1>
+                {gameProgress === 10 ? <h1>Finish na</h1> : ''}
               </div>
             </div>
             <div className='game-grid'>

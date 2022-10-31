@@ -57,7 +57,7 @@ const userProgress = () => {
 
     (async () => {
       const progress = await getUserProgEC(user.id);
-      setElectronConfigCounter(progress.length);
+      setElectronConfigCounter(progress);
     })();
   },[])
 
@@ -181,7 +181,7 @@ const userProgress = () => {
             </div>
             <div className="electron-progress progress-div">
               <h3>Electron Configuration Progress</h3>
-              <p>{electronConfigCounter}/118</p>
+              <p>{electronConfigCounter}pts</p>
               <p></p>
             </div>
             <div className="mastery progress-div">
