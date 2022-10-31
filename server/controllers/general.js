@@ -6,6 +6,10 @@ const IntellimentEasyRankings = require('../models/IntellimentEasyRankings')
 const IntellimentNormalRankings = require('../models/IntellimentNormalRankings')
 const IntellimentHardRankings = require('../models/IntellimentHardRankings')
 const IntellimentHardcoreRankings = require('../models/IntellimentHardcoreRankings')
+const BattleAtomicMassEndlessRankings = require('../models/BattleAtomicMassEndlessRankings')
+const BattleAtomicNumberEndlessRankings = require('../models/BattleAtomicNumberEndlessRankings')
+const BattleCategoryEndlessRankings = require('../models/BattleCategoryEndlessRankings')
+const BattleElementNameEndlessRankings = require('../models/BattleElementNameEndlessRankings')
 const jwt = require('jsonwebtoken');
 
 const JWT_SECRET = 'sdjkfh8923yhjdksbfma@#*(&@*!^#&@bhjb2qiuhesdbhjdsfg839ujkdhfjk'
@@ -49,12 +53,7 @@ exports.electronConfiguration = async (req, res, next) => {
     const _id = new ObjectId (access)
     const username = req.body.username
 
-    const atomicNumber = req.body.atomicNumber
     const points = req.body.points
-    
-    const pushProg = await UserData.findByIdAndUpdate({_id},{
-        $push: {atomicNumberEC: atomicNumber}
-    })
 
     const pushProgPoints = await UserData.findByIdAndUpdate({_id},{
         $inc: {pointsEC: points}
@@ -64,7 +63,7 @@ exports.electronConfiguration = async (req, res, next) => {
         $inc: {points : points}
     }, {upsert: true})
     
-    if(pushProg)
+    if(pushProgPoints)
         res.json({status: 'ok', pushRankings})
     
     else
@@ -79,7 +78,7 @@ exports.getEC = async (req, res, next) => {
     const access = req.params['access']
     const _id = new ObjectId (access)
 
-    const userProg = await UserData.findById({_id}, {atomicNumberEC:1})
+    const userProg = await UserData.findById({_id}, {pointsEC:1})
     
     if(userProg)
         return res.json({status:'ok', userProg: userProg})
@@ -286,5 +285,147 @@ exports.getIntellimentCounter = async(req, res, next) => {
     }
 }
 
+exports.testBattle = async (req, res, next)  =>{
+    var ObjectId = require('mongoose').Types.ObjectId;
+    const access = req.params['access']
+    const _id = new ObjectId (access)
 
+    const username = req.params['username']
+    const topic = req.params['topic']
+    const stage = req.params['stage']
+
+    const score = req.body.score
+
+    if(topic === 'elemName'){
+        if(stage === 'endless'){
+            const pushProg = await UserData.findByIdAndUpdate({_id},{
+                $max: {battleElementNameEndlessHS: score}
+            })
+
+            const pushRankings = await BattleElementNameEndlessRankings.findOneAndUpdate({username},{
+                $max: {points: score}
+            },{upsert: true})
+        }
+        
+        else{
+            const data = await UserData.findByIdAndUpdate({_id}, {
+                $inc:{battleElementName: 1}
+            })
+        }
+        res.json({status:'ok'})
+    }
+
+    else if(topic === 'atomicNum'){
+        if(stage === 'endless'){
+            const pushProg = await UserData.findByIdAndUpdate({_id},{
+                $max: {battleAtomicNumberEndlessHS: score}
+            })
+
+            const pushRankings = await BattleAtomicNumberEndlessRankings.findOneAndUpdate({username},{
+                $max: {points: score}
+            },{upsert: true})
+        }
+        
+        else{
+            const data = await UserData.findByIdAndUpdate({_id}, {
+                $inc:{battleAtomicNumber:1}
+            })
+        }
+        res.json({status:'ok'})
+    }
+
+    else if(topic === 'atomicMass'){
+        if(stage === 'endless'){
+            const pushProg = await UserData.findByIdAndUpdate({_id},{
+                $max: {battleAtomicMassEndlessHS: score}
+            })
+
+            const pushRankings = await BattleAtomicMassEndlessRankings.findOneAndUpdate({username},{
+                $max: {points: score}
+            },{upsert: true})
+        }
+        
+        else{
+            const data = await UserData.findByIdAndUpdate({_id}, {
+                $inc:{battleAtomicMass:1}
+            })
+        }
+        res.json({status:'ok'})
+    }
+
+    else if(topic === 'category'){
+        if(stage === 'endless'){
+            const pushProg = await UserData.findByIdAndUpdate({_id},{
+                $max: {battleCategoryEndlessHS: score}
+            })
+
+            const pushRankings = await BattleCategoryEndlessRankings.findOneAndUpdate({username},{
+                $max: {points: score}
+            },{upsert: true})
+        }
+        
+        else{
+            const data = await UserData.findByIdAndUpdate({_id}, {
+                $inc:{battleCategory:1}
+            })
+        }
+        res.json({status:'ok'})
+    }
+}
+
+exports.getUserProgTestBattle = async (req, res, next)  =>{
+    var ObjectId = require('mongoose').Types.ObjectId;
+    const access = req.params['access']
+    const _id = new ObjectId (access)
+
+    const topic = req.params['topic']
+
+    if(topic === 'elemName'){
+        const data = await UserData.findById({_id}, {battleElementName:1})
+        res.json({data: data.battleElementName})
+    }
+
+    else if(topic === 'atomicNum'){
+        const data = await UserData.findById({_id}, {battleAtomicNumber:1})
+        res.json({data: data.battleAtomicNumber})
+    }
+
+    else if(topic === 'atomicMass'){
+        const data = await UserData.findById({_id}, {battleAtomicMass:1})
+        res.json({data: data.battleAtomicMass})
+    }
+
+    else if(topic === 'category'){
+        const data = await UserData.findById({_id}, {battleCategory:1})
+        res.json({data: data.battleCategory})
+    }
+}
+
+exports.getTestBattleRankings = async (req, res, next) => {
+    var ObjectId = require('mongoose').Types.ObjectId;
+    const access = req.params['access']
+    const _id = new ObjectId (access)
+
+    const topic = req.params['topic']
+
+    if(topic === 'elemName'){
+        const getRankings = await BattleElementNameEndlessRankings.find({},{username: 1, points: 1}).sort({points: -1})
+        res.json({status:'ok', rankings:getRankings})
+    }
+
+    else if(topic === 'atomicNum'){
+        const getRankings = await BattleAtomicNumberEndlessRankings.find({},{username: 1, points: 1}).sort({points: -1})
+        res.json({status:'ok', rankings:getRankings})
+    }
+
+    else if(topic === 'atomicMass'){
+        const getRankings = await BattleAtomicMassEndlessRankings.find({},{username: 1, points: 1}).sort({points: -1})
+        res.json({status:'ok', rankings:getRankings})
+    }
+
+    else if(topic === 'category'){
+        const getRankings = await BattleCategoryEndlessRankings.find({},{username: 1, points: 1}).sort({points: -1})
+        res.json({status:'ok', rankings:getRankings})
+    }
+}
 

@@ -1,7 +1,9 @@
 const express = require ('express')
+const { get } = require('mongoose')
 const router = express.Router()
 
-const { mixElements, getME, electronConfiguration, getEC, intelliment, getIntellimentRankings, getElectronConfigRankings, getIntellimentData, getIntellimentCounter} = require('../controllers/general')
+const { mixElements, getME, electronConfiguration, getEC, intelliment, getIntellimentRankings, getElectronConfigRankings, getIntellimentData, getIntellimentCounter, getUserProgTestBattle, testBattle, getTestBattleRankings
+} = require('../controllers/general')
 
 //MIXING TABLE
 router.route('/mixElements').post(mixElements)// route for posting data from Mixing Table
@@ -17,10 +19,17 @@ router.route('/getIntellimentData/:access/:difficulty').get(getIntellimentData)/
 router.route('/getIntellimentCounter/:access/:difficulty').get(getIntellimentCounter)//get user's data on Intelliment
 
 
+//BATTLE
+router.route('/testBattle/:access/:username/:topic/:stage').post(testBattle)
+router.route('/userProgTestBattle/:access/:topic').get(getUserProgTestBattle)
+
+
 
 //RANKINGS
 router.route('/getIntellimentRankings/:difficulty').get(getIntellimentRankings)//get overall rankings of Intelliment
 router.route('/getElectronConfigRankings').get(getElectronConfigRankings)//get overall rankings of Electron Configuration
+router.route('/getTestBattleRankings/:topic').get(getTestBattleRankings)
+
 
 
 module.exports = router
