@@ -3,9 +3,6 @@
 //--Generate Line from considering the possible Elements
 //
 //-Mixing Table
-//-Generate the mixing table
-//--Just select the right elements to mix
-//--No more drag and drop bc y not hehe.
 //--Right Combinations == Satisfied Customer
 //--Wrong combinations == Customer Satisfaction decreases
 import React from 'react';
@@ -19,23 +16,15 @@ const MixDash = () => {
     {
       level: 1,
       numOfCustomers: 5,
-      compounds: ["Salt", "Hydrocholoric acid"],
-      elems: ["Na", "Cl", "H"],
-      goal: 100
+      compounds: ["Sodium Chloride", "Hydrochloric acid", "Sodium hydroxide"],
+      elems: ["Na", "Cl", "H", "O"],
+      goal: 100,
+      newCompound: {
+        name: "Salt",
+        elems: ["Na", "Cl"]
+      } 
     }
   ]
-
-  const customers = [
-    {
-      customerImg: "customer.jpg",
-      customerOrder: "Salt",
-      customerMoney: 20
-    }
-  ]
-
-  const verifyMix = () => {
-    console.log("Mix is correct!");
-  }
   
   return (
     <>
@@ -43,7 +32,7 @@ const MixDash = () => {
         <h1>Mix Dash</h1>
       </div>
       <div className="mixDash-wrapper">
-        <MixDashWindow />
+        <MixDashWindow build={levels[0]}/>
       </div>
     </>
   )

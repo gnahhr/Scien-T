@@ -4,7 +4,7 @@
 
 .mixDash-window {
   display: grid;
-  grid-template-rows: 20% 40% 30%;
+  grid-template-rows: 20% 45% 35%;
   place-content: center;
   margin: 1rem;
   padding: 0.5rem;
@@ -28,6 +28,12 @@
   position: relative;
   align-self: flex-end;
 }
+.mixDash-window .customer-wrapper .satisfaction {
+  height: 5px;
+  border-radius: 5px;
+  transition: background-color linear 50ms;
+  transition: width linear 50ms;
+}
 .mixDash-window .customer-wrapper .order-wrapper {
   background-color: #FFF;
   height: 50%;
@@ -48,7 +54,7 @@
   height: 2rem;
   border-left: 1.5rem #FFF solid;
   border-bottom: 1rem transparent solid;
-  transform: translateY(-70%);
+  transform: translateY(-80%);
   display: block;
 }
 .mixDash-window .customer-wrapper #customer {
@@ -86,4 +92,10 @@
   display: flex;
   align-content: center;
   justify-content: center;
+}
+.mixDash-window .mix-wrapper button:disabled {
+  color: white;
+  background-color: #AB2921;
+  box-shadow: 0 0 0 3px #AB2921;
+  transition: background-color 0.5ms ease;
 }

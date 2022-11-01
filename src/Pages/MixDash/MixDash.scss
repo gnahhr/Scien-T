@@ -4,7 +4,7 @@
 
 .mixDash-window {
     display: grid;
-    grid-template-rows: 20% 40% 30%;
+    grid-template-rows: 20% 45% 35%;
     place-content: center;
     margin: 1rem;
     padding: .5rem;
@@ -30,6 +30,13 @@
         position: relative;
         align-self: flex-end;
 
+        .satisfaction {
+            height: 5px;
+            border-radius: 5px;
+            transition: background-color linear 50ms;
+            transition: width linear 50ms;
+        }
+
         .order-wrapper {
             background-color: #FFF;
             height: 50%;
@@ -52,7 +59,7 @@
             height: 2rem;
             border-left: 1.5rem #FFF solid;
             border-bottom: 1rem transparent solid;
-            transform: translateY(-70%);
+            transform: translateY(-80%);
             display: block;
         }
 
@@ -98,6 +105,13 @@
         display: flex;
         align-content: center;
         justify-content: center;
+
+        button:disabled {
+            color: white;
+            background-color: #AB2921;
+            box-shadow: 0 0 0 3px #AB2921;
+            transition: background-color .500ms ease;
+        }
     }
 
 }

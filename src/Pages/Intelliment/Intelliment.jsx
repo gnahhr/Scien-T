@@ -166,7 +166,6 @@ const Intelliment = ({mode}) => {
     }
 
     if (pickedDifficulty & !answered){
-      
       if (timer === 0) {
         selectAns("");
         // prepToast("wrong", "warning");

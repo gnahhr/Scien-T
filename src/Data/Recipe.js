@@ -16,7 +16,7 @@ export const recipe = [
 		],
 	},
 	{
-		name: "Hydrocholoric acid",
+		name: "Hydrochloric acid",
 		compoundPic: "hydrochloric-acid.png",
 		elements: ["H", "Cl"],
 		formula: "HCI",

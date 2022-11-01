@@ -1,0 +1,47 @@
+.newRecipe-modal {
+  background-color: #C9B570;
+  width: 80%;
+  border-radius: 10px;
+}
+.newRecipe-modal h2 {
+  margin: 2rem;
+  text-align: center;
+}
+.newRecipe-modal .recipe-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto;
+}
+.newRecipe-modal .recipe-wrapper .elem-wrapper {
+  display: flex;
+  flex-grow: 1;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-self: center;
+  align-self: center;
+}
+.newRecipe-modal .recipe-wrapper .elem-wrapper .recipe-element {
+  display: flex;
+}
+.newRecipe-modal .recipe-wrapper .elem-wrapper .recipe-element p {
+  background-color: #FFFFFF;
+  padding: 1rem;
+  border-radius: 15px;
+  font-size: 2rem;
+}
+.newRecipe-modal .recipe-wrapper .elem-wrapper .recipe-element:not(:last-child)::after {
+  content: "+";
+  justify-self: center;
+  align-self: center;
+  margin-left: 1rem;
+}
+.newRecipe-modal .recipe-wrapper h3, .newRecipe-modal .recipe-wrapper .compound-name {
+  text-align: center;
+  align-self: center;
+  justify-self: center;
+  font-size: 2rem;
+}
+.newRecipe-modal button {
+  display: block;
+  margin: 1rem auto;
+}
