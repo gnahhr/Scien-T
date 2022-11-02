@@ -1,9 +1,16 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import BlueFlask from '../Assets/Images/blue-flask.png';
 
-const BattleStats = ({totalEnemies, totalScore, highMulti, nextPhase, battleResult}) => {
-  const nav = useNavigate();
+const BattleStats = ({totalEnemies, totalScore, highMulti, battleResult, setPhase, stage, setStage}) => {
+  const chooseLevel = (choice) => {
+    setPhase(choice);
+  }
+
+  const nextLevel = () => {
+      setStage(stage+1);
+      setPhase(2);
+  }
+
   return (
     <div className="total-score">
         <div className="img-wrapper">
@@ -19,8 +26,10 @@ const BattleStats = ({totalEnemies, totalScore, highMulti, nextPhase, battleResu
             </div>
         </div>
         <div className="button-wrapper">
-              <button onClick={() => nav("/intelliment")}>Play Again</button>
-              <button onClick={() => nav("/intelliment")}>Play Next Stage</button>
+            <button onClick={() => chooseLevel(3)}>Play Again</button>
+            {9 > stage+1 && <button onClick={() => nextLevel()}>Next Stage</button>}
+            <button onClick={() => chooseLevel(1)}>Choose Stage</button>
+            <button onClick={() => chooseLevel(0)}>Choose Topic</button>
         </div>
     </div>
   )

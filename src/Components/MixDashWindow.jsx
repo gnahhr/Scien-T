@@ -7,12 +7,14 @@ import Customer from '../Assets/Images/customer.svg';
 import {recipe} from '../Data/Recipe.js';
 import NewRecipeModal from './NewRecipeModal';
 
-const MixDashWindow = ({build}) => {
+const MixDashWindow = ({build, setResultState, setResult, nextPhase}) => {
   //Data States
   const [ customers, setCustomers ] = useState();
   const [ currCustomer, setCurrCustomer ] = useState(0);
   const [ custSatis, setCustSatis ] = useState(100);
   const [ earned, setEarned ] = useState(0);
+  const [ tips, setTips ] = useState(0);
+  const [ totalEarned, setTotalEarned ] = useState(); 
   const [ choices, setChoices ] = useState([]);
 
   //Conditional States
@@ -47,7 +49,10 @@ const MixDashWindow = ({build}) => {
 
   //Customer Satisfaction
   useEffect(() => {
-    if (!paused && custSatis > 0) {
+    if (paused) {
+      setCustSatis(100);
+    }
+    else if (!paused && custSatis > 0) {
       setTimeout(() => setCustSatis(() => custSatis - 1), 100);
     }
   }, [custSatis, paused])
@@ -115,19 +120,42 @@ const MixDashWindow = ({build}) => {
     })[0].elements;
   
     if (compareElemArr(selected.sort(), orderRecipe.sort())){
+        const pay = customers[currCustomer].money;
         console.log("Correct Recipe!");
-        setEarned(() => earned + customers[currCustomer].money)
+        setEarned(() => earned + pay);
+        setTips(() => calcTip(custSatis, pay));
+        setTotalEarned(() => earned + tips);
         if (currCustomer + 1 !== build.numOfCustomers){
           setCurrCustomer(() => currCustomer + 1);
+        } else if (currCustomer + 1 === build.numOfCustomers){
+          setResult({
+            numberOfCustomers: build.numOfCustomers,
+            gainedMoney: earned,
+            tips: tips,
+            totalEarned: totalEarned
+          })
+          build.goal >= totalEarned ? setResultState("victory") : setResultState("defeat");
+          nextPhase(2);
         }
         setPaused(true);
-        setCustSatis(100);
         setSelState(false);
+        setCustSatis(100);
+        setInterval(() => setPaused(false), 1000);
         resetSelected();
     } else {
         console.log("Wrong Recipe!");
         resetSelected();
         setSelState(false);
+    }
+  }
+
+  const calcTip = (custSatis, pay) => {
+    if (custSatis > 75) {
+      return pay * .5;
+    } else if (custSatis > 50 && custSatis < 75){
+      return pay * .25;
+    } else if (custSatis < 50){
+      return 0;
     }
   }
 
@@ -168,7 +196,7 @@ const MixDashWindow = ({build}) => {
             Progress: {earned}
           </p>
           <p className="goal-count">
-            Goal: 100
+            Goal: {build.goal}
           </p>
         </div>
         <div className="customer-wrapper">

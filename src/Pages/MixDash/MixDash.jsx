@@ -5,26 +5,22 @@
 //-Mixing Table
 //--Right Combinations == Satisfied Customer
 //--Wrong combinations == Customer Satisfaction decreases
-import React from 'react';
+import React, { useState } from 'react';
 import MixDashWindow from '../../Components/MixDashWindow';
+import MixDashLevels from '../../Components/MixDashLevels';
+import MixDashResult from '../../Components/MixDashResult';
+
+//Data
+import { levels } from '../../Data/MixDashLevels.js';
 
 //Styles
 import './MixDash.css'
 
 const MixDash = () => {
-  const levels = [
-    {
-      level: 1,
-      numOfCustomers: 5,
-      compounds: ["Sodium Chloride", "Hydrochloric acid", "Sodium hydroxide"],
-      elems: ["Na", "Cl", "H", "O"],
-      goal: 100,
-      newCompound: {
-        name: "Salt",
-        elems: ["Na", "Cl"]
-      } 
-    }
-  ]
+  const [ dashPhase, setDashPhase ] = useState(0);
+  const [ level, setLevel ] = useState(0);
+  const [ result, setResult ] = useState();
+  const [ resultState, setResultState ] = useState("");
   
   return (
     <>
@@ -32,7 +28,10 @@ const MixDash = () => {
         <h1>Mix Dash</h1>
       </div>
       <div className="mixDash-wrapper">
-        <MixDashWindow build={levels[0]}/>
+        {dashPhase === 0 && <MixDashLevels totalLevels={10} lastFinStage={2} nextPhase={setDashPhase} setLevel={setLevel}/>}
+        {dashPhase === 1 && <MixDashWindow build={levels[level]} setResultState={setResultState} setResult={setResult} nextPhase={setDashPhase}/>}
+        {dashPhase === 2 && <MixDashResult resultState={resultState} resultData={result} setPhase={setDashPhase} level={level} setLevel={setLevel} totalLevels={levels.length}/>}
+        {/* Final */}
       </div>
     </>
   )

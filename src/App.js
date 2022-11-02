@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ReactDOM } from 'react';
 import { Routes, Route } from "react-router-dom";
-import jwtDecode from 'jwt-decode';
 
 //Drag and Drop
 import { DndProvider } from 'react-dnd';
@@ -10,9 +8,6 @@ import { HTML5Backend } from 'react-dnd-html5-backend';
 //Design
 import './Pages/global.css';
 import './App.css';
-
-//Components
-import Navbar from './Components/Navbar';
 
 //Pages
 import LandingPage from './Pages/Landing Page/landingPage';

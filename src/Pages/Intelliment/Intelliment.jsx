@@ -1,3 +1,6 @@
+//TO-DO:
+//Refactor Intelliment per component
+
 import React, { useState, useEffect } from 'react';
 import jwtDecode from "jwt-decode"
 
@@ -197,6 +200,22 @@ const Intelliment = ({mode}) => {
       setQuestions(shuffleArray(generateQsCategory(difficulty)));
       setPickedDifficulty(true);
     }
+  }
+
+  //Play Again - Reset Stats
+  const playAgain = () => {
+    setNthQuestion(0);
+    setScore(0);
+    setNumCorrect(0);
+    setMultiplier(0);
+    setCombo(0);
+    setMaxCombo(0);
+    setHighestMult(0);
+    setCorCategory(0);
+    setCorNumber(0);
+    setCorName(0);
+    setCorMass(0);
+    setFinished(false);
   }
 
   //Verify Answer
@@ -399,7 +418,9 @@ const Intelliment = ({mode}) => {
                                   totalCorrect={numCorrect}
                                   totalScore={score}
                                   highestCombo={maxCombo}
-                                  highestMultiplier={highestMult} />}
+                                  highestMultiplier={highestMult}
+                                  pickedDifficulty={setPickedDifficulty}
+                                  playAgain={playAgain} />}
         </div>
       </>
   )

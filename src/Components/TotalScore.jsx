@@ -3,9 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import BlueFlask from '../Assets/Images/blue-flask.png';
 import "./TotalScore.css";
 
-const TotalScore = ({totalQuestions, totalCorrect, totalScore, highestCombo, highestMultiplier}) => {
+const TotalScore = ({totalQuestions, totalCorrect, totalScore, highestCombo, highestMultiplier, pickedDifficulty, playAgain}) => {
   const nav = useNavigate();
   
+  const onClickHandler = () => {
+    pickedDifficulty(false);
+  }
+
   return (
     <div className="total-score">
         <div className="img-wrapper">
@@ -24,9 +28,8 @@ const TotalScore = ({totalQuestions, totalCorrect, totalScore, highestCombo, hig
             </div>
         </div>
         <div className="button-wrapper">
-              <button onClick={() => nav("/intelliment")}>Play Again</button>
-              <button onClick={() => nav("/intelliment")}>Play Other Level</button>
-              <button onClick={() => nav("/intellimentCategory")}>Play Other Groups</button>
+              <button onClick={() => playAgain()}>Play Again</button>
+              <button onClick={() => onClickHandler()}>Play Other Level</button>
         </div>
     </div>
   )

@@ -21,23 +21,23 @@
   background-image: url("../../Assets/Images/battle-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: bottom;
+  background-position: center bottom;
   border-radius: 14px;
 }
 .battle-window .players-wrapper .entity {
   text-align: center;
   place-self: center;
-  background-color: #D9D9D9;
   position: relative;
 }
 .battle-window .players-wrapper .entity img {
-  width: max(10vw, 100px);
-  height: max(10vw, 100px);
+  width: max(6vw, 60px);
 }
 .battle-window .players-wrapper .entity .gfx {
   position: absolute;
+  width: max(6vw, 60px);
   top: 0;
   left: 0;
+  transform: translate(-15%, 50%);
   display: none;
 }
 .battle-window .players-wrapper .entity .gfx-active {

@@ -12,15 +12,12 @@ import jwtDecode from 'jwt-decode';
 import { periodicTable } from '../Data/PeriodicTableJSON';
 
 //Images
-import Shen from '../Assets/Images/shen-pewpew.jpg';
-import Chuu from '../Assets/Images/chuu-pewpew.jpg';
+import Shen from '../Assets/Images/shen-pewpew.png';
+import Chuu from '../Assets/Images/chuu-pewpew.png';
 import Pewpew from '../Assets/Images/pewpew.png';
 import RedHeart from '../Assets/Images/red-heart.svg';
 import GrayHeart from '../Assets/Images/gray-heart.svg';
 import BattleBG from '../Assets/Images/battle-bg.png';
-
-
-//CSS
 
 const BattleWindow = ({topic, stage, nextPhase, getScore, setMulti}) => {
   //Data States
@@ -31,8 +28,9 @@ const BattleWindow = ({topic, stage, nextPhase, getScore, setMulti}) => {
   const [ highestMulti, setHighestMulti ] = useState(1);
   const [ conRight, setConRight ] = useState(0);
   const [ score, setScore ] = useState(0);
+  const [ username, setUsername ] = useState(""); 
   const [ access, setAccess ] = useState();
-  const [ username, setUsername] = useState(""); 
+  const [ defeatInfo, setDefeatInfo ] = useState();
 
   //Health State Renderer
   const [ healthRender, setHealthRender ] = useState(<>
@@ -68,7 +66,7 @@ const BattleWindow = ({topic, stage, nextPhase, getScore, setMulti}) => {
   }, [])
 
   useEffect(() => {
-    if(index === 10 || index === 119) {
+    if(index === stage) {
       nextPhase(3);
       setMulti(highestMulti)
       getScore(score);
@@ -97,6 +95,8 @@ const BattleWindow = ({topic, stage, nextPhase, getScore, setMulti}) => {
   useEffect(() => {
     if (health === 0) {
       alert("You Died!");
+      //Better luck next time, the correct answer is something modal
+      setDefeatInfo(questions[index].elemAnswer);
     }
   }, [health])
 
