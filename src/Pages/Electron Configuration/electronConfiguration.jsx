@@ -2,13 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import jwtDecode from "jwt-decode"
 
-//Components
-import ElementQuestion from "../../Components/ElementQuestion.jsx";
-import Toast from '../../Components/Toast';
-import SideNav from '../../Components/SideNav';
-import ElectronFinish from '../../Components/ElectronFinish.jsx';
-import ElectronChart from '../../Components/ElectronChart.jsx';
-
 //Hooks
 import pushProgEC from '../../Hooks/pushProgEC.js';
 import getUserProgEC from '../../Hooks/getUserProgEC';
@@ -16,15 +9,28 @@ import getUserProgEC from '../../Hooks/getUserProgEC';
 //Data
 import { periodicTable } from '../../Data/PeriodicTableJSON';
 import backCard from '../../Assets/Images/back-card.png';
+
+//Assets
 import star from '../../Assets/Images/Star1.png';
 import clock from '../../Assets/Images/clock.png'
 import frontCard from '../../Assets/Images/front-card.png';
+import icon1 from '../../Assets/Images/icon1.png';
+import icon2 from '../../Assets/Images/icon2.png';
+import icon3 from '../../Assets/Images/icon3.png';
+import icon4 from '../../Assets/Images/icon4.png';
+import icon5 from '../../Assets/Images/icon5.png';
+import icon6 from '../../Assets/Images/icon6.png';
+import icon7 from '../../Assets/Images/icon7.png';
+import icon8 from '../../Assets/Images/icon8.png';
+import icon9 from '../../Assets/Images/icon9.png';
+import icon10 from '../../Assets/Images/icon10.png';
 
 
 //Style
 import "./electronConfiguration.css";
 
 const electronConfiguration = () => {
+  const icons = [icon1,icon2,icon3,icon4,icon5,icon6,icon7,icon8,icon9,icon10]
   const [ points, setPoints ] = useState(0)
   const [ igPoints, setIGPoints ] = useState(0)
   const [ cell, setCell ] = useState([])
@@ -80,6 +86,7 @@ const electronConfiguration = () => {
   useEffect(() => {
     if(gameProgress === 10){
       pushProgEC(access,igPoints,username)
+      overlayState(true)
       console.log('finish na')
     }
   },[gameProgress])
@@ -140,7 +147,7 @@ const electronConfiguration = () => {
     
   }
 
-  const handelClick = (cell,index, cellState) => {
+  const handleClick = (cell,index, cellState) => {
     setAnswer((current) => [...current, [cell,index, cellState]])
     let updatedCells = [...shuffledCell]
     updatedCells[index][3] = true
@@ -185,18 +192,21 @@ const electronConfiguration = () => {
                       <div className='game-cells' key={index}>
                           <a></a>
                       </div> : 
-                      <div className='' key={index} onClick={() => {clickState ? handelClick(shuffledCell[0],index, shuffledCell[3]) : console.log('sumosobra ka na')}}>
+                      <div className='' key={index} onClick={() => {clickState ? handleClick(shuffledCell[0],index, shuffledCell[3]) : console.log('sumosobra ka na')}}>
                         {
                           shuffledCell[3] ? 
                             <div className='game-cells scale-up-horizontal-center'>
                               <img className='card' src={frontCard} alt="" />
+                              <img className='icons' src={icons[shuffledCell[0]]}/>
                               <a className='text'>{shuffledCell[1]}</a>
                             </div> : 
                             <div className='game-cells' >
                               <img className='card scale-up-horizontal-center' src={backCard} alt="" />
                             </div>
                         }
+                        <img src={<img className='icons' src={shuffledCell[4]}/>} alt="" />
                       </div>
+                      
                     }
                   </>
                 )
@@ -211,7 +221,6 @@ const electronConfiguration = () => {
             <h1>C</h1>
             <h1>H</h1>
           </div>
-
         </div>
       </>
   )

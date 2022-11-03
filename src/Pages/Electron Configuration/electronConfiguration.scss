@@ -85,11 +85,19 @@
                 text-align: center;
                 width: 9vw;
                 height: 18vh;
+
+                .icons{
+                    width: 20%;
+                    position: absolute;
+                    top: 40%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
     
                 .text{
                     color: #0C004E;
                     position: absolute;
-                    top: 50%;
+                    top: 55%;
                     left: 50%;
                     transform: translate(-50%, -50%);
                 }
