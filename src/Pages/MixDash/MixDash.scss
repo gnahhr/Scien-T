@@ -1,84 +1,99 @@
 .mixDash-wrapper {
     height: 100vh;
+    display: grid;
+    gap: 1rem;
+    place-items: center;
+    margin: 1rem 2rem;
+}
+
+.dash-status {
+    display: flex;
+    justify-content: space-between;
+    color: #FFF;
+    .progress-bar {
+        justify-self: center;
+    }
+
+    .goal-count {
+        justify-self: flex-end;
+    }
 }
 
 .mixDash-window {
-    display: grid;
-    grid-template-rows: 20% 45% 35%;
-    place-content: center;
+    width: 100%;
     margin: 1rem;
     padding: .5rem;
-    background-color: rgba(25, 7, 54, 0.5);
+    background-color: #5B5B84;
     border-radius: 16px;
 
-    .dash-status {
-        display: flex;
-        justify-content: space-between;
-        color: #FFF;
-        .progress-bar {
-            justify-self: center;
-        }
 
-        .goal-count {
-            justify-self: flex-end;
-        }
-    }
-
-    .customer-wrapper {
+    .customer-backdrop {
+        width: 100%;
+        height: 50vh;
+        background-image: url("../../Assets/Images/mixdash-bg.png");
+        background-color: #D9D9D9;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center bottom;
         display: grid;
-        grid-template-rows: 1fr 2fr;
-        position: relative;
-        align-self: flex-end;
+        justify-content: center;
+        align-content: flex-end;
+        border-radius: 15px 15px 0 0;
 
-        .satisfaction {
-            height: 5px;
-            border-radius: 5px;
-            transition: background-color linear 50ms;
-            transition: width linear 50ms;
-        }
-
-        .order-wrapper {
-            background-color: #FFF;
-            height: 50%;
-            border-radius: 5px;
+        .customer-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            position: relative;
             align-self: flex-end;
-            margin-bottom: 2vh;
-
-            .order {
-                display: grid;
-                align-items: center;
-                text-align: center;
-                height: 100%;
+            margin: auto;
+            width: 80%;
+            
+    
+            .satisfaction {
+                height: 5px;
+                border-radius: 5px;
+                transition: background-color linear 50ms;
+                transition: width linear 50ms;
+            }
+    
+            .order-wrapper {
+                background-color: #FFD600;
+                height: max(50%, 3rem);
+                border-radius: 5px;
+                align-self: flex-start;
+                margin-left: 2rem;
+                position: relative;
+                z-index: 2;
+    
+                .order {
+                    display: grid;
+                    align-items: center;
+                    text-align: center;
+                    height: 100%;
+                }
+            }
+    
+            .order-wrapper::after{
+                content:"";
+                position: absolute;
+                width: 0;
+                height: 2rem;
+                border-left: 1rem transparent solid;
+                border-top: 3rem #FFD600 solid;
+                border-right: 1rem transparent solid;
+                transform: translate(-100%, 35%) rotate(45deg);
+                left: 0;
+                top: 0;
+                display: block;
+                z-index: -1;
+            }
+    
+            #customer {
+                width: clamp(100px, 20vw, 10rem);
+                justify-self: center;
+                align-self: flex-end;
             }
         }
-
-        .order-wrapper::after{
-            content:"";
-            display: absolute;
-            width: 3rem;
-            height: 2rem;
-            border-left: 1.5rem #FFF solid;
-            border-bottom: 1rem transparent solid;
-            transform: translateY(-80%);
-            display: block;
-        }
-
-        #customer {
-            width: max(20vw, 100px);
-            justify-self: center;
-            align-self: flex-end;
-        }
-    }
-
-    .customer-wrapper::after {
-        content: "";
-        border-bottom: clamp(16px, 2vw, 2rem) solid brown;
-        width: 100%;
-        position: absolute;
-        bottom: 0;
-        width: 90vw;
-        left: 50%;
-        transform: translateX(-50%);
     }
 
     .elements-wrapper {

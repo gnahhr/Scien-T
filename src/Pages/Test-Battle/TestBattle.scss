@@ -1,173 +1,229 @@
-.battle-window{
-    background-color:rgba(255, 255, 255, 0.5);
+.test-battle {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 2fr 1fr;
     margin: 2rem auto;
-    padding: 3rem;
-    width: 80%;
-    height: 80vh;
+    gap: 1rem;
+    place-items: center;
+}
 
-    .players-wrapper {
+.testBattle-wrapper{
+    .score {
+        background-color: #0C004E;
+        color: #FFFFFF;
+        display: flex;
+        width: 8rem;
+        padding: .5rem;
+        border-radius: 5px;
+        justify-self: flex-start;
+        margin-bottom: 1rem;
+    
+        img {
+            aspect-ratio: 1;
+            width: 1rem;
+            margin: 0 .2rem;
+        }
+    }
+    
+    .battle-window{
         display: grid;
-        grid-template-areas: "whitespace question enemy"
-                             "player info timer";
-        grid-template-columns: 1fr 2fr 1fr;
-        grid-template-rows: repeat(2, 1fr);
-        background-color: #190736;
-        padding: 1rem;
-        width: 90%;
-        height: 90%;
-        margin: auto;
-
-        background-image: url("../../Assets/Images/battle-bg.png");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center bottom;
-
-        border-radius: 14px;
-
-        .entity {
-            text-align: center;
-            place-self: center;
-            position: relative;
-
-            img {
-                width: max(6vw, 60px);
-            }
-
-            .gfx {
-                position: absolute;
-                width: max(6vw, 60px);
-                top: 0;
-                left: 0;
-                transform: translate(-15%, 50%);
-                display: none;
-            }
-
-            .gfx-active {
-                display: block;
-                animation: blink-animation .3s steps(5, start) infinite;
-            }
-        }
-
-        .player {
-            grid-area: player;
-            align-self: flex-end;
-        }
-
-        .enemy {
-            grid-area: enemy;
-            align-self: flex-start;
-        }
-
-        .question-bubble {
-            display: flex;
-            align-self: flex-start;
-            justify-self: flex-end;
-            background-color: #D9D9D9;
-            grid-area: question;
-            border-radius: 2px;
-            padding: 5px;
-            margin-right: 2rem;
-            position: relative;
-            z-index: 5;
-
-            .element-icon {
-                padding: 1em;
-                background-color: black;
-                border-radius: 5%;
-                color: white;
-                margin: .5em;
-            }
-            .question {
-                display: grid;
-                place-items: center;
-            }
-        }
-
-        .question-bubble::after {
-            content: "";
-            width: 4em;
-            position: absolute;
-            bottom: 0;
-            right: -13%;
-            border-right: 5em solid transparent;
-            border-bottom: 2em solid #D9D9D9;
-            z-index: -1;
-        }
-
-        .player-info {
-            display: flex;
-            flex-direction: column;
-            background-color: rgba(255, 255, 255, 0.5);
-            grid-area: info;
-
-            align-self: flex-end;
-            justify-self: flex-start;
-
-            padding: .5rem 1rem;
-            border-radius: 15px;
-
-            .username {
-                align-self: flex-start;
-                color:white;
-            }
-
-            .user-health {
-                align-self: center;
-                
+        background-color:#474747;
+        grid-template-columns: 1fr;
+        grid-template-rows: 2fr 1fr;
+        padding: .3rem;
+        border-radius: 10px;
+        height: fit-content;
+        width: 85vw;
+    
+        .players-wrapper {
+            display: grid;
+            grid-template-areas: "whitespace question enemy"
+                                 "player info timer";
+            grid-template-columns: 1fr 2fr 1fr;
+            grid-template-rows: repeat(2, 1fr);
+            background-color: #190736;
+            padding: 1rem;
+            width: 95%;
+            height: 90%;
+            margin: auto;
+    
+            background-image: url("../../Assets/Images/battle-bg.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center bottom;
+    
+            border-radius: 14px 14px 0 0;
+    
+            .entity {
+                text-align: center;
+                place-self: center;
+                position: relative;
+    
                 img {
-                    width: 2rem;
-                    margin: auto 2px;
+                    width: max(6vw, 80px);
+                }
+    
+                .gfx {
+                    position: absolute;
+                    width: max(6vw, 60px);
+                    top: 0;
+                    left: 0;
+                    transform: translate(-15%, 50%);
+                    display: none;
+                }
+    
+                .gfx-active {
+                    display: block;
+                    animation: blink-animation .3s steps(5, start) infinite;
+                }
+            }
+    
+            .player {
+                grid-area: player;
+                align-self: flex-end;
+                justify-self: flex-end;
+            }
+    
+            .enemy {
+                grid-area: enemy;
+                align-self: flex-start;
+                justify-self: flex-start;
+            }
+    
+            .question-bubble {
+                display: flex;
+                align-self: flex-start;
+                justify-self: flex-end;
+                background-color: #FFDA5D;
+                // box-shadow: 0px 0px 5px 5px #474747;
+                grid-area: question;
+                border-radius: 2px;
+                padding: 5px;
+                margin: 1rem 2rem auto auto;
+                position: relative;
+                z-index: 5;
+    
+                .element-icon {
+                    padding: 1em;
+                    background-color: #3B0089;
+                    border-radius: 5%;
+                    color: #FFFFFF;
+                    margin: .5em;
+                }
+                .question {
+                    display: grid;
+                    place-items: center;
+                    
+                    p {
+                        color: #0C004E;
+                    }
+                }
+            }
+    
+            .question-bubble::after {
+                content: "";
+                width: 4em;
+                height: 3em;
+                position: absolute;
+                bottom: 0;
+                right: -10%;
+                background-color: #FFDA5D;
+                clip-path: polygon(0 50%, 0% 100%, 100% 100%);
+                border-bottom-left-radius: 25px;
+                z-index: -2;
+            }
+    
+            .player-info {
+                display: flex;
+                flex-direction: column;
+                background-color: #3B0089;;
+                grid-area: info;
+    
+                align-self: flex-end;
+                justify-self: flex-start;
+    
+                padding: .5rem 1rem;
+                border-radius: 15px;
+    
+                margin-bottom: 1rem;
+    
+                .username {
+                    align-self: flex-start;
+                    color:white;
+                }
+    
+                .user-health {
+                    align-self: center;
+                    
+                    img {
+                        width: 2rem;
+                        margin: auto 2px;
+                    }
                 }
             }
         }
-    }
-
-    .action-choices {
-        margin-top: 1rem;
-        display: grid;
-        grid-template-columns: 2fr 1fr;
-        width: 90%;
-        height: 80%;
-        margin: auto;
-        
-        .choices-wrapper {
-            padding: 2rem;
-            background-color: rgba(25, 7, 54, 0.5);
+    
+        .action-choices {
+            margin-top: 1rem;
             display: grid;
-            place-items: center;
-            .label {
-                color: white;
-                text-align: center;
-            }
+            grid-template-columns: 2fr 1fr;
+            padding: 0 1rem;
+            max-width: 95%;
+            width: 95%;
+            margin: 1rem auto;
+            background-color: #E2E7FF;
+            border-radius: 0 0 14px 14px;
             
-            .battle-log {
-                grid-row: 1/2;
-                h1 {
-                    color: white;
-                    margin: none;
-                    font-size: clamp(16px, 3vw, 2rem);
+            .choices-wrapper {
+                padding: .5rem 1rem 1rem;
+                display: grid;
+                place-items: center;
+                border-right: 5.5px #C7D1FF solid;
+                max-height: fit-content;
+    
+                .label {
                     text-align: center;
                 }
-            }
-
-            .choices {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                grid-template-rows: 1fr 1fr;
-                height: 80%;
-                width: 100%;
-                gap: 1rem;
-                place-items: center;
+                
+                .battle-log {
+                    grid-row: 1/2;
+                    h2 {
+                        margin: 0;
+                        font-size: clamp(16px, 3vw, 2rem);
+                        text-align: center;
+                        word-wrap: break-word;
+                    }
+                }
+    
+                .choices {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-rows: 1fr 1fr;
+                    height: 80%;
+                    width: 100%;
+                    gap: 1rem;
+                    place-items: center;
+    
+                    button {
+                        background-color: #474747;
+                        color: #FFFFFF;
+                        width: 100%;
+                        padding: .1rem 1.8rem;
+                        box-shadow: 0 0 0 .2rem #474747;
+                        border-radius: 2px;
+                        font-size: clamp(13px, 2vw, 1rem);
+                    }
+    
+                    button:hover {
+                        background-color: #21AB97;
+                    }
+                }
             }
         }
-    }
-
-    .items-wrapper {
-        display: grid;
-        place-items: center;
+    
+        .items-wrapper {
+            border-left: 5.5px #C7D1FF solid;
+            display: grid;
+            place-items: center;
+        }
     }
 }
 
@@ -184,17 +240,30 @@
 
   
 @media only screen and (orientation: portrait) {
-    .action-choices{
-        display: flex !important;
-        flex-direction: column;
-        gap: 2rem;
-    }
-
-    .battle-window {
-        grid-template-rows: 1fr 1fr;
-        .players-wrapper {
-            height: auto;
+    .testBattle-wrapper {
+        .battle-window {
+            grid-template-rows: 1fr 1fr;
+            width: auto;
+            margin: auto;
+    
+            .players-wrapper {
+                height: auto;
+            }
+    
+            .action-choices{
+                display: flex !important;
+                flex-direction: column;
+                gap: 2rem;
+                padding-bottom: 1rem;
+        
+                .choices-wrapper {
+                    border-right: 0 solid;
+                }
+            }
+    
+            .items-wrapper {
+                border-left: 0 solid;
+            }
         }
     }
 }
-

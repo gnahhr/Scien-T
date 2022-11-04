@@ -1,38 +1,60 @@
-.battle-window {
-  background-color: rgba(255, 255, 255, 0.5);
+.test-battle {
   display: grid;
+  margin: 2rem auto;
+  gap: 1rem;
+  place-items: center;
+}
+
+.testBattle-wrapper .score {
+  background-color: #0C004E;
+  color: #FFFFFF;
+  display: flex;
+  width: 8rem;
+  padding: 0.5rem;
+  border-radius: 5px;
+  justify-self: flex-start;
+  margin-bottom: 1rem;
+}
+.testBattle-wrapper .score img {
+  aspect-ratio: 1;
+  width: 1rem;
+  margin: 0 0.2rem;
+}
+.testBattle-wrapper .battle-window {
+  display: grid;
+  background-color: #474747;
   grid-template-columns: 1fr;
   grid-template-rows: 2fr 1fr;
-  margin: 2rem auto;
-  padding: 3rem;
-  width: 80%;
-  height: 80vh;
+  padding: 0.3rem;
+  border-radius: 10px;
+  height: fit-content;
+  width: 85vw;
 }
-.battle-window .players-wrapper {
+.testBattle-wrapper .battle-window .players-wrapper {
   display: grid;
   grid-template-areas: "whitespace question enemy" "player info timer";
   grid-template-columns: 1fr 2fr 1fr;
   grid-template-rows: repeat(2, 1fr);
   background-color: #190736;
   padding: 1rem;
-  width: 90%;
+  width: 95%;
   height: 90%;
   margin: auto;
   background-image: url("../../Assets/Images/battle-bg.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center bottom;
-  border-radius: 14px;
+  border-radius: 14px 14px 0 0;
 }
-.battle-window .players-wrapper .entity {
+.testBattle-wrapper .battle-window .players-wrapper .entity {
   text-align: center;
   place-self: center;
   position: relative;
 }
-.battle-window .players-wrapper .entity img {
-  width: max(6vw, 60px);
+.testBattle-wrapper .battle-window .players-wrapper .entity img {
+  width: max(6vw, 80px);
 }
-.battle-window .players-wrapper .entity .gfx {
+.testBattle-wrapper .battle-window .players-wrapper .entity .gfx {
   position: absolute;
   width: max(6vw, 60px);
   top: 0;
@@ -40,100 +62,111 @@
   transform: translate(-15%, 50%);
   display: none;
 }
-.battle-window .players-wrapper .entity .gfx-active {
+.testBattle-wrapper .battle-window .players-wrapper .entity .gfx-active {
   display: block;
   animation: blink-animation 0.3s steps(5, start) infinite;
 }
-.battle-window .players-wrapper .player {
+.testBattle-wrapper .battle-window .players-wrapper .player {
   grid-area: player;
   align-self: flex-end;
+  justify-self: flex-end;
 }
-.battle-window .players-wrapper .enemy {
+.testBattle-wrapper .battle-window .players-wrapper .enemy {
   grid-area: enemy;
   align-self: flex-start;
+  justify-self: flex-start;
 }
-.battle-window .players-wrapper .question-bubble {
+.testBattle-wrapper .battle-window .players-wrapper .question-bubble {
   display: flex;
   align-self: flex-start;
   justify-self: flex-end;
-  background-color: #D9D9D9;
+  background-color: #FFDA5D;
   grid-area: question;
   border-radius: 2px;
   padding: 5px;
-  margin-right: 2rem;
+  margin: 1rem 2rem auto auto;
   position: relative;
   z-index: 5;
 }
-.battle-window .players-wrapper .question-bubble .element-icon {
+.testBattle-wrapper .battle-window .players-wrapper .question-bubble .element-icon {
   padding: 1em;
-  background-color: black;
+  background-color: #3B0089;
   border-radius: 5%;
-  color: white;
+  color: #FFFFFF;
   margin: 0.5em;
 }
-.battle-window .players-wrapper .question-bubble .question {
+.testBattle-wrapper .battle-window .players-wrapper .question-bubble .question {
   display: grid;
   place-items: center;
 }
-.battle-window .players-wrapper .question-bubble::after {
+.testBattle-wrapper .battle-window .players-wrapper .question-bubble .question p {
+  color: #0C004E;
+}
+.testBattle-wrapper .battle-window .players-wrapper .question-bubble::after {
   content: "";
   width: 4em;
+  height: 3em;
   position: absolute;
   bottom: 0;
-  right: -13%;
-  border-right: 5em solid transparent;
-  border-bottom: 2em solid #D9D9D9;
-  z-index: -1;
+  right: -10%;
+  background-color: #FFDA5D;
+  clip-path: polygon(0 50%, 0% 100%, 100% 100%);
+  border-bottom-left-radius: 25px;
+  z-index: -2;
 }
-.battle-window .players-wrapper .player-info {
+.testBattle-wrapper .battle-window .players-wrapper .player-info {
   display: flex;
   flex-direction: column;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #3B0089;
   grid-area: info;
   align-self: flex-end;
   justify-self: flex-start;
   padding: 0.5rem 1rem;
   border-radius: 15px;
+  margin-bottom: 1rem;
 }
-.battle-window .players-wrapper .player-info .username {
+.testBattle-wrapper .battle-window .players-wrapper .player-info .username {
   align-self: flex-start;
   color: white;
 }
-.battle-window .players-wrapper .player-info .user-health {
+.testBattle-wrapper .battle-window .players-wrapper .player-info .user-health {
   align-self: center;
 }
-.battle-window .players-wrapper .player-info .user-health img {
+.testBattle-wrapper .battle-window .players-wrapper .player-info .user-health img {
   width: 2rem;
   margin: auto 2px;
 }
-.battle-window .action-choices {
+.testBattle-wrapper .battle-window .action-choices {
   margin-top: 1rem;
   display: grid;
   grid-template-columns: 2fr 1fr;
-  width: 90%;
-  height: 80%;
-  margin: auto;
+  padding: 0 1rem;
+  max-width: 95%;
+  width: 95%;
+  margin: 1rem auto;
+  background-color: #E2E7FF;
+  border-radius: 0 0 14px 14px;
 }
-.battle-window .action-choices .choices-wrapper {
-  padding: 2rem;
-  background-color: rgba(25, 7, 54, 0.5);
+.testBattle-wrapper .battle-window .action-choices .choices-wrapper {
+  padding: 0.5rem 1rem 1rem;
   display: grid;
   place-items: center;
+  border-right: 5.5px #C7D1FF solid;
+  max-height: fit-content;
 }
-.battle-window .action-choices .choices-wrapper .label {
-  color: white;
+.testBattle-wrapper .battle-window .action-choices .choices-wrapper .label {
   text-align: center;
 }
-.battle-window .action-choices .choices-wrapper .battle-log {
+.testBattle-wrapper .battle-window .action-choices .choices-wrapper .battle-log {
   grid-row: 1/2;
 }
-.battle-window .action-choices .choices-wrapper .battle-log h1 {
-  color: white;
-  margin: none;
+.testBattle-wrapper .battle-window .action-choices .choices-wrapper .battle-log h2 {
+  margin: 0;
   font-size: clamp(16px, 3vw, 2rem);
   text-align: center;
+  word-wrap: break-word;
 }
-.battle-window .action-choices .choices-wrapper .choices {
+.testBattle-wrapper .battle-window .action-choices .choices-wrapper .choices {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -142,7 +175,20 @@
   gap: 1rem;
   place-items: center;
 }
-.battle-window .items-wrapper {
+.testBattle-wrapper .battle-window .action-choices .choices-wrapper .choices button {
+  background-color: #474747;
+  color: #FFFFFF;
+  width: 100%;
+  padding: 0.1rem 1.8rem;
+  box-shadow: 0 0 0 0.2rem #474747;
+  border-radius: 2px;
+  font-size: clamp(13px, 2vw, 1rem);
+}
+.testBattle-wrapper .battle-window .action-choices .choices-wrapper .choices button:hover {
+  background-color: #21AB97;
+}
+.testBattle-wrapper .battle-window .items-wrapper {
+  border-left: 5.5px #C7D1FF solid;
   display: grid;
   place-items: center;
 }
@@ -158,15 +204,24 @@
   }
 }
 @media only screen and (orientation: portrait) {
-  .action-choices {
+  .testBattle-wrapper .battle-window {
+    grid-template-rows: 1fr 1fr;
+    width: auto;
+    margin: auto;
+  }
+  .testBattle-wrapper .battle-window .players-wrapper {
+    height: auto;
+  }
+  .testBattle-wrapper .battle-window .action-choices {
     display: flex !important;
     flex-direction: column;
     gap: 2rem;
+    padding-bottom: 1rem;
   }
-  .battle-window {
-    grid-template-rows: 1fr 1fr;
+  .testBattle-wrapper .battle-window .action-choices .choices-wrapper {
+    border-right: 0 solid;
   }
-  .battle-window .players-wrapper {
-    height: auto;
+  .testBattle-wrapper .battle-window .items-wrapper {
+    border-left: 0 solid;
   }
 }

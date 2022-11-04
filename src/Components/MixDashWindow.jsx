@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 //Design
-import Customer from '../Assets/Images/customer.svg';
+import Customer from '../Assets/Images/MixCust.png';
 
 //Data
 import {recipe} from '../Data/Recipe.js';
@@ -190,41 +190,44 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase}) => {
   };
 
   return (
+    <>
+    <div className="dash-status">
+      <p className="progress-bar">
+        Progress: {earned}
+      </p>
+      <p className="goal-count">
+        Goal: {build.goal}
+      </p>
+    </div>
     <div className="mixDash-window">
-        <div className="dash-status">
-          <p className="progress-bar">
-            Progress: {earned}
-          </p>
-          <p className="goal-count">
-            Goal: {build.goal}
-          </p>
-        </div>
+      <div className="customer-backdrop">
         <div className="customer-wrapper">
+          {customers && <img src={customers[currCustomer].customerImg} alt="" id="customer"/>}
           <div className="order-wrapper">
             <div className="satisfaction"
                  style={{
-                  width: `${custSatis}%`,
-                  backgroundColor:`${satisColor}`
-                }}
-                >
+                   width: `${custSatis}%`,
+                   backgroundColor:`${satisColor}`
+                  }}
+                  >
 
             </div>
             <p className="order">
               {customers && customers[currCustomer].order}
             </p>
           </div>
-          {customers && <img src={customers[currCustomer].customerImg} alt="" id="customer"/>}
         </div>
+      </div>
         <div className="elements-wrapper">
           <div className="elements">
             {choices && choices.map((choice) =>
             <div className={
-                choice.selected ? 
-                "dash-elem element selected" :
+              choice.selected ? 
+              "dash-elem element selected" :
                 "dash-elem element"
-            }
-                onClick={() => toggleSelected(choice.element)}
-            >{choice.element}</div>)}
+              }
+              onClick={() => toggleSelected(choice.element)}
+              >{choice.element}</div>)}
           </div>
           <div className="mix-wrapper">
             <button className="battle-btn cta fluid-btn"
@@ -236,8 +239,8 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase}) => {
         </div>
 
       {showModal && <NewRecipeModal newCompound={build.newCompound} showModal={setShowModal}/>}
-
     </div>
+    </>
   )
 }
 

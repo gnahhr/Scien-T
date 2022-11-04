@@ -11,13 +11,16 @@ import jwtDecode from 'jwt-decode';
 //Data
 import { periodicTable } from '../Data/PeriodicTableJSON';
 
+//Components
+import BattleItemWindow from './BattleItemWindow';
+
 //Images
 import Shen from '../Assets/Images/shen-pewpew.png';
 import Chuu from '../Assets/Images/chuu-pewpew.png';
 import Pewpew from '../Assets/Images/pewpew.png';
 import RedHeart from '../Assets/Images/red-heart.svg';
-import GrayHeart from '../Assets/Images/gray-heart.svg';
-import BattleBG from '../Assets/Images/battle-bg.png';
+import WhiteHeart from '../Assets/Images/white-heart.svg';
+import Star from '../Assets/Images/battle-star.svg';
 
 const BattleWindow = ({topic, stage, nextPhase, getScore, setMulti}) => {
   //Data States
@@ -43,6 +46,9 @@ const BattleWindow = ({topic, stage, nextPhase, getScore, setMulti}) => {
   const [ isWrong, setIsWrong ] = useState(false);
   const [ isRight, setIsRight ] = useState(false);
   const [ isAnimate, setIsAnimate ] = useState(false);
+
+  //Item State
+  const [ showItems, setShowItems ] = useState(false);
 
   //Questions
   const topicQs = {
@@ -83,7 +89,7 @@ const BattleWindow = ({topic, stage, nextPhase, getScore, setMulti}) => {
     let updatedHealth = [];
     for (let x = 0; x < 3; x++){
       if ( x >= health) {
-        updatedHealth.push(<img src={GrayHeart} alt="gray" />)
+        updatedHealth.push(<img src={WhiteHeart} alt="gray" />)
       } else {
         updatedHealth.push(<img src={RedHeart} alt="red" />)
       }
@@ -222,6 +228,14 @@ const BattleWindow = ({topic, stage, nextPhase, getScore, setMulti}) => {
   
 
   return (
+    <>
+    <div className="testBattle-wrapper"> 
+    <div className="score">
+      <img src={Star} alt="Star" />
+      <div className="score-text">
+        Score: {score}
+      </div>
+    </div>
     <div className="battle-window">
         <div className="players-wrapper">
             <div className="entity player">
@@ -271,10 +285,17 @@ const BattleWindow = ({topic, stage, nextPhase, getScore, setMulti}) => {
                 }
             </div>
             <div className="items-wrapper">
-                <button className="teal battle-btn fluid-btn">Items</button>
+                {showItems ?
+                <BattleItemWindow toggleWindow={setShowItems}/>
+                :
+                <button className="teal battle-btn fluid-btn" onClick={() => setShowItems(true)}>Items</button>
+                }
+                
             </div>
         </div>
     </div>
+    </div>
+    </>
   )
 }
 

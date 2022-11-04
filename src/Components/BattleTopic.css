@@ -1,10 +1,10 @@
-.topic-wrapper {
-  margin: 1rem;
-}
 .topic-wrapper h2 {
+  margin: 0;
   text-align: center;
 }
 .topic-wrapper .topics > button {
   display: block;
   margin: 1rem auto;
+  width: 100%;
+  padding: 0.5rem 1rem;
 }

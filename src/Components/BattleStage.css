@@ -1,9 +1,5 @@
-.stage-wrapper {
-  margin: 1rem;
-  display: grid;
-  place-items: center;
-}
 .stage-wrapper h2 {
+  margin: 0;
   text-align: center;
 }
 .stage-wrapper .stages {
