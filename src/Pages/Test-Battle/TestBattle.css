@@ -52,7 +52,7 @@
   position: relative;
 }
 .testBattle-wrapper .battle-window .players-wrapper .entity img {
-  width: max(6vw, 80px);
+  width: max(6vw, 60px);
 }
 .testBattle-wrapper .battle-window .players-wrapper .entity .gfx {
   position: absolute;
@@ -80,27 +80,31 @@
   display: flex;
   align-self: flex-start;
   justify-self: flex-end;
-  background-color: #FFDA5D;
+  background-color: #182747;
   grid-area: question;
-  border-radius: 2px;
+  border-radius: 15px 15px 0 15px;
   padding: 5px;
   margin: 1rem 2rem auto auto;
   position: relative;
   z-index: 5;
 }
 .testBattle-wrapper .battle-window .players-wrapper .question-bubble .element-icon {
-  padding: 1em;
-  background-color: #3B0089;
-  border-radius: 5%;
-  color: #FFFFFF;
+  padding: 0.5em;
+  background-color: #E1D7BE;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  color: #182747;
   margin: 0.5em;
+  font-size: clamp(16px, 1.5vw, 2rem);
 }
 .testBattle-wrapper .battle-window .players-wrapper .question-bubble .question {
   display: grid;
   place-items: center;
 }
 .testBattle-wrapper .battle-window .players-wrapper .question-bubble .question p {
-  color: #0C004E;
+  color: #FFEFD7;
+  font-size: clamp(14px, 1.2vw, 1.5rem);
 }
 .testBattle-wrapper .battle-window .players-wrapper .question-bubble::after {
   content: "";
@@ -109,7 +113,7 @@
   position: absolute;
   bottom: 0;
   right: -10%;
-  background-color: #FFDA5D;
+  background-color: #182747;
   clip-path: polygon(0 50%, 0% 100%, 100% 100%);
   border-bottom-left-radius: 25px;
   z-index: -2;
@@ -211,12 +215,13 @@
   }
   .testBattle-wrapper .battle-window .players-wrapper {
     height: auto;
+    padding: 0.5rem;
   }
   .testBattle-wrapper .battle-window .action-choices {
     display: flex !important;
     flex-direction: column;
     gap: 2rem;
-    padding-bottom: 1rem;
+    padding: 0.5rem;
   }
   .testBattle-wrapper .battle-window .action-choices .choices-wrapper {
     border-right: 0 solid;

@@ -5,7 +5,7 @@
 //-Mixing Table
 //--Right Combinations == Satisfied Customer
 //--Wrong combinations == Customer Satisfaction decreases
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import MixDashWindow from '../../Components/MixDashWindow';
 import MixDashLevels from '../../Components/MixDashLevels';
 import MixDashResult from '../../Components/MixDashResult';
@@ -21,6 +21,10 @@ const MixDash = () => {
   const [ level, setLevel ] = useState(0);
   const [ result, setResult ] = useState();
   const [ resultState, setResultState ] = useState("");
+
+  useEffect(() => {
+    console.log(resultState);
+  }, [resultState]);
   
   return (
     <>
