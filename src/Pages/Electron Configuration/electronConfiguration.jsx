@@ -12,7 +12,6 @@ import backCard from '../../Assets/Images/back-card.png';
 
 //Assets
 import star from '../../Assets/Images/Star1.png';
-import clock from '../../Assets/Images/clock.png'
 import frontCard from '../../Assets/Images/front-card.png';
 import icon1 from '../../Assets/Images/icon1.png';
 import icon2 from '../../Assets/Images/icon2.png';
@@ -42,6 +41,7 @@ const electronConfiguration = () => {
   const [ gameProgress, setGameProgress ] = useState(0)
 
   const [ overlayState, setOverlayState ] = useState(true)
+  const [ showModal, setShowModal ] = useState(false)
 
   
   const [ access, setAccess ] = useState('')
@@ -53,14 +53,13 @@ const electronConfiguration = () => {
     const user = jwtDecode(token)
     setAccess(user.id)
     setUsername(user.username)
-    cellGenerator(119)
-    setOverlayState(true);
+    cellGenerator(119);
     (async() => {
       const data = await getUserProgEC(user.id)
       setPoints(data)
     })()
   },[])
-
+  
   useEffect(() => {
     if(cell.length > 0)
       shuffleCells()
@@ -86,7 +85,7 @@ const electronConfiguration = () => {
   useEffect(() => {
     if(gameProgress === 10){
       pushProgEC(access,igPoints,username)
-      overlayState(true)
+      setShowModal(true)
       console.log('finish na')
     }
   },[gameProgress])
@@ -154,6 +153,15 @@ const electronConfiguration = () => {
     setShuffledCell(updatedCells)
   }
 
+  const modal = () => {
+    setCell([])
+    setShuffledCell([])
+    cellGenerator(119)
+    setGameProgress(0)
+    setShowModal(false)
+    setOverlayState(true)
+  }
+
   return (
       <>
         {overlayState && 
@@ -161,6 +169,16 @@ const electronConfiguration = () => {
             <div className='bg'></div>
             <div className='opening-text'><h1>Click to Start</h1></div>
           </div>
+        }
+
+        {showModal && 
+          <div className='overlay'>
+          <div className='bg'></div>
+          <div className='container-text'>
+            <h1>Would you like to play again?</h1>
+            <button onClick={() => modal()}>Yes</button>
+          </div>
+        </div>
         }
 
         <div className="main-header">
