@@ -1,5 +1,5 @@
 .newRecipe-modal {
-  background-color: #C9B570;
+  background-color: #FFE27D;
   width: 80%;
   border-radius: 10px;
 }
@@ -24,10 +24,11 @@
   display: flex;
 }
 .newRecipe-modal .recipe-wrapper .elem-wrapper .recipe-element p {
-  background-color: #FFFFFF;
+  background-color: #000000;
   padding: 1rem;
   border-radius: 15px;
   font-size: 2rem;
+  color: #FFFFFF;
 }
 .newRecipe-modal .recipe-wrapper .elem-wrapper .recipe-element:not(:last-child)::after {
   content: "+";

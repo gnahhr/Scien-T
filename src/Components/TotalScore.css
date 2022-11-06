@@ -3,7 +3,6 @@
   align-content: center;
   justify-items: center;
   position: relative;
-  margin-top: 25vh;
 }
 .total-score .wrapper {
   background-color: rgba(0, 0, 0, 0.5);

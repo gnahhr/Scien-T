@@ -14,6 +14,7 @@ import BattleTopic from '../../Components/BattleTopic';
 import BattleStage from '../../Components/BattleStage';
 import BattleWindow from '../../Components/BattleWindow';
 import BattleStats from '../../Components/BattleStats';
+import BattleDefeat from '../../Components/BattleDefeat';
 
 //Data
 import { periodicTable } from '../../Data/PeriodicTableJSON';
@@ -26,11 +27,15 @@ const TestBattle = () => {
   const navigate = useNavigate();
   const [ topic, setTopic ] = useState("");
   const [ stage, setStage ] = useState(0);
-  const [ score, setScore ] = useState(0);
   const [ progPhase, setProgPhase ] = useState(0);
-  const [ multi, setMulti ] = useState(0);
-  const [ battleResult, setBattleResult ] = useState("victory");
+  const [ battleResult, setBattleResult ] = useState({
+    totalEnemies: 0,
+    score: 0,
+    highMulti: 0,
+  });
+  const [ resultState, setResultState ] = useState("victory");
   const [ lastFinStage, setLastFinStage ] = useState()
+  const [ defeatInfo, setDefeatInfo ] = useState();
 
   const [ access, setAccess ] = useState('')
   const [ username, setUsername ] = useState('')
@@ -59,8 +64,10 @@ const TestBattle = () => {
   },[topic])
 
   useEffect(() => {//save score to DB
-    pushTestBattle(access,username,topic,stage,score)
-  },[score])
+    if (resultState === "victory"){
+      pushTestBattle(access,username,topic,stage, battleResult.score);
+    }
+  },[resultState])
   
   return (
     <>
@@ -70,8 +77,11 @@ const TestBattle = () => {
       <div className="test-battle">
         {progPhase === 0 && <BattleTopic setTopic={setTopic} nextPhase={setProgPhase}/>}
         {progPhase === 1 && <BattleStage setStage={setStage} lastFinStage={5} nextPhase={setProgPhase}/>}
-        {progPhase === 2 && <BattleWindow topic={topic} stage={stage} nextPhase={setProgPhase} setMulti={setMulti} getScore={setScore} battleResult={setBattleResult}/>}
-        {progPhase === 3 && <BattleStats totalEnemies={10} totalScore={score} highMulti={multi} setPhase={setProgPhase} setStage={setStage}/>}
+        {progPhase === 2 && <BattleWindow topic={topic} stage={stage} nextPhase={setProgPhase} battleResult={setBattleResult} resultState={setResultState} setDefeatInfo={setDefeatInfo}/>}
+        {progPhase === 3 && (resultState === "victory" ?
+        <BattleStats battleInfo={battleResult} setPhase={setProgPhase} setStage={setStage} stage={stage}/>
+        :
+        <BattleDefeat info={defeatInfo} setPhase={setProgPhase}/>)}
       </div>
     </>
   )

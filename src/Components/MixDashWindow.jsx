@@ -2,6 +2,11 @@ import React, { useState, useEffect } from 'react';
 
 //Design
 import Customer from '../Assets/Images/MixCust.png';
+import Microscope from '../Assets/Images/microscope.svg';
+import FlaskGroup from '../Assets/Images/flask-group.svg';
+import Light from '../Assets/Images/flourescent.svg';
+import Customers from '../Assets/Images/customers.svg'
+import Money from '../Assets/Images/money-bag.png'
 
 //Data
 import {recipe} from '../Data/Recipe.js';
@@ -14,7 +19,7 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase}) => {
   const [ custSatis, setCustSatis ] = useState(100);
   const [ earned, setEarned ] = useState(0);
   const [ tips, setTips ] = useState(0);
-  const [ totalEarned, setTotalEarned ] = useState(); 
+  const [ totalEarned, setTotalEarned ] = useState(0); 
   const [ choices, setChoices ] = useState([]);
 
   //Conditional States
@@ -22,6 +27,7 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase}) => {
   const [ selState, setSelState ] = useState(false);
   const [ satisColor, setSatisColor ] = useState("green");
   const [ showModal, setShowModal ] = useState(true); 
+  const [ finished, setFinished ] = useState(false);
 
   //On-mount
   useEffect(() => {
@@ -54,8 +60,30 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase}) => {
     }
     else if (!paused && custSatis > 0) {
       setTimeout(() => setCustSatis(() => custSatis - 1), 100);
+    } else if (!paused && custSatis === 0) {
+      if (currCustomer + 1 !== build.numOfCustomers){
+        setCurrCustomer(() => currCustomer + 1);
+      } else if (currCustomer + 1 === build.numOfCustomers) {
+        setFinished(true);
+      }
+      setCustSatis(100);
     }
   }, [custSatis, paused])
+
+  //End State
+  useEffect(() => {
+    setResult({
+      numberOfCustomers: build.numOfCustomers,
+      gainedMoney: earned,
+      tips: tips,
+      totalEarned: totalEarned
+    })
+
+    if (finished) {
+      build.goal <= totalEarned ? setResultState("victory") : setResultState("defeat");
+      nextPhase(2);
+    }
+  }, [finished, totalEarned])
 
   //Randomize Customers
   const initCustomers = () => {
@@ -121,29 +149,23 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase}) => {
   
     if (compareElemArr(selected.sort(), orderRecipe.sort())){
         const pay = customers[currCustomer].money;
-        console.log("Correct Recipe!");
+
         setEarned(() => earned + pay);
-        setTips(() => calcTip(custSatis, pay));
-        setTotalEarned(() => earned + tips);
+        setTips(() => tips + calcTip(custSatis, pay));
+        setTotalEarned(() => totalEarned + (pay + calcTip(custSatis, pay)));
+
         if (currCustomer + 1 !== build.numOfCustomers){
           setCurrCustomer(() => currCustomer + 1);
-        } else if (currCustomer + 1 === build.numOfCustomers){
-          setResult({
-            numberOfCustomers: build.numOfCustomers,
-            gainedMoney: earned,
-            tips: tips,
-            totalEarned: totalEarned
-          })
-          build.goal >= totalEarned ? setResultState("victory") : setResultState("defeat");
-          nextPhase(2);
+        } else if (currCustomer + 1 === build.numOfCustomers) {
+          setFinished(true);
         }
+
         setPaused(true);
         setSelState(false);
         setCustSatis(100);
         setInterval(() => setPaused(false), 1000);
         resetSelected();
     } else {
-        console.log("Wrong Recipe!");
         resetSelected();
         setSelState(false);
     }
@@ -192,15 +214,18 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase}) => {
   return (
     <>
     <div className="dash-status">
-      <p className="progress-bar">
-        Progress: {earned}
+      <p className="progress stats">
+          <img src={Customers} alt="customers" />
+          <p>{build.numOfCustomers - currCustomer}</p>
       </p>
-      <p className="goal-count">
-        Goal: {build.goal}
+      <p className="goal-count stats">
+        <img src={Money} alt="money-bag" />
+        <p>{earned}/{build.goal}</p> 
       </p>
     </div>
     <div className="mixDash-window">
       <div className="customer-backdrop">
+        <img src={Light} alt="light" className="fluorescent" />
         <div className="customer-wrapper">
           {customers && <img src={customers[currCustomer].customerImg} alt="" id="customer"/>}
           <div className="order-wrapper">
@@ -218,25 +243,34 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase}) => {
           </div>
         </div>
       </div>
+      <div className="bottom-wrapper">
+        <div className="microscope">
+          <img src={Microscope} alt="microscope" />
+        </div>
         <div className="elements-wrapper">
+          <h2>Available elements for this order</h2>
           <div className="elements">
             {choices && choices.map((choice) =>
             <div className={
               choice.selected ? 
-              "dash-elem element selected" :
-                "dash-elem element"
+              "dash-elem selected" :
+                "dash-elem"
               }
               onClick={() => toggleSelected(choice.element)}
               >{choice.element}</div>)}
           </div>
           <div className="mix-wrapper">
-            <button className="battle-btn cta fluid-btn"
+            <button className="battle-btn cta"
                     onClick={() => {verifyMix()}}
                     disabled={!selState}>
               Mix!
             </button>
           </div>
         </div>
+        <div className="flask-group">
+          <img src={FlaskGroup} alt="flask group" />
+        </div>
+      </div>
 
       {showModal && <NewRecipeModal newCompound={build.newCompound} showModal={setShowModal}/>}
     </div>

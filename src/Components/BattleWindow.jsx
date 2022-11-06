@@ -22,7 +22,7 @@ import RedHeart from '../Assets/Images/red-heart.svg';
 import WhiteHeart from '../Assets/Images/white-heart.svg';
 import Star from '../Assets/Images/battle-star.svg';
 
-const BattleWindow = ({topic, stage, nextPhase, getScore, setMulti}) => {
+const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDefeatInfo}) => {
   //Data States
   const [ questions, setQuestions ] = useState(undefined);
   const [ index, setIndex ] = useState(0);
@@ -33,7 +33,6 @@ const BattleWindow = ({topic, stage, nextPhase, getScore, setMulti}) => {
   const [ score, setScore ] = useState(0);
   const [ username, setUsername ] = useState(""); 
   const [ access, setAccess ] = useState();
-  const [ defeatInfo, setDefeatInfo ] = useState();
 
   //Health State Renderer
   const [ healthRender, setHealthRender ] = useState(<>
@@ -58,6 +57,14 @@ const BattleWindow = ({topic, stage, nextPhase, getScore, setMulti}) => {
     "atomicMass": "What is its atomic mass?"
   }
 
+  //Topics
+  const topicCats = {
+    "category": "CATEGORY",
+    "elemName": "NAME",
+    "atomicNum": "ATOMIC NUMBER",
+    "atomicMass": "ATOMIC MASS"
+  }
+
   //Get User Info
   useEffect(() => {
     const token = localStorage.getItem('token')
@@ -70,14 +77,6 @@ const BattleWindow = ({topic, stage, nextPhase, getScore, setMulti}) => {
   useEffect(() => {
     setQuestions(shuffleArray(generateQsTopic(topic, stage)));
   }, [])
-
-  useEffect(() => {
-    if(index === stage) {
-      nextPhase(3);
-      setMulti(highestMulti)
-      getScore(score);
-    }
-  }, [index])
   
   useEffect(() => {
     if (highestMulti < multiplier) {
@@ -100,9 +99,14 @@ const BattleWindow = ({topic, stage, nextPhase, getScore, setMulti}) => {
 
   useEffect(() => {
     if (health === 0) {
-      alert("You Died!");
       //Better luck next time, the correct answer is something modal
-      setDefeatInfo(questions[index].elemAnswer);
+      setDefeatInfo({
+        symbol: questions[index].elemSym,
+        topic: topicCats[[topic]],
+        answer: questions[index].elemAnswer
+      });
+      resultState("defeat");
+      nextPhase(3);
     }
   }, [health])
 
@@ -202,9 +206,17 @@ const BattleWindow = ({topic, stage, nextPhase, getScore, setMulti}) => {
     if (confirm) {
       animateTimeout(setIsRight);
       if (stage !== "endless"){
-        setIndex((index) => index <= 10 ? index + 1 : index);
+        if (index + 1 == 10){
+          victoryBattle();
+        } else {
+          setIndex((index) => index + 1);
+        }
       } else {
-        setIndex((index) => index <= 119 ? index + 1 : index);
+        if (index + 1 == 119){
+          victoryBattle();
+        } else {
+          setIndex((index) => index + 1);
+        }
       }
       setScore(() => score + (50 * multiplier));
       setConRight(() => conRight + 1);
@@ -224,7 +236,14 @@ const BattleWindow = ({topic, stage, nextPhase, getScore, setMulti}) => {
     }, 1500);
   }
 
-  //Animate Toggles
+  const victoryBattle = () => {
+    battleResult({
+      totalEnemies: questions.length,
+      score: score,
+      highMulti: highestMulti,
+    })
+    nextPhase(3);
+  }
   
 
   return (

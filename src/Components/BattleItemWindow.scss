@@ -1,10 +1,9 @@
 .item-window {
     width: 100%;
-    height: inherit;
+    height: 80%;
     background-color: #3B0089;
     color: white;
     padding: 4px;
-    margin: 1rem auto 1rem .25rem;
     border-radius: 13px;
 
 
@@ -40,7 +39,7 @@
 
     .items {
         overflow-y: auto;
-        height: 4.5rem;
+        height: inherit;
 
         .item {
             display: grid;

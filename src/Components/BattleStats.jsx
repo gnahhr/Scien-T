@@ -1,7 +1,7 @@
 import React from 'react';
 import BlueFlask from '../Assets/Images/blue-flask.png';
 
-const BattleStats = ({totalEnemies, totalScore, highMulti, battleResult, setPhase, stage, setStage}) => {
+const BattleStats = ({battleInfo, setPhase, stage, setStage}) => {
   const chooseLevel = (choice) => {
     setPhase(choice);
   }
@@ -20,9 +20,9 @@ const BattleStats = ({totalEnemies, totalScore, highMulti, battleResult, setPhas
         <div className="wrapper">
             <h2>Great Work!</h2>
             <div className="data-wrapper">
-                <p className="left-data">Total Enemies Defeated:</p> <p className="right-data">{totalEnemies}</p>
-                <p className="left-data">Total Score:</p> <p className="right-data">{totalScore}</p>
-                <p className="left-data">Highest Multiplier:</p> <p className="right-data">{highMulti}</p>
+                <p className="left-data">Total Enemies Defeated:</p> <p className="right-data">{battleInfo.totalEnemies}</p>
+                <p className="left-data">Total Score:</p> <p className="right-data">{battleInfo.score}</p>
+                <p className="left-data">Highest Multiplier:</p> <p className="right-data">{battleInfo.highMulti}</p>
             </div>
         </div>
         <div className="button-wrapper">

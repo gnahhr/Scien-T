@@ -1,5 +1,5 @@
 .mixDash-wrapper {
-    height: 100vh;
+    height: 85vh;
     display: grid;
     gap: 1rem;
     place-items: center;
@@ -9,7 +9,30 @@
 .dash-status {
     display: flex;
     justify-content: space-between;
-    color: #FFF;
+    background-color: #D9D9D9;
+    border-radius: 15px;
+    gap: 2rem;
+    padding: .5rem 1rem;
+
+    .stats{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: .5rem;
+
+        img {
+            width: 2.5rem;
+        }
+
+        p {
+            background-color: rgba(35, 32, 32, 0.75);
+            color: #D9D9D9;
+            border-radius: 15px;
+            font-size: clamp(16px, 3vw, 2rem);
+            padding: .2rem 1rem;
+        }
+    }
+
     .progress-bar {
         justify-self: center;
     }
@@ -20,16 +43,15 @@
 }
 
 .mixDash-window {
-    width: 100%;
+    width: 85%;
+    height: fit-content;
     margin: 1rem;
     padding: .5rem;
     background-color: #5B5B84;
-    border-radius: 16px;
-
 
     .customer-backdrop {
         width: 100%;
-        height: 50vh;
+        height: 40vh;
         background-image: url("../../Assets/Images/mixdash-bg.png");
         background-color: #D9D9D9;
         background-repeat: no-repeat;
@@ -38,7 +60,15 @@
         display: grid;
         justify-content: center;
         align-content: flex-end;
-        border-radius: 15px 15px 0 0;
+        position: relative;
+
+        .fluorescent {
+            position: absolute;
+            width: clamp(40%, 10vw, 6rem);
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
         .customer-wrapper {
             display: grid;
@@ -50,7 +80,7 @@
             
     
             .satisfaction {
-                height: 5px;
+                height: 10px;
                 border-radius: 5px;
                 transition: background-color linear 50ms;
                 transition: width linear 50ms;
@@ -58,7 +88,8 @@
     
             .order-wrapper {
                 background-color: #FFD600;
-                height: max(50%, 3rem);
+                height: max(50%, 6rem);
+                padding: .3rem;
                 border-radius: 5px;
                 align-self: flex-start;
                 margin-left: 2rem;
@@ -70,6 +101,7 @@
                     align-items: center;
                     text-align: center;
                     height: 100%;
+                    font-size: clamp(16px, 2vw, 2rem);
                 }
             }
     
@@ -89,44 +121,138 @@
             }
     
             #customer {
-                width: clamp(100px, 20vw, 10rem);
+                width: clamp(100px, 20vw, 9rem);
                 justify-self: center;
                 align-self: flex-end;
             }
         }
     }
 
-    .elements-wrapper {
-        display: grid;
-        grid-template-rows: 3fr 1fr;
-        margin: 1rem;
-
-        .elements {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr;
-            gap: .5rem;
-        }
-
-        .element {
-            background-color: #FFF;
-        }
-
-        .element.selected {
-            box-shadow: 0 0 0 .3rem green;
-        }
-    }
-    
-    .mix-wrapper {
+    .bottom-wrapper {
         display: flex;
-        align-content: center;
+        flex-grow: 1;
+        align-items: center;
         justify-content: center;
+        height: 50vh;
 
-        button:disabled {
-            color: white;
-            background-color: #AB2921;
-            box-shadow: 0 0 0 3px #AB2921;
-            transition: background-color .500ms ease;
+        .flask-group {
+            align-self: center;
+            img {
+                width: clamp(100px, 12vw, 12rem);
+            }
+        }
+
+        .microscope {
+            align-self: center;
+            img {
+                width: clamp(100px, 12vw, 12rem);
+            }
+        }
+
+        .elements-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem;
+            background-color: #F7F8FF;
+            height: 70%;
+            padding: 2rem;
+            border-radius: 10px;
+            gap: 1rem;
+
+            h2 {
+                margin: 0 auto;
+                text-align: center;
+                color: #000000;
+                font-size: clamp(18px, 3vw, 1.7rem);
+            }
+    
+            .elements {
+                display: grid;
+                grid-template-columns: repeat(4, clamp(2rem, 10vw, 5rem));
+                gap: .5rem;
+                height: fit-content;
+
+                .dash-elem {
+                    background-color: #1B1527;
+                    border-radius: 15px;
+                    color: #F7F8FF;
+                    display: grid;
+                    place-items: center;
+                    aspect-ratio: 1;
+                    font-size: clamp(1.5rem, 3vw, 4rem);
+                }
+
+                .dash-elem:hover {
+                    cursor: pointer;
+                    color: #1B1527;
+                    background-color: #FFCD4E;
+                    box-shadow: 0 0 0 .3rem #1B1527;
+                }
+        
+                .dash-elem.selected {
+                    box-shadow: 0 0 0 .3rem #FFCD4E;
+                }
+            }
+    
+            .mix-wrapper {
+                display: block;
+                margin: .5rem auto;
+            
+                button {
+                    box-sizing: content-box;
+                    padding: 0 2rem;
+                }
+
+                button:disabled {
+                    color: white;
+                    background-color: #AB2921;
+                    box-shadow: 0 0 0 3px #AB2921;
+                    transition: background-color .500ms ease;
+                }
+            }
         }
     }
+}
 
+@media only screen and (orientation: portrait) {
+    .flask-group {
+        display: none;
+    }
+
+    .microscope {
+        display: none;
+    }
+
+    .mixDash-window {
+        width: 100%;
+        margin: 0;
+
+        .customer-backdrop {
+            height: 30vh;
+        }
+        .bottom-wrapper {
+            .elements-wrapper {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: 1;
+                gap: 1rem;
+                justify-content: space-around;
+                align-items: center;
+                background-color: #F7F8FF;
+                padding: 2rem;
+                border-radius: 10px;
+
+                .elements {
+                    .dash-elem {
+                        border-radius: 7px;
+                    }
+                }
+            }
+    }}
+
+    .elements-wrapper {
+        display: flex;
+    }
 }
