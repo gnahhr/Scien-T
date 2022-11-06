@@ -30,6 +30,7 @@ import UserProfile from './Pages/User Profile/userProfile';
 import AboutUs from './Pages/About Us/aboutUs';
 import TestBattle from './Pages/Test-Battle/TestBattle';
 import MixDash from './Pages/MixDash/MixDash';
+import Shop from './Pages/Shop/Shop';
 
 function App() {
   const [ user, setUser ] = useState(localStorage.token ? localStorage.token : null); //true
@@ -70,6 +71,7 @@ function App() {
               <Route path="/progress" element={<UserProgress/>}/>
               <Route path="/about" element={<AboutUs/>}/>
               <Route path="/mixDash" element={<MixDash />}/> 
+              <Route path="/shop" element={<Shop/>}/>
               <Route path="*" element={<MixingTable />}/> 
             </Routes>
           </SideNav>

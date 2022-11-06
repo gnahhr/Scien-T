@@ -1,0 +1,47 @@
+.shop-wrapper {
+  display: flex;
+  gap: 50rem;
+}
+
+.right {
+  margin-top: 4vh;
+}
+.right .user-info {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+  width: 11vw;
+}
+.right .user-info .upper-part {
+  width: inherit;
+  background-color: #B1BEFA;
+  border-top-right-radius: 2rem;
+}
+.right .user-info .upper-part h1 {
+  font-size: 1.5rem;
+  color: #282054;
+  padding: 1rem;
+}
+.right .user-info .lower-part {
+  display: flex;
+  width: inherit;
+  background-color: #282054;
+  border-bottom-right-radius: 0.5rem;
+  align-items: center;
+  gap: 2rem;
+}
+.right .user-info .lower-part img {
+  margin: 0.5vw;
+  width: 2vw;
+  float: left;
+}
+.right .user-info .lower-part h1 {
+  font-size: 1.5rem;
+  color: #B1BEFA;
+}
+.right .character-preview-container {
+  margin: 4vw 0 0 10vw;
+}
+.right .character-preview-container img {
+  width: 16vw;
+}

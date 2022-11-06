@@ -1,0 +1,53 @@
+.shop-wrapper{
+    display: flex;
+    gap: 50rem;
+}
+
+.right{
+    margin-top: 4vh;
+    .user-info{
+        display: grid;
+        justify-content: center;
+        text-align: center;
+        width: 11vw;
+
+        .upper-part{
+            width: inherit;
+            background-color: #B1BEFA;
+            border-top-right-radius: 2rem;
+            h1{
+                font-size: 1.5rem;
+                color: #282054;
+                padding: 1rem;
+            }
+        }
+        
+        .lower-part{
+            display: flex;
+            width: inherit;
+            background-color: #282054;
+            border-bottom-right-radius: 0.5rem;
+            align-items: center;
+            gap: 2rem;
+
+            img{
+                margin: 0.5vw;
+                width: 2vw;
+                float: left;
+            }
+            
+            h1{
+                font-size: 1.5rem;
+                color: #B1BEFA;
+            }
+
+        }
+    }
+
+    .character-preview-container{
+        margin: 4vw 0 0 10vw;
+        img{
+            width: 16vw;
+        }
+    }
+}

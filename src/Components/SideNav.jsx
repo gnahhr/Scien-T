@@ -19,6 +19,7 @@ import Trivia from '../Assets/Images/trivia-icon.svg';
 import PerIcon from '../Assets/Images/periodic-icon.svg';
 import Close from '../Assets/Images/close.svg';
 import Hamburger from '../Assets/Images/hamburger.svg'
+import Shop from '../Assets/Images/shop.png'
 
 //Design
 import "./SideNav.css";
@@ -74,6 +75,11 @@ const SideNav = ({children}) => {
             <NavLink to="/intelliment"><img src={Intell} alt="-"/><div className="l-name">Intelliment</div></NavLink>
             <NavLink to="/electronConfiguration"><img src={Bullet} alt="-"/><div className="l-name">Electron Config</div></NavLink>
             <NavLink to="/testBattle"><img src={Bullet} alt="-"/><div className="l-name">Test Battle</div></NavLink>
+        </div>
+      </div>
+      <div className="category">
+        <div className="category-header">
+          <NavLink to="/shop"><img src={Shop} alt="shop" /><div className="l-name">Shop</div></NavLink>
         </div>
       </div>
       <div className="category">
