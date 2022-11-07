@@ -1,0 +1,50 @@
+.shop-items-container {
+  margin-top: 4vh;
+  width: 45vw;
+  height: 80vh;
+  background-color: #B1BEFA;
+  border-radius: 1rem;
+  padding: 2rem 0 2rem 0;
+}
+
+.category-and-items-container {
+  width: 100%;
+}
+.category-and-items-container .category-title {
+  width: 11.5vw;
+  background-color: #FFE27D;
+  text-align: center;
+  border-radius: none;
+  margin-bottom: 1rem;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding: 0.5rem 0 0.5rem 0;
+}
+.category-and-items-container .category-title h1 {
+  color: #282054;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 2rem;
+}
+.category-and-items-container .items {
+  margin-bottom: 1rem;
+}
+.category-and-items-container .items ul {
+  display: flex;
+  list-style-type: none;
+  gap: 2rem;
+  justify-content: center;
+}
+.category-and-items-container .items ul li {
+  text-align: center;
+  width: 8vw;
+  height: 16vh;
+  background-color: #282054;
+  border-radius: 1rem;
+  color: #FFEFD7;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+}

@@ -1,6 +1,6 @@
 .shop-wrapper {
   display: flex;
-  gap: 50rem;
+  gap: 19rem;
 }
 
 .right {
@@ -40,8 +40,50 @@
   color: #B1BEFA;
 }
 .right .character-preview-container {
-  margin: 4vw 0 0 10vw;
+  display: flex;
+  position: relative;
+  margin: 3vw 0 0 15vw;
 }
 .right .character-preview-container img {
   width: 16vw;
+}
+.right .character-preview-container .circular-platform {
+  align-content: center;
+  background-color: white;
+  position: absolute;
+  border-radius: 50%;
+  height: 17vh;
+  width: 20vw;
+  z-index: -1;
+  left: 46%;
+  top: 95%;
+  transform: translate(-50%, -50%);
+  opacity: 40%;
+}
+.right .character-preview-container .arrow-carousel-left {
+  position: absolute;
+  left: 123%;
+  top: 66%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+.right .character-preview-container .arrow-carousel-left img {
+  width: 4vw;
+}
+.right .character-preview-container .arrow-carousel-left :hover {
+  width: 5vw;
+}
+.right .character-preview-container .arrow-carousel-right {
+  position: absolute;
+  right: 120%;
+  top: 60%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  transform: scaleX(-1);
+}
+.right .character-preview-container .arrow-carousel-right img {
+  width: 4vw;
+}
+.right .character-preview-container .arrow-carousel-right :hover {
+  width: 5vw;
 }

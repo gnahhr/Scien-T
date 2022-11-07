@@ -6,6 +6,7 @@ import ShopItems from '../../Components/ShopItems'
 //Assets
 import MoneyBag from '../../Assets/Images/money-bag.png'
 import Character from '../../Assets/Images/chuu-pewpew.png'
+import Arrow from '../../Assets/Images/arrow.svg'
 
 //Style
 import './Shop.css'
@@ -13,6 +14,7 @@ import './Shop.css'
 const Shop = () => {
     const [ coins, setCoins ] = useState(999999)
     const [ username, setUsername ] = useState('michenne')
+    const [ selectedItems, setSelectedItems ] = useState(null)
 
     return (
         <>
@@ -32,10 +34,17 @@ const Shop = () => {
                     </div>
                     <div className='character-preview-container'>
                         <img src={Character} alt='' />
+                        <div className='circular-platform'></div>
+                        <div className='arrow-carousel-left'>
+                            <img src={Arrow} alt="" />
+                        </div>
+                        <div className='arrow-carousel-right'>
+                            <img src={Arrow} alt="" />
+                        </div>
                     </div>
                 </div>
                 <div className='left'>
-                    <ShopItems/>
+                    <ShopItems selectedItems={setSelectedItems}/>
                 </div>
             </div>
         </>

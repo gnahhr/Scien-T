@@ -1,6 +1,6 @@
 .shop-wrapper{
     display: flex;
-    gap: 50rem;
+    gap: 19rem;
 }
 
 .right{
@@ -15,6 +15,7 @@
             width: inherit;
             background-color: #B1BEFA;
             border-top-right-radius: 2rem;
+
             h1{
                 font-size: 1.5rem;
                 color: #282054;
@@ -45,9 +46,60 @@
     }
 
     .character-preview-container{
-        margin: 4vw 0 0 10vw;
+        display: flex;
+        position: relative;
+        margin: 3vw 0 0 15vw;
+
         img{
             width: 16vw;
+        }
+
+        .circular-platform{
+            align-content: center;
+            background-color: white;
+            position:absolute;
+            border-radius: 50%;
+            height: 17vh;
+            width: 20vw;
+            z-index: -1;
+            left: 46%;
+            top:95%;
+            transform: translate(-50%, -50%);
+            opacity: 40%;
+        }
+
+        .arrow-carousel-left{
+            position: absolute;
+            left: 123%;
+            top:66%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+
+            img{
+                width: 4vw;
+            }
+
+            :hover{
+                width: 5vw;
+            }
+        }
+
+        .arrow-carousel-right{
+            position: absolute;
+            right: 120%;
+            top:60%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            transform: scaleX(-1);
+
+            img{
+                width: 4vw;
+            }
+            :hover{
+                width: 5vw;
+            }
+
+
         }
     }
 }
