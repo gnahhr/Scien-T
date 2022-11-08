@@ -1,14 +1,16 @@
 import React from 'react';
 import BlueFlask from '../Assets/Images/blue-flask.png';
 
+import './TotalScore.css';
+
 const BattleStats = ({battleInfo, setPhase, stage, setStage}) => {
   const chooseLevel = (choice) => {
     setPhase(choice);
   }
 
   const nextLevel = () => {
-      setStage(stage+1);
-      setPhase(2);
+    setStage(stage+1);
+    setPhase(2);
   }
 
   return (
@@ -26,7 +28,7 @@ const BattleStats = ({battleInfo, setPhase, stage, setStage}) => {
             </div>
         </div>
         <div className="button-wrapper">
-            <button onClick={() => chooseLevel(3)}>Play Again</button>
+            <button onClick={() => chooseLevel(2)}>Play Again</button>
             {9 > stage+1 && <button onClick={() => nextLevel()}>Next Stage</button>}
             <button onClick={() => chooseLevel(1)}>Choose Stage</button>
             <button onClick={() => chooseLevel(0)}>Choose Topic</button>

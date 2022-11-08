@@ -65,8 +65,8 @@ const TestBattle = () => {
 
   useEffect(() => {//save score to DB
     if (resultState === "victory"){
-      console.log('here')
-      pushTestBattle(access,username,topic,stage, battleResult.score);
+      setLastFinStage(stage);
+      pushTestBattle(access,username,topic,stage,battleResult.score);
     }
     (async () => {                                   //kagagawan ni juicewah
       const data = await getUserProgTestBattle(access,topic)

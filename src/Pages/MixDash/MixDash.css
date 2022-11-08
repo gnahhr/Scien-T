@@ -56,6 +56,7 @@
   justify-content: center;
   align-content: flex-end;
   position: relative;
+  overflow: hidden;
 }
 .mixDash-window .customer-backdrop .fluorescent {
   position: absolute;
@@ -87,6 +88,7 @@
   margin-left: 2rem;
   position: relative;
   z-index: 2;
+  transition: opacity 500ms ease-in-out 2000ms;
 }
 .mixDash-window .customer-backdrop .customer-wrapper .order-wrapper .order {
   display: grid;
@@ -108,11 +110,32 @@
   top: 0;
   display: block;
   z-index: -1;
+  opacity: 1;
+}
+.mixDash-window .customer-backdrop .customer-wrapper .order-wrapper.before,
+.mixDash-window .customer-backdrop .customer-wrapper .order-wrapper.after {
+  opacity: 0;
+}
+.mixDash-window .customer-backdrop .customer-wrapper .order-wrapper.after {
+  transition: opacity 500ms ease-in-out;
 }
 .mixDash-window .customer-backdrop .customer-wrapper #customer {
   width: clamp(100px, 20vw, 9rem);
   justify-self: center;
   align-self: flex-end;
+  transform: translateX(0);
+  transition: transform 2000ms ease;
+}
+.mixDash-window .customer-backdrop .customer-wrapper #customer.before {
+  transform: translateX(-500%);
+  transition: none;
+}
+.mixDash-window .customer-backdrop .customer-wrapper #customer.after {
+  transform: translateX(1000%);
+  transition: transform 2000ms ease 1000ms;
+}
+.mixDash-window .customer-backdrop .customer-wrapper #customer.angry {
+  animation: angry 300ms ease 10ms infinite;
 }
 .mixDash-window .bottom-wrapper {
   display: flex;
@@ -220,5 +243,22 @@
   }
   .elements-wrapper {
     display: flex;
+  }
+}
+@keyframes angry {
+  0% {
+    transform: translateY(0%);
+  }
+  25% {
+    transform: translate(5%, 5%);
+  }
+  50% {
+    transform: translate(-5%, -5%);
+  }
+  75% {
+    transform: translateY(7%, 7%);
+  }
+  100% {
+    transform: translateY(0%);
   }
 }
