@@ -37,6 +37,10 @@ const UserData = new mongoose.Schema(
         battleAtomicMassEndlessHS:{type: Number, default: 0},
         battleCategoryEndlessHS:{type: Number, default: 0},
 
+        mixDash:{type: Number, default: 1},
+
+        coins: {type: Number, default: 0},
+
         isVerified: {type: Boolean, default: false, required: true, }
     },
     { collection: 'UserData' }

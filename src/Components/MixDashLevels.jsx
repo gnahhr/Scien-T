@@ -8,6 +8,7 @@ const MixDashLevels = ({totalLevels, lastFinStage, nextPhase, setLevel}) => {
 
   useEffect(() => {
     initLevels();
+    console.log(lastFinStage)
   }, [])
 
   const onClickHandler = (level) => {

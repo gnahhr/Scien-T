@@ -429,3 +429,24 @@ exports.getTestBattleRankings = async (req, res, next) => {
     }
 }
 
+exports.mixDash = async (req, res, next) => {
+    var ObjectId = require('mongoose').Types.ObjectId;
+    const access = req.params['access']
+    const _id = new ObjectId (access)
+
+    const data = await UserData.findByIdAndUpdate({_id}, {
+        $inc:{mixDash: 1}
+    })
+
+    res.json({status: 'ok', data: data})
+}
+
+exports.getUserProgMixDash = async (req, res, next) => {
+    var ObjectId = require('mongoose').Types.ObjectId;
+    const access = req.params['access']
+    const _id = new ObjectId (access)
+
+    const data = await UserData.findById({_id},{mixDash:1})
+    res.json({status:'ok', data:data.mixDash})
+}
+

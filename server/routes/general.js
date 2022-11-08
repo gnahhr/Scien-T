@@ -2,7 +2,7 @@ const express = require ('express')
 const { get } = require('mongoose')
 const router = express.Router()
 
-const { mixElements, getME, electronConfiguration, getEC, intelliment, getIntellimentRankings, getElectronConfigRankings, getIntellimentData, getIntellimentCounter, getUserProgTestBattle, testBattle, getTestBattleRankings
+const { mixElements, getME, electronConfiguration, getEC, intelliment, getIntellimentRankings, getElectronConfigRankings, getIntellimentData, getIntellimentCounter, getUserProgTestBattle, testBattle, getTestBattleRankings, mixDash, getUserProgMixDash
 } = require('../controllers/general')
 
 //MIXING TABLE
@@ -22,6 +22,10 @@ router.route('/getIntellimentCounter/:access/:difficulty').get(getIntellimentCou
 //BATTLE
 router.route('/testBattle/:access/:username/:topic/:stage').post(testBattle)
 router.route('/userProgTestBattle/:access/:topic').get(getUserProgTestBattle)
+
+//MIXDASH
+router.route('/mixDash/:access').post(mixDash)
+router.route('/userProgMixDash/:access').get(getUserProgMixDash)
 
 
 
