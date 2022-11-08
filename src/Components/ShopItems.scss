@@ -1,53 +1,58 @@
 .shop-items-container{
     margin-top: 4vh;
     width: 45vw;
-    height: 80vh;
+    height: fit-content;
     background-color: #B1BEFA;
     border-radius: 1rem;
     padding: 2rem 0 2rem 0;
-}
 
-.category-and-items-container{
-    width: 100%;
-    .category-title{
-        width: 11.5vw;
-        background-color: #FFE27D;
-        text-align: center;
-        border-radius: none;
-        margin-bottom: 1rem;
-        border-top-right-radius: 1rem;
-        border-bottom-right-radius: 1rem;
-        padding: 0.5rem 0 0.5rem 0;
-
-        h1{
-            color: #282054;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 2rem;
+    .category-and-items-container{
+        display: flex;
+        flex-direction: column;
+        
+        .category-title{
+            width: 11.5vw;
+            background-color: #FFE27D;
+            text-align: center;
+            margin-bottom: 1rem;
+            border-top-right-radius: 1rem;
+            border-bottom-right-radius: 1rem;
+            padding: 0.5rem 0 0.5rem 0;
+    
+            h1{
+                color: #282054;
+                font-family: 'JetBrains Mono', monospace;
+                font-size: clamp(16px, 1vw, 3rem);
+            }
+    
         }
+        .items{
+            max-width: 100%;
+            margin: clamp(0.5vw, 0.5vw, 0.5rem) clamp(6vw,3vw,3rem);
 
-    }
-    .items{
-        margin-bottom: 1rem;
-        ul{
-            display: flex;
-            list-style-type: none;
-            gap: 2rem;
-            justify-content: center;
-            
-            li{
-                text-align: center;
-                width: 8vw;
-                height: 16vh;
-                background-color: #282054;
-                border-radius: 1rem;
-                color: #FFEFD7;
+            ul{
+                display: flex;
+                list-style-type: none;
+                gap: clamp(0.5vw, 1.75vw, 1.75vw);
+                overflow-x: auto;
+
+                li{
+                    text-align: center;
+                    padding: clamp(1vw,2.5vw,4.5rem) clamp(1vw,1.25vw,3rem);
+                    background-color: #282054;
+                    border-radius: 1rem;
+                    color: #FFEFD7;
+                    font-size: clamp(9px, 1vw, 2rem);
+                }
             }
         }
     }
 }
 
+
 .btn-group{
     display: flex;
     justify-content: center;
     gap: 5rem;
+    z-index: inherit;
 }

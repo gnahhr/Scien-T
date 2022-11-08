@@ -18,6 +18,10 @@ const ShopItems = (setSelectedItems) => {
             <li>Chenalin</li>
             <li>Chenalin</li>
             <li>Chenalin</li>
+            <li>Chenalin</li>
+            <li>Chenalin</li>
+            <li>Chenalin</li>
+            <li>Chenalin</li>
           </ul>
         </div>
       </div>
@@ -28,6 +32,10 @@ const ShopItems = (setSelectedItems) => {
         </div>
         <div className='items'>
           <ul>
+            <li>Chenalin</li>
+            <li>Chenalin</li>
+            <li>Chenalin</li>
+            <li>Chenalin</li>
             <li>Chenalin</li>
             <li>Chenalin</li>
             <li>Chenalin</li>
@@ -46,14 +54,18 @@ const ShopItems = (setSelectedItems) => {
             <li>Chenalin</li>
             <li>Chenalin</li>
             <li>Chenalin</li>
+            <li>Chenalin</li>
+            <li>Chenalin</li>
+            <li>Chenalin</li>
+            <li>Chenalin</li>
           </ul>
         </div>
       </div>
 
-      <div className='btn-group'>
-        <button>Cance</button>
+      {/* <div className='btn-group'>
+        <button className='btn'>Cance</button>
         <button>Save</button>
-      </div>
+      </div> */}
 
     </div>
   )

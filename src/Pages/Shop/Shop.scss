@@ -1,10 +1,11 @@
 .shop-wrapper{
     display: flex;
-    gap: 19rem;
+    gap: clamp(3rem,10vw,19rem);
 }
 
 .right{
     margin-top: 4vh;
+    
     .user-info{
         display: grid;
         justify-content: center;
@@ -15,9 +16,10 @@
             width: inherit;
             background-color: #B1BEFA;
             border-top-right-radius: 2rem;
+            min-width: fit-content;
 
             h1{
-                font-size: 1.5rem;
+                font-size: clamp(16px, 1.25vw, 3rem);
                 color: #282054;
                 padding: 1rem;
             }
@@ -28,6 +30,7 @@
             width: inherit;
             background-color: #282054;
             border-bottom-right-radius: 0.5rem;
+            min-width: fit-content;
             align-items: center;
             gap: 2rem;
 
@@ -38,7 +41,7 @@
             }
             
             h1{
-                font-size: 1.5rem;
+                font-size: clamp(16px, 1vw, 3rem);
                 color: #B1BEFA;
             }
 
@@ -66,40 +69,6 @@
             top:95%;
             transform: translate(-50%, -50%);
             opacity: 40%;
-        }
-
-        .arrow-carousel-left{
-            position: absolute;
-            left: 123%;
-            top:66%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-
-            img{
-                width: 4vw;
-            }
-
-            :hover{
-                width: 5vw;
-            }
-        }
-
-        .arrow-carousel-right{
-            position: absolute;
-            right: 120%;
-            top:60%;
-            transform: translate(-50%, -50%);
-            z-index: 1;
-            transform: scaleX(-1);
-
-            img{
-                width: 4vw;
-            }
-            :hover{
-                width: 5vw;
-            }
-
-
         }
     }
 }
