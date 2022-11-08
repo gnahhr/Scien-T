@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 //Style
 import './ShopItems.css'
 
 const ShopItems = (setSelectedItems) => {
+
+  
   return (
     <div className='shop-items-container'>
       <div className='category-and-items-container'>
