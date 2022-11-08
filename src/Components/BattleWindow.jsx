@@ -242,6 +242,7 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
       score: score,
       highMulti: highestMulti,
     })
+    resultState('victory')//dagdag ni juicewaa
     nextPhase(3);
   }
   

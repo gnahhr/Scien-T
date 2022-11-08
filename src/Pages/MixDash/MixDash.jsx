@@ -33,6 +33,7 @@ const MixDash = () => {
   const [ username, setUsername ] = useState('')
   const [ access, setAccess ]  = useState('')
 
+
   useEffect(() => {
     const token = localStorage.getItem('token');
     const user = jwtDecode(token);
@@ -46,7 +47,11 @@ const MixDash = () => {
 
   useEffect(() => {
     console.log(resultState);
-    pushMixDash(access)
+    pushMixDash(access);
+    (async() => {                                   //kagagawan ni juicewah
+      const data = await getUserProgMixDash(access)
+      setLastFinStage(data)
+    })()
   }, [resultState]);
 
   useEffect(() => {
@@ -59,7 +64,7 @@ const MixDash = () => {
         <h1>Mix Dash</h1>
       </div>
       <div className="mixDash-wrapper">
-        {dashPhase === 0 && <MixDashLevels totalLevels={10} lastFinStage={lastFinStage} nextPhase={setDashPhase} setLevel={setLevel}/>}
+      {dashPhase === 0 && lastFinStage && <MixDashLevels totalLevels={10} lastFinStage={lastFinStage} nextPhase={setDashPhase} setLevel={setLevel}/>}
         {dashPhase === 1 && <MixDashWindow build={levels[level]} setResultState={setResultState} setResult={setResult} nextPhase={setDashPhase}/>}
         {dashPhase === 2 && <MixDashResult resultState={resultState} resultData={result} setPhase={setDashPhase} level={level} setLevel={setLevel} totalLevels={levels.length}/>}
         {/* Final */}

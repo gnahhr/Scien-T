@@ -33,7 +33,7 @@ const TestBattle = () => {
     score: 0,
     highMulti: 0,
   });
-  const [ resultState, setResultState ] = useState("victory");
+  const [ resultState, setResultState ] = useState("");//kagagawan ni juicewah
   const [ lastFinStage, setLastFinStage ] = useState()
   const [ defeatInfo, setDefeatInfo ] = useState();
 
@@ -65,8 +65,13 @@ const TestBattle = () => {
 
   useEffect(() => {//save score to DB
     if (resultState === "victory"){
+      console.log('here')
       pushTestBattle(access,username,topic,stage, battleResult.score);
     }
+    (async () => {                                   //kagagawan ni juicewah
+      const data = await getUserProgTestBattle(access,topic)
+      setLastFinStage(data)
+    })()
   },[resultState])
   
   return (

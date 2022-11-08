@@ -8,6 +8,5 @@ export default async function getUserProgTestBattle(access, topic){
     })
 
     const data = await response.json()
-    console.log(data.data)
     return data.data
 }
