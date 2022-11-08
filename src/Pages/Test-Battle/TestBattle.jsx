@@ -76,7 +76,7 @@ const TestBattle = () => {
       </div>
       <div className="test-battle">
         {progPhase === 0 && <BattleTopic setTopic={setTopic} nextPhase={setProgPhase}/>}
-        {progPhase === 1 && <BattleStage setStage={setStage} lastFinStage={5} nextPhase={setProgPhase}/>}
+        {progPhase === 1 && <BattleStage setStage={setStage} lastFinStage={lastFinStage} nextPhase={setProgPhase}/>}
         {progPhase === 2 && <BattleWindow topic={topic} stage={stage} nextPhase={setProgPhase} battleResult={setBattleResult} resultState={setResultState} setDefeatInfo={setDefeatInfo}/>}
         {progPhase === 3 && (resultState === "victory" ?
         <BattleStats battleInfo={battleResult} setPhase={setProgPhase} setStage={setStage} stage={stage}/>
