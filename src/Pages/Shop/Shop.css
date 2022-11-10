@@ -1,64 +1,73 @@
 .shop-wrapper {
-  display: flex;
-  gap: clamp(3rem, 10vw, 19rem);
+  margin-top: 4vh;
+  display: grid;
+  grid-template-columns: 1fr auto;
 }
 
-.right {
-  margin-top: 4vh;
+.left {
+  width: 40vw;
 }
-.right .user-info {
+.left .user-info {
   display: grid;
-  justify-content: center;
+  justify-content: start;
   text-align: center;
-  width: 11vw;
-}
-.right .user-info .upper-part {
-  width: inherit;
-  background-color: #B1BEFA;
-  border-top-right-radius: 2rem;
   min-width: fit-content;
 }
-.right .user-info .upper-part h1 {
+.left .user-info .upper-part {
+  width: 100%;
+  background-color: #B1BEFA;
+  padding: 0.5rem auto;
+  border-top-right-radius: 2rem;
+}
+.left .user-info .upper-part h1 {
   font-size: clamp(16px, 1.25vw, 3rem);
   color: #282054;
-  padding: 1rem;
+  padding: 1rem 3rem;
 }
-.right .user-info .lower-part {
+.left .user-info .lower-part {
   display: flex;
-  width: inherit;
+  width: 100%;
   background-color: #282054;
   border-bottom-right-radius: 0.5rem;
-  min-width: fit-content;
   align-items: center;
-  gap: 2rem;
+  justify-content: space-around;
+  align-self: center;
 }
-.right .user-info .lower-part img {
-  margin: 0.5vw;
-  width: 2vw;
+.left .user-info .lower-part img {
+  margin: 0.3rem;
+  width: clamp(25px, 1.25vw, 3rem);
   float: left;
 }
-.right .user-info .lower-part h1 {
+.left .user-info .lower-part h1 {
   font-size: clamp(16px, 1vw, 3rem);
   color: #B1BEFA;
+  margin: auto 0.5rem;
 }
-.right .character-preview-container {
-  display: flex;
+.left .character-preview-container {
+  display: grid;
+  place-items: center;
   position: relative;
-  margin: 3vw 0 0 15vw;
+  height: auto;
 }
-.right .character-preview-container img {
-  width: 16vw;
+.left .character-preview-container img {
+  margin: clamp(1rem, 5vw, 5rem);
+  width: clamp(200px, 16vw, 15rem);
 }
-.right .character-preview-container .circular-platform {
+.left .character-preview-container img::after {
+  content: "";
+  position: absolute;
   align-content: center;
   background-color: white;
-  position: absolute;
-  border-radius: 50%;
-  height: 17vh;
-  width: 20vw;
-  z-index: -1;
-  left: 46%;
-  top: 95%;
-  transform: translate(-50%, -50%);
-  opacity: 40%;
+  height: 5rem;
+  width: 5rem;
+}
+
+@media only screen and (orientation: portrait) {
+  .shop-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .shop-wrapper .left {
+    width: auto;
+  }
 }

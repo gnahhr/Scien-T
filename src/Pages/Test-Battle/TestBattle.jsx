@@ -68,7 +68,7 @@ const TestBattle = () => {
       setLastFinStage(stage);
       pushTestBattle(access,username,topic,stage,battleResult.score);
     }
-    (async () => {                                   //kagagawan ni juicewah
+    (async () => {
       const data = await getUserProgTestBattle(access,topic)
       setLastFinStage(data)
     })()

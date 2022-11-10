@@ -1,25 +1,28 @@
 .total-score {
   display: grid;
+  grid-template-rows: 1fr 4fr 1fr;
   align-content: center;
   justify-items: center;
   position: relative;
+  grid-gap: 0;
+  height: 93vh;
 }
 .total-score .wrapper {
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 25px;
   padding: 2rem 6rem;
-  width: 50%;
+  width: 45%;
   color: white;
 }
 .total-score .wrapper h2 {
   margin: 0;
-  font-size: 4rem;
+  font-size: clamp(17px, 5vw, 4rem);
   text-align: center;
   color: #FFEFD7;
 }
 .total-score .wrapper .data-wrapper {
   display: grid;
-  grid-template: repeat(5, 1fr)/2fr 1fr;
+  grid-template-columns: 2fr 1fr;
 }
 .total-score .wrapper .data-wrapper .left-data {
   justify-self: start;
@@ -28,31 +31,30 @@
 .total-score .wrapper .data-wrapper .right-data {
   font-size: max(20px, 2vw, 1.5rem);
   justify-self: end;
+  align-self: flex-end;
 }
 .total-score .wrapper .data-wrapper .total-data {
   color: #FFCD4E;
 }
-.total-score .wrapper .button-wrapper {
+
+.button-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 2rem;
   justify-items: center;
 }
 
 .img-wrapper {
-  position: absolute;
-  top: 0;
-  left: calc(50% - 111px);
-  transform: translateY(-93%);
+  transform: translateY(10%);
   justify-self: center;
+  align-self: flex-end;
 }
 
 #bflask-1 {
-  height: 11.25rem;
+  height: clamp(64px, 15vw, 18rem);
 }
 
 #bflask-2 {
-  height: 8.125rem;
+  height: clamp(32px, 10vw, 12rem);
 }
 
 @media only screen and (orientation: portrait) {
@@ -68,6 +70,6 @@
     font-size: 1.5rem;
   }
   .wrapper {
-    padding: 2rem 4rem !important;
+    padding: 2rem 4rem;
   }
 }

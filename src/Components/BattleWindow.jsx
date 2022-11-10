@@ -15,8 +15,11 @@ import { periodicTable } from '../Data/PeriodicTableJSON';
 import BattleItemWindow from './BattleItemWindow';
 
 //Images
-import Shen from '../Assets/Images/shen-pewpew.png';
-import Chuu from '../Assets/Images/chuu-pewpew.png';
+import Enemy1 from '../Assets/Images/Enemy1.png';
+import Enemy2 from '../Assets/Images/Enemy2.png';
+import Enemy1Hit from '../Assets/Images/Enemy1-hit.png';
+import Enemy2Hit from '../Assets/Images/Enemy2-hit.png';
+import Player1 from '../Assets/Images/chuu-pewpew.png';
 import Pewpew from '../Assets/Images/pewpew.png';
 import RedHeart from '../Assets/Images/red-heart.svg';
 import WhiteHeart from '../Assets/Images/white-heart.svg';
@@ -33,6 +36,7 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
   const [ score, setScore ] = useState(0);
   const [ username, setUsername ] = useState(""); 
   const [ access, setAccess ] = useState();
+  const [ battleLog, setBattleLog ] = useState("");
 
   //Health State Renderer
   const [ healthRender, setHealthRender ] = useState(<>
@@ -44,10 +48,9 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
   //Animation States
   const [ isWrong, setIsWrong ] = useState(false);
   const [ isRight, setIsRight ] = useState(false);
+  const [ isDefeated, setIsDefeated ] = useState(false);
   const [ isAnimate, setIsAnimate ] = useState(false);
-
-  //Item State
-  const [ showItems, setShowItems ] = useState(false);
+  const [ itemUsed, setItemUsed ] = useState(false);
 
   //Questions
   const topicQs = {
@@ -63,6 +66,18 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
     "elemName": "NAME",
     "atomicNum": "ATOMIC NUMBER",
     "atomicMass": "ATOMIC MASS"
+  }
+
+  //ModelsArray
+  const modelsArr = {
+    0: Enemy1,
+    1: Enemy2,
+  }
+
+  //ModelsHitArray
+  const modelsHitArr = {
+    0: Enemy1Hit,
+    1: Enemy2Hit,
   }
 
   //Get User Info
@@ -100,13 +115,18 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
   useEffect(() => {
     if (health === 0) {
       //Better luck next time, the correct answer is something modal
-      setDefeatInfo({
-        symbol: questions[index].elemSym,
-        topic: topicCats[[topic]],
-        answer: questions[index].elemAnswer
-      });
-      resultState("defeat");
-      nextPhase(3);
+      
+      if (stage !== "endless") {
+        setDefeatInfo({
+          symbol: questions[index].elemSym,
+          topic: topicCats[[topic]],
+          answer: questions[index].elemAnswer
+        });
+        resultState("defeat");
+        nextPhase(3);
+      } else {
+        victoryBattle();
+      }
     }
   }, [health])
 
@@ -118,11 +138,20 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
     }
   }, [conRight])
 
+  useEffect(() => {
+    setBattleLog("Correct Answer! You've defeated the enemy!");
+  }, [isRight])
+
+  useEffect(() => {
+    setBattleLog("Wrong Answer! You've received 1 damage.");
+  }, [isWrong])
+
   //Generate Questions as per Category
   const generateQsTopic = (topic, stage) => {
     let totalQs = [];
     if (stage !== "endless") {
       for(let i=stage-10; i<stage; i++) {
+        const modelRand = Math.floor(Math.random() * 2);
         let topics = {
             "elemName": periodicTable[i].name,
             "atomicMass": periodicTable[i].atomic_mass,
@@ -133,6 +162,8 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
         totalQs.push({
           "elemSym": periodicTable[i].symbol,
           "elemAnswer": topics[topic],
+          "model": modelsArr[modelRand],
+          "modelHit": modelsHitArr[modelRand],
           "choices": [
 
           ]
@@ -140,6 +171,8 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
       }
     } else {
       for(let i=0; i<119; i++) {
+        const modelRand = Math.floor(Math.random() * 2);
+
         let topics = {
             "elemName": periodicTable[i].name,
             "atomicMass": periodicTable[i].atomic_mass,
@@ -150,6 +183,8 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
         totalQs.push({
           "elemSym": periodicTable[i].symbol,
           "elemAnswer": topics[topic],
+          "model": modelsArr[modelRand],
+          "modelHit": modelsHitArr[modelRand],
           "choices": [
 
           ]
@@ -198,26 +233,29 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
 
     return currArray;
   };
+
+  //Half array
+  const trimArray = (currArray) => {
+    let currentIndex = 4,  randomIndex;
+    let flag = true;
+    let trimmedArray = [questions[index].elemAnswer]
+
+    while (flag) {
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      if (currArray[randomIndex] !== questions[index].elemAnswer) {
+        trimmedArray.push(currArray[randomIndex]);
+        flag = false;
+      }
+    }
+
+    return trimmedArray;
+  };
   
   //Check Attack
   const checkAttack = (selected) => {
     let confirm = questions[index].elemAnswer === selected ? true : false;
-
     if (confirm) {
-      animateTimeout(setIsRight);
-      if (stage !== "endless"){
-        if (index + 1 == 10){
-          victoryBattle();
-        } else {
-          setIndex((index) => index + 1);
-        }
-      } else {
-        if (index + 1 == 119){
-          victoryBattle();
-        } else {
-          setIndex((index) => index + 1);
-        }
-      }
+      animateTimeout(setIsRight, true);
       setScore(() => score + (50 * multiplier));
       setConRight(() => conRight + 1);
     } else {
@@ -227,25 +265,91 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
     }
   }
 
-  const animateTimeout = (entityGot) => {
-    entityGot(true);
-    setIsAnimate(true);
-    setTimeout(() => {
-      entityGot(false);
-      setIsAnimate(false);
-    }, 1500);
+  const nextEnemy = (stage) => {
+    const max = stage === "endless" ? 119 : 10;
+    if (index + 1 === max){
+      victoryBattle();
+    } else {
+      setIndex((index) => index + 1);
+    }
   }
 
+  const animateTimeout = (entityGot, proceed) => {
+    entityGot(true);
+    setIsAnimate(true);
+
+    setTimeout(() => {
+      setIsDefeated(true);
+    }, 1000);
+
+    setTimeout(() => {
+      entityGot(false);
+      setIsDefeated(false);
+      setIsAnimate(false);
+
+      if (proceed) {
+        nextEnemy(stage);
+      }
+
+    }, 1700);
+  }
+
+  //Set battle to victory
   const victoryBattle = () => {
     battleResult({
-      totalEnemies: questions.length,
+      totalEnemies: index,
       score: score,
       highMulti: highestMulti,
     })
-    resultState('victory')//dagdag ni juicewaa
+    resultState('victory')
     nextPhase(3);
   }
-  
+
+  //Item Functions
+  //Health Potion Function
+  const restoreHealth = () => {
+    setBattleLog("Health was restored!");
+    setHealth(3);
+  }
+
+  //50-50 Question
+  const halfQs = () => {
+    setBattleLog("Your choices was halved!");
+    setQuestions(questions.map((question) => {
+      if (questions[index].elemSym === question.elemSym) {
+        return {
+          ...question,
+          choices: trimArray(questions[index].choices)
+        }
+      } else {
+        return question;
+      }
+    })) 
+  }
+
+  //Skip question
+  const skipQ = () => {
+    setBattleLog("You skipped an enemy!");
+    nextEnemy(stage);
+    setMultiplier(1);
+  }
+
+  //useItem
+  const useItem = (item) => {
+    setItemUsed(true);
+
+    if (item === 1) {
+      restoreHealth();
+    } else if (item === 2) {
+      halfQs();
+    } else if (item === 3) {
+      skipQ();
+    }
+
+    setInterval(() => {
+      setItemUsed(false);
+    }, 1500)
+  }
 
   return (
     <>
@@ -259,7 +363,7 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
     <div className="battle-window">
         <div className="players-wrapper">
             <div className="entity player">
-                <img src={Chuu} alt="chuu-pewpew" />
+                <img src={Player1} alt="Player1" className={isWrong ? "gfx-active" : ""}/>
                 <img src={Pewpew} alt="gfx" className={isWrong ? "gfx gfx-active" : "gfx"}/>
             </div>
             <div className="question-bubble">
@@ -282,35 +386,32 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
                 </div>
             </div>
             <div className="entity enemy">
-                <img src={Shen} alt="Shen-pewpew" />
-                <img src={Pewpew} alt="gfx" className={isRight ? "gfx gfx-active" : "gfx"}/>
+                { !isRight ? 
+                  <img src={questions && questions[index].model} alt="Enemy" /> : 
+                  <img src={questions && questions[index].modelHit} alt="Enemy" className={`${isRight && !isDefeated ? "gfx-active" : ""}`+`${isDefeated ? " defeat" : ""}`} />
+                }
+                <img src={Pewpew} alt="gfx" className={isRight && !isDefeated ? "gfx gfx-active" : "gfx"}/>
             </div>
         </div>
-        <div className="action-choices">
+        <div className={`action-choices ${stage === "endless" ? "" : "normal-actions"}`}>
             <div className="choices-wrapper">
-                {!isAnimate &&
+                {!isAnimate && !itemUsed &&
                   <div className="label">
                       Choose the correct answer to defeat the enemy.
                   </div>
                 }
                 <div className="choices">
-                    {(questions && !isAnimate) && questions[index].choices.map(choice => 
+                    {(questions && !isAnimate && !itemUsed) && questions[index].choices.map(choice => 
                         <button className="battle-btn fluid-btn" key={choice} onClick={() => checkAttack(choice)}>{choice}</button>)}
                 </div>
-                {isAnimate && 
+                {(isAnimate || itemUsed) && 
                   <div className="battle-log">
-                    {isRight && <h1>Correct Answer! You've defeated the enemy!</h1>}
-                    {isWrong && <h1>Wrong Answer! You've received 1 damage.</h1>}
+                    <h1>{battleLog}</h1>
                   </div>
                 }
             </div>
             <div className="items-wrapper">
-                {showItems ?
-                <BattleItemWindow toggleWindow={setShowItems}/>
-                :
-                <button className="teal battle-btn fluid-btn" onClick={() => setShowItems(true)}>Items</button>
-                }
-                
+                <BattleItemWindow uItem={useItem}/>    
             </div>
         </div>
     </div>

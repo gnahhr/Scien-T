@@ -51,6 +51,7 @@
   text-align: center;
   place-self: center;
   position: relative;
+  overflow: hidden;
 }
 .testBattle-wrapper .battle-window .players-wrapper .entity img {
   width: max(6vw, 60px);
@@ -59,8 +60,8 @@
   position: absolute;
   width: max(6vw, 60px);
   top: 0;
-  left: 0;
-  transform: translate(-15%, 50%);
+  left: 50%;
+  transform: translate(-50%, 10%);
   display: none;
 }
 .testBattle-wrapper .battle-window .players-wrapper .entity .gfx-active {
@@ -76,6 +77,15 @@
   grid-area: enemy;
   align-self: flex-start;
   justify-self: flex-start;
+}
+.testBattle-wrapper .battle-window .players-wrapper .enemy img, .testBattle-wrapper .battle-window .players-wrapper .enemy .gfx {
+  width: max(10vw, 90px);
+}
+.testBattle-wrapper .battle-window .players-wrapper .onHit {
+  animation: blink-animation 0.3ms steps(5, start);
+}
+.testBattle-wrapper .battle-window .players-wrapper .defeat {
+  animation: down-enemy 1200ms ease-in;
 }
 .testBattle-wrapper .battle-window .players-wrapper .question-bubble {
   display: flex;
@@ -164,10 +174,12 @@
 }
 .testBattle-wrapper .battle-window .action-choices .choices-wrapper .battle-log {
   grid-row: 1/2;
+  align-self: center;
+  justify-self: center;
 }
-.testBattle-wrapper .battle-window .action-choices .choices-wrapper .battle-log h2 {
+.testBattle-wrapper .battle-window .action-choices .choices-wrapper .battle-log h1 {
   margin: 0;
-  font-size: clamp(16px, 3vw, 2rem);
+  font-size: clamp(16px, 3vw, 4rem);
   text-align: center;
   word-wrap: break-word;
 }
@@ -187,15 +199,25 @@
   padding: 0.1rem 1.8rem;
   box-shadow: 0 0 0 0.2rem #474747;
   border-radius: 2px;
-  font-size: clamp(13px, 2vw, 1rem);
+  font-size: clamp(13px, 2vw, 1.5rem);
 }
 .testBattle-wrapper .battle-window .action-choices .choices-wrapper .choices button:hover {
   background-color: #21AB97;
 }
-.testBattle-wrapper .battle-window .items-wrapper {
+.testBattle-wrapper .battle-window .action-choices .items-wrapper {
   border-left: 5.5px #C7D1FF solid;
   display: grid;
   place-items: center;
+}
+.testBattle-wrapper .battle-window .normal-actions {
+  grid-template-columns: 1fr;
+}
+.testBattle-wrapper .battle-window .normal-actions .choices-wrapper {
+  border-right: none;
+  max-height: fit-content;
+}
+.testBattle-wrapper .battle-window .normal-actions .items-wrapper {
+  display: none;
 }
 
 @keyframes blink-animation {
@@ -208,9 +230,25 @@
     visibility: hidden;
   }
 }
+@keyframes down-enemy {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(300%);
+  }
+}
+@-webkit-keyframes down-enemy {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(300%);
+  }
+}
 @media only screen and (orientation: portrait) {
   .testBattle-wrapper .battle-window {
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 1.5fr;
     width: auto;
     margin: auto;
   }

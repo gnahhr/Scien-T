@@ -12,6 +12,8 @@ import jwtDecode from 'jwt-decode';
 import MixDashWindow from '../../Components/MixDashWindow';
 import MixDashLevels from '../../Components/MixDashLevels';
 import MixDashResult from '../../Components/MixDashResult';
+import Loader from '../../Components/Loader';
+
 
 //Hooks
 import pushMixDash from  '../../Hooks/pushMixDash'
@@ -64,7 +66,7 @@ const MixDash = () => {
         <h1>Mix Dash</h1>
       </div>
       <div className="mixDash-wrapper">
-        {dashPhase === 0 && lastFinStage && <MixDashLevels totalLevels={10} lastFinStage={lastFinStage} nextPhase={setDashPhase} setLevel={setLevel}/>}
+        {dashPhase === 0 && lastFinStage ? <MixDashLevels totalLevels={10} lastFinStage={lastFinStage} nextPhase={setDashPhase} setLevel={setLevel} /> : <Loader />}
         {dashPhase === 1 && <MixDashWindow build={levels[level]} setResultState={setResultState} setResult={setResult} nextPhase={setDashPhase}/>}
         {dashPhase === 2 && <MixDashResult resultState={resultState} resultData={result} setPhase={setDashPhase} level={level} setLevel={setLevel} totalLevels={levels.length}/>}
         {/* Final */}

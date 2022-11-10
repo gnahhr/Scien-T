@@ -15,18 +15,29 @@ import { useEffect } from 'react'
 
 const Shop = () => {
     //state
-    const [ coins, setCoins ] = useState(999999)
-    const [ selectedItems, setSelectedItems ] = useState(null)
+    const [ coins, setCoins ] = useState(999999);
+    const [ preview, setPreview ] = useState(Character1);
+    const [ selectedItems, setSelectedItems ] = useState(null);
 
     //
     const [ username, setUsername ] = useState('')
     const [ access, setAccess ]  = useState('')
 
+    //Test Function
+    const tryMe = (data) => {
+        console.log("Data got: ", data);
+    }
+
     useEffect(() => {
-    const token = localStorage.getItem('token')
-    const user = jwtDecode(token)
-    setAccess(user.id)
-    setUsername(user.username)
+        const token = localStorage.getItem('token')
+        const user = jwtDecode(token)
+        setAccess(user.id)
+        setUsername(user.username)
+        setSelectedItems({
+            top: 1,
+            bottom: 1,
+            accessory: 1
+        })
     },[])
 
 
@@ -35,10 +46,8 @@ const Shop = () => {
             <div className='main-header'>
                 <h1>Shop</h1>
             </div>
-
             <div className='shop-wrapper'>
-
-                <div className='right'>
+                <div className='left'>
                     <div className='user-info'>
                         <div className='upper-part'>
                             <h1>{username}</h1>
@@ -51,13 +60,11 @@ const Shop = () => {
                     </div>
 
                     <div className='character-preview-container'>
-                        <img src={Character1} alt='' />
-                        <div className='circular-platform'></div>
+                        <img src={preview} alt='' />
                     </div>
-
                 </div>
-                <div className='left'>
-                    <ShopItems selectedItems={setSelectedItems}/>
+                <div className='right'>
+                    <ShopItems selectedItems={setSelectedItems} tryMe={tryMe}/>
                 </div>
             </div>
         </>

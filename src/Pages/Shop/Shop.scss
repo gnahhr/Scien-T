@@ -1,74 +1,84 @@
 .shop-wrapper{
-    display: flex;
-    gap: clamp(3rem,10vw,19rem);
+    margin-top: 4vh;
+    display: grid;
+    grid-template-columns: 1fr auto;
 }
 
-.right{
-    margin-top: 4vh;
-    
+.left{
+    width: 40vw;
     .user-info{
         display: grid;
-        justify-content: center;
+        justify-content: start;
         text-align: center;
-        width: 11vw;
+        min-width: fit-content;
 
         .upper-part{
-            width: inherit;
+            width: 100%;
             background-color: #B1BEFA;
+            padding: .5rem auto;
             border-top-right-radius: 2rem;
-            min-width: fit-content;
 
-            h1{
+            h1 {
                 font-size: clamp(16px, 1.25vw, 3rem);
                 color: #282054;
-                padding: 1rem;
+                padding: 1rem 3rem;
             }
         }
         
         .lower-part{
             display: flex;
-            width: inherit;
+            width: 100%;
             background-color: #282054;
             border-bottom-right-radius: 0.5rem;
-            min-width: fit-content;
             align-items: center;
-            gap: 2rem;
+            justify-content: space-around;
+            align-self: center;
 
             img{
-                margin: 0.5vw;
-                width: 2vw;
+                margin: .3rem;
+                width: clamp(25px, 1.25vw, 3rem);
                 float: left;
             }
             
             h1{
                 font-size: clamp(16px, 1vw, 3rem);
                 color: #B1BEFA;
+                margin: auto .5rem;
             }
 
         }
     }
 
     .character-preview-container{
-        display: flex;
+        display: grid;
+        place-items: center;
         position: relative;
-        margin: 3vw 0 0 15vw;
+        // margin: auto;
+        height: auto;
 
-        img{
-            width: 16vw;
+        img {
+            margin: clamp(1rem, 5vw, 5rem);
+            width: clamp(200px, 16vw, 15rem);
         }
 
-        .circular-platform{
+        img::after{
+            content: "";
+            position: absolute;
             align-content: center;
             background-color: white;
-            position:absolute;
-            border-radius: 50%;
-            height: 17vh;
-            width: 20vw;
-            z-index: -1;
-            left: 46%;
-            top:95%;
-            transform: translate(-50%, -50%);
-            opacity: 40%;
+            height: 5rem;
+            width: 5rem;
+        }
+    }
+}
+
+@media only screen and (orientation: portrait) {
+    .shop-wrapper{
+        display: flex;
+        flex-direction: column;
+
+        .left {
+            width: auto;
         }
     }
 }
