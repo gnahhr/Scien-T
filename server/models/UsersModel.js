@@ -8,9 +8,9 @@ const UserData = new mongoose.Schema(
         username: {type: String, required: true, index: { unique: true }},
         password: {type: String, required: true},
 
-        currentTop: {type: String},
-        currentBottom: {type: String},
-        currentAccessory: {type: String},
+        currentTop: {type: Number},
+        currentBottom: {type: Number},
+        currentAccessory: {type: Number},
         
         top: {type: Array},
         bottom: {type: Array},

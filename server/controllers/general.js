@@ -1,5 +1,8 @@
 const express = require('express');
 const router = express.Router();
+const fs = require('fs')
+const path = require('path');
+
 const UserData = require('../models/UsersModel')
 const ElectronConfigRankings = require('../models/ElectronConfigRankings')
 const IntellimentEasyRankings = require('../models/IntellimentEasyRankings')
@@ -463,5 +466,29 @@ exports.getCoins = async (req, res, next) => {
     else{
         res.json({status: 'error', error:'Something went wrong. Please try again later'})
     }
+}
+
+exports.saveCharacter = async (req, res, next) => {
+    var ObjectId = require('mongoose').Types.ObjectId;
+    const access = req.params['access']
+    const _id = new ObjectId (access)
+
+    const filePath = `../Character/${_id}.png`
+    const buffer = Buffer.from(req.body.base64.split(',')[1],'base64')
+
+    fs.writeFileSync(path.join(__dirname, filePath), buffer)
+
+
+    res.json(filePath)
+}
+
+exports.getCharacter = async(req, res, next) => {
+    var ObjectId = require('mongoose').Types.ObjectId;
+    const access = req.params['access']
+    const _id = new ObjectId (access)
+
+    const filePath= `../Character/${_id}.png`
+    
+    res.sendFile(path.join(__dirname, filePath))
 }
 

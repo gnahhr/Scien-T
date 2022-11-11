@@ -9,6 +9,9 @@ import bonnet from '../../Assets/Images/bonnet.png'
 import tshirt from '../../Assets/Images/tshirt-blue.png'
 import pants from '../../Assets/Images/pants-green.png'
 
+import saveCharacter from '../../Hooks/saveCharacter';
+import getCharacter from '../../Hooks/getCharacter'
+
 import './userProfile.css';
 
 
@@ -20,7 +23,7 @@ const userProfile = () => {
   const [ firstName, setfName]  = useState('');
   const [ lastName, setlName ] = useState('');
 
-  const [ b64String, setB64String ] = useState('')
+  const [ b64String, setB64String ] = useState()
 
   const setText = {
     "username": setUsername,
@@ -38,7 +41,10 @@ const userProfile = () => {
     setlName(user ? user.lastName : "LAST NAME");
     setAccess(user.id);
 
-    testingMerger()
+    // (async() =>{
+    //   const data = await getCharacter(user.id) //tanggalin mo nalang kapag may nagenerate ka na
+    //   setB64String(data)
+    // })()
     
   }, [])
 
@@ -78,9 +84,6 @@ const userProfile = () => {
     mergeImages([Character,bonnet,tshirt,pants]).then(b64 => setB64String(b64))
   }
 
-  useEffect(() =>{
-    console.log(b64String)
-  },[b64String])
 
   return (
     <>
