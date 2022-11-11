@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import jwtDecode from 'jwt-decode';
+import mergeImages from 'merge-images';
+
 import SideNav from '../../Components/SideNav';
 import User from '../../Assets/Images/user.png';
+import Character from '../../Assets/Images/chuu-pewpew.png'
+import bonnet from '../../Assets/Images/bonnet.png'
+import tshirt from '../../Assets/Images/tshirt-blue.png'
+import pants from '../../Assets/Images/pants-green.png'
+
 import './userProfile.css';
 
 
@@ -12,6 +19,8 @@ const userProfile = () => {
   const [ email, setEmail ] = useState('');
   const [ firstName, setfName]  = useState('');
   const [ lastName, setlName ] = useState('');
+
+  const [ b64String, setB64String ] = useState('')
 
   const setText = {
     "username": setUsername,
@@ -28,6 +37,9 @@ const userProfile = () => {
     setfName(user ? user.firstName : "FIRST NAME");
     setlName(user ? user.lastName : "LAST NAME");
     setAccess(user.id);
+
+    testingMerger()
+    
   }, [])
 
   const onInputChange = (e) => {
@@ -62,6 +74,14 @@ const userProfile = () => {
     }
   }
 
+  const testingMerger = () => {
+    mergeImages([Character,bonnet,tshirt,pants]).then(b64 => setB64String(b64))
+  }
+
+  useEffect(() =>{
+    console.log(b64String)
+  },[b64String])
+
   return (
     <>
       <div className="main-header">
@@ -85,6 +105,11 @@ const userProfile = () => {
             
             <button className='teal' onClick={() => setIsEditable(!isEditable)} type={isEditable ? 'submit' : 'button'}> {isEditable ? 'Edit' : 'Save'} </button>
           </form>
+          
+        </div>
+        <div>
+          
+          <img src={b64String} alt="" />
           
         </div>
       </div>

@@ -450,3 +450,18 @@ exports.getUserProgMixDash = async (req, res, next) => {
     res.json({status:'ok', data:data.mixDash})
 }
 
+
+exports.getCoins = async (req, res, next) => {
+    var ObjectId = require('mongoose').Types.ObjectId;
+    const access = req.params['access']
+    const _id = new ObjectId (access)
+
+    const data = await UserData.findById({_id}, {coins:1})
+    if(data){
+        res.json({status:'ok', data:data.coins})
+    }
+    else{
+        res.json({status: 'error', error:'Something went wrong. Please try again later'})
+    }
+}
+

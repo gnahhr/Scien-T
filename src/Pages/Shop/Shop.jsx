@@ -13,11 +13,14 @@ import Arrow from '../../Assets/Images/arrow.svg'
 import './Shop.css'
 import { useEffect } from 'react'
 
+//Hooks
+import getCoins from '../../Hooks/getCoins'
+
 const Shop = () => {
     //state
-    const [ coins, setCoins ] = useState(999999);
+    const [ coins, setCoins ] = useState(0);
     const [ preview, setPreview ] = useState(Character1);
-    const [ selectedItems, setSelectedItems ] = useState(null);
+    const [ selectedItems, setSelectedItems ] = useState([]);
 
     //
     const [ username, setUsername ] = useState('')
@@ -32,12 +35,13 @@ const Shop = () => {
         const token = localStorage.getItem('token')
         const user = jwtDecode(token)
         setAccess(user.id)
-        setUsername(user.username)
-        setSelectedItems({
-            top: 1,
-            bottom: 1,
-            accessory: 1
-        })
+        setUsername(user.username);
+        
+        (async() => {
+            const data =  await getCoins(user.id)
+            setCoins(data)
+        })()
+        
     },[])
 
 
