@@ -8,6 +8,14 @@ const UserData = new mongoose.Schema(
         username: {type: String, required: true, index: { unique: true }},
         password: {type: String, required: true},
 
+        currentTop: {type: String},
+        currentBottom: {type: String},
+        currentAccessory: {type: String},
+        
+        top: {type: Array},
+        bottom: {type: Array},
+        accessory: {type: Array},
+
         mixingElements : {type : Array},
         
         pointsEC: {type: Number, default: 0},
