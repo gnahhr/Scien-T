@@ -16,6 +16,7 @@ import './userProfile.css';
 
 const userProfile = () => {
   const [ access, setAccess ] = useState('')
+  const [ gender, setGender ] = useState('')
   const [ isEditable, setIsEditable ] = useState(true)
   const [ username, setUsername ] = useState('');
   const [ email, setEmail ] = useState('');
@@ -39,11 +40,12 @@ const userProfile = () => {
     setfName(user ? user.firstName : "FIRST NAME");
     setlName(user ? user.lastName : "LAST NAME");
     setAccess(user.id);
+    setGender(user.gender);
 
-    // (async() =>{
-    //   const data = await getCharacter(user.id) //tanggalin mo nalang kapag may nagenerate ka na
-    //   setB64String(data)
-    // })()
+    (async() =>{
+      const data = await getCharacter(user.id, user.gender) //tanggalin mo nalang kapag may nagenerate ka na
+      setB64String(data)
+    })()
     
   }, [])
 
@@ -81,6 +83,10 @@ const userProfile = () => {
 
   const testingMerger = () => {
     mergeImages([Character,bonnet,tshirt,pants]).then(b64 => setB64String(b64))
+  }
+
+  const chenaSave = () =>{
+    saveCharacter(access, gender, ['2001','2002','2003'], b64String)
   }
 
   // Function to get character na malupetchi directory nalang agad ng image kukunin para cool
@@ -129,7 +135,8 @@ const userProfile = () => {
         <div>
           
           <img src={b64String} alt="" />
-          
+          <button onClick={() => testingMerger()}> Test Merge</button>
+          <button onClick={() => chenaSave()}> Test saveCharacter</button>
         </div>
       </div>
     </>
