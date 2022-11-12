@@ -1,5 +1,5 @@
-export default async function getCharacter(access){
-    const response = await fetch('/api/getCharacter/'+access,{
+export default async function getCharacter(access, gender){
+    const response = await fetch('/api/getCharacter/' + access + '/' + gender,{
         method: 'GET',
           headers: {
             Accept: 'application/json',
