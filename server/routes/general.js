@@ -2,7 +2,7 @@ const express = require ('express')
 const { get } = require('mongoose')
 const router = express.Router()
 
-const { mixElements, getME, electronConfiguration, getEC, intelliment, getIntellimentRankings, getElectronConfigRankings, getIntellimentData, getIntellimentCounter, getUserProgTestBattle, testBattle, getTestBattleRankings, mixDash, getUserProgMixDash, getCoins, saveCharacter, getCharacter
+const { mixElements, getME, electronConfiguration, getEC, intelliment, getIntellimentRankings, getElectronConfigRankings, getIntellimentData, getIntellimentCounter, getUserProgTestBattle, testBattle, getTestBattleRankings, mixDash, getUserProgMixDash, getCoins, saveCharacter, getCharacter, buyAccessories, getAccessoriesOwned
 } = require('../controllers/general')
 
 //MIXING TABLE
@@ -34,13 +34,16 @@ router.route('/getIntellimentRankings/:difficulty').get(getIntellimentRankings)/
 router.route('/getElectronConfigRankings').get(getElectronConfigRankings)//get overall rankings of Electron Configuration
 router.route('/getTestBattleRankings/:topic').get(getTestBattleRankings)
 
-//
+//Shop
 router.route('/getCoins/:access').get(getCoins)
+router.route('/getAccessoriesOwned/:access').get(getAccessoriesOwned)
+router.route('/buyAccessories/:access').post(buyAccessories)
+
 
 
 //
-router.route('/saveCharacter/:access').post(saveCharacter)
-router.route('/getCharacter/:access').get(getCharacter)
+router.route('/saveCharacter/:access/:gender').post(saveCharacter)
+router.route('/getCharacter/:access/:gender').get(getCharacter)
 
 
 

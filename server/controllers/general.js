@@ -464,31 +464,82 @@ exports.getCoins = async (req, res, next) => {
         res.json({status:'ok', data:data.coins})
     }
     else{
-        res.json({status: 'error', error:'Something went wrong. Please try again later'})
+        res.json({status:'error', error:'Something went wrong. Please try again later'})
     }
 }
 
-exports.saveCharacter = async (req, res, next) => {
+exports.buyAccessories = async(req,res,next) =>{
     var ObjectId = require('mongoose').Types.ObjectId;
     const access = req.params['access']
     const _id = new ObjectId (access)
 
-    const filePath = `../Character/${_id}.png`
+    const accessories = req.body.accessories
+    const total = req.body.total
+
+    const pushAccessories = await UserData.findByIdAndUpdate({_id},{
+        $push:{
+            accessoriesOwned:{
+                $each:accessories
+            }}
+    })
+
+    const coins = await UserData.findByIdAndUpdate({_id}, {
+        $inc:{
+            coins: -(total)
+        }
+    })
+
+    res.json(pushAccessories)
+}
+
+exports.getAccessoriesOwned = async(req,res,next) => {
+    var ObjectId = require('mongoose').Types.ObjectId;
+    const access = req.params['access']
+    const _id = new ObjectId (access)
+
+    const data = await UserData.findById({_id},{accessoriesOwned:1})
+
+    if(data)
+        res.json({status:'ok', data:data.accessoriesOwned})
+
+    else
+        res.json({status:'error', error:'Something went wrong. Please try again later'})
+}
+
+exports.saveCharacter = async(req, res, next) => {
+    var ObjectId = require('mongoose').Types.ObjectId;
+    const access = req.params['access']
+    const _id = new ObjectId (access)
+
+    const gender = req.params['gender']
+    const accessories = req.body.accessories
+
+    const filePath = `../Character/${gender}/${_id}.png`
     const buffer = Buffer.from(req.body.base64.split(',')[1],'base64')
 
+    const response = await UserData.findByIdAndUpdate({_id},{
+        $set:{
+            accessoriesEquipped:accessories
+        }
+    })
+
     fs.writeFileSync(path.join(__dirname, filePath), buffer)
-
-
     res.json(filePath)
+
 }
 
 exports.getCharacter = async(req, res, next) => {
     var ObjectId = require('mongoose').Types.ObjectId;
     const access = req.params['access']
     const _id = new ObjectId (access)
-
-    const filePath= `../Character/${_id}.png`
     
-    res.sendFile(path.join(__dirname, filePath))
+    const gender = req.params['gender']
+    const filePath= `../Character/${gender}/${_id}.png`
+
+    if(fs.existsSync(path.join(__dirname, filePath)))
+        res.sendFile(path.join(__dirname, filePath))
+    
+    else
+        res.sendFile(path.join(__dirname,`../Character/${gender}/${gender}.png`))
 }
 
