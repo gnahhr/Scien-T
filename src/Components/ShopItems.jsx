@@ -1,41 +1,64 @@
 import React, { useState, useEffect } from 'react'
 
-//TODOs:
-//Get Inventory/Bought Outfits
-//Generate shop depending on bought outfits
-//Yey
-
 //Components
 import ShopItemContainer from './ShopItemContainer'
-
-//Data
-import {shopItems} from '../Data/ShopItems';
 
 //Style
 import './ShopItems.css'
 
-const ShopItems = ({setSelectedItems, tryMe}) => {
-  //Shop Item States
-  const [ tops, setTops ] = useState();
-  const [ bottoms, setBottoms ] = useState();
-  const [ accessories, setAccessories] = useState();
+const template = {
+  id: "",
+  dir: "",
+  price: 0,
+};
 
-  //
+const ShopItems = ({tryMe, setTotal}) => {
+  //Tried Item States
+  const [ tops, setTops ] = useState(template);
+  const [ bottoms, setBottoms ] = useState(template);
+  const [ accessories, setAccessories] = useState(template);
 
+  useEffect(() => {
+    tryMe([
+      tops.dir,
+      bottoms.dir,
+      accessories.dir
+    ])
 
-  const tryItem = (itemType, itemId) => {
-    console.log("Tried Item: ");
+    setTotal(tops.price + bottoms.price + accessories.price);
+  }, [tops, bottoms, accessories])
+
+  const tryItem = (item) => {
+    const data = {
+        id: item.id,
+        dir: `./images${item.dir}/${item.image}`,
+        price: item.price
+    };
+
+    if (item.category === "top") {
+      setTops(data);
+    } else if (item.category === "bottom") {
+      setBottoms(data);
+    } else if (item.category === "accessory") {
+      setAccessories(data);
+    }
   }
   
+  const resetChar = () => {
+    setAccessories(template);
+    setTops(template);
+    setBottoms(template);
+  }
+
   return (
     <>
       <div className='shop-items-container'>
-        <ShopItemContainer category={"Tops"} items={"items"} tryItem={tryItem} something={tryMe}/>
-        <ShopItemContainer category={"Bottoms"} items={"items"} something={tryMe}/>
-        <ShopItemContainer category={"Accessories"} items={"items"} something={tryMe}/>
+        <ShopItemContainer category={"Tops"} items={"top"} model={"boy"} tryItem={tryItem}/>
+        <ShopItemContainer category={"Bottoms"} items={"bottom"} model={"boy"} tryItem={tryItem}/>
+        <ShopItemContainer category={"Accessories"} items={"accessory"} model={"boy"} tryItem={tryItem}/>
       </div>
       <div className="btn-group">
-        <button className="fluid-btn">Cancel</button>
+        <button className="fluid-btn" onClick={() => resetChar()}>Reset </button>
         <button className="fluid-btn save">Save</button>
       </div>
     </>

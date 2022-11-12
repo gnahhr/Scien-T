@@ -42,9 +42,14 @@
 }
 .shop-items-container .category-and-items-container .items .item .picture {
   aspect-ratio: 1;
+  display: grid;
+  place-items: center;
   width: clamp(100px, 10vw, 160px);
   height: clamp(100px, 10vw, 160px);
-  background-color: red;
+  background-color: transparent !important;
+}
+.shop-items-container .category-and-items-container .items .item .picture img {
+  width: 100%;
 }
 .shop-items-container .category-and-items-container .items .item:hover {
   background-color: #41367f;

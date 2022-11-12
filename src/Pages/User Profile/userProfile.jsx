@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import jwtDecode from 'jwt-decode';
 import mergeImages from 'merge-images';
 
-import SideNav from '../../Components/SideNav';
 import User from '../../Assets/Images/user.png';
 import Character from '../../Assets/Images/chuu-pewpew.png'
 import bonnet from '../../Assets/Images/bonnet.png'
@@ -83,6 +82,23 @@ const userProfile = () => {
   const testingMerger = () => {
     mergeImages([Character,bonnet,tshirt,pants]).then(b64 => setB64String(b64))
   }
+
+  // Function to get character na malupetchi directory nalang agad ng image kukunin para cool
+  // const getCharacter = (data) => {
+  //   //Get each clothing's directory
+  //   const clothing = Clothes.filter((Clothe) => {
+  //     if (Clothe.id === id.ng.nakuha.sa.query) {
+  //       return Clothe.dir;
+  //     } else {
+  //       //Return an empty string if walang id na nakita
+  //       return "";
+  //     }
+  //   })
+
+  //   //Remove empty strings
+  //   const equipped = data.filter((x) => x !== "");
+  //   mergeImages([Character1, ...sample]).then(b64 => setB64String(b64))
+  // }
 
 
   return (

@@ -1,5 +1,16 @@
-import React, { useState } from 'react'
+// Buy Functions
+// -reduces player money
+// -add itemIds to the player
+//
+// onClick modal
+// -Buy Button for single buying
+// -Try Button
+//
+
+
+import React, { useState, useEffect } from 'react'
 import jwtDecode from 'jwt-decode'
+import mergeImages from 'merge-images';
 
 //Componenst
 import ShopItems from '../../Components/ShopItems'
@@ -11,7 +22,6 @@ import Arrow from '../../Assets/Images/arrow.svg'
 
 //Style
 import './Shop.css'
-import { useEffect } from 'react'
 
 //Hooks
 import getCoins from '../../Hooks/getCoins'
@@ -21,6 +31,8 @@ const Shop = () => {
     const [ coins, setCoins ] = useState(0);
     const [ preview, setPreview ] = useState(Character1);
     const [ selectedItems, setSelectedItems ] = useState([]);
+    const [ totalValue, setTotalValue ] = useState(0);
+
 
     //
     const [ username, setUsername ] = useState('')
@@ -28,7 +40,8 @@ const Shop = () => {
 
     //Test Function
     const tryMe = (data) => {
-        console.log("Data got: ", data);
+        const sample = data.filter((x) => x !== "");
+        mergeImages([Character1, ...sample]).then(b64 => setPreview(b64))
     }
 
     useEffect(() => {
@@ -62,13 +75,16 @@ const Shop = () => {
                             <h1>{coins}</h1>
                         </div>
                     </div>
-
                     <div className='character-preview-container'>
                         <img src={preview} alt='' />
                     </div>
+                    <div className="totalValue">
+                        <div className="label">Total Value: </div>
+                        <div className="value">{totalValue}</div>
+                    </div>
                 </div>
                 <div className='right'>
-                    <ShopItems selectedItems={setSelectedItems} tryMe={tryMe}/>
+                    <ShopItems tryMe={tryMe} setTotal={setTotalValue}/>
                 </div>
             </div>
         </>

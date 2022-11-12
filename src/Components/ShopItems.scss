@@ -45,9 +45,15 @@
 
                 .picture {
                     aspect-ratio: 1;
+                    display: grid;
+                    place-items: center;
                     width: clamp(100px, 10vw, 160px);
                     height: clamp(100px, 10vw, 160px);
-                    background-color: red;
+                    background-color: transparent !important;
+
+                    img {
+                        width: 100%;
+                    }
                 }
             }
 

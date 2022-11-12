@@ -1,7 +1,18 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 
-const ShopItemContainer = ({category, items, tryItem, something}) => {
-  const data = [1,2,3,4,5,6,7,8,9,0];
+import Loader from '../Components/Loader';
+import Clothes from '../Data/Clothes';
+
+const ShopItemContainer = ({category, items, tryItem, model}) => {
+  const [ shopData, setShopData ] = useState();
+
+  useEffect(() => {
+    setShopData(Clothes.filter((Clothe) => {
+      if (Clothe.model === model && Clothe.category === items) {
+        return Clothe;
+      }
+    }))
+  }, [])
 
   return (
     <div className='category-and-items-container'>
@@ -9,16 +20,18 @@ const ShopItemContainer = ({category, items, tryItem, something}) => {
           <h1>{category}</h1>
         </div>
         <div className='items'>
-            {data.map((data) => 
-                <div className="item" onClick={() => something(`${category} ${data}`)} key={data}>
+            {shopData ? shopData.map((data) => 
+                <div className="item" onClick={() => tryItem(data)} key={data.name}>
                     <div className="picture">
-
+                        <img src={`./images/Shop${data.dir}/${data.image}`} alt="" />
                     </div>
                     <div className="price">
-                        {data}
+                        {data.price}
                     </div>
                 </div>
-            )}
+            ):
+            <Loader />
+            }
             
         </div>
       </div>
