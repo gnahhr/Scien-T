@@ -4,17 +4,13 @@ const UserData = new mongoose.Schema(
     {
         firstName: {type: String, required: true},
         lastName: {type: String, required: true},
+        gender: {type: String, required: true},
         email: {type: String, required: true, index: { unique: true }},
         username: {type: String, required: true, index: { unique: true }},
         password: {type: String, required: true},
 
-        currentTop: {type: Number},
-        currentBottom: {type: Number},
-        currentAccessory: {type: Number},
-        
-        top: {type: Array},
-        bottom: {type: Array},
-        accessory: {type: Array},
+        accessoriesEquipped: {type: Array},
+        accessoriesOwned: {type: Array},
 
         mixingElements : {type : Array},
         
