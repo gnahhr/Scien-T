@@ -8,6 +8,10 @@
 //
 
 
+//JuiceWah reminders
+//-call mo nalang ulet getCoins, getAccessoriesOwned after mag buyAccessories
+
+
 import React, { useState, useEffect } from 'react'
 import jwtDecode from 'jwt-decode'
 import mergeImages from 'merge-images';
@@ -25,6 +29,8 @@ import './Shop.css'
 
 //Hooks
 import getCoins from '../../Hooks/getCoins'
+import buyAccessories from '../../Hooks/buyAccessories';
+import getAccessoriesOwned from '../../Hooks/getAccessoriesOwned';
 
 const Shop = () => {
     //state
@@ -32,11 +38,13 @@ const Shop = () => {
     const [ preview, setPreview ] = useState(Character1);
     const [ selectedItems, setSelectedItems ] = useState([]);
     const [ totalValue, setTotalValue ] = useState(0);
+    const [ accessoriesOwned, setAccessoriesOwned ] = useState([])
 
 
     //
     const [ username, setUsername ] = useState('')
     const [ access, setAccess ]  = useState('')
+    const [ gender, setGender ] = useState('')
 
     //Test Function
     const tryMe = (data) => {
@@ -45,17 +53,27 @@ const Shop = () => {
     }
 
     useEffect(() => {
-        const token = localStorage.getItem('token')
-        const user = jwtDecode(token)
-        setAccess(user.id)
+        const token = localStorage.getItem('token');
+        const user = jwtDecode(token);
+        setAccess(user.id);
         setUsername(user.username);
+        setGender(user.gender);
         
         (async() => {
             const data =  await getCoins(user.id)
             setCoins(data)
-        })()
+        })();
+
+        (async() =>{
+            const data =  await getAccessoriesOwned(user.id)
+            setAccessoriesOwned(data)
+        })();
         
     },[])
+
+    useEffect(() => {
+        console.log(accessoriesOwned)
+    },[accessoriesOwned])
 
 
     return (
