@@ -18,14 +18,15 @@ const { isValidObjectId } = require('mongoose');
 
 //register
 exports.register = async (req, res, next) => {
-	const { firstName, lastName, email, username, password: plainTextPassword } = req.body
+	const { firstName, lastName, gender, email, username, password: plainTextPassword } = req.body
 
 	const password = await bcrypt.hash(plainTextPassword, 10)
 
 	try {
 		const response = await UserData.create({
             firstName, 
-            lastName, 
+            lastName,
+			gender, 
             email,
 			username,
 			password
@@ -162,6 +163,7 @@ exports.login = async (req, res, next) => {
 					username: user.username,
 					firstName: user.firstName,
 					lastName: user.lastName,
+					gender: user.gender,
 					email: user.email
 				},
 				JWT_SECRET
