@@ -1,0 +1,73 @@
+.modal-wrapper .user-info {
+  position: absolute;
+  top: 10vh;
+  left: 0;
+}
+.modal-wrapper .user-info .upper-part {
+  width: 100%;
+  background-color: #B1BEFA;
+  padding: 0.5rem auto;
+  border-top-right-radius: 2rem;
+}
+.modal-wrapper .user-info .upper-part h1 {
+  font-size: clamp(16px, 1.25vw, 3rem);
+  color: #282054;
+  padding: 1rem 3rem;
+}
+.modal-wrapper .user-info .lower-part {
+  display: flex;
+  width: 100%;
+  background-color: #282054;
+  border-bottom-right-radius: 0.5rem;
+  align-items: center;
+  justify-content: space-around;
+  align-self: center;
+}
+.modal-wrapper .user-info .lower-part img {
+  margin: 0.3rem;
+  width: clamp(25px, 1.25vw, 3rem);
+  float: left;
+}
+.modal-wrapper .user-info .lower-part h1 {
+  font-size: clamp(16px, 1vw, 3rem);
+  color: #B1BEFA;
+  margin: auto 0.5rem;
+}
+
+.unlockStage {
+  background-color: #D9D9D9;
+  border-radius: 1.2rem;
+  text-align: center;
+}
+.unlockStage .header {
+  border-radius: 1rem 1rem 0 0;
+  background-color: #5D1B63;
+  color: #FFFFFF;
+  font-size: 2rem;
+  padding: 2rem auto;
+}
+.unlockStage .content .unlock-data {
+  margin: 2rem;
+}
+.unlockStage .content .unlock-data .topic {
+  font-size: 1.5rem;
+  line-height: 1ch;
+}
+.unlockStage .content .unlock-data .stage {
+  font-size: 2.5rem;
+  line-height: 2ch;
+}
+.unlockStage .content .price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+}
+.unlockStage .content .price img {
+  width: 34px;
+  margin-right: 5px;
+}
+.unlockStage .content .price h2 {
+  font-size: 2.5rem;
+  color: #000000;
+}

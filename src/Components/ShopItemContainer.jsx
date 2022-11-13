@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import Loader from '../Components/Loader';
 import Clothes from '../Data/Clothes';
 
-const ShopItemContainer = ({category, items, tryItem, model}) => {
+const ShopItemContainer = ({category, items, tryItem, model, owned}) => {
   const [ shopData, setShopData ] = useState();
 
   useEffect(() => {
@@ -12,6 +12,8 @@ const ShopItemContainer = ({category, items, tryItem, model}) => {
         return Clothe;
       }
     }))
+
+    console.log("Owned: ", owned);
   }, [])
 
   return (
@@ -26,7 +28,7 @@ const ShopItemContainer = ({category, items, tryItem, model}) => {
                         <img src={`./images/Shop${data.dir}/${data.image}`} alt="" />
                     </div>
                     <div className="price">
-                        {data.price}
+                        {owned.includes(data.id) ? "OWNED" : data.price}
                     </div>
                 </div>
             ):

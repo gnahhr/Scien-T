@@ -1,10 +1,10 @@
 .shop-items-container {
-  width: clamp(50%, 45vw, 85%);
+  width: clamp(50%, 65vw, 85%);
   background-color: #B1BEFA;
   border-radius: 20px 0 0 20px;
   margin: 0;
   overflow-y: auto;
-  height: 80vh;
+  height: 75vh;
 }
 .shop-items-container .category-and-items-container {
   padding: 1.5rem 0;
@@ -28,7 +28,7 @@
   gap: 1rem;
   justify-items: space-around;
   align-items: space-around;
-  overflow-x: scroll;
+  overflow-x: auto;
   width: 85%;
   margin: auto;
 }
@@ -62,7 +62,7 @@
 .btn-group {
   display: flex;
   flex-grow: 1;
-  width: 50%;
+  width: 85%;
   color: #0C004E;
 }
 .btn-group button {

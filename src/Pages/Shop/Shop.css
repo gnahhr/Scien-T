@@ -1,7 +1,7 @@
 .shop-wrapper {
   margin-top: 4vh;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr 6fr;
 }
 
 .left {
@@ -50,7 +50,7 @@
   height: auto;
 }
 .left .character-preview-container img {
-  margin: clamp(1rem, 5vw, 5rem);
+  margin: clamp(1rem, 3vw, 5rem);
   width: clamp(200px, 16vw, 15rem);
 }
 .left .character-preview-container img::after {
@@ -60,6 +60,9 @@
   background-color: white;
   height: 5rem;
   width: 5rem;
+}
+.left .totalValue {
+  text-align: center;
 }
 
 @media only screen and (orientation: portrait) {

@@ -1,6 +1,4 @@
-// Buy Functions
-// -reduces player money
-// -add itemIds to the player
+// Add Default for female character
 //
 // onClick modal
 // -Buy Button for single buying
@@ -17,20 +15,20 @@ import jwtDecode from 'jwt-decode'
 import mergeImages from 'merge-images';
 
 //Componenst
-import ShopItems from '../../Components/ShopItems'
+import ShopItems from '../../Components/ShopItems';
+import Loader from '../../Components/Loader';
 
 //Assets
-import MoneyBag from '../../Assets/Images/money-bag.png'
-import Character1 from '../../Assets/Images/chuu-pewpew.png'
-import Arrow from '../../Assets/Images/arrow.svg'
+import MoneyBag from '../../Assets/Images/money-bag.png';
+import Character1 from '../../Assets/Images/chuu-pewpew.png';
 
 //Style
 import './Shop.css'
 
 //Hooks
 import getCoins from '../../Hooks/getCoins'
-import buyAccessories from '../../Hooks/buyAccessories';
 import getAccessoriesOwned from '../../Hooks/getAccessoriesOwned';
+
 
 const Shop = () => {
     //state
@@ -38,8 +36,7 @@ const Shop = () => {
     const [ preview, setPreview ] = useState(Character1);
     const [ selectedItems, setSelectedItems ] = useState([]);
     const [ totalValue, setTotalValue ] = useState(0);
-    const [ accessoriesOwned, setAccessoriesOwned ] = useState([])
-
+    const [ accessoriesOwned, setAccessoriesOwned ] = useState([]);
 
     //
     const [ username, setUsername ] = useState('')
@@ -75,7 +72,6 @@ const Shop = () => {
         console.log(accessoriesOwned)
     },[accessoriesOwned])
 
-
     return (
         <>
             <div className='main-header'>
@@ -94,7 +90,7 @@ const Shop = () => {
                         </div>
                     </div>
                     <div className='character-preview-container'>
-                        <img src={preview} alt='' />
+                        {preview ? <img src={preview} alt='' /> : <Loader />}
                     </div>
                     <div className="totalValue">
                         <div className="label">Total Value: </div>
@@ -102,7 +98,12 @@ const Shop = () => {
                     </div>
                 </div>
                 <div className='right'>
-                    <ShopItems tryMe={tryMe} setTotal={setTotalValue}/>
+                    <ShopItems tryMe={tryMe}
+                               setTotal={setTotalValue}
+                               access={access}
+                               preview={preview}
+                               gender={gender}
+                               owned={accessoriesOwned}/>
                 </div>
             </div>
         </>

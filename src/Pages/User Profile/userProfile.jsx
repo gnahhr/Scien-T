@@ -1,13 +1,11 @@
+//Redirect User to Shop if they want to customize the character <3
 import React, { useState, useEffect } from 'react';
 import jwtDecode from 'jwt-decode';
 import mergeImages from 'merge-images';
 
 import User from '../../Assets/Images/user.png';
-import Character from '../../Assets/Images/chuu-pewpew.png'
-import bonnet from '../../Assets/Images/bonnet.png'
-import tshirt from '../../Assets/Images/tshirt-blue.png'
-import pants from '../../Assets/Images/pants-green.png'
 
+import getAccessoriesOwned from '../../Hooks/getAccessoriesOwned';
 import saveCharacter from '../../Hooks/saveCharacter';
 import getCharacter from '../../Hooks/getCharacter'
 
@@ -23,7 +21,8 @@ const userProfile = () => {
   const [ firstName, setfName]  = useState('');
   const [ lastName, setlName ] = useState('');
 
-  const [ b64String, setB64String ] = useState()
+  const [ b64String, setB64String ] = useState();
+  const [ accessoriesOwned, setAccessoriesOwned ] = useState();
 
   const setText = {
     "username": setUsername,
@@ -43,9 +42,14 @@ const userProfile = () => {
     setGender(user.gender);
 
     (async() =>{
-      const data = await getCharacter(user.id, user.gender) //tanggalin mo nalang kapag may nagenerate ka na
-      setB64String(data)
-    })()
+      const data = await getCharacter(user.id, user.gender); //tanggalin mo nalang kapag may nagenerate ka na
+      setB64String(data);
+    })();
+
+    (async() =>{
+      const data =  await getAccessoriesOwned(user.id);
+      setAccessoriesOwned(data);
+    })();
     
   }, [])
 
@@ -82,7 +86,8 @@ const userProfile = () => {
   }
 
   const testingMerger = () => {
-    mergeImages([Character,bonnet,tshirt,pants]).then(b64 => setB64String(b64))
+    console.log(accessoriesOwned);
+    // mergeImages([Character,bonnet,tshirt,pants]).then(b64 => setB64String(b64))
   }
 
   const chenaSave = () =>{

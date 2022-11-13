@@ -81,13 +81,6 @@ a {
   transition: background-color 0.5ms ease;
 }
 
-.normal {
-  background-color: transparent;
-  box-shadow: 0 0 0 3px rgb(255, 255, 255);
-  color: white;
-  transition: background-color 0.5ms ease;
-}
-
 .normal:hover {
   background-color: #D34646;
   box-shadow: 0 0 0 3px #D34646;
@@ -115,6 +108,19 @@ a {
 }
 
 .teal:hover {
+  background-color: #AB2921;
+  box-shadow: 0 0 0 3px #AB2921;
+  transition: background-color 0.5ms ease;
+}
+
+.black {
+  background-color: #000000;
+  box-shadow: 0 0 0 3px #000000;
+  color: #ffffff;
+  font-size: 1.7rem;
+}
+
+.black:hover {
   background-color: #AB2921;
   box-shadow: 0 0 0 3px #AB2921;
   transition: background-color 0.5ms ease;
@@ -173,6 +179,7 @@ h2 {
   align-items: center;
   border-radius: 15px;
   margin: 3rem 0;
+  position: relative;
 }
 .form-wrapper h2 {
   margin: 1rem auto 2rem;
