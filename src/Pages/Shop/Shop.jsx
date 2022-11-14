@@ -34,11 +34,7 @@ const Shop = () => {
     //state
     const [ coins, setCoins ] = useState(0);
     const [ preview, setPreview ] = useState(Character1);
-    const [ selectedItems, setSelectedItems ] = useState([]);
     const [ totalValue, setTotalValue ] = useState(0);
-    const [ accessoryOwned, setAccessoryOwned ] = useState([]);
-    const [ topOwned, setTopOwned] = useState([]);
-    const [ bottomOwned, setBottomOwned] = useState([]);
 
     //
     const [ username, setUsername ] = useState('')
@@ -61,28 +57,8 @@ const Shop = () => {
         (async() => {
             const data =  await getCoins(user.id)
             setCoins(data)
-        })();
-
-        (async() =>{
-            const data =  await getAccessoriesOwned(user.id)
-            setTopOwned(data.topOwned)
-            setBottomOwned(data.bottomOwned)
-            setAccessoryOwned(data.accessoryOwned)
-        })();
-        
+        })();        
     },[])
-
-    useEffect(() => {
-        console.log(accessoryOwned)
-    },[accessoryOwned])
-
-    useEffect(() => {
-        console.log(topOwned)
-    },[topOwned])
-
-    useEffect(() => {
-        console.log(bottomOwned)
-    },[bottomOwned])
 
     return (
         <>
@@ -109,14 +85,13 @@ const Shop = () => {
                         <div className="value">{totalValue}</div>
                     </div>
                 </div>
-                {/* <div className='right'>
+                <div className='right'>
                     <ShopItems tryMe={tryMe}
                                setTotal={setTotalValue}
                                access={access}
                                preview={preview}
-                               gender={gender}
-                               owned={}/>
-                </div> */}
+                               gender={gender}/>
+                </div>
             </div>
         </>
     )

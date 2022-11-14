@@ -32,7 +32,7 @@ const userProfile = () => {
   }
 
   useEffect(() => {
-    const token = localStorage.getItem('token')
+    const token = localStorage.getItem('token');
     const user = jwtDecode(token);
     setUsername(user ? user.username : "USERNAME");
     setEmail(user ? user.email : "EMAIL");

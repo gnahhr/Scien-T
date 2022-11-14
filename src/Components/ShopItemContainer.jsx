@@ -7,13 +7,21 @@ const ShopItemContainer = ({category, items, tryItem, model, owned}) => {
   const [ shopData, setShopData ] = useState();
 
   useEffect(() => {
+    const ownedClothes = owned.map(own => {
+      return own.id;
+    });
+
     setShopData(Clothes.filter((Clothe) => {
       if (Clothe.model === model && Clothe.category === items) {
-        return Clothe;
+        return Clothe
       }
-    }))
+    }).map(Clothe => {
+      return {
+        owned: ownedClothes.includes(Clothe.id),
+        ...Clothe
+      }
+    }));
 
-    console.log("Owned: ", owned);
   }, [])
 
   return (
@@ -28,7 +36,7 @@ const ShopItemContainer = ({category, items, tryItem, model, owned}) => {
                         <img src={`./images/Shop${data.dir}/${data.image}`} alt="" />
                     </div>
                     <div className="price">
-                        {owned.includes(data.id) ? "OWNED" : data.price}
+                        {data.owned ? "OWNED" : data.price}
                     </div>
                 </div>
             ):
