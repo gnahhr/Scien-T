@@ -1,11 +1,11 @@
-export default async function buyAccessories(access, accessories, total){
+export default async function buyAccessories(access, top, bottom, accessory, total){
     const response = await fetch('/api/buyAccessories/' + access,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            accessories, total
+            top, bottom, accessory, total
         })
     })
 
@@ -16,5 +16,4 @@ export default async function buyAccessories(access, accessories, total){
     else{
         alert(data.error)
     }
-
 }

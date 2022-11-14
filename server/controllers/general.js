@@ -50,45 +50,6 @@ exports.getME = async (req, res, next) => {
         return res.json({ status: 'error', error: 'Invalid access token' })
 }
 
-exports.electronConfiguration = async (req, res, next) => {
-    var ObjectId = require('mongoose').Types.ObjectId;
-    const access = req.body.access
-    const _id = new ObjectId (access)
-    const username = req.body.username
-
-    const points = req.body.points
-
-    const pushProgPoints = await UserData.findByIdAndUpdate({_id},{
-        $inc: {pointsEC: points}
-    })
-
-    const pushRankings = await ElectronConfigRankings.findOneAndUpdate({username},{
-        $inc: {points : points}
-    }, {upsert: true})
-    
-    if(pushProgPoints)
-        res.json({status: 'ok', pushRankings})
-    
-    else
-        return res.json({ status: 'error', error: 'Invalid access token' })
-    
-
-
-}
-
-exports.getEC = async (req, res, next) => {
-    var ObjectId = require('mongoose').Types.ObjectId;
-    const access = req.params['access']
-    const _id = new ObjectId (access)
-
-    const userProg = await UserData.findById({_id}, {pointsEC:1})
-    
-    if(userProg)
-        return res.json({status:'ok', userProg: userProg})
-    else
-        return res.json({ status: 'error', error: 'Invalid access token' })
-}
-
 exports.intelliment = async (req, res, next) => {
     var ObjectId = require('mongoose').Types.ObjectId;
     const access = req.body.access
@@ -288,6 +249,43 @@ exports.getIntellimentCounter = async(req, res, next) => {
     }
 }
 
+exports.electronConfiguration = async (req, res, next) => {
+    var ObjectId = require('mongoose').Types.ObjectId;
+    const access = req.body.access
+    const _id = new ObjectId (access)
+    const username = req.body.username
+
+    const points = req.body.points
+
+    const pushProgPoints = await UserData.findByIdAndUpdate({_id},{
+        $inc: {pointsEC: points}
+    })
+
+    const pushRankings = await ElectronConfigRankings.findOneAndUpdate({username},{
+        $inc: {points : points}
+    }, {upsert: true})
+    
+    if(pushProgPoints)
+        res.json({status: 'ok', pushRankings})
+    
+    else
+        return res.json({ status: 'error', error: 'Invalid access token' })
+    
+}
+
+exports.getEC = async (req, res, next) => {
+    var ObjectId = require('mongoose').Types.ObjectId;
+    const access = req.params['access']
+    const _id = new ObjectId (access)
+
+    const userProg = await UserData.findById({_id}, {pointsEC:1})
+    
+    if(userProg)
+        return res.json({status:'ok', userProg: userProg})
+    else
+        return res.json({ status: 'error', error: 'Invalid access token' })
+}
+
 exports.testBattle = async (req, res, next)  =>{
     var ObjectId = require('mongoose').Types.ObjectId;
     const access = req.params['access']
@@ -473,15 +471,35 @@ exports.buyAccessories = async(req,res,next) =>{
     const access = req.params['access']
     const _id = new ObjectId (access)
 
-    const accessories = req.body.accessories
+    const top = req.body.top
+    const bottom = req.body.bottom
+    const accessory = req.body.accessory
+
     const total = req.body.total
 
-    const pushAccessories = await UserData.findByIdAndUpdate({_id},{
-        $push:{
-            accessoriesOwned:{
-                $each:accessories
-            }}
-    })
+    if(top !== ''){
+        const pushTop = await UserData.findByIdAndUpdate({_id},{
+            $push:{
+                topOwned: top
+                }
+        })
+    }
+
+    if(bottom !== ''){
+        const pushBottom = await UserData.findByIdAndUpdate({_id},{
+            $push:{
+                bottomOwned: bottom
+                }
+        })
+    }
+
+    if(accessory !== ''){
+        const pushAccessory = await UserData.findByIdAndUpdate({_id},{
+            $push:{
+                accessoryOwned: accessory
+                }
+        })
+    }
 
     const coins = await UserData.findByIdAndUpdate({_id}, {
         $inc:{
@@ -489,7 +507,8 @@ exports.buyAccessories = async(req,res,next) =>{
         }
     })
 
-    res.json(pushAccessories)
+    // res.json(pushAccessories)
+    res.json({status:'asd'})
 }
 
 exports.getAccessoriesOwned = async(req,res,next) => {
@@ -497,10 +516,10 @@ exports.getAccessoriesOwned = async(req,res,next) => {
     const access = req.params['access']
     const _id = new ObjectId (access)
 
-    const data = await UserData.findById({_id},{accessoriesOwned:1})
+    const data = await UserData.findById({_id},{topOwned:1, bottomOwned:1, accessoryOwned:1})
 
     if(data)
-        res.json({status:'ok', data:data.accessoriesOwned})
+        res.json({status:'ok', data:data})
 
     else
         res.json({status:'error', error:'Something went wrong. Please try again later'})

@@ -9,8 +9,13 @@ const UserData = new mongoose.Schema(
         username: {type: String, required: true, index: { unique: true }},
         password: {type: String, required: true},
 
-        accessoriesEquipped: {type: Array},
-        accessoriesOwned: {type: Array},
+        topEquipped: {type: Array},
+        bottomEquipped: {type: Array},
+        accessoryEquipped: {type: Array},
+        
+        topOwned: {type: Array},
+        bottomOwned: {type: Array},
+        accessoryOwned: {type: Array},
 
         mixingElements : {type : Array},
         
