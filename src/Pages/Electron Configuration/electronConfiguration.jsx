@@ -31,6 +31,7 @@ import "./electronConfiguration.css";
 const electronConfiguration = () => {
   const icons = [icon1,icon2,icon3,icon4,icon5,icon6,icon7,icon8,icon9,icon10]
   const [ points, setPoints ] = useState(0)
+  const [ prizeCoins, setPrizeCoins ] = useState(500)
   const [ igPoints, setIGPoints ] = useState(0)
   const [ cell, setCell ] = useState([])
   const [ answer, setAnswer ] = useState([])
@@ -84,7 +85,7 @@ const electronConfiguration = () => {
 
   useEffect(() => {
     if(gameProgress === 10){
-      pushProgEC(access,igPoints,username)
+      pushProgEC(access,igPoints,prizeCoins,username)
       setShowModal(true)
       console.log('finish na')
     }
