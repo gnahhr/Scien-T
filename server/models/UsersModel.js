@@ -36,17 +36,17 @@ const UserData = new mongoose.Schema(
         intellimentHardCounter:{type: Array},
         intellimentHardcoreCounter:{type: Array},
 
-        battleElementName:{type: Number, default: 1},
-        battleAtomicNumber:{type: Number, default: 1},
-        battleAtomicMass:{type: Number, default: 1},
-        battleCategory:{type: Number, default: 1},
+        battleElementName:{type: Number, default: 3},
+        battleAtomicNumber:{type: Number, default: 3},
+        battleAtomicMass:{type: Number, default: 3},
+        battleCategory:{type: Number, default: 3},
 
         battleElementNameEndlessHS:{type: Number, default: 0},
         battleAtomicNumberEndlessHS:{type: Number, default: 0},
         battleAtomicMassEndlessHS:{type: Number, default: 0},
         battleCategoryEndlessHS:{type: Number, default: 0},
 
-        mixDash:{type: Number, default: 1},
+        mixDash:{type: Number, default: 3},
 
         coins: {type: Number, default: 0},
 
