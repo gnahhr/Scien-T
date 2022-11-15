@@ -256,9 +256,10 @@ exports.electronConfiguration = async (req, res, next) => {
     const username = req.body.username
 
     const points = req.body.points
+    const prizeCoins = req.body.prizeCoins
 
     const pushProgPoints = await UserData.findByIdAndUpdate({_id},{
-        $inc: {pointsEC: points}
+        $inc: {pointsEC: points, coins: prizeCoins}
     })
 
     const pushRankings = await ElectronConfigRankings.findOneAndUpdate({username},{
@@ -296,6 +297,7 @@ exports.testBattle = async (req, res, next)  =>{
     const stage = req.params['stage']
 
     const score = req.body.score
+    const prizeCoins = req.body.prizeCoins
 
     if(topic === 'elemName'){
         if(stage === 'endless'){
@@ -307,12 +309,10 @@ exports.testBattle = async (req, res, next)  =>{
                 $max: {points: score}
             },{upsert: true})
         }
-        
-        else{
-            const data = await UserData.findByIdAndUpdate({_id}, {
-                $inc:{battleElementName: 1}
-            })
-        }
+
+        const pushCoins = await UserData.findByIdAndUpdate({_id},{
+            $inc:{coins: prizeCoins}
+        })
         res.json({status:'ok'})
     }
 
@@ -327,11 +327,9 @@ exports.testBattle = async (req, res, next)  =>{
             },{upsert: true})
         }
         
-        else{
-            const data = await UserData.findByIdAndUpdate({_id}, {
-                $inc:{battleAtomicNumber:1}
-            })
-        }
+        const pushCoins = await UserData.findByIdAndUpdate({_id},{
+            $inc:{coins: prizeCoins}
+        })
         res.json({status:'ok'})
     }
 
@@ -345,12 +343,10 @@ exports.testBattle = async (req, res, next)  =>{
                 $max: {points: score}
             },{upsert: true})
         }
-        
-        else{
-            const data = await UserData.findByIdAndUpdate({_id}, {
-                $inc:{battleAtomicMass:1}
-            })
-        }
+
+        const pushCoins = await UserData.findByIdAndUpdate({_id},{
+            $inc:{coins: prizeCoins}
+        })
         res.json({status:'ok'})
     }
 
@@ -364,12 +360,52 @@ exports.testBattle = async (req, res, next)  =>{
                 $max: {points: score}
             },{upsert: true})
         }
+
+        const pushCoins = await UserData.findByIdAndUpdate({_id},{
+            $inc:{coins: prizeCoins}
+        })
+        res.json({status:'ok'})
+    }
+}
+
+exports.buyTestBattleStage = async(req, res, next) => {
+    var ObjectId = require('mongoose').Types.ObjectId;
+    const access = req.params['access']
+    const _id = new ObjectId (access)
+
+    const topic = req.params['topic']
+    const stagePrice = req.body.stagePrice
+    
+
+    if(topic === 'elemName'){
+        const buyStage = await UserData.findByIdAndUpdate({_id},{
+            $inc:{battleElementName:1, coins: -(stagePrice)}
+        })
+
+        res.json({status:'ok'})
+    }
+
+    else if(topic === 'atomicNum'){
+        const buyStage = await UserData.findByIdAndUpdate({_id},{
+            $inc:{battleAtomicNumber:1, coins: -(price)}
+        })
         
-        else{
-            const data = await UserData.findByIdAndUpdate({_id}, {
-                $inc:{battleCategory:1}
-            })
-        }
+        res.json({status:'ok'})
+    }
+
+    else if(topic === 'atomicMass'){
+        const buyStage = await UserData.findByIdAndUpdate({_id},{
+            $inc:{battleAtomicMass:1, coins: -(price)}
+        })
+        
+        res.json({status:'ok'})
+    }
+
+    else if(topic === 'category'){
+        const buyStage = await UserData.findByIdAndUpdate({_id},{
+            $inc:{battleCategory:1, coins: -(price)}
+        })
+        
         res.json({status:'ok'})
     }
 }
@@ -435,11 +471,27 @@ exports.mixDash = async (req, res, next) => {
     const access = req.params['access']
     const _id = new ObjectId (access)
 
+    const prizeCoins = req.body.prizeCoins
+
     const data = await UserData.findByIdAndUpdate({_id}, {
-        $inc:{mixDash: 1}
+        $inc:{coins: prizeCoins}
     })
 
     res.json({status: 'ok', data: data})
+}
+
+exports.buyMixDashStage = async (req, res, next) => {
+    var ObjectId = require('mongoose').Types.ObjectId;
+    const access = req.params['access']
+    const _id = new ObjectId (access)
+
+    const stagePrice = req.body.stagePrice
+
+    const buyStage = await UserData.findByIdAndUpdate({_id},{
+        $inc:{coins: -(stagePrice), mixDash: 1}
+    })
+
+    res.json({status: 'ok'})
 }
 
 exports.getUserProgMixDash = async (req, res, next) => {
