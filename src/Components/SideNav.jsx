@@ -71,7 +71,6 @@ const SideNav = ({children}) => {
         <div className="category-links">
             <NavLink to="/periodicTable" onClick={closeNav}><img src={PerIcon} alt="-"/><div className="l-name">Periodic Table</div></NavLink>
             <NavLink to="/trivias/hydrogen" onClick={closeNav}><img src={Trivia} alt="-"/><div className="l-name">Trivias</div></NavLink>
-            <NavLink to="/intellimentCategory" onClick={closeNav}><img src={Intell} alt="-"/><div className="l-name">Intelliment</div></NavLink>
         </div>
       </div>
       <div className="category">

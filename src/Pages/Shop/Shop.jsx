@@ -1,14 +1,6 @@
-// Add Default for female character
-//
-// onClick modal
-// -Buy Button for single buying
-// -Try Button
-//
-
-
-//JuiceWah reminders
-//-call mo nalang ulet getCoins, getAccessoriesOwned after mag buyAccessories
-
+//TODOs
+//Refresh total values
+//Something
 
 import React, { useState, useEffect } from 'react'
 import jwtDecode from 'jwt-decode'
@@ -20,32 +12,27 @@ import Loader from '../../Components/Loader';
 
 //Assets
 import MoneyBag from '../../Assets/Images/money-bag.png';
-import Character1 from '../../Assets/Images/chuu-pewpew.png';
+import Male from '../../Assets/Images/male.png';
+import Female from '../../Assets/Images/female.png';
 
 //Style
-import './Shop.css'
+import './Shop.css';
 
 //Hooks
-import getCoins from '../../Hooks/getCoins'
-import getAccessoriesOwned from '../../Hooks/getAccessoriesOwned';
+import getCoins from '../../Hooks/getCoins';
 
 
 const Shop = () => {
-    //state
+    //Data States
     const [ coins, setCoins ] = useState(0);
-    const [ preview, setPreview ] = useState(Character1);
     const [ totalValue, setTotalValue ] = useState(0);
+    const [ model, setModel ] = useState();
+    const [ preview, setPreview ] = useState(model);
 
-    //
+    //Query States
     const [ username, setUsername ] = useState('')
     const [ access, setAccess ]  = useState('')
     const [ gender, setGender ] = useState('')
-
-    //Test Function
-    const tryMe = (data) => {
-        const sample = data.filter((x) => x !== "");
-        mergeImages([Character1, ...sample]).then(b64 => setPreview(b64))
-    }
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -53,12 +40,27 @@ const Shop = () => {
         setAccess(user.id);
         setUsername(user.username);
         setGender(user.gender);
+        setModel(user.gender === "male" ? Male : Female);
+        setPreview(user.gender === "male" ? Male : Female);
+        console.log(user.gender);
         
         (async() => {
             const data =  await getCoins(user.id)
             setCoins(data)
         })();        
     },[])
+
+    const tryMe = (data) => {
+        const sample = data.filter((x) => x !== "");
+        model && mergeImages([model, ...sample]).then(b64 => setPreview(b64));
+
+        (async() => {
+            const token = localStorage.getItem('token');
+            const user = jwtDecode(token);
+            const data =  await getCoins(user.id);
+            setCoins(data);
+        })();   
+    }
 
     return (
         <>

@@ -1,0 +1,64 @@
+.shopbuy-modal {
+    background-color: #D9D9D9;
+    border-radius: 1.2rem;
+    text-align: center;
+
+    .header {
+        border-radius: 1rem 1rem 0 0;
+        background-color: #5D1B63;
+        color: #FFFFFF;
+        font-size: 2rem;
+        padding: 2rem auto;
+    }
+
+    .content {
+        .buy-wrapper {
+            display: flex;
+            padding: 1rem;
+            flex-grow: 1;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 1rem;
+            align-items: center;
+            .buy-clothes-item {
+                flex-basis: 1;
+                background-color: rgba(118, 89, 89, 0.73);
+                border-radius: 13px;
+                
+                .item-image {
+                    padding: .5rem;
+                    img {
+                        aspect-ratio: 1;
+                        width: clamp(100px, 10vw, 160px);
+                        height: clamp(100px, 10vw, 160px);
+                    }
+                }
+
+                .item-price {
+                    text-align: center;
+                    background-color: #D9D9D9;
+                    width: 100%;
+                    margin-bottom: .75rem;
+                }
+            }
+        }
+        
+        .price {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            margin: 1rem;
+            
+            img {
+                width: 26px;
+                margin-right: 5px;
+            }
+
+            h2 {
+                margin-top: auto;
+                font-size: 1.5rem;
+                color: #000000;
+            }
+        }
+    }    
+}

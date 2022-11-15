@@ -16,6 +16,7 @@
   overflow-y: auto;
   align-items: center;
   transition: 0.25s ease-in;
+  overflow-x: hidden;
 }
 #discover-list #exit-icon {
   font-size: 1rem;
@@ -35,6 +36,7 @@
 #discover-list #exit-icon:hover {
   color: rgb(133, 71, 89);
   border-color: rgb(133, 71, 89);
+  cursor: pointer;
 }
 #discover-list h2 {
   margin-top: 2rem;
@@ -49,6 +51,7 @@
 }
 #discover-list .known-elem:hover {
   background-color: rgba(255, 229, 253, 0.5568627451);
+  cursor: pointer;
 }
 
 .hidden {

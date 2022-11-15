@@ -388,7 +388,7 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
             <div className="entity enemy">
                 { !isRight ? 
                   <img src={questions && questions[index].model} alt="Enemy" /> : 
-                  <img src={questions && questions[index].modelHit} alt="Enemy" className={`${isRight && !isDefeated ? "gfx-active" : ""}``${isDefeated ? " defeat" : ""}`} />
+                  <img src={questions && questions[index].modelHit} alt="Enemy" className={`${isRight && !isDefeated ? "gfx-active" : ""} ${isDefeated ? " defeat" : ""}`} />
                 }
                 <img src={Pewpew} alt="gfx" className={isRight && !isDefeated ? "gfx gfx-active" : "gfx"}/>
             </div>

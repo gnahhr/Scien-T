@@ -335,7 +335,7 @@ const Intelliment = ({mode}) => {
   return (
       <>
         <div className="main-header">
-          <h1>Intelliment</h1>
+          <h1>Assessment</h1>
         </div>
         <div id="intelliment">
           {(!pickedDifficulty && mode === "game") &&

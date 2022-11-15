@@ -1,20 +1,41 @@
 .user-wrapper {
   display: grid;
+  grid-template-columns: 1fr 8fr;
+}
+.user-wrapper .left {
+  width: 40vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.user-wrapper .left h3 {
+  color: #FFFFFF;
+  font-size: clamp(25px, 3vw, 2rem);
+}
+.user-wrapper .left img {
+  margin: clamp(1rem, 2vw, 4rem);
+  width: clamp(200px, 16vw, 15rem);
+}
+.user-wrapper .left button {
+  font-size: clamp(16px, 2vw, 3rem);
+}
+.user-wrapper .right {
+  display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 2fr;
   align-content: center;
   justify-content: center;
 }
-.user-wrapper .user-header {
+.user-wrapper .right .user-header {
   margin: 5rem auto 2rem;
 }
-.user-wrapper .user-header img {
+.user-wrapper .right .user-header img {
   width: 108px;
   background-color: #FFF;
   border-radius: 50%;
   padding: 1rem;
 }
-.user-wrapper .user-header h3 {
+.user-wrapper .right .user-header h3 {
   color: white;
   font-size: 1.4rem;
   text-align: center;

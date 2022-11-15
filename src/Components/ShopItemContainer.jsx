@@ -3,13 +3,10 @@ import React, { useState, useEffect } from 'react';
 import Loader from '../Components/Loader';
 import Clothes from '../Data/Clothes';
 
-const ShopItemContainer = ({category, items, tryItem, model, owned}) => {
+const ShopItemContainer = ({category, items, tryItem, model, ownedClothes}) => {
   const [ shopData, setShopData ] = useState();
 
   useEffect(() => {
-    const ownedClothes = owned.map(own => {
-      return own.id;
-    });
 
     setShopData(Clothes.filter((Clothe) => {
       if (Clothe.model === model && Clothe.category === items) {

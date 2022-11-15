@@ -1,24 +1,49 @@
 .user-wrapper {
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 2fr;
-    align-content: center;
-    justify-content: center;
+    grid-template-columns: 1fr 8fr;
 
-    .user-header {
-        margin: 5rem auto 2rem;
-        
-        img {
-            width: 108px;
-            background-color: #FFF;
-            border-radius: 50%;
-            padding: 1rem;
-        }
+    .left {
+        width: 40vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
 
         h3 {
-            color: white;
-            font-size: 1.4rem;
-            text-align: center;
+            color: #FFFFFF;
+            font-size: clamp(25px, 3vw, 2rem);
+        }
+        
+        img {
+            margin: clamp(1rem, 2vw, 4rem);
+            width: clamp(200px, 16vw, 15rem);
+        }
+
+        button {
+            font-size: clamp(16px, 2vw, 3rem);
+        }
+    }
+    .right {
+        display: grid;
+        grid-template-columns: 1fr;
+        align-content: center;
+        justify-content: center;
+
+        .user-header {
+            margin: 5rem auto 2rem;
+            
+            img {
+                width: 108px;
+                background-color: #FFF;
+                border-radius: 50%;
+                padding: 1rem;
+            }
+
+            h3 {
+                color: white;
+                font-size: 1.4rem;
+                text-align: center;
+            }
         }
     }
 }

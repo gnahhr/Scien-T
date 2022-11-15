@@ -4,11 +4,12 @@
   left: 40%;
   bottom: 3vh;
   transform: translate(-40%, 0);
-  padding: 1rem 3rem;
+  padding: 1rem 2rem;
   background-color: rgb(179, 19, 179);
   color: white;
   border-radius: 25px;
   transition: 0.3s ease-in;
+  z-index: 999;
 }
 
 .hidden {

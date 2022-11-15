@@ -16,6 +16,7 @@
     overflow-y: auto;
     align-items: center;
     transition: .25s ease-in;
+    overflow-x: hidden;
     
     #exit-icon {
         font-size: 1rem;
@@ -37,6 +38,7 @@
     #exit-icon:hover {
         color: rgb(133, 71, 89);
         border-color: rgb(133, 71, 89);
+        cursor: pointer;
     }
 
     h2 {
@@ -54,6 +56,7 @@
     
     .known-elem:hover {
         background-color: #ffe5fd8e;
+        cursor: pointer;
     }
 }
 
