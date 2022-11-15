@@ -6,6 +6,8 @@ import jwtDecode from "jwt-decode"
 //Hooks
 import getUserProgTestBattle from '../../Hooks/getUserProgTestBattle'
 import pushTestBattle from '../../Hooks/pushtTestBattle';
+import buyTestBattleStage from '../../Hooks/buyTestBattleStage'; //buyTestBattleStage(access, topic, stagePrice)
+import getCoins from '../../Hooks/getCoins';
 
 
 //Components
@@ -31,9 +33,11 @@ const TestBattle = () => {
     score: 0,
     highMulti: 0,
   });
+  const [ coins, setCoins ] = useState(0);
+  const [ prizeCoins, setPrizeCoins ] = useState(0);
 
-  const [ access, setAccess ] = useState('')
-  const [ username, setUsername ] = useState('')
+  const [ access, setAccess ] = useState('');
+  const [ username, setUsername ] = useState('');
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -45,7 +49,11 @@ const TestBattle = () => {
       }
       else{
         setAccess(user.id);
-        setUsername(user.username)
+        setUsername(user.username);
+        (async () => {
+          const data = await getCoins(user.id)
+          setCoins(data)
+        })()
       }
     }
   },[])
@@ -61,7 +69,7 @@ const TestBattle = () => {
   useEffect(() => {//save score to DB
     if (resultState === "victory"){
       setLastFinStage(stage);
-      pushTestBattle(access,username,topic,stage,battleResult.score);
+      pushTestBattle(access,username,topic,stage,battleResult.score, prizeCoins);
     }
     (async () => {
       const data = await getUserProgTestBattle(access,topic)

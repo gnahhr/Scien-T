@@ -18,6 +18,7 @@ import Loader from '../../Components/Loader';
 //Hooks
 import pushMixDash from  '../../Hooks/pushMixDash'
 import getUserProgMixDash from '../../Hooks/getUserProgMixDash';
+import buyMixDashStage from '../../Hooks/buyMixDashStage'; //buyMixDashStage(access, stagePrice)
 
 //Data
 import { levels } from '../../Data/MixDashLevels.js';
@@ -31,6 +32,8 @@ const MixDash = () => {
   const [ result, setResult ] = useState();
   const [ resultState, setResultState ] = useState("");
   const [ lastFinStage, setLastFinStage ] = useState(0)
+  const [ coins, setCoins ] = useState(0)
+  const [ prizeCoins, setPrizeCoins ] = useState(500)
 
   const [ username, setUsername ] = useState('')
   const [ access, setAccess ]  = useState('')
@@ -49,7 +52,7 @@ const MixDash = () => {
 
   useEffect(() => {
     console.log(resultState);
-    pushMixDash(access);
+    pushMixDash(access, prizeCoins);
     (async() => {                                   //kagagawan ni juicewah
       const data = await getUserProgMixDash(access)
       setLastFinStage(data)
