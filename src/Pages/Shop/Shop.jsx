@@ -14,6 +14,8 @@ import Loader from '../../Components/Loader';
 import MoneyBag from '../../Assets/Images/money-bag.png';
 import Male from '../../Assets/Images/male.png';
 import Female from '../../Assets/Images/female.png';
+import HitMale from '../../Assets/Images/hit-male.png';
+import HitFemale from '../../Assets/Images/hit-female.png';
 
 //Style
 import './Shop.css';
@@ -29,7 +31,9 @@ const Shop = () => {
     const [ coins, setCoins ] = useState(0);
     const [ totalValue, setTotalValue ] = useState(0);
     const [ model, setModel ] = useState();
+    const [ hitModel, setHitModel ] = useState();
     const [ preview, setPreview ] = useState(model);
+    const [ hitPreview, setHitPreview ] = useState(hitModel)
 
     //Query States
     const [ username, setUsername ] = useState('')
@@ -44,6 +48,8 @@ const Shop = () => {
         setGender(user.gender);
         setModel(user.gender === "male" ? Male : Female);
         setPreview(user.gender === "male" ? Male : Female);
+        setHitModel(user.gender === "male" ? HitMale : HitFemale);
+        setHitPreview(user.gender === "male" ? HitMale : HitFemale);
         console.log(user.gender);
         
         (async() => {
@@ -55,6 +61,7 @@ const Shop = () => {
     const tryMe = (data) => {
         const sample = data.filter((x) => x !== "");
         model && mergeImages([model, ...sample]).then(b64 => setPreview(b64));
+        model && mergeImages([hitModel, ...sample]).then(b64 => setHitPreview(b64));
 
         (async() => {
             const token = localStorage.getItem('token');
@@ -83,7 +90,7 @@ const Shop = () => {
                         </div>
                     </div>
                     <div className='character-preview-container'>
-                        {preview ? <img src={preview} alt='' /> : <Loader />}
+                        {preview ? <><img src={preview} alt='' /> <img src={hitPreview} alt="" /></> : <Loader />}
                     </div>
                     <div className="totalValue">
                         <div className="label">Total Value: </div>
@@ -95,6 +102,7 @@ const Shop = () => {
                                setTotal={setTotalValue}
                                access={access}
                                preview={preview}
+                               hitPreview={hitPreview}
                                gender={gender}/>
                 </div>
             </div>

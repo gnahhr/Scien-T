@@ -588,8 +588,8 @@ exports.saveCharacter = async(req, res, next) => {
     const filePath = `../Character/${gender}/${_id}.png`
     const buffer = Buffer.from(req.body.base64.split(',')[1],'base64')
 
-    const filePathHit = `../Character/${gender}/hit-x${_id}.png`
-    const bufferHit = Buffer.from(req.body.base64Hit.split(',')[1],'base64')
+    const filePathHit = `../Character/${gender}/hit-${_id}.png`
+    const bufferHit = Buffer.from(req.body.base64hit.split(',')[1],'base64')
 
     const response = await UserData.findByIdAndUpdate({_id},{
         $set:{
@@ -599,8 +599,6 @@ exports.saveCharacter = async(req, res, next) => {
 
     fs.writeFileSync(path.join(__dirname, filePath), buffer)
     fs.writeFileSync(path.join(__dirname, filePathHit), bufferHit)
-    
-    res.json(filePath)
 }
 
 exports.getCharacter = async(req, res, next) => {

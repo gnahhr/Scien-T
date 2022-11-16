@@ -9,6 +9,7 @@ import Loader from '../../Components/Loader.jsx';
 
 //Hooks
 import getCharacter from '../../Hooks/getCharacter'
+import getCharacterHit from '../../Hooks/getCharacterHit';
 
 import './userProfile.css';
 
@@ -46,6 +47,10 @@ const userProfile = () => {
     (async() =>{
       const data = await getCharacter(user.id, user.gender); //tanggalin mo nalang kapag may nagenerate ka na
       setB64String(data);
+    })();
+    (async() =>{
+      const data = await getCharacterHit(user.id, user.gender); //tanggalin mo nalang kapag may nagenerate ka na
+      setB64StringHit(data);
     })();
     
   }, [])
@@ -89,7 +94,7 @@ const userProfile = () => {
       <div className="user-wrapper">
         <div className="left">
           {b64String ? 
-          <><img src={b64String} alt="" />
+          <><img src={b64String} alt="" /> <img src={b64StringHit} alt="" />
           <h3>{localStorage.getItem("username")}</h3>
           <button onClick={() => nav("/shop")} className={"cta fluid-btn"}> Customize Character</button></>
           :
