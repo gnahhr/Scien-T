@@ -20,6 +20,8 @@ import './Shop.css';
 
 //Hooks
 import getCoins from '../../Hooks/getCoins';
+// import getCharacter from '../../Hooks/getCharacter'
+// import getCharacterHit from '../../Hooks/getCharacterHit'; call mo nalang itey
 
 
 const Shop = () => {
@@ -61,6 +63,7 @@ const Shop = () => {
             setCoins(data);
         })();   
     }
+
 
     return (
         <>

@@ -24,6 +24,7 @@ const userProfile = () => {
   const [ lastName, setlName ] = useState('');
 
   const [ b64String, setB64String ] = useState();
+  const [ b64StringHit, setB64StringHit ] = useState()
 
   const setText = {
     "username": setUsername,

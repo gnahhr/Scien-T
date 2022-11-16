@@ -1,11 +1,11 @@
-export default async function saveCharacter(access, gender, accessories, base64){
+export default async function saveCharacter(access, gender, accessories, base64, base64hit){
     const response = await fetch('/api/saveCharacter/' + access + '/' + gender,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            base64,accessories
+            base64,base64hit,accessories
         })
     })
 
