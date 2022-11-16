@@ -23,7 +23,7 @@ const template = {
   price: 0,
 };
 
-const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender}) => {
+const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender}) => { //dagdag ni juicewah yung hitPreview
   //Tried Item States
   const [ tops, setTops ] = useState(template);
   const [ bottoms, setBottoms ] = useState(template);
@@ -119,7 +119,7 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender}) => {
   const updateCharacter = () => {
     let previewed = [tops.id, bottoms.id, accessories.id].filter((item) => item !== "");
     
-    saveCharacter(access, gender, previewed, preview, hitPreview);
+    saveCharacter(access, gender, previewed, preview, hitPreview);//dagdag ni juicewah yung hitPreview
     setToastMessage("Character updated");
     setShowToast(true);
   }
