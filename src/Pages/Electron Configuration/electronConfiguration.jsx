@@ -195,6 +195,7 @@ const electronConfiguration = () => {
           </div>
 
           <div className='middle-container'>
+            
             <div className='chena'>
               <div className='points'>
                 <img src={star} alt="" />
@@ -202,6 +203,7 @@ const electronConfiguration = () => {
                 {gameProgress === 10 ? <h1>Finish na</h1> : ''}
               </div>
             </div>
+
             <div className='game-grid'>
               { shuffledCell.map ((shuffledCell, index) => {
                 return (
