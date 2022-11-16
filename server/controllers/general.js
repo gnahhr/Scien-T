@@ -387,7 +387,7 @@ exports.buyTestBattleStage = async(req, res, next) => {
 
     else if(topic === 'atomicNum'){
         const buyStage = await UserData.findByIdAndUpdate({_id},{
-            $inc:{battleAtomicNumber:1, coins: -(price)}
+            $inc:{battleAtomicNumber:1, coins: -(stagePrice)}
         })
         
         res.json({status:'ok'})
@@ -395,7 +395,7 @@ exports.buyTestBattleStage = async(req, res, next) => {
 
     else if(topic === 'atomicMass'){
         const buyStage = await UserData.findByIdAndUpdate({_id},{
-            $inc:{battleAtomicMass:1, coins: -(price)}
+            $inc:{battleAtomicMass:1, coins: -(stagePrice)}
         })
         
         res.json({status:'ok'})
@@ -403,7 +403,7 @@ exports.buyTestBattleStage = async(req, res, next) => {
 
     else if(topic === 'category'){
         const buyStage = await UserData.findByIdAndUpdate({_id},{
-            $inc:{battleCategory:1, coins: -(price)}
+            $inc:{battleCategory:1, coins: -(stagePrice)}
         })
         
         res.json({status:'ok'})

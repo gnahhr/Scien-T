@@ -1,7 +1,3 @@
-//TODOs
-//Add Prize Moneysz
-//Buy Stages
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import jwtDecode from "jwt-decode"
@@ -10,7 +6,6 @@ import jwtDecode from "jwt-decode"
 //Hooks
 import getUserProgTestBattle from '../../Hooks/getUserProgTestBattle'
 import pushTestBattle from '../../Hooks/pushtTestBattle';
-import buyTestBattleStage from '../../Hooks/buyTestBattleStage'; //buyTestBattleStage(access, topic, stagePrice)
 import getCoins from '../../Hooks/getCoins';
 
 
@@ -39,6 +34,7 @@ const TestBattle = () => {
   });
   const [ coins, setCoins ] = useState(0);
   const [ prizeCoins, setPrizeCoins ] = useState(0);
+  const [ boughtStage, setBoughtStage ] = useState(false);
 
   const [ access, setAccess ] = useState('');
   const [ username, setUsername ] = useState('');
@@ -55,8 +51,8 @@ const TestBattle = () => {
         setAccess(user.id);
         setUsername(user.username);
         (async () => {
-          const data = await getCoins(user.id)
-          setCoins(data)
+          const data = await getCoins(user.id);
+          setCoins(data);
         })()
       }
     }
@@ -69,8 +65,16 @@ const TestBattle = () => {
     })()
 
   },[topic])
+  
+  useEffect(() => {
+    (async () => {
+      const data = await getUserProgTestBattle(access,topic);
+      setLastFinStage(data);
+    })()
+  }, [boughtStage]);
 
-  useEffect(() => {//save score to DB
+  //Save Score to DB
+  useEffect(() => {
     if (resultState === "victory"){
       setLastFinStage(stage);
       pushTestBattle(access,username,topic,stage,battleResult.score, prizeCoins);
@@ -88,10 +92,10 @@ const TestBattle = () => {
       </div>
       <div className="test-battle">
         {progPhase === 0 && <BattleTopic setTopic={setTopic} nextPhase={setProgPhase}/>}
-        {progPhase === 1 && <BattleStage topic={topic} setStage={setStage} lastFinStage={lastFinStage} nextPhase={setProgPhase}/>}
-        {progPhase === 2 && <BattleWindow topic={topic} stage={stage} nextPhase={setProgPhase} battleResult={setBattleResult} resultState={setResultState} setDefeatInfo={setDefeatInfo}/>}
+        {progPhase === 1 && access && <BattleStage topic={topic} setStage={setStage} lastFinStage={lastFinStage} nextPhase={setProgPhase} access={access} boughtStage={setBoughtStage} boughtState={boughtStage}/>}
+        {progPhase === 2 && <BattleWindow topic={topic} stage={stage} nextPhase={setProgPhase} battleResult={setBattleResult} resultState={setResultState} setDefeatInfo={setDefeatInfo} setPrizeCoins={setPrizeCoins}/>}
         {progPhase === 3 && (resultState === "victory" ?
-        <BattleStats battleInfo={battleResult} setPhase={setProgPhase} setStage={setStage} stage={stage}/>
+        <BattleStats battleInfo={battleResult} setPhase={setProgPhase} setStage={setStage} stage={stage} prizeCoins={prizeCoins}/>
         :
         <BattleDefeat info={defeatInfo} setPhase={setProgPhase}/>)}
       </div>

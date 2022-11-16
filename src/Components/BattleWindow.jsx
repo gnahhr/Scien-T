@@ -1,11 +1,7 @@
 //TO DO:
-//-Defeat Screen with the correct answer displayed
-//-Progression
 //-SFX
-//-ASSETS >>>>>>>>>
 
 import React, { useEffect, useState } from 'react';
-import Choice from './Choice';
 import jwtDecode from 'jwt-decode';
 
 //Data
@@ -25,7 +21,11 @@ import RedHeart from '../Assets/Images/red-heart.svg';
 import WhiteHeart from '../Assets/Images/white-heart.svg';
 import Star from '../Assets/Images/battle-star.svg';
 
-const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDefeatInfo}) => {
+//Hooks
+import getCharacter from '../Hooks/getCharacter'
+import getCharacterHit from '../Hooks/getCharacterHit';
+
+const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDefeatInfo, setPrizeCoins}) => {
   //Data States
   const [ questions, setQuestions ] = useState(undefined);
   const [ index, setIndex ] = useState(0);
@@ -37,6 +37,10 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
   const [ username, setUsername ] = useState(""); 
   const [ access, setAccess ] = useState();
   const [ battleLog, setBattleLog ] = useState("");
+
+  //Character Model States
+  const [ model, setModel ] = useState();
+  const [ modelHit, setModelHit ] = useState();
 
   //Health State Renderer
   const [ healthRender, setHealthRender ] = useState(<>
@@ -84,8 +88,18 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
   useEffect(() => {
     const token = localStorage.getItem('token')
     const user = jwtDecode(token)
-    setAccess(user.id)
-    setUsername(user.username)
+    setAccess(user.id);
+    setUsername(user.username);
+
+    (async() => {
+      const model =  await getCharacter(user.id, user.gender);
+      setModel(model);
+    })(); 
+
+      (async() => {
+        const model =  await getCharacterHit(user.id, user.gender);
+        setModelHit(model);
+    })(); 
   },[])
 
   //SetQuestions
@@ -126,6 +140,7 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
         nextPhase(3);
       } else {
         victoryBattle();
+        setPrizeCoins(index+1);
       }
     }
   }, [health])
@@ -267,8 +282,10 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
 
   const nextEnemy = (stage) => {
     const max = stage === "endless" ? 119 : 10;
+    const prize = stage === "endless" ? index + 1 : 10;
     if (index + 1 === max){
       victoryBattle();
+      setPrizeCoins(prize);
     } else {
       setIndex((index) => index + 1);
     }
@@ -363,7 +380,7 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
     <div className="battle-window">
         <div className="players-wrapper">
             <div className="entity player">
-                <img src={Player1} alt="Player1" className={isWrong ? "gfx-active" : ""}/>
+                <img src={isWrong ? modelHit : model} alt="model" className={isWrong ? "gfx-active" : ""}/>
                 <img src={Pewpew} alt="gfx" className={isWrong ? "gfx gfx-active" : "gfx"}/>
             </div>
             <div className="question-bubble">

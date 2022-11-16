@@ -18,7 +18,7 @@ import Customer4 from '../Assets/Images/cust4.png';
 import { recipe } from '../Data/Recipe.js';
 import NewRecipeModal from './NewRecipeModal';
 
-const MixDashWindow = ({build, setResultState, setResult, nextPhase}) => {
+const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoins}) => {
   //Data States
   const [ customers, setCustomers ] = useState();
   const [ currCustomer, setCurrCustomer ] = useState(0);
@@ -63,9 +63,6 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase}) => {
 
   //Set Paused State
   useEffect(() => {
-    // if (showModal === false){
-    //   setPaused(false);
-    // }
     if (showModal === false){
       animateCustomer("before");
     }
@@ -118,7 +115,7 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase}) => {
       tips: tips,
       totalEarned: totalEarned
     })
-
+    setPrizeCoins(earned / 10);
     if (finished) {
       build.goal <= totalEarned ? setResultState("victory") : setResultState("defeat");
       nextPhase(2);

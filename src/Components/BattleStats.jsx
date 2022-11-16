@@ -3,7 +3,7 @@ import BlueFlask from '../Assets/Images/blue-flask.png';
 
 import './TotalScore.css';
 
-const BattleStats = ({battleInfo, setPhase, stage, setStage}) => {
+const BattleStats = ({battleInfo, setPhase, stage, setStage, prizeCoins}) => {
   const chooseLevel = (choice) => {
     setPhase(choice);
   }
@@ -25,6 +25,7 @@ const BattleStats = ({battleInfo, setPhase, stage, setStage}) => {
                   <p className="left-data">Total Enemies Defeated:</p> <p className="right-data">{battleInfo.totalEnemies}</p>
                   <p className="left-data">Total Score:</p> <p className="right-data">{battleInfo.score}</p>
                   <p className="left-data">Highest Multiplier:</p> <p className="right-data">{battleInfo.highMulti}</p>
+                  <p className="left-data">Prize Coins:</p> <p className="right-data">{prizeCoins}</p>
               </div>
           </div>
           <div className="button-wrapper">

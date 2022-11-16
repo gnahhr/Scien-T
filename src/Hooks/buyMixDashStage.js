@@ -4,8 +4,8 @@ export default async function buyMixDashStage(access, stagePrice){
         headers: {
             'Content-Type': 'application/json'
         },
-        body:{
+        body: JSON.stringify({
             stagePrice
-        }
+        })
     })
 }
