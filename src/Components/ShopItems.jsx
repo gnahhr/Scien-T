@@ -13,6 +13,7 @@ import Toast from './Toast';
 import buyAccessories from '../Hooks/buyAccessories';
 import saveCharacter from '../Hooks/saveCharacter';
 import getAccessoriesOwned from '../Hooks/getAccessoriesOwned';
+import getAccessoriesEquipped from '../Hooks/getAccessoriesEquipped';// dagdag ni juicewah
 
 //Style
 import './ShopItems.css'
@@ -57,6 +58,7 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender}) => { 
         setOwnedBots(data.bottomOwned)
         setOwnedAccs(data.accessoryOwned)
     })();
+
   }, [])
 
   useEffect(() => {
@@ -119,7 +121,7 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender}) => { 
   const updateCharacter = () => {
     let previewed = [tops.id, bottoms.id, accessories.id].filter((item) => item !== "");
     
-    saveCharacter(access, gender, previewed, preview, hitPreview);//dagdag ni juicewah yung hitPreview
+    saveCharacter(access, gender, tops.id, bottoms.id, accessories.id, preview, hitPreview);//dagdag ni juicewah yung hitPreview at top,bottom, accessory ids
     setToastMessage("Character updated");
     setShowToast(true);
   }

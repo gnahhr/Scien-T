@@ -559,8 +559,6 @@ exports.buyAccessories = async(req,res,next) =>{
         }
     })
 
-    // res.json(pushAccessories)
-    res.json({status:'asd'})
 }
 
 exports.getAccessoriesOwned = async(req,res,next) => {
@@ -577,25 +575,60 @@ exports.getAccessoriesOwned = async(req,res,next) => {
         res.json({status:'error', error:'Something went wrong. Please try again later'})
 }
 
+exports.getAccessoriesEquipped = async(req,res,next) => {
+    var ObjectId = require('mongoose').Types.ObjectId;
+    const access = req.params['access']
+    const _id = new ObjectId (access)
+
+    const data = await UserData.findById({_id},{topEquipped:1, bottomEquipped:1, accessoryEquipped:1})
+
+    if(data)
+        res.json({status:'ok', data:data})
+
+    else
+        res.json({status:'error', error:'Something went wrong. Please try again later'})
+}
+
 exports.saveCharacter = async(req, res, next) => {
     var ObjectId = require('mongoose').Types.ObjectId;
     const access = req.params['access']
     const _id = new ObjectId (access)
 
     const gender = req.params['gender']
-    const accessories = req.body.accessories
+    const top = req.body.top
+    const bottom = req.body.bottom
+    const accessory = req.body.accessory
+
+    if(top !== ''){
+        const response = await UserData.findByIdAndUpdate({_id},{
+            $set:{
+                topEquipped:top
+            }
+        })
+    }
+
+    if(bottom !== ''){
+        const response = await UserData.findByIdAndUpdate({_id},{
+            $set:{
+                bottomEquipped:bottom
+            }
+        })
+    }
+
+    if(accessory !== ''){
+        const response = await UserData.findByIdAndUpdate({_id},{
+            $set:{
+                accessoryEquipped:accessory
+            }
+        })
+    }
+    
 
     const filePath = `../Character/${gender}/${_id}.png`
     const buffer = Buffer.from(req.body.base64.split(',')[1],'base64')
 
     const filePathHit = `../Character/${gender}/hit-${_id}.png`
     const bufferHit = Buffer.from(req.body.base64hit.split(',')[1],'base64')
-
-    const response = await UserData.findByIdAndUpdate({_id},{
-        $set:{
-            accessoriesEquipped:accessories
-        }
-    })
 
     fs.writeFileSync(path.join(__dirname, filePath), buffer)
     fs.writeFileSync(path.join(__dirname, filePathHit), bufferHit)
