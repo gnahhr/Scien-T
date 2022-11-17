@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 //Design
-import Customer from '../Assets/Images/MixCust.png';
 import Microscope from '../Assets/Images/microscope.svg';
 import FlaskGroup from '../Assets/Images/flask-group.svg';
 import Light from '../Assets/Images/flourescent.svg';
@@ -74,7 +73,7 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
     setTimeout(() => animateCustomer("before"), 1000);
   }, [currCustomer])
 
-  //Monitor custSatis then change color accordingly
+  //Monitor custSatis then change color and trigger animation accordingly
   useEffect(() => {
     if (custSatis > 50) {
       setSatisColor("green");

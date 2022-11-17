@@ -7,7 +7,6 @@ const ShopItemContainer = ({category, items, tryItem, model, ownedClothes}) => {
   const [ shopData, setShopData ] = useState();
 
   useEffect(() => {
-
     setShopData(Clothes.filter((Clothe) => {
       if (Clothe.model === model && Clothe.category === items) {
         return Clothe
@@ -18,7 +17,6 @@ const ShopItemContainer = ({category, items, tryItem, model, ownedClothes}) => {
         ...Clothe
       }
     }));
-
   }, [])
 
   return (

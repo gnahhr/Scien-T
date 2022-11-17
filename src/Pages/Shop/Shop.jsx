@@ -49,25 +49,17 @@ const Shop = () => {
         setPreview(user.gender === "male" ? Male : Female);
         setHitModel(user.gender === "male" ? HitMale : HitFemale);
         setHitPreview(user.gender === "male" ? HitMale : HitFemale);
-        console.log(user.gender);
         
         (async() => {
             const data =  await getCoins(user.id)
             setCoins(data)
-        })();        
+        })();
     },[])
 
     const tryMe = (data) => {
         const sample = data.filter((x) => x !== "");
         model && mergeImages([model, ...sample]).then(b64 => setPreview(b64));
-        model && mergeImages([hitModel, ...sample]).then(b64 => setHitPreview(b64));// merge para sa hit character
-
-        (async() => {
-            const token = localStorage.getItem('token');
-            const user = jwtDecode(token);
-            const data =  await getCoins(user.id);
-            setCoins(data);
-        })();   
+        model && mergeImages([hitModel, ...sample]).then(b64 => setHitPreview(b64));
     }
 
 

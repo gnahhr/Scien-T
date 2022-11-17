@@ -13,7 +13,10 @@ import Toast from './Toast';
 import buyAccessories from '../Hooks/buyAccessories';
 import saveCharacter from '../Hooks/saveCharacter';
 import getAccessoriesOwned from '../Hooks/getAccessoriesOwned';
-import getAccessoriesEquipped from '../Hooks/getAccessoriesEquipped';// dagdag ni juicewah
+import getAccessoriesEquipped from '../Hooks/getAccessoriesEquipped';
+
+//Data
+import Clothes from '../Data/Clothes';
 
 //Style
 import './ShopItems.css'
@@ -24,7 +27,7 @@ const template = {
   price: 0,
 };
 
-const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender}) => { //dagdag ni juicewah yung hitPreview
+const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender}) => {
   //Tried Item States
   const [ tops, setTops ] = useState(template);
   const [ bottoms, setBottoms ] = useState(template);
@@ -37,6 +40,9 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender}) => { 
   const [ ownedAccs, setOwnedAccs ] = useState();
 
   //Add Default Values
+  const [ equipTop, setEquipTop ] = useState();
+  const [ equipBot, setEquipBot ] = useState();
+  const [ equipAcc, setEquipAcc ] = useState();
 
   //Modal State
   const [ showModal, setShowModal ] = useState(false);
@@ -53,11 +59,22 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender}) => { 
     const user = jwtDecode(token);
 
     (async() =>{
-        const data =  await getAccessoriesOwned(user.id)
-        setOwnedTops(data.topOwned)
-        setOwnedBots(data.bottomOwned)
-        setOwnedAccs(data.accessoryOwned)
+        const data =  await getAccessoriesOwned(user.id);
+        setOwnedTops(data.topOwned);
+        setOwnedBots(data.bottomOwned);
+        setOwnedAccs(data.accessoryOwned);
     })();
+
+    (async() =>{
+      const data =  await getAccessoriesEquipped(user.id);
+      const equipped = [...data.topEquipped, ...data.bottomEquipped, ...data.accessoryEquipped];
+      
+
+
+      setEquipTop(Clothes.filter((Clothe) => Clothe.category === "top"));
+      setEquipBot(data.bottomEquipped);
+      setEquipAcc(data.accessoryEquipped);
+  })();
 
   }, [])
 

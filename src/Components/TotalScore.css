@@ -16,7 +16,7 @@
 }
 .total-score .wrapper h2 {
   margin: 0;
-  font-size: clamp(17px, 5vw, 4rem);
+  font-size: clamp(17px, 4vw, 4rem);
   text-align: center;
   color: #FFEFD7;
 }
@@ -50,11 +50,11 @@
 }
 
 #bflask-1 {
-  height: clamp(64px, 15vw, 18rem);
+  height: clamp(64px, 10vw, 14rem);
 }
 
 #bflask-2 {
-  height: clamp(32px, 10vw, 12rem);
+  height: clamp(32px, 6vw, 10rem);
 }
 
 @media only screen and (orientation: portrait) {

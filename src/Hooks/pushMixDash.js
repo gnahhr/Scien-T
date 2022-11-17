@@ -4,8 +4,8 @@ export default async function pushMixDash(access, prizeCoins){
         headers: {
             'Content-Type': 'application/json'
         },
-        body:{
+        body: JSON.stringify({
             prizeCoins
-        }
+        })
     })
 }

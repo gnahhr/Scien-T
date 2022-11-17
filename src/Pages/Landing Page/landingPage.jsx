@@ -20,8 +20,6 @@ const landingPage = () => {
         Learning the periodic table of elements in a more interactive and fun way!
         </h2>
         <div className="button-div">
-          {/* <NavLink to="/login" className="button normal">Login</NavLink>
-          <NavLink to="/register" className="button cta">Sign Up</NavLink> */}
           <button className="normal" onClick={()=> nav("/login")}>Login</button>
           <button className="cta" onClick={()=> nav("/register")}>Sign Up</button>
         </div>

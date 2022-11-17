@@ -37,7 +37,7 @@ function App() {
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className="App">
+      <div className={user ? "App" : "App-uno"}>
 
         {/* <Navbar setUser={setUser}/> */}
         {!user && 

@@ -1,4 +1,5 @@
 import React from 'react';
+import BlueFlask from '../Assets/Images/blue-flask.png';
 import "./TotalScore.css";
 
 const MixDashResult = ({resultState, resultData, setPhase, level, setLevel, totalLevels, prizeCoins}) => {
@@ -18,6 +19,10 @@ const MixDashResult = ({resultState, resultData, setPhase, level, setLevel, tota
   
    return (
     <div className="total-score">
+        <div className="img-wrapper">
+            <img src={BlueFlask} alt="flask" id="bflask-1"/>
+            <img src={BlueFlask} alt="flask" id="bflask-2"/>
+          </div>
         <div className="wrapper">
             <h2>{resultState === "victory" ? "Shift done!" : "Better luck next time!"}</h2>
             <div className="data-wrapper">
