@@ -14,6 +14,9 @@
         height: 60%;
         background-color: #D03939;
         border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        align-items: space-around;
 
         .header, h3, .answer{
             color: white;
@@ -35,6 +38,9 @@
         }
 
         .button-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             .try-again {
                 background-color: #308C27;
             }

@@ -4,8 +4,8 @@ export default async function buyTestBattleStage(access, topic, stagePrice){
         headers: {
             'Content-Type': 'application/json'
         },
-        body:{
+        body: JSON.stringify({
             stagePrice
-        }
+        })
     })
 }

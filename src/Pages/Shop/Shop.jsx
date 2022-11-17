@@ -22,8 +22,7 @@ import './Shop.css';
 
 //Hooks
 import getCoins from '../../Hooks/getCoins';
-// import getCharacter from '../../Hooks/getCharacter'
-// import getCharacterHit from '../../Hooks/getCharacterHit'; call mo nalang itey
+
 
 
 const Shop = () => {
@@ -31,9 +30,9 @@ const Shop = () => {
     const [ coins, setCoins ] = useState(0);
     const [ totalValue, setTotalValue ] = useState(0);
     const [ model, setModel ] = useState();
-    const [ hitModel, setHitModel ] = useState();//dagdag ni juicewah
+    const [ hitModel, setHitModel ] = useState();
     const [ preview, setPreview ] = useState(model);
-    const [ hitPreview, setHitPreview ] = useState(hitModel)///dagdag ni juicewah
+    const [ hitPreview, setHitPreview ] = useState(hitModel);
 
     //Query States
     const [ username, setUsername ] = useState('')
@@ -48,8 +47,8 @@ const Shop = () => {
         setGender(user.gender);
         setModel(user.gender === "male" ? Male : Female);
         setPreview(user.gender === "male" ? Male : Female);
-        setHitModel(user.gender === "male" ? HitMale : HitFemale);//dagdag ni juicewah
-        setHitPreview(user.gender === "male" ? HitMale : HitFemale);//dagdag ni juicewah
+        setHitModel(user.gender === "male" ? HitMale : HitFemale);
+        setHitPreview(user.gender === "male" ? HitMale : HitFemale);
         console.log(user.gender);
         
         (async() => {
@@ -90,7 +89,7 @@ const Shop = () => {
                         </div>
                     </div>
                     <div className='character-preview-container'>
-                        {preview ? <><img src={preview} alt='' /> <img src={hitPreview} alt="" /></> : <Loader />}
+                        {preview ? <img src={preview} alt='' /> : <Loader />}
                     </div>
                     <div className="totalValue">
                         <div className="label">Total Value: </div>
@@ -102,7 +101,7 @@ const Shop = () => {
                                setTotal={setTotalValue}
                                access={access}
                                preview={preview}
-                               hitPreview={hitPreview}// dinagdag ni joswa, sa hit character to
+                               hitPreview={hitPreview}
                                gender={gender}/>
                 </div>
             </div>

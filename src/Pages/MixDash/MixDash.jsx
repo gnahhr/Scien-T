@@ -1,10 +1,3 @@
-//TODO:
-//-Line Constructor
-//--Generate Line from considering the possible Elements
-//
-//-Mixing Table
-//--Right Combinations == Satisfied Customer
-//--Wrong combinations == Customer Satisfaction decreases
 import React, { useState, useEffect } from 'react';
 import jwtDecode from 'jwt-decode';
 
@@ -18,7 +11,6 @@ import Loader from '../../Components/Loader';
 //Hooks
 import pushMixDash from  '../../Hooks/pushMixDash'
 import getUserProgMixDash from '../../Hooks/getUserProgMixDash';
-import buyMixDashStage from '../../Hooks/buyMixDashStage'; //buyMixDashStage(access, stagePrice)
 
 //Data
 import { levels } from '../../Data/MixDashLevels.js';
@@ -31,12 +23,14 @@ const MixDash = () => {
   const [ level, setLevel ] = useState(0);
   const [ result, setResult ] = useState();
   const [ resultState, setResultState ] = useState("");
-  const [ lastFinStage, setLastFinStage ] = useState(0)
-  const [ coins, setCoins ] = useState(0)
-  const [ prizeCoins, setPrizeCoins ] = useState(500)
+  const [ lastFinStage, setLastFinStage ] = useState(0);
+  const [ coins, setCoins ] = useState(0);
+  const [ prizeCoins, setPrizeCoins ] = useState(500);
+  
+  const [ boughtStage, setBoughtStage ] = useState(false);
 
-  const [ username, setUsername ] = useState('')
-  const [ access, setAccess ]  = useState('')
+  const [ username, setUsername ] = useState('');
+  const [ access, setAccess ]  = useState('');
 
 
   useEffect(() => {
@@ -51,17 +45,21 @@ const MixDash = () => {
   },[])
 
   useEffect(() => {
-    console.log(resultState);
-    pushMixDash(access, prizeCoins);
-    (async() => {                                   //kagagawan ni juicewah
-      const data = await getUserProgMixDash(access)
-      setLastFinStage(data)
-    })()
+    if (resultState === "victory"){
+      pushMixDash(access, prizeCoins);
+      (async() => {                                   
+        const data = await getUserProgMixDash(access);
+        setLastFinStage(data);
+      })()
+    }
   }, [resultState]);
 
   useEffect(() => {
-    console.log(lastFinStage)
-  },[lastFinStage])
+    (async () => {
+      const data = await getUserProgMixDash(access);
+      setLastFinStage(data);
+    })()
+  }, [boughtStage]);
   
   return (
     <>
@@ -69,9 +67,9 @@ const MixDash = () => {
         <h1>Mix Dash</h1>
       </div>
       <div className="mixDash-wrapper">
-        {dashPhase === 0 && (lastFinStage ? <MixDashLevels totalLevels={10} lastFinStage={lastFinStage} nextPhase={setDashPhase} setLevel={setLevel} /> : <Loader />)}
-        {dashPhase === 1 && <MixDashWindow build={levels[level]} setResultState={setResultState} setResult={setResult} nextPhase={setDashPhase}/>}
-        {dashPhase === 2 && <MixDashResult resultState={resultState} resultData={result} setPhase={setDashPhase} level={level} setLevel={setLevel} totalLevels={levels.length}/>}
+        {dashPhase === 0 && access &&(lastFinStage ? <MixDashLevels totalLevels={10} lastFinStage={lastFinStage} nextPhase={setDashPhase} setLevel={setLevel} boughtStage={setBoughtStage} boughtState={boughtStage} access={access}/> : <Loader />)}
+        {dashPhase === 1 && <MixDashWindow build={levels[level]} setResultState={setResultState} setResult={setResult} nextPhase={setDashPhase} setPrizeCoins={setPrizeCoins}/>}
+        {dashPhase === 2 && <MixDashResult resultState={resultState} resultData={result} setPhase={setDashPhase} level={level} setLevel={setLevel} totalLevels={levels.length} prizeCoins={prizeCoins}/>}
         {/* Final */}
       </div>
     </>

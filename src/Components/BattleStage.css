@@ -24,6 +24,17 @@
   aspect-ratio: 16/9;
   margin: auto;
 }
+.stage-wrapper .mixDash-stages {
+  grid-template-columns: repeat(3, 1fr);
+}
+.stage-wrapper .mixDash-stages button:nth-last-child(1) {
+  grid-column: span 1/auto;
+  grid-row: span 1/auto;
+  width: max-content;
+  padding: 5px;
+  aspect-ratio: 1;
+  margin: 1rem auto;
+}
 
 .lock-icon {
   width: 2rem;

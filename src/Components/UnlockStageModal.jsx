@@ -11,7 +11,7 @@ import MoneyBag from '../Assets/Images/money-bag.png';
 import './UnlockStageModal.css';
 
 
-const UnlockStageModal = ({stage, topic, price, showModal}) => {
+const UnlockStageModal = ({stage, topic, price, showModal, buyStage}) => {
   //Get Total Coins
   //
   const [ username, setUsername ] = useState('');
@@ -33,7 +33,8 @@ const UnlockStageModal = ({stage, topic, price, showModal}) => {
   },[])
 
   const unlockStage = () => {
-    console.log("Unlock")
+    buyStage(price);
+    showModal(false);
   }
 
   return (

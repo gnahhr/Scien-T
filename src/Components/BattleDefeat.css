@@ -14,6 +14,9 @@
   height: 60%;
   background-color: #D03939;
   border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
 }
 .defeat-window .defeat .header, .defeat-window .defeat h3, .defeat-window .defeat .answer {
   color: white;
@@ -30,6 +33,11 @@
 .defeat-window .defeat .answer {
   background-color: rgba(0, 0, 0, 0.4941176471);
   padding: 0.5rem auto;
+}
+.defeat-window .defeat .button-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .defeat-window .defeat .button-wrapper .try-again {
   background-color: #308C27;

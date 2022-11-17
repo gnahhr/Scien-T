@@ -1,16 +1,29 @@
 import React, { useState } from 'react';
-import './BattleStage.css';
 
 //Components
 import UnlockStageModal from './UnlockStageModal';
+import Toast from './Toast';
+
+//Hooks
+import buyTestBattleStage from '../Hooks/buyTestBattleStage';
 
 //Images
 import Lock from '../Assets/Images/lock.svg';
 
-const BattleStage = ({setStage, lastFinStage, nextPhase, topic}) => {
+//Design
+import './BattleStage.css';
+
+const BattleStage = ({setStage, lastFinStage, nextPhase, topic, access, boughtStage, boughtState}) => {
+  //Selected Data States
   const [ selStage, setSelStage ] = useState(0);
   const [ selPrice, setSelPrice ] = useState(0);
+
+  //Modal State
   const [ showModal, setShowModal ] = useState(false);
+
+  //Toast States
+  const [ showToast, setShowToast ] = useState(false);
+  const [ toastMessage, setToastMessage ] = useState("");
 
   const stages = [
     {
@@ -79,6 +92,13 @@ const BattleStage = ({setStage, lastFinStage, nextPhase, topic}) => {
     },
   ]
 
+  const buyStage = (price) => {
+    buyTestBattleStage(access,topic,price);
+    setToastMessage("Stage bought!");
+    setShowToast(true);
+    boughtStage(!boughtState);
+  }
+
   const onClickHandler = (value) => {
     setStage(value);
     nextPhase(2);
@@ -104,7 +124,8 @@ const BattleStage = ({setStage, lastFinStage, nextPhase, topic}) => {
                 }
             })}
         </div>
-        {showModal && <UnlockStageModal stage={selStage} topic={topic} price={selPrice} showModal={setShowModal}/>}
+        <Toast message={toastMessage} timer={3000} toastType={"success"} showToast={setShowToast} toastState={showToast}/>
+        {showModal && <UnlockStageModal stage={selStage} topic={topic} price={selPrice} showModal={setShowModal} buyStage={buyStage}/>}
     </div>
   )
 }
