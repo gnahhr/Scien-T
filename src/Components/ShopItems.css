@@ -71,7 +71,7 @@
 .btn-group .save {
   background-color: #F4AF00;
 }
-.btn-group .save:hover {
+.btn-group .save:hover:enabled {
   background-color: #FFEAB6;
   color: #0C004E;
 }

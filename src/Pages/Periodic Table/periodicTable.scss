@@ -1,7 +1,6 @@
 .periodic-wrapper {
     display: grid;
     place-items: center;
-    height: 92vh;
 }
 
 .element {
@@ -9,7 +8,6 @@
         &+.popup {
             opacity: 1;
             z-index: 5;
-            // display:inline;
             transition: opacity 500ms ease;
         }
     }

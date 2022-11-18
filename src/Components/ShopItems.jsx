@@ -1,6 +1,3 @@
-//TODOs
-//Add Default Clothing
-//
 import React, { useState, useEffect } from 'react';
 import jwtDecode from 'jwt-decode';
 
@@ -27,7 +24,7 @@ const template = {
   price: 0,
 };
 
-const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender}) => {
+const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender, isBought, boughtState, coins}) => {
   //Tried Item States
   const [ tops, setTops ] = useState(template);
   const [ bottoms, setBottoms ] = useState(template);
@@ -40,9 +37,9 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender}) => {
   const [ ownedAccs, setOwnedAccs ] = useState();
 
   //Add Default Values
-  const [ equipTop, setEquipTop ] = useState();
-  const [ equipBot, setEquipBot ] = useState();
-  const [ equipAcc, setEquipAcc ] = useState();
+  const [ equipTop, setEquipTop ] = useState(template);
+  const [ equipBot, setEquipBot ] = useState(template);
+  const [ equipAcc, setEquipAcc ] = useState(template);
 
   //Modal State
   const [ showModal, setShowModal ] = useState(false);
@@ -50,6 +47,7 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender}) => {
   //Toast State
   const [ showToast, setShowToast ] = useState(false);
   const [ toastMessage, setToastMessage ] = useState("");
+  const [ toastType, setToastType ] = useState("");
 
   //ButtonState
   const [ hasTried, setHasTried ] = useState(false);
@@ -67,13 +65,13 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender}) => {
 
     (async() =>{
       const data =  await getAccessoriesEquipped(user.id);
-      const equipped = [...data.topEquipped, ...data.bottomEquipped, ...data.accessoryEquipped];
-      
 
-
-      setEquipTop(Clothes.filter((Clothe) => Clothe.category === "top"));
-      setEquipBot(data.bottomEquipped);
-      setEquipAcc(data.accessoryEquipped);
+      setEquipTop(getEquipped("top",data.topEquipped[0]));
+      setEquipBot(getEquipped("bottom", data.bottomEquipped[0]));
+      setEquipAcc(getEquipped("accessory", data.accessoryEquipped[0]));
+      setTops(getEquipped("top",data.topEquipped[0]));
+      setBottoms(getEquipped("bottom", data.bottomEquipped[0]));
+      setAccessories(getEquipped("accessory", data.accessoryEquipped[0]));
   })();
 
   }, [])
@@ -90,12 +88,33 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender}) => {
     setPriceAll(total);
     setTotal(total);
 
-    if ((total !== 0) || (tops.id !== "" || bottoms.id !== "" || accessories.id !== "")) {
+    if ((tops.id !== equipTop.id) || (bottoms.id !== equipBot.id) || (accessories.id !== equipAcc.id)) {
       setHasTried(true);
     } else if (total === 0) {
       setHasTried(false);
     }
   }, [tops, bottoms, accessories])
+
+  const getEquipped = (category, id) => {
+    if (id === "") {
+      return template;
+    }
+
+    const data = Clothes.filter((Clothe) => {
+      if (Clothe.category === category && Clothe.id === id) {
+        return Clothe
+      }
+    }).map(Clothe => {
+      return {
+        ...Clothe,
+        owned: true,
+        price: 0,
+        dir: `./images${Clothe.dir}/${Clothe.image}`,
+      }
+    });
+
+    return data[0];
+  }
 
   const tryItem = (item) => {
     const data = {
@@ -116,30 +135,50 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender}) => {
   }
   
   const resetChar = () => {
+    setAccessories(equipAcc);
+    setTops(equipTop);
+    setBottoms(equipBot);
+  }
+
+  const clearChar = () => {
     setAccessories(template);
     setTops(template);
     setBottoms(template);
   }
 
   const buy = () => {
-    const filtered = [tops, bottoms, accessories].map(item => {
-      if (item.owned === true) {
-        return "";
-      } else {
-        return item.id;
-      }
-    })
-  
-    updateCharacter();
-    buyAccessories(access, ...filtered, priceAll);
-    setShowModal(false);
+    if (priceAll <= coins) {
+      const filtered = [tops, bottoms, accessories].map(item => {
+        if (item.owned === true) {
+          return "";
+        } else {
+          return item.id;
+        }
+      })
+    
+      updateCharacter();
+      buyAccessories(access, ...filtered, priceAll);
+      isBought(!boughtState);
+      setTotal(0);
+      setShowModal(false);
+    } else {
+      setToastMessage("Insufficient Money");
+      setToastType("warning");
+      setShowToast(true);
+    }
   }
 
   const updateCharacter = () => {
-    let previewed = [tops.id, bottoms.id, accessories.id].filter((item) => item !== "");
+    let previewed = [tops.id, bottoms.id, accessories.id];
     
-    saveCharacter(access, gender, tops.id, bottoms.id, accessories.id, preview, hitPreview);//dagdag ni juicewah yung hitPreview at top,bottom, accessory ids
+    setEquipTop(tops);
+    setEquipBot(bottoms);
+    setEquipAcc(accessories);
+    setHasTried(false);
+
+    saveCharacter(access, gender, ...previewed, preview, hitPreview);
     setToastMessage("Character updated");
+    setToastType("success");
     setShowToast(true);
   }
 
@@ -161,16 +200,17 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender}) => {
   return (
     <>
       <div className='shop-items-container'>
-        {ownedTops && <ShopItemContainer category={"Tops"} items={"top"} model={gender} tryItem={tryItem} ownedClothes={ownedTops}/>}
-        {ownedBots && <ShopItemContainer category={"Bottoms"} items={"bottom"} model={gender} tryItem={tryItem} ownedClothes={ownedBots}/>}
-        {ownedAccs && <ShopItemContainer category={"Accessories"} items={"accessory"} model={gender} tryItem={tryItem} ownedClothes={ownedAccs}/>}
+        {ownedTops && <ShopItemContainer category={"Tops"} Clothes={Clothes} items={"top"} model={gender} tryItem={tryItem} ownedClothes={ownedTops}/>}
+        {ownedBots && <ShopItemContainer category={"Bottoms"} Clothes={Clothes} items={"bottom"} model={gender} tryItem={tryItem} ownedClothes={ownedBots}/>}
+        {ownedAccs && <ShopItemContainer category={"Accessories"} Clothes={Clothes} items={"accessory"} model={gender} tryItem={tryItem} ownedClothes={ownedAccs}/>}
         {showModal && <ShopBuyModal showModal={setShowModal} clothes={getShopUnowned} buyClothes={buy}/>}
       </div>
       <div className="btn-group">
+        <button className="fluid-btn" onClick={() => clearChar()}>Clear </button>
         <button className="fluid-btn" onClick={() => resetChar()}>Reset </button>
         <button className="fluid-btn save" onClick={() => saveOnClick()} disabled={!hasTried}>Save</button>
       </div>
-      <Toast message={toastMessage} timer={3000} toastType={"success"} showToast={setShowToast} toastState={showToast}/>
+      <Toast message={toastMessage} timer={3000} toastType={toastType} showToast={setShowToast} toastState={showToast}/>
     </>
   )
 }

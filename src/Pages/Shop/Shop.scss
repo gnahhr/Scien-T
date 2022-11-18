@@ -61,18 +61,46 @@
             width: clamp(200px, 16vw, 15rem);
         }
 
-        img::after{
-            content: "";
-            position: absolute;
-            align-content: center;
-            background-color: white;
-            height: 5rem;
-            width: 5rem;
-        }
+        
+    }
+
+    .character-preview-container::after{
+        content: "";
+        position: absolute;
+        align-content: center;
+        background-color: white;
+        height: 5rem;
+        width: clamp(12rem, 25vw, 15rem);
+        border-radius: 50%;
+        opacity: .5;
+        bottom: 0;
+        z-index: -1;
     }
 
     .totalValue {
         text-align: center;
+        background-color: #FFFFFF;
+        width: fit-content;
+        padding: 0;
+        border-radius: 10px 10px 5px 5px;
+        margin: .5rem auto 1rem auto;
+
+        .label {
+            background-color: #094B0F;
+            margin: 0;
+            border-radius: 5px 5px 0 0;
+            width: 100%;
+
+            span {
+                color: #FFFFFF;
+                padding: .3rem 2rem;
+            }
+        }
+
+        .value {
+            width: 100%;
+        }
+
     }
 }
 
@@ -84,5 +112,6 @@
         .left {
             width: auto;
         }
+
     }
 }

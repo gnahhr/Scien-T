@@ -130,12 +130,13 @@
   transform: translateX(-500%);
   transition: none;
 }
+.mixDash-window .customer-backdrop .customer-wrapper #customer.angry {
+  animation: angry 300ms ease 10ms infinite;
+  transform: translateX(0);
+}
 .mixDash-window .customer-backdrop .customer-wrapper #customer.after {
   transform: translateX(1000%);
   transition: transform 2000ms ease 1000ms;
-}
-.mixDash-window .customer-backdrop .customer-wrapper #customer.angry {
-  animation: angry 300ms ease 10ms infinite;
 }
 .mixDash-window .bottom-wrapper {
   display: flex;

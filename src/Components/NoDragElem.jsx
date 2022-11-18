@@ -4,6 +4,7 @@ import './Elements.css';
 
 const NoDragElem = ({symbol, xpos, ypos, category, clickAct, elem}) => {
   const { familyBGs, familyBDs } = ElemColors;
+  const borderColor = familyBDs[category] ? familyBDs[category] : "#D8E9EF";
 
   const clickAction = () => {
     if (clickAct) {
@@ -16,8 +17,8 @@ const NoDragElem = ({symbol, xpos, ypos, category, clickAct, elem}) => {
      style={{
         gridRow: ypos,
         gridColumn: xpos,
-        border: familyBDs[category] ? familyBDs[category] : "grey",
-        backgroundColor: familyBGs[category] ? familyBGs[category] : "grey"
+        border: `3px solid ${borderColor}`,
+        backgroundColor: familyBGs[category] ? familyBGs[category] : "#EBF3F6"
      }}
      className="element"
      onClick={() => clickAction()}

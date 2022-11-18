@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 
 import Loader from '../Components/Loader';
-import Clothes from '../Data/Clothes';
 
-const ShopItemContainer = ({category, items, tryItem, model, ownedClothes}) => {
+const ShopItemContainer = ({category, items, tryItem, model, ownedClothes, Clothes}) => {
   const [ shopData, setShopData ] = useState();
 
   useEffect(() => {

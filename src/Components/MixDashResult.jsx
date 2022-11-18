@@ -30,7 +30,7 @@ const MixDashResult = ({resultState, resultData, setPhase, level, setLevel, tota
                 <p className="left-data">Earned money</p> <p className="right-data">{resultData.gainedMoney}</p>
                 <p className="left-data">Tips</p> <p className="right-data">{resultData.tips}</p>
                 <p className="left-data total-data">Total Earned</p> <p className="right-data total-data">{resultData.totalEarned}</p>
-                <p className="left-data total-data">Prize Coins</p> <p className="right-data total-data">{prizeCoins}</p>
+                {resultState === "victory" && <><p className="left-data total-data">Prize Coins</p> <p className="right-data total-data">{prizeCoins}</p></>}
             </div>
         </div>
         <div className="button-wrapper">

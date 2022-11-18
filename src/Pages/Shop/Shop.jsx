@@ -35,9 +35,16 @@ const Shop = () => {
     const [ hitPreview, setHitPreview ] = useState(hitModel);
 
     //Query States
-    const [ username, setUsername ] = useState('')
-    const [ access, setAccess ]  = useState('')
-    const [ gender, setGender ] = useState('')
+    const [ username, setUsername ] = useState('');
+    const [ access, setAccess ]  = useState('');
+    const [ gender, setGender ] = useState('');
+
+    //Buy States
+    const [ isBought, setIsBought ] = useState(false);
+
+    useEffect(() => {
+        setCoins(coins - totalValue);
+    }, [isBought])
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -74,17 +81,16 @@ const Shop = () => {
                         <div className='upper-part'>
                             <h1>{username}</h1>
                         </div>
-
                         <div className='lower-part'>
                             <img src={MoneyBag} alt="" />
-                            <h1>{coins}</h1>
+                            {coins && <h1>{coins}</h1>}
                         </div>
                     </div>
                     <div className='character-preview-container'>
                         {preview ? <img src={preview} alt='' /> : <Loader />}
                     </div>
                     <div className="totalValue">
-                        <div className="label">Total Value: </div>
+                        <div className="label"><span>Total Value: </span></div>
                         <div className="value">{totalValue}</div>
                     </div>
                 </div>
@@ -94,7 +100,10 @@ const Shop = () => {
                                access={access}
                                preview={preview}
                                hitPreview={hitPreview}
-                               gender={gender}/>
+                               gender={gender}
+                               isBought={setIsBought}
+                               boughtState={isBought}
+                               coins={coins}/>
                 </div>
             </div>
         </>

@@ -14,8 +14,8 @@
         border: 10px solid #240E3F;
         border-radius: 18px;
         background: #E2D9E5;
-        max-width: 45vw;
-        max-height: 60vh;
+        max-width: 80vw;
+        max-height: 93vh;
 
         display: flex;
         flex-direction: column;
@@ -48,6 +48,7 @@
         .element-wrapper {
             width: 80%;
             padding: 3rem auto;
+            color:#220C41;
 
             .atomic-num {
                 font-size: 2rem;
@@ -74,14 +75,21 @@
         .bohr-img {
             width: 80%;
             border-radius: 25px;
+            margin-bottom: 2rem;
 
             * {
+                height: 40vh;
                 width: 100%;
             }
         }
 
         .summary {
+            text-align: center;
             margin: auto 4rem;
+
+            strong {
+                text-align: left;
+            }
         }
 
     }

@@ -14,7 +14,7 @@ const PeriodicModal = ({data, showModal}) => {
             <h2 className="category">{data.category}</h2>
             <div className="element-wrapper"
                  style={{
-                    backgroundColor: familyBGs[data.category] ? familyBGs[data.category] : "gray" 
+                    backgroundColor: familyBGs[data.category] ? familyBGs[data.category] : "#EBF3F6" 
                  }}>
                 <p className="atomic-num">{data.number}</p>
                 <p className="element-sym">{data.symbol}</p>

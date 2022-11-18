@@ -599,30 +599,13 @@ exports.saveCharacter = async(req, res, next) => {
     const bottom = req.body.bottom
     const accessory = req.body.accessory
 
-    if(top !== ''){
-        const response = await UserData.findByIdAndUpdate({_id},{
-            $set:{
-                topEquipped:top
-            }
-        })
-    }
-
-    if(bottom !== ''){
-        const response = await UserData.findByIdAndUpdate({_id},{
-            $set:{
-                bottomEquipped:bottom
-            }
-        })
-    }
-
-    if(accessory !== ''){
-        const response = await UserData.findByIdAndUpdate({_id},{
-            $set:{
-                accessoryEquipped:accessory
-            }
-        })
-    }
-    
+    const response = await UserData.findByIdAndUpdate({_id},{
+        $set:{
+            topEquipped:top,
+            bottomEquipped:bottom,
+            accessoryEquipped:accessory
+        }
+    })
 
     const filePath = `../Character/${gender}/${_id}.png`
     const buffer = Buffer.from(req.body.base64.split(',')[1],'base64')

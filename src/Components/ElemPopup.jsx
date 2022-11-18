@@ -1,5 +1,4 @@
 import React from 'react';
-import Elements from './Elements';
 import './ElemPopup.css';
 
 const ElemPopup = ({xpos, ypos, element, desc}) => {

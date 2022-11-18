@@ -75,6 +75,9 @@
   border-radius: 25px;
   padding: 0 0.25rem;
 }
+.user .cta:hover {
+  cursor: pointer;
+}
 
 .category {
   display: flex;

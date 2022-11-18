@@ -27,8 +27,8 @@
 
 #periodic-table {
   display: grid;
-  grid-template-rows: repeat(11, 20px);
-  grid-template-columns: repeat(18, 20px);
+  grid-template-rows: repeat(11, 18px);
+  grid-template-columns: repeat(18, 18px);
   grid-gap: 2rem;
   padding: 1rem 3rem;
   margin: 1rem;
@@ -89,7 +89,7 @@
 .mixing-table .cta img {
   height: 100%;
 }
-.mixing-table .cta:hover {
+.mixing-table .cta:hover:enabled {
   background-color: #FFEAB6;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.4666666667);
 }

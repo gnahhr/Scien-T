@@ -52,7 +52,7 @@ button, .button {
     padding: 0;
 }
 
-button:hover, .button:hover {
+button:hover:enabled, .button:hover:enabled {
     background-color: #DE9F00;
     color: #FFFFFF;
     cursor: pointer;
@@ -63,7 +63,7 @@ button:disabled {
     box-shadow: 0 3px 2px 1px rgba(0, 0, 0, 0.5);
 }
 
-button:disabled:hover {
+button:disabled:hover:enabled {
     background-color: rgba(0, 0, 0, 0.5);
     box-shadow: 0 3px 2px 1px rgba(0, 0, 0, 0.5);
     cursor: default;
@@ -85,7 +85,7 @@ a {
     transition: background-color .500ms ease;
 }
 
-.normal:hover {
+.normal:hover:enabled {
     background-color: #D34646;
     box-shadow: 0 0 0 3px #D34646;
     transition: background-color .500ms ease;
@@ -97,7 +97,7 @@ a {
     color: #0C004E;
 }
 
-.cta:hover {
+.cta:hover:enabled {
     background-color: #FFEAB6;
     color: #0C004E;
     box-shadow: 0 0 0 3px #FFEAB6;
@@ -112,7 +112,7 @@ a {
     
 }
 
-.teal:hover {
+.teal:hover:enabled {
     background-color: #AB2921;
     box-shadow: 0 0 0 3px #AB2921;
     transition: background-color .500ms ease;
@@ -126,7 +126,7 @@ a {
     
 }
 
-.black:hover {
+.black:hover:enabled {
     background-color: #AB2921;
     box-shadow: 0 0 0 3px #AB2921;
     transition: background-color .500ms ease;
@@ -139,7 +139,7 @@ a {
     font-size: 1.7rem;
 }
 
-.red:hover {
+.red:hover:enabled {
     background-color: #21AB97;
     box-shadow: 0 0 0 3px #21AB97;
     transition: background-color .500ms ease;

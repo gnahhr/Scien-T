@@ -53,16 +53,38 @@
   margin: clamp(1rem, 3vw, 5rem);
   width: clamp(200px, 16vw, 15rem);
 }
-.left .character-preview-container img::after {
+.left .character-preview-container::after {
   content: "";
   position: absolute;
   align-content: center;
   background-color: white;
   height: 5rem;
-  width: 5rem;
+  width: clamp(12rem, 25vw, 15rem);
+  border-radius: 50%;
+  opacity: 0.5;
+  bottom: 0;
+  z-index: -1;
 }
 .left .totalValue {
   text-align: center;
+  background-color: #FFFFFF;
+  width: fit-content;
+  padding: 0;
+  border-radius: 10px 10px 5px 5px;
+  margin: 0.5rem auto 1rem auto;
+}
+.left .totalValue .label {
+  background-color: #094B0F;
+  margin: 0;
+  border-radius: 5px 5px 0 0;
+  width: 100%;
+}
+.left .totalValue .label span {
+  color: #FFFFFF;
+  padding: 0.3rem 2rem;
+}
+.left .totalValue .value {
+  width: 100%;
 }
 
 @media only screen and (orientation: portrait) {

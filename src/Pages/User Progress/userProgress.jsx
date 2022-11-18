@@ -24,12 +24,6 @@ const userProgress = () => {
   const [ electronConfigCounter, setElectronConfigCounter ] = useState(0)
   const [ predictedValue, setPredictedValue ] = useState(0)
 
-  // const formatArray = (intellimentCounter) => { // format to 2D array for linear regression
-  //   return intellimentCounter.map((ctr, index) => {
-  //     return[index+1,ctr]
-  //   })
-  // }
-
   //get data on refresh
   useEffect(()=>{
     const token = localStorage.getItem('token')
@@ -106,59 +100,27 @@ const userProgress = () => {
   }
 
   const levelOfMastery = () => {
-    if(difficulty === "easy"){
-      if(intellimentCounter.length < 5){
-        return "Insufficient Games Played"
-      }
-      else{
-        if(predictedValue >= 18){
-          return "A+"
-        }
-        else{
-          return "F-"
-        }
-      }
+    let passing = 0;
+
+    if (difficulty === "easy") {
+      passing = 18;
+    } else if (difficulty === "normal") {
+      passing = 36;
+    } else if (difficulty === "hard") {
+      passing = 54;
+    } else if (difficulty === "hardcore") {
+      passing = 72;
     }
 
-    else if(difficulty === "normal"){
-      if(intellimentCounter.length < 5){
-        return "Insufficient Games Played"
-      }
-      else{
-        if(predictedValue >= 36){
-          return "A+"
-        }
-        else{
-          return "F-"
-        }
-      }
+    if(intellimentCounter.length < 5){
+      return "Insufficient Games Played";
     }
-
-    else if(difficulty === "hard"){
-      if(intellimentCounter.length < 5){
-        return "Insufficient Games Played"
+    else{
+      if (predictedValue >= passing){
+        return "A+";
       }
       else{
-        if(predictedValue >= 54){
-          return "A+"
-        }
-        else{
-          return "F-"
-        }
-      }
-    }
-
-    else if(difficulty === "hardcore"){
-      if(intellimentCounter.length < 5){
-        return "Insufficient Games Played"
-      }
-      else{
-        if(predictedValue >= 72){
-          return "A+"
-        }
-        else{
-          return "F-"
-        }
+        return "F-";
       }
     }
 

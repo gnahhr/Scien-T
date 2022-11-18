@@ -79,10 +79,12 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
       setSatisColor("green");
     } else if (custSatis > 25 && custSatis <= 50) {
       setSatisColor("orange");
-    } else if (custSatis <= 25 && custSatis > 10) {
-      animateCustomer("angry");
+    } else if (custSatis === 25) {
       setSatisColor("red");
-    } else if (custSatis <= 2) {
+      animateCustomer("angry");
+    } else if (custSatis <= 25 && custSatis > 10) {
+      setSatisColor("red");
+    } else if (custSatis == 2) {
       setAnimState(0);
     }
   }, [custSatis])
@@ -192,24 +194,24 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
     if (compareElemArr(selected.sort(), orderRecipe.sort())){
         const pay = customers[currCustomer].money;
 
+        setPaused(true);
         setEarned(() => earned + pay);
         setTips(() => tips + calcTip(custSatis, pay));
         setTotalEarned(() => totalEarned + (pay + calcTip(custSatis, pay)));
+        animateCustomer("after");
 
         if (currCustomer + 1 !== build.numOfCustomers){
-          animateCustomer("after");
           setTimeout(() => setCurrCustomer(() => currCustomer + 1), 5000);
         } else if (currCustomer + 1 === build.numOfCustomers) {
-          animateCustomer("after");
           setTimeout(() => setFinished(true), 5000);
         }
 
-        setPaused(true);
         setSelState(false);
         setCustSatis(100);
         setInterval(() => setPaused(false), 1000);
         resetSelected();
     } else {
+        setPaused(false);
         resetSelected();
         setSelState(false);
     }
@@ -267,6 +269,8 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
       setInterval(() => setPaused(false), 4000);
     } else if (state === "angry") {
       setAnimState(2);
+    } else if (state === "idle") {
+      setAnimState(0);
     }
   }
 

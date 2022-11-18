@@ -1,7 +1,6 @@
 .periodic-wrapper {
   display: grid;
   place-items: center;
-  height: 92vh;
 }
 
 .element:hover + .popup {

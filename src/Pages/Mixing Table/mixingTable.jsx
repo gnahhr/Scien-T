@@ -281,6 +281,7 @@ const mixingTable = () => {
                 ypos={element.ypos}
                 category={element.category}
                 isDragElem={setIsDragElem}
+                addElement={addElement}
               />
               :
               <NoDragElem 
