@@ -1,0 +1,14 @@
+@media only screen and (orientation: portrait) {
+    .register-wrapper {
+        display: flex;
+        flex-direction: column;
+
+        .model-sel-wrapper{
+            .button-wrapper {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1rem;
+            }
+        }
+    }
+}

@@ -51,7 +51,7 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
     0: "",
     1: "before",
     2: "angry",
-    3: "after"
+    3: "after",
   }
 
   //On-mount
@@ -84,8 +84,6 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
       animateCustomer("angry");
     } else if (custSatis <= 25 && custSatis > 10) {
       setSatisColor("red");
-    } else if (custSatis == 2) {
-      setAnimState(0);
     }
   }, [custSatis])
 
@@ -94,9 +92,9 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
     if (paused) {
       setCustSatis(100);
     }
-    else if (!paused && custSatis > 0) {
+    else if (!paused && (custSatis > 0)) {
       setTimeout(() => setCustSatis(() => custSatis - 1), 100);
-    } else if (!paused && custSatis === 0) {
+    } else if (!paused && (custSatis === 0)) {
       if (currCustomer + 1 !== build.numOfCustomers){
         animateCustomer("after");
         setTimeout(() => setCurrCustomer(() => currCustomer + 1), 5000);
@@ -201,17 +199,14 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
         animateCustomer("after");
 
         if (currCustomer + 1 !== build.numOfCustomers){
-          setTimeout(() => setCurrCustomer(() => currCustomer + 1), 5000);
+          setTimeout(() => setCurrCustomer(() => currCustomer + 1), 4000);
         } else if (currCustomer + 1 === build.numOfCustomers) {
-          setTimeout(() => setFinished(true), 5000);
+          setTimeout(() => setFinished(true), 4000);
         }
 
         setSelState(false);
-        setCustSatis(100);
-        setInterval(() => setPaused(false), 1000);
         resetSelected();
     } else {
-        setPaused(false);
         resetSelected();
         setSelState(false);
     }
@@ -265,8 +260,8 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
       setInterval(() => setPaused(false), 4000);
     } else if (state === "after") {
       setPaused(true);
-      setAnimState(3);
-      setInterval(() => setPaused(false), 4000);
+      setAnimState(0);
+      setTimeout(() => setAnimState(3), 300);
     } else if (state === "angry") {
       setAnimState(2);
     } else if (state === "idle") {
@@ -290,7 +285,10 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
       <div className="customer-backdrop">
         <img src={Light} alt="light" className="fluorescent" />
         <div className="customer-wrapper">
-          {customers && <img src={customers[currCustomer].customerImg} alt="" id="customer" className={animArray[animState]}/>}
+          {customers && <img src={customers[currCustomer].customerImg}
+                             alt=""
+                             id="customer"
+                             className={animArray[animState]}/>}
           <div className={`order-wrapper ${animArray[animState]}`} >
             <div className="satisfaction"
                  style={{

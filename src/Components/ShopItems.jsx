@@ -78,7 +78,7 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender, isBoug
 
   useEffect(() => {
     const total = tops.price + bottoms.price + accessories.price;
-
+    
     tryMe([
       tops.dir,
       bottoms.dir,
@@ -96,7 +96,7 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender, isBoug
   }, [tops, bottoms, accessories])
 
   const getEquipped = (category, id) => {
-    if (id === "") {
+    if (id === "" || id === undefined) {
       return template;
     }
 

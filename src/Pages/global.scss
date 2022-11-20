@@ -145,6 +145,15 @@ a {
     transition: background-color .500ms ease;
 }
 
+.purple {
+    background-color: #FFF;
+    box-shadow: 0 0 0 3px #000000;
+}
+
+.purple.active{
+    background-color: #8E3B77;
+}
+
 .battle-btn {
     font-size: clamp(14px, 1.5vw, 1.5rem);
     padding: .5rem min(2rem, 1vw);
@@ -154,11 +163,12 @@ a {
 label {
     justify-self: left;
     color: #8E3B77;
+    margin-left: 1.1rem;
     font-family: 'Secular One', sans-serif;
 }
 
 input {
-    width: 100%;
+    width: 90%;
     height: 2rem;
     border-radius: 5px;
     border: none;
@@ -173,17 +183,16 @@ input:active {
 
 h2 {
     color: white;
-    font-size: 3rem;
-    margin-top: 4rem;
+    font-size: clamp(24px, 3vw, 3rem);
+    text-align: center;
+    margin-top: 1rem;
 }
-
-// .main {
-//     margin: 0 30%;
-// }
 
 .form-wrapper {
     background-color: rgba(255, 255, 255, 0.9);
-    padding: 2rem 4rem;
+    // padding: 2rem 4rem;
+    max-width: 50%;
+    width: clamp(70rem, 50vw, 120rem);
     display: grid;
     justify-items: center;
     align-items: center;
@@ -192,10 +201,64 @@ h2 {
     position: relative;
 
     h2 {
-        margin: 1rem auto 2rem;
-        font-size: 3rem;
+        margin: 1rem auto;
+        text-align: center;
+        font-size: 2.5rem;
         color: #282054;
         text-shadow: 0 3px 3px rgba(0, 0, 0, 0.284);
+    }
+}
+
+.main-header {
+    h1 {
+        font-size: clamp(16px, 3vw, 3rem);
+    }
+}
+
+#login {
+    width: 80%;
+}
+
+.register-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 80vw;
+    max-width: 80%;
+
+    h2 {
+        grid-column: span 2 / auto;
+    }
+
+    .model-sel-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        h3 {
+            color: #8E3B77;
+            font-size: clamp(16px, 2vw, 2rem);
+        }
+
+        img {
+            width: clamp(50px, 20vw, 10rem);
+            filter: drop-shadow(5px 5px 5px #222);
+        }
+
+        .button-wrapper {
+            grid-template-columns: 1fr 1fr;
+            button {
+                display: grid;
+                place-items: center;
+                width: fit-content;
+                padding: .5rem;
+                img {
+                    width: 48px;
+                    height: 48px;
+                    aspect-ratio: 1;
+                }
+            }
+        }
     }
 }
 
@@ -253,4 +316,13 @@ h2 {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.9); 
+}
+
+@media only screen and (orientation: portrait) {
+    .form-wrapper {
+        background-color: rgba(255, 255, 255, 0.9);
+        // padding: 2rem 4rem;
+        max-width: 100vw;
+        width: 90vw;
+    }
 }

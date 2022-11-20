@@ -124,17 +124,18 @@
   justify-self: center;
   align-self: flex-end;
   transform: translateX(0);
-  transition: transform 2000ms ease;
+  transition: all 2000ms ease;
 }
 .mixDash-window .customer-backdrop .customer-wrapper #customer.before {
   transform: translateX(-500%);
   transition: none;
 }
 .mixDash-window .customer-backdrop .customer-wrapper #customer.angry {
-  animation: angry 300ms ease 10ms infinite;
   transform: translateX(0);
+  animation: angry 300ms linear 300ms infinite;
 }
 .mixDash-window .customer-backdrop .customer-wrapper #customer.after {
+  animation: none;
   transform: translateX(1000%);
   transition: transform 2000ms ease 1000ms;
 }

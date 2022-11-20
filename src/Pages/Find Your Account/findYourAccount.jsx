@@ -58,7 +58,7 @@ const findYourAccount = () => {
             <img src={Logo} alt="logo" className="logo" />
             <h2>A more fun way to learn the periodic table!</h2>
             <div className="form-wrapper">
-                <h2>Find Your Acount</h2>
+                <h2>Find Your Account</h2>
                 <form onSubmit={findUser} id="login">
                     <label htmlFor="email">Email </label>
                     <input type="email" name="email" id="email" value={email} onChange={(e) => onInputChange(e)}/>

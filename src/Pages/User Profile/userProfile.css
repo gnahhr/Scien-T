@@ -44,6 +44,7 @@
 .profile-form {
   width: 40%;
   margin: auto;
+  padding: 2rem;
 }
 
 @media only screen and (orientation: portrait) {

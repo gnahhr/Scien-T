@@ -91,7 +91,7 @@ const loginPage = ({setUser}) => {
               <input type="password" name="password" id="password" value={password} onChange={(e) => onInputChange(e)}/>
               <button type="submit" value="Login" className="teal">LOGIN</button>
           </form>
-          <button className="button red" id="forgot-pw" onClick={() => {handleClick()}}>Forgot Password?</button>
+          <a id="forgot-pw" onClick={() => {handleClick()}}>Forgot Password?</a>
         </div>
     </div>
   )

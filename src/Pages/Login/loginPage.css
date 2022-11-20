@@ -2,8 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 9vh;
   width: 100%;
+  margin-top: 0 !important;
 }
 
 #login {
@@ -11,10 +11,13 @@
   justify-items: center;
   align-items: center;
   margin-top: 2rem;
-  padding: 0 8rem;
-  width: 100%;
 }
 
 #forgot-pw {
   font-size: 1rem;
+}
+
+a:hover {
+  cursor: pointer;
+  color: red;
 }

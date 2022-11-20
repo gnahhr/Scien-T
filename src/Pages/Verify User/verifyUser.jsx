@@ -66,27 +66,26 @@ const verifyUser = (event) => {
         <h1 className="header-text"> OTP Verification </h1>
           <h2>Enter the OTP code sent to your email</h2>
           <div className="wrapper">
-          <div className="otp-container">
-          {OTP.map((data, index) => {
-            return (
-              <input
-                  className="otp-field"
-                  type="text"
-                  name="OTP"
-                  maxLength="1"
-                  key={index}
-                  value={data}
-                  onChange={e => handleChange(e.target, index)}
-                  onFocus={e => e.target.select()}
-              />
-            )
-            })}
-            </div> 
-          
-            <div className='btn-wrapper'>
-              <button onClick={e => setOTP([...OTP.map(v => "")])} >Clear</button>
-              <button onClick={() => verify(OTP)}>Verify OTP</button>
-            </div>
+            <div className="otp-container">
+              {OTP.map((data, index) => {
+                return (
+                  <input
+                      className="otp-field"
+                      type="text"
+                      name="OTP"
+                      maxLength="1"
+                      key={index}
+                      value={data}
+                      onChange={e => handleChange(e.target, index)}
+                      onFocus={e => e.target.select()}
+                  />
+                )
+                })}
+              </div> 
+              <div className='btn-wrapper'>
+                <button className="fluid-btn" onClick={e => setOTP([...OTP.map(v => "")])} >Clear</button>
+                <button className="fluid-btn" onClick={() => verify(OTP)}>Verify OTP</button>
+              </div>
           </div>
       </div>
     </>

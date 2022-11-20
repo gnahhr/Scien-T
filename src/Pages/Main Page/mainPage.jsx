@@ -16,17 +16,6 @@ const mainPage = () => {
   return (
     <>
         <div className="main-page">
-            <div className="header">
-                <img src={logo} alt="logo" />
-                <div className="user-nav">
-                    <div className="greeting">
-                        Hi, {localStorage.getItem("username")}!
-                    </div>
-                    <div className="user-pic">
-                        <img src={user} alt="user" />
-                    </div>
-                </div>
-            </div>
             <div className="main-content">
                 <div className="hero-wrapper">
                     <img src={atom} alt="" id="atom-1" className="design"/>

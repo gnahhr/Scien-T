@@ -1,47 +1,61 @@
 .container {
-  display: grid;
-  place-items: center;
-  margin-right: 204.75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 80vh;
 }
-.container .fingerprint {
-  margin-top: 60px;
+.container .fingerprint,
+.container .header-text,
+.container h2,
+.container .wrapper {
+  margin: 0.5rem auto auto;
+  text-align: center;
 }
 .container .header-text {
-  font-size: 50px;
+  font-size: clamp(24px, 3vw, 3.5rem);
   color: #FFFFFF;
 }
 .container h2 {
-  margin-top: 0px;
+  font-size: clamp(20px, 2.5vw, 3rem);
 }
-
-.wrapper {
+.container .wrapper {
   background-color: #FFFFFF;
-  border: 15px solid #FFFFFF;
   border-radius: 20px;
+  padding: 2rem;
 }
-.wrapper .otp-container {
-  grid-template-columns: 100px 100px 100px 100px;
-  grid-template-rows: auto;
-  margin-bottom: 50px;
+.container .wrapper .otp-container {
+  grid-template-columns: repeat(4, clamp(50px, 2vw, 6rem));
+  margin-bottom: 1rem;
 }
-.wrapper .otp-container input {
+.container .wrapper .otp-container input {
   background-color: #282054;
-  font-size: 120px;
   text-align: center;
   box-sizing: border-box;
-  margin-left: 10px;
-  width: 125px;
-  height: 125px;
+  padding: 0;
+  font-size: clamp(16px, 15vw, 5.5rem);
+  height: clamp(50px, 15vw, 6rem);
+  width: clamp(50px, 15vw, 6rem);
+  margin: 0 5px;
 }
-.wrapper .btn-wrapper {
+.container .wrapper .btn-wrapper {
   display: grid;
   place-items: center;
+  grid-template-columns: 1fr 1fr;
   color: #0C004E;
-  margin-bottom: 10px;
 }
-.wrapper .btn-wrapper button {
-  margin: 60px;
+.container .wrapper .btn-wrapper button {
   background-color: #FFCD4E;
   font-size: 1.5rem;
   margin: 10px;
+  width: max-content;
+  padding: 0.2rem 1rem;
+}
+
+@media only screen and (orientation: portrait) {
+  .container .wrapper {
+    padding: 2rem 0;
+    width: 100vw;
+    border-radius: 0;
+    border: 0;
+  }
 }
