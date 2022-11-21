@@ -1,26 +1,66 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
-import "./leaderboard.css"
+//Components
+import IntellimentRankings from '../../Components/IntellimentRankings';
 
-import getIntellimentRankings from "../../Hooks/getIntellimentRankings.js" //rankings for intelliment || will modify later
-import getElectronConfigRankings from '../../Hooks/getElectronConfigRankings'
-import getTestBattleRankings from '../../Hooks/getTestBattleRankings'
+//Hooks
+import getIntellimentRankings from '../../Hooks/getIntellimentRankings.js'; //rankings for intelliment || will modify later
+import getElectronConfigRankings from '../../Hooks/getElectronConfigRankings';
+import getTestBattleRankings from '../../Hooks/getTestBattleRankings';
 
-import IntellimentRankings from '../../Components/IntellimentRankings'
-import ElectronConfigRankings from  '../../Components/ElectronConfigRankings'
-import SideNav from '../../Components/SideNav'
+//Design
+import "./leaderboard.css";
+
 
 const leaderboard = () => {
   const [ rankings, setRankings] = useState([])
 
   //Game States
-  const [showIntelliment, setShowIntelliment] = useState(true);
-  const [showElectronConfig, setShowElectronConfig] = useState(false);
+  const [ showIntelliment, setShowIntelliment ] = useState(true);
+  const [ showElectronConfig, setShowElectronConfig ] = useState(false);
   const [ showTestBattle, setShowTestBattle ] = useState(false)
 
   //Difficulty States
   const [ difficulty, setDifficulty ] = useState("easy");
-  const [ topic, setTopic ] = useState('elemName')
+  const [ topic, setTopic ] = useState('elemName');
+
+  const intDiff = [
+    {
+      value: "Easy",
+      key: "easy"
+    },
+    {
+      value: "Normal",
+      key: "normal"
+    },
+    {
+      value: "Hard",
+      key: "hard"
+    },
+    {
+      value: "Hardcore",
+      key: "hardcore"
+    }
+  ];
+
+  const battleTopics = [
+    {
+      value: "Elem Name",
+      key: "elemName"
+    },
+    {
+      value: "Atomic Num",
+      key: "atomicNum"
+    },
+    {
+      value: "Atomic Mass",
+      key: "atomicMass"
+    },
+    {
+      value: "Category",
+      key: "category"
+    }
+  ];
 
   useEffect(()=>{
     (async () => {
@@ -75,7 +115,9 @@ const leaderboard = () => {
         const data = await getElectronConfigRankings();
         setRankings(data);
       })()
+
       setShowElectronConfig(!showElectronConfig)
+
       if(showIntelliment || showTestBattle){
         setShowIntelliment(false);
         setDifficulty("");
@@ -93,8 +135,9 @@ const leaderboard = () => {
       })()
 
       setShowTestBattle(!showTestBattle)
+
       if(showIntelliment || showElectronConfig){
-        setShowElectronConfig(false)
+        setShowElectronConfig(false);
         setShowIntelliment(false);
         setDifficulty("");
       }
@@ -109,41 +152,35 @@ const leaderboard = () => {
     <>
       <div className="selector-wrapper">
         <div className="selector">
-            <div id="intelliment"><button style={{backgroundColor: showIntelliment ? "#008773":"#F1F1F1"}} onClick={() => {toggleIntelliment()}}> Intelliment </button> </div>
-            <div id="electronConfig"><button style={{backgroundColor: showElectronConfig ? "#008773":"#F1F1F1"}} onClick={() => {toggleElectronConfig()}}>Electron <br></br>Configuration</button> </div>
-            <div id="electronConfig"><button style={{backgroundColor: showTestBattle ? "#008773":"#F1F1F1"}} onClick={() => {toggleTestBattle()}}>Test Battle</button> </div>
+            <button id="intelliment" className={showIntelliment ? "active":""} onClick={() => {toggleIntelliment()}}> Intelliment </button>
+            <button id="electronConfig" className={showElectronConfig ? "active":""} onClick={() => {toggleElectronConfig()}}>Electron <br></br>Configuration</button>
+            <button id="testBattle" className={showTestBattle ? "active":""} onClick={() => {toggleTestBattle()}}>Test Battle</button>
         </div>
       </div>
       <div className = "container">
+        <div className="top-text">
+          <h1>Leaderboard</h1>
+        </div>
         <div className="ranking-container">
-          <div className="top-text"><h1>Leaderboard</h1></div>
-          {showIntelliment ? <IntellimentRankings rankings={rankings}/> : <ElectronConfigRankings rankings={rankings}/>}
+          <IntellimentRankings rankings={rankings}/>
         </div>
 
         {showIntelliment &&
         <div className="difficulty-wrapper">
-          <button className={difficulty === "easy" ? "active-diff" : "" || showIntelliment ? "" : "hidden-button"}
-                  onClick={() => toggleDifficulty("easy")}>Easy</button>
-          <button className={difficulty === "normal" ? "active-diff" : ""  || showIntelliment ? "" : "hidden-button"}
-                  onClick={() => toggleDifficulty("normal")}>Normal</button>
-          <button className={difficulty === "hard" ? "active-diff" : ""  || showIntelliment ? "" : "hidden-button"}
-                  onClick={() => toggleDifficulty("hard")}>Hard</button>
-          <button className={difficulty === "hardcore" ? "active-diff" : ""  || showIntelliment ? "" : "hidden-button"}
-                  onClick={() => toggleDifficulty("hardcore")}>Hardcore</button>
+          {intDiff && intDiff.map(diff =>
+                  <button
+                      className={diff.key === difficulty ? "active-diff" : ""}
+                      onClick={() => toggleDifficulty(diff.key)}><span>{diff.value}</span></button> )}
         </div>
         }
 
         {showTestBattle && 
         <div className="difficulty-wrapper">
-        <button className={topic === "elemName" ? "active-diff" : "" || showTestBattle ? "" : "hidden-button"}
-                onClick={() => toggleTopic("elemName")}>Element Name</button>
-        <button className={topic === "atomicNum" ? "active-diff" : ""  || showTestBattle ? "" : "hidden-button"}
-                onClick={() => toggleTopic("atomicNum")}>Atomic Number</button>
-        <button className={topic === "atomicMass" ? "active-diff" : ""  || showTestBattle ? "" : "hidden-button"}
-                onClick={() => toggleTopic("atomicMass")}>Atomic Mass</button>
-        <button className={topic === "category" ? "active-diff" : ""  || showTestBattle ? "" : "hidden-button"}
-                onClick={() => toggleTopic("category")}>Category</button>
-      </div>
+          {battleTopics && battleTopics.map(top =>
+                <button className={top.key === topic ? "active-diff" : ""}
+                  onClick={() => toggleTopic(top.key)}><span>{top.value}</span></button>)}
+                  
+        </div>
       }
         
       </div>

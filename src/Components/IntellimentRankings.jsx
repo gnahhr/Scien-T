@@ -1,6 +1,10 @@
 import React, { useState, useEffect }  from 'react'
 import jwtDecode from "jwt-decode"
 
+//Components
+import Loader from '../Components/Loader';
+
+//Images
 import rank1 from "../Assets/Images/rank1.png"
 import rank2 from "../Assets/Images/rank2.png"
 import rank3 from "../Assets/Images/rank3.png"
@@ -42,17 +46,17 @@ const IntellimentRankings = ({rankings}) => {
   }
 //{index + 1}  {username}  {getPoints(index)} call out mo nalang itey para sa rank ng current user
   return (
-    <div className="wrapper rank-wrap"> 
+    <div className="rank-wrap"> 
       <table className="ranking-list">
         <thead>
           <tr className="table-header">
             <th>Rank</th>
             <th>Name</th>
-            <th>Total Score</th>
+            <th>Score</th>
           </tr>
         </thead>
         <tbody>
-        {rankings.map((rankings,index) => {
+        {rankings ? rankings.map((rankings,index) => {
           return(
               <tr key={rankings.username} className="output-rankings">
                 {index < 3 ? <td className="rank"><img src={titleHolders(index)} alt="medal" width={40}/></td> : <td>{index+1}</td>}
@@ -60,7 +64,7 @@ const IntellimentRankings = ({rankings}) => {
                 <td>{rankings.points}</td>
               </tr>
           )
-        })}
+        }) : <Loader/>}
         </tbody>
         {/* <tr className="user-rank">
           <td>{index + 1}</td>

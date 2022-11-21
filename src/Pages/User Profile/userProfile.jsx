@@ -94,8 +94,9 @@ const userProfile = () => {
       <div className="user-wrapper">
         <div className="left">
           {b64String ? 
-          <><img src={b64String} alt="" />
+          <>
           <h3>{localStorage.getItem("username")}</h3>
+          <img src={b64String} alt="" />
           <button onClick={() => nav("/shop")} className={"cta fluid-btn"}> Customize Character</button></>
           :
           <Loader />
