@@ -1,5 +1,5 @@
 export default async function getCoins(access) {
-    const response = await fetch('/api/getCoins/' + access,{
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/getCoins/${access}`,{
         method: 'GET',
         headers:{
             Accept: 'application/json',

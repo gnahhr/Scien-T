@@ -1,5 +1,5 @@
 export default async function getElectronConfigRankings(){
-    const response = await fetch('/api/getElectronConfigRankings',{
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/getElectronConfigRankings`,{
         method: 'GET',
         headers: {
             Accept: 'application/json',

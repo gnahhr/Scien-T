@@ -1,5 +1,5 @@
 export default async function getUserProgMixDash(access){
-    const response = await fetch('/api/userProgMixDash/' + access,{
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/userProgMixDash/${access}` ,{
         method: 'GET',
         headers: {
             Accept: 'application/json',

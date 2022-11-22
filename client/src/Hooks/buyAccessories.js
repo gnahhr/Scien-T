@@ -1,5 +1,5 @@
 export default async function buyAccessories(access, top, bottom, accessory, total){
-    const response = await fetch('/api/buyAccessories/' + access,{
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/buyAccessories/` + access,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

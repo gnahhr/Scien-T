@@ -14,7 +14,7 @@ const forgotPasswordOTP = (event) => {
   const [access, setAccess] = useState('')
 
   async function verify() {
-    const response = await fetch ('/api/verifyRequestOTP', {
+    const response = await fetch (`${process.env.REACT_APP_API_URL}/api/verifyRequestOTP`, {
       method: 'POST',
       headers:{
         'Content-Type': 'application/json',

@@ -1,5 +1,5 @@
 export default async function getAccessoriesOwned(access){
-    const response = await fetch('/api/getAccessoriesOwned/' + access,{
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/getAccessoriesOwned/` + access,{
         method: 'GET',
           headers: {
             Accept: 'application/json',

@@ -1,5 +1,5 @@
 export default async function getUserProgEC(access){
-    const response = await fetch('/api/userProgEC/'+access,{
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/userProgEC/${access}` ,{
         method: 'GET',
           headers: {
             Accept: 'application/json',

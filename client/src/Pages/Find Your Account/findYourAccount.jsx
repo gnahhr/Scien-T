@@ -5,7 +5,6 @@ import Logo from '../../Assets/Images/logo.png';
 import './findYourAccount.css'
 
 import requestOTP from '../../Hooks/requestOTP'
-import { useEffect } from 'react';
 
 const findYourAccount = () => {
     const navigate = useNavigate()
@@ -26,7 +25,7 @@ const findYourAccount = () => {
     async function findUser(event){
         event.preventDefault()
     
-        const response = await fetch('/api/findUser', {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/findUser`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -44,8 +43,6 @@ const findYourAccount = () => {
                 localStorage.setItem('verify', response)
                 navigate('/forgotPasswordOTP')
             })()
-            alert('User Found')
-            // navigate('/forgotPasswordOTP')
         }
         else{
             alert(data.error)

@@ -1,5 +1,5 @@
 export default async function getIntellimentData(access, difficulty){
-    const response = await fetch('/api/getIntellimentData/'+access+'/'+difficulty,{
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/getIntellimentData/${access}/${difficulty}`,{
         method: 'GET',
           headers: {
             Accept: 'application/json',

@@ -1,5 +1,5 @@
 export default async function pushTestBattle(access,username,topic, stage, score, prizeCoins){
-    const response = await fetch('/api/testBattle/' + access + '/' + username + '/' + topic + '/' + stage,{
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/testBattle/${access}/${username}/${topic}/${stage}`,{
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

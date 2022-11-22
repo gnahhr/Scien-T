@@ -1,5 +1,5 @@
 export default async function getTestBattleRankings(topic){
-    const response = await fetch('/api/getTestBattleRankings/' + topic,{
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/getTestBattleRankings/${topic}` ,{
         method: 'GET',
         headers: {
             Accept: 'application/json',

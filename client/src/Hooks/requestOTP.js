@@ -1,5 +1,5 @@
 export default async function requestOTP(username){
-    const response = await fetch('/api/requestOTP/' + username, {
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/requestOTP/${username}`, {
         method:'GET',
         headers:{
             Accept: 'application/json',

@@ -14,7 +14,7 @@ const verifyUser = (event) => {
   const [access, setAccess] = useState('')
 
   async function verify() {
-    const response = await fetch ('/api/verify', {
+    const response = await fetch (`${process.env.REACT_APP_API_URL}/api/verify`, {
       method: 'POST',
       headers:{
         'Content-Type': 'application/json',

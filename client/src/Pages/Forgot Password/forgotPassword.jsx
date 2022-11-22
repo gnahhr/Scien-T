@@ -38,7 +38,7 @@ const forgotPassword = () => {
     event.preventDefault()
 
     if(password === confirmPassword){
-      const response = await fetch('/api/changePassword', {
+      const response = await fetch(`${process.env.REACT_APP_API_URL}/api/changePassword`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

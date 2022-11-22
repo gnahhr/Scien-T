@@ -1,5 +1,5 @@
 export default async function buyTestBattleStage(access, topic, stagePrice){
-    const response = await fetch('/api/buyTestBattleStage/' + access + '/' + topic,{
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/buyTestBattleStage/` + access + '/' + topic,{
         method:  'POST',
         headers: {
             'Content-Type': 'application/json'

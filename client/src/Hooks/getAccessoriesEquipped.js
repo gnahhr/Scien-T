@@ -1,5 +1,5 @@
 export default async function getAccessoriesEquipped(access){
-    const response = await fetch('/api/getAccessoriesEquipped/' + access,{
+    const response = await fetch(`${process.env.REACT_APP_API_URL}/api/getAccessoriesEquipped/` + access,{
         method: 'GET',
           headers: {
             Accept: 'application/json',
