@@ -1,0 +1,38 @@
+.wrapper{
+    overflow: auto;
+
+    .ranking-list {
+        border-collapse: collapse;
+        background-color: #E2D9E5;
+        width: 100%;
+        
+        .table-header{
+            position: sticky;
+            top: 0px;
+            background-color: #E2D9E5;
+            th{
+                font-size: clamp(20px, 1vw, 2rem);
+            }
+        }
+    
+        .output-rankings{
+            background-color: #FFFFFF;
+            border: 15px solid #E2D9E5;
+            border-radius: 100px;
+            text-align: center;
+
+            img{
+                padding-top: 10px;
+            }
+
+            td{
+                font-size: 2rem;
+                padding: 0 100px 0 100px;
+            }
+        }
+    }
+}
+
+.rank-wrap {
+    width: 100%;
+}
