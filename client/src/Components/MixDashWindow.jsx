@@ -17,7 +17,7 @@ import Customer4 from '../Assets/Images/cust4.png';
 import NewRecipeModal from './NewRecipeModal';
 
 //Audio Files
-import BGM from '../Assets/Audio/MixDash/mixDash-bgm.mp3';
+import Bgm from '../Assets/Audio/MixDash/mixDash-bgm.mp3';
 import SelectSFX from '../Assets/Audio/MixDash/select.mp3';
 import WrongSFX from '../Assets/Audio/MixDash/wrong-sfx.mp3';
 import RightSFX from '../Assets/Audio/MixDash/right-sfx.mp3';
@@ -50,7 +50,7 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
   const [ isAnimate, setIsAnimate ] = useState(false); 
 
   //Audio Refense
-  const mixDashBGM = useAudio(BGM, {volume: 0.8, playbackRate: 1, loop: true});
+  const mixDashBGM = useAudio(Bgm, {volume: 0.8, playbackRate: 1, loop: true});
   const selectSFX = useAudio(SelectSFX, {volume: 0.6, playbackRate: 1.75, loop: false});
   const rightSFX = useAudio(RightSFX, {volume: 0.6, playbackRate: 1, loop: false});
   const wrongSFX = useAudio(WrongSFX, {volume: 0.6, playbackRate: 1, loop: false});
