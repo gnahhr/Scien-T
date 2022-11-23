@@ -7,8 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon index.js",
     "install-client": "cd client && npm install",
-    "run-client": "cd client && npm start",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "run-client": "cd client && npm start"
   },
   "author": "",
   "license": "ISC",

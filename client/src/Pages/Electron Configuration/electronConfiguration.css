@@ -26,8 +26,11 @@
 .overlay .opening-text h1 {
   font-family: "Skranji", cursive;
   color: #FFEFD7;
-  font-size: 10rem;
+  font-size: clamp(20px, 13vw, 10rem);
   opacity: 100%;
+}
+.overlay .opening-text:hover {
+  cursor: pointer;
 }
 .overlay .container-text {
   display: flex;
@@ -43,7 +46,8 @@
   opacity: 100%;
 }
 .overlay .container-text button {
-  margin-left: 7vw;
+  display: block;
+  margin: auto;
 }
 
 .container-electron-config {

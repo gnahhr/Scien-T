@@ -60,59 +60,59 @@ const SideNav = ({children}) => {
       </div>
       <div className="category">
         <div className="category-header">
-          <NavLink to="/" onClick={closeNav}><img src={Home} alt="home" /><div className="l-name">Home</div></NavLink>
+          <NavLink to="/" title="Home" onClick={closeNav}><img src={Home} alt="home" /><div className="l-name">Home</div></NavLink>
         </div>
       </div>
       <div className="category">
-        <div className="category-header">
+        <div className="category-header" title="Learn">
           <img src={Learn} alt="learn" />
           <h3>Learn</h3>
         </div>
         <div className="category-links">
-            <NavLink to="/periodicTable" onClick={closeNav}><img src={PerIcon} alt="-"/><div className="l-name">Periodic Table</div></NavLink>
-            <NavLink to="/trivias/hydrogen" onClick={closeNav}><img src={Trivia} alt="-"/><div className="l-name">Trivias</div></NavLink>
+            <NavLink to="/periodicTable" title="Periodic Table" onClick={closeNav}><img src={PerIcon} alt="-"/><div className="l-name">Periodic Table</div></NavLink>
+            <NavLink to="/trivias/hydrogen" title="Trivias" onClick={closeNav}><img src={Trivia} alt="-"/><div className="l-name">Trivias</div></NavLink>
+            <NavLink to="/mix" title="Mixing Table" onClick={closeNav}><img src={Mix} alt="-"/><div className="l-name">Mixing Table</div></NavLink>
         </div>
       </div>
       <div className="category">
-        <div className="category-header">
-          <img src={Game} alt="game" />
+        <div className="category-header" title="Games">
+          <img src={Game} alt="game"/>
           <h3>Game</h3>
         </div>
         <div className="category-links">
-            <NavLink to="/mix" onClick={closeNav}><img src={Mix} alt="-"/><div className="l-name">Mixing Table</div></NavLink>
-            <NavLink to="/electronConfiguration" onClick={closeNav}><img src={Bullet} alt="-"/><div className="l-name">Electron Config</div></NavLink>
-            <NavLink to="/testBattle" onClick={closeNav}><img src={TestBattle} alt="-"/><div className="l-name">Test Battle</div></NavLink>
-            <NavLink to="/mixDash" onClick={closeNav}><img src={MixDash} alt="-"/><div className="l-name">Mix Dash</div></NavLink>
+            <NavLink to="/electronConfiguration" title="Electron Configuration" onClick={closeNav}><img src={Bullet} alt="-"/><div className="l-name">Electron Config</div></NavLink>
+            <NavLink to="/testBattle" title="Test Battle" onClick={closeNav}><img src={TestBattle} alt="-"/><div className="l-name">Test Battle</div></NavLink>
+            <NavLink to="/mixDash" title="Mix Dash" onClick={closeNav}><img src={MixDash} alt="-"/><div className="l-name">Mix Dash</div></NavLink>
         </div>
       </div>
       <div className="category">
         <div className="category-header">
-          <NavLink to="/intelliment" onClick={closeNav}><img src={Assessment} alt="assessment" /><div className="l-name">Assessment</div></NavLink>
+          <NavLink to="/intelliment" title="Assessment" onClick={closeNav}><img src={Assessment} alt="assessment" /><div className="l-name">Assessment</div></NavLink>
         </div>
       </div>
       <div className="category">
         <div className="category-header">
-          <NavLink to="/shop" onClick={closeNav}><img src={Shop} alt="shop" /><div className="l-name">Shop</div></NavLink>
+          <NavLink to="/shop" title="Shop" onClick={closeNav}><img src={Shop} alt="shop" /><div className="l-name">Shop</div></NavLink>
         </div>
       </div>
       <div className="category">
         <div className="category-header">
-          <NavLink to="/progress" onClick={closeNav}><img src={Progress} alt="progress" /><div className="l-name">User Progress</div></NavLink>
+          <NavLink to="/progress" title="User Progress" onClick={closeNav}><img src={Progress} alt="progress" /><div className="l-name">User Progress</div></NavLink>
         </div>
       </div>
       <div className="category">
         <div className="category-header">
-         <NavLink to="/leaderboard" onClick={closeNav}><img src={Rank} alt="rank" /><div className="l-name">Leaderboard</div></NavLink>
+         <NavLink to="/leaderboard" title="Leaderboards"onClick={closeNav}><img src={Rank} alt="rank" /><div className="l-name">Leaderboard</div></NavLink>
         </div>
       </div>
       <div className="category">
         <div className="category-header">
-          <NavLink to="/profile" onClick={closeNav}><img src={UserW} alt="settings" /><div className="l-name">Profile</div></NavLink>
+          <NavLink to="/profile" title="Profile" onClick={closeNav}><img src={UserW} alt="settings" /><div className="l-name">Profile</div></NavLink>
         </div>
       </div>
       <div className="category">
         <div className="category-header">
-          <NavLink to="/about" onClick={closeNav}><img src={Info} alt="info" /><div className="l-name">About Us</div></NavLink>
+          <NavLink to="/about" title="About Us"onClick={closeNav}><img src={Info} alt="info" /><div className="l-name">About Us</div></NavLink>
         </div>
       </div>
 

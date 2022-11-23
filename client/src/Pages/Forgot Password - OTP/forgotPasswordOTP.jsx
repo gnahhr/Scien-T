@@ -3,8 +3,6 @@ import { useNavigate } from 'react-router-dom'
 
 import jwt_decode from "jwt-decode"
 
-import './forgotPasswordOTP.css'
-
 import fingerprint from "../../Assets/Images/fingerprint.png"
 
 
@@ -25,10 +23,9 @@ const forgotPasswordOTP = (event) => {
     })
 
     const data = await response.json()
-    console.log("OTP Data:", data);
+
     if(data.status === 'ok'){
       navigate('/forgotPassword')
-      console.log('ok')
     }
     else{
       alert(data.error)
@@ -38,9 +35,8 @@ const forgotPasswordOTP = (event) => {
 
   useEffect (() => {
     const token = localStorage.getItem('verify')
-
-        const user = jwt_decode(token)
-        setAccess(user.id)  
+    const user = jwt_decode(token)
+    setAccess(user.id)  
   },[])
 
   const handleChange = (element, index) => {

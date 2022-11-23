@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 //Design
 import Microscope from '../Assets/Images/microscope.svg';
@@ -13,9 +13,20 @@ import Customer2 from '../Assets/Images/cust2.png';
 import Customer3 from '../Assets/Images/cust3.png';
 import Customer4 from '../Assets/Images/cust4.png';
 
+//Components
+import NewRecipeModal from './NewRecipeModal';
+
+//Audio Files
+import BGM from '../Assets/Audio/MixDash/mixDash-bgm.mp3';
+import SelectSFX from '../Assets/Audio/MixDash/select.mp3';
+import WrongSFX from '../Assets/Audio/MixDash/wrong-sfx.mp3';
+import RightSFX from '../Assets/Audio/MixDash/right-sfx.mp3';
+
+//
+import useAudio from '../Hooks/useAudio.js';
+
 //Data
 import { recipe } from '../Data/Recipe.js';
-import NewRecipeModal from './NewRecipeModal';
 
 const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoins}) => {
   //Data States
@@ -36,7 +47,14 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
 
   //Animation States
   const [ animState, setAnimState ] = useState(1);
-  const [ isAnimate, setIsAnimate ] = useState(false);  
+  const [ isAnimate, setIsAnimate ] = useState(false); 
+
+  //Audio Refense
+  const mixDashBGM = useAudio(BGM, {volume: 0.8, playbackRate: 1, loop: true});
+  const selectSFX = useAudio(SelectSFX, {volume: 0.6, playbackRate: 1.75, loop: false});
+  const rightSFX = useAudio(RightSFX, {volume: 0.6, playbackRate: 1, loop: false});
+  const wrongSFX = useAudio(WrongSFX, {volume: 0.6, playbackRate: 1, loop: false});
+
 
   //Customers Array
   const custArray = {
@@ -53,11 +71,19 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
     2: "angry",
     3: "after",
   }
+  
 
   //On-mount
   useEffect(() => {
     initChoices();
     initCustomers();
+    mixDashBGM.play();
+  }, [])
+
+  useEffect(() => {
+    return () => {
+      mixDashBGM.pause();
+    }
   }, [])
 
   //Set Paused State
@@ -95,6 +121,7 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
     else if (!paused && (custSatis > 0)) {
       setTimeout(() => setCustSatis(() => custSatis - 1), 100);
     } else if (!paused && (custSatis === 0)) {
+      wrongSFX.play();
       if (currCustomer + 1 !== build.numOfCustomers){
         animateCustomer("after");
         setTimeout(() => setCurrCustomer(() => currCustomer + 1), 5000);
@@ -163,6 +190,7 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
 
   //Select Elements
   const toggleSelected = (element) => {
+    selectSFX.play();
     let updatedState = choices.map(choice => choice.element === element ? {
                             element: choice.element,
                             selected: !choice.selected
@@ -192,7 +220,8 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
     if (compareElemArr(selected.sort(), orderRecipe.sort())){
         const pay = customers[currCustomer].money;
 
-        setPaused(true);
+        rightSFX.play();
+        setIsAnimate(true);
         setEarned(() => earned + pay);
         setTips(() => tips + calcTip(custSatis, pay));
         setTotalEarned(() => totalEarned + (pay + calcTip(custSatis, pay)));
@@ -207,6 +236,7 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
         setSelState(false);
         resetSelected();
     } else {
+        wrongSFX.play();
         resetSelected();
         setSelState(false);
     }
@@ -311,14 +341,15 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
         <div className="elements-wrapper">
           <h2>Available elements for this order</h2>
           <div className="elements">
-            {choices && choices.map((choice) =>
-            <div className={
-              choice.selected ? 
-              "dash-elem selected" :
-                "dash-elem"
-              }
-              onClick={() => toggleSelected(choice.element)}
-              >{choice.element}</div>)}
+            {choices && choices.map((choice) => 
+              <div className={
+                choice.selected ? 
+                "dash-elem selected" :
+                  "dash-elem"
+                }
+                onClick={() => {toggleSelected(choice.element);}}
+                >{choice.element}</div>
+            )}
           </div>
           <div className="mix-wrapper">
             <button className="battle-btn cta"

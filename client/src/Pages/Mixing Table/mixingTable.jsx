@@ -25,8 +25,6 @@ import NoDragElem from '../../Components/NoDragElem.jsx';
 import "./mixingTable.css";
 import gear from "../../Assets/Images/gear.svg";
 import listIcon from "../../Assets/Images/list-icon.svg";
-import muted from "../../Assets/Images/muted.svg";
-import unmuted from "../../Assets/Images/music.svg";
 import ElemColors from '../../Data/ElemColors.js';
 import Mix from "../../Assets/Images/mix.svg";
 
@@ -34,8 +32,6 @@ import Mix from "../../Assets/Images/mix.svg";
 const mixingTable = () => {
   const navigate = useNavigate();
   const listElems = elements.elements;
-  const bgm = useRef(new Audio(sampleBGM));
-  const { familyBGs, familyBDs } = ElemColors;
 
   //Data States
   const [ mixData, setMixData ] = useState([]);
@@ -48,7 +44,6 @@ const mixingTable = () => {
   const [ isDragElem, setIsDragElem ] = useState(false); 
   const [ mixState, setMixState ] = useState("noDrag");
   
-
   // save user progress to the database
   const [access, setAccess] = useState('')
 
@@ -56,10 +51,6 @@ const mixingTable = () => {
   const [ showModal, setShowModal ] = useState(false);
   const [ showDiscover, setShowDiscover ] = useState(false);
   const [ showNew, setShowNew ] = useState(false);
-
-  //Music States
-  const [ initMusic, setInitMusic ] = useState(false);
-  const [ music, setMusic ] = useState(true);
 
   //Toast States
   const [ showToast, setShowToast ] = useState(false);
@@ -145,7 +136,6 @@ const mixingTable = () => {
   	});
 
   	if(mixed.length === 0){
-      // prepToast("No compound of this mixture.", "warning");
       setMixState("noElem");
   	} else {
       setKnownCompound((knownCompound) => {
@@ -213,20 +203,6 @@ const mixingTable = () => {
     setKnownCompound(knownData);
   }
 
- //Start Music
-  const startMusic = (bgm) => {
-  //   if (!initMusic) {
-  //     bgm.current.play()
-  //     setInitMusic(true);
-  //   }
-  }
-
-  // //Toggle Music
-  const toggleMusic = (bgm) => {
-  //   music ? bgm.current.pause() : bgm.current.play();
-  //   setMusic(!music);
-  }
-
   const removeElement = (element) => { 
     let newData = mixData.filter((cur) => cur !== element);
     setMixData(newData);
@@ -255,11 +231,9 @@ const mixingTable = () => {
       <div className="main-header">
         <h1>Mixing Table</h1>
       </div>
-      <div className="main-wrapper" onClick={() => startMusic(bgm)}>
+      <div className="main-wrapper">
           <div className="icons-wrapper">
-            <div className="icon" onClick={() => toggleMusic(bgm)}><img src={music ? unmuted : muted}/></div>
             <div className="icon" onClick={() => setShowDiscover(!showDiscover)}><img src={listIcon}/></div>
-            <div className="icon" ><img src={gear}/></div>
           </div>
         
           <div className="mixing-table">

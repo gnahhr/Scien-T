@@ -174,12 +174,12 @@ const electronConfiguration = () => {
 
         {showModal && 
           <div className='overlay'>
-          <div className='bg'></div>
-          <div className='container-text'>
-            <h1>Would you like to play again?</h1>
-            <button onClick={() => modal()}>Yes</button>
+            <div className='bg'></div>
+            <div className='container-text'>
+              <h1>Would you like to play again?</h1>
+              <button onClick={() => modal()}>Yes</button>
+            </div>
           </div>
-        </div>
         }
 
         <div className="main-header">
