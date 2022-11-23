@@ -3,9 +3,6 @@ import Logo from '../../Assets/Images/logo.png';
 import { useNavigate } from 'react-router-dom';
 import "./loginPage.css";
 
-//Hooks
-import getFailedAttempts from '../../Hooks/getFailedAttempts';
-import requestOTP from '../../Hooks/requestOTP';
 
 const loginPage = ({setUser}) => {
   const navigate = useNavigate()
@@ -50,16 +47,7 @@ const loginPage = ({setUser}) => {
       navigate("/");
     }
 
-    else if(data.status === 'Wrong Password'){
-      alert(data.error);
-      (async () => {
-        const data = await getFailedAttempts(username)
-        setCounter(data)// set counter for failed attempts
-      })()
-      
-    }
-
-    else if(data.status === 'Invalid Username'){
+    else if(data.status === 'error'){
       alert(data.error)
     }
 

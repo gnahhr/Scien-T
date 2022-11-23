@@ -99,7 +99,7 @@ const Intelliment = ({mode}) => {
     if (mode === "game"){
       if(finished){
         const corAve = (corCategory+corName+corNumber+corMass)/4;
-        pushIntelliment(score, access, username, category, corAve)
+        pushIntelliment(score, access, category, corAve)
       }
     }
   },[finished])

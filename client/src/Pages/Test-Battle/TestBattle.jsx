@@ -77,7 +77,7 @@ const TestBattle = () => {
   useEffect(() => {
     if (resultState === "victory"){
       setLastFinStage(stage);
-      pushTestBattle(access,username,topic,stage,battleResult.score, prizeCoins);
+      pushTestBattle(access,topic,stage,battleResult.score, prizeCoins);
     }
     (async () => {
       const data = await getUserProgTestBattle(access,topic)
