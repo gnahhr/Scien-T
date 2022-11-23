@@ -10,10 +10,10 @@ const { generateOTP, mailTransport } = require('../utils/mail')
 //schemas
 const UserData = require('../models/UsersModel')
 const VerificationToken = require('../models/VerificationToken')
-const FailedAttempts = require('../models/FailedAttempts')
 const ChangePasswordToken = require('../models/ChangePasswordToken')
-const UserTimeout = require('../models/UserTimeout')
 const { isValidObjectId } = require('mongoose');
+
+var ObjectId = require('mongoose').Types.ObjectId;
 
 
 //register
@@ -65,49 +65,52 @@ exports.register = async (req, res, next) => {
 
 //verify user
 exports.verify = async (req, res, next) => {
-	var ObjectId = require('mongoose').Types.ObjectId;
+	try {
+		const token = req.body.access
+		const holder = req.body.OTP
+		const otp = holder.join('')
+		const _id = new ObjectId (token)
 
-	const token = req.body.access
-	const holder = req.body.OTP
-	const otp = holder.join('')
-	const _id = new ObjectId (token)
+		console.log(otp)
 
-	console.log(otp)
-
-	if(!isValidObjectId(_id)) res.json({status: 'error', error: 'invalid user id'})
-
-	const user = await UserData.findById({_id})
-	
-	if(!user.isVerified){
-		const verify = await VerificationToken.findOne({owner: _id})			
-		if(!verify) {
-			res.json({status: 'error', error: 'token not found'})
-		}
-
-		const isMatch = await bcrypt.compare(otp, verify.token)
 		
-		if(!isMatch) {
-			res.json({status: 'error', error: 'wrong OTP'})
-		}
 
+		const user = await UserData.findById({_id})
+		
+		if(!user.isVerified){
+			const verify = await VerificationToken.findOne({owner: _id})			
+			if(!verify) {
+				res.json({status: 'error', error: 'token not found'})
+			}
+
+			const isMatch = await bcrypt.compare(otp, verify.token)
+			
+			if(!isMatch) {
+				res.json({status: 'error', error: 'wrong OTP'})
+			}
+
+			else{
+				user.isVerified = true
+
+				await VerificationToken.findByIdAndDelete(verify._id)
+				user.save()
+
+				mailTransport().sendMail({
+					from: process.env.MAIL_USERNAME_APP,
+					to: user.email,
+					subject: 'verify email',
+					html: `<h1> you are now verified </h1>`
+
+				})
+				res.json({status:'ok'})
+			}
+		}
 		else{
-			user.isVerified = true
-
-			await VerificationToken.findByIdAndDelete(verify._id)
-			user.save()
-
-			mailTransport().sendMail({
-				from: process.env.MAIL_USERNAME_APP,
-				to: user.email,
-				subject: 'verify email',
-				html: `<h1> you are now verified </h1>`
-
-			})
-			res.json({status:'ok'})
+			res.json({status: 'user already verified', error: 'user already verified'})
 		}
-	}
-	else{
-		res.json({status: 'user already verified', error: 'user already verified'})
+	} catch (error) {
+		return res.json({status:'error', error: 'Something went wrong. Please try again later.'})
+		throw error
 	}
 }
 
@@ -118,7 +121,7 @@ exports.login = async (req, res, next) => {
 	const user = await UserData.findOne({ username })
 
 	if (!user) {
-		return res.json({ status: 'Invalid Username', error: 'Invalid Username' })
+		return res.json({ status: 'error', error: 'Invalid Username' })
 	}
 
 	if (await bcrypt.compare(password, user.password)) {
@@ -156,7 +159,6 @@ exports.login = async (req, res, next) => {
 		}
 
 		else{
-			const resetFailedAttemptCounter = await FailedAttempts.findOneAndDelete({owner: user._id})
 			const token = jwt.sign(
 				{
 					id: user._id,
@@ -171,29 +173,9 @@ exports.login = async (req, res, next) => {
 			return res.json({ status: 'ok', user: token })
 		}
 	}
-
 	else{
-		const incrementCounter = await FailedAttempts.findOneAndUpdate({username},{
-			$inc: {counter: 1}
-		},{upsert: true})
-
-		res.json({ status: 'Wrong Password', error: 'Wrong Password'})
+		res.json({ status: 'error', error: 'Wrong Password'})
 	}
-}
-
-
-
-exports.getFailedAttempts = async (req, res, next) => {
-	const username = req.params['username']
-
-	const counter = await FailedAttempts.findOne({username}, {counter: 1})
-
-	if(counter.counter >= 3){
-		const timeout = await UserTimeout.findOneAndUpdate({username:username},{
-			$dateAdd:{unit: 'second', amount: 1}
-		}, {upsert: true})
-	}
-	return res.json({counter: counter})
 }
 
 exports.requestOTP = async (req, res, next) => {
@@ -231,8 +213,6 @@ exports.requestOTP = async (req, res, next) => {
 }
 
 exports.verifyRequestOTP = async (req, res, next) => {
-	var ObjectId = require('mongoose').Types.ObjectId;
-
 	const token = req.body.access
 	const holder = req.body.OTP
 	const otp = holder.join('')
@@ -260,7 +240,7 @@ exports.verifyRequestOTP = async (req, res, next) => {
 }
 
 exports.changePassword = async (req, res, next) =>{
-	var ObjectId = require('mongoose').Types.ObjectId;
+	
 	const token = req.body.access
 	const _id = new ObjectId (token)
 
@@ -275,7 +255,6 @@ exports.changePassword = async (req, res, next) =>{
 	if(user){
 
 		await ChangePasswordToken.findOneAndDelete({owner:user._id})
-		await FailedAttempts.findOneAndDelete({username: user.username})
 		mailTransport().sendMail({
 			from: process.env.MAIL_USERNAME_APP,
 			to: user.email,
@@ -290,17 +269,9 @@ exports.changePassword = async (req, res, next) =>{
 	}
 }
 
-exports.getRemainingTime = async (req, res, next) => {
-	const username = req.params['username']
-
-	const response = await UserTimeout.findOne({username: username}, {createdAt:1})
-
-	res.json({response})
-	console.log(response)
-}
 
 exports.editUser = async (req, res, next) => {
-	var ObjectId = require('mongoose').Types.ObjectId;
+	
 	const token = req.params['access']
 	const _id = new ObjectId (token)
 	const { username, firstName, lastName, email } = req.body
@@ -336,33 +307,6 @@ exports.editUser = async (req, res, next) => {
 		}
 		throw error
 	}
-
-	// const user = await UserData.findByIdAndUpdate({_id},{
-	// 	$set:{
-	// 		username: username,
-	// 		firstName: firstName,
-	// 		lastName: lastName,
-	// 		email: email
-	// 	}
-	// },{upsert: true})
-
-	// if(user){
-	// 	const token = jwt.sign(
-	// 		{
-	// 			id: user._id,
-	// 			username: username,
-	// 			firstName: firstName,
-	// 			lastName: lastName,
-	// 			email: email
-	// 		},
-	// 		JWT_SECRET
-	// 	)
-
-	// 	res.json({status: 'ok', user: token})
-	// }
-	// else{
-	// 	res.json({status: 'error', error:'username/email already exist'})
-	// }
 }
 
 exports.findUser = async (req, res, next) => {
