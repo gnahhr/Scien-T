@@ -1,7 +1,7 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useMemo } from "react"
 
 export default function useAudio(src, { volume = 1, playbackRate = 1, loop = false}){
-    const audio = useRef(new Audio(src))
+    const audio = useMemo(() => new Audio(src), [])
   
     useEffect(() => {
       audio.current.volume = volume
@@ -14,6 +14,7 @@ export default function useAudio(src, { volume = 1, playbackRate = 1, loop = fal
     useEffect(() => {
         audio.current.loop = loop
     }, [loop])
+
     
     return audio.current
 }

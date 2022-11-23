@@ -11,10 +11,9 @@
   position: absolute;
 }
 .overlay .bg {
-  background-color: #0C004E;
+  background-color: rgba(12, 0, 78, 0.5);
   width: 100%;
   height: 100%;
-  opacity: 50%;
 }
 .overlay .opening-text {
   justify-content: center;
@@ -27,7 +26,6 @@
   font-family: "Skranji", cursive;
   color: #FFEFD7;
   font-size: clamp(20px, 13vw, 10rem);
-  opacity: 100%;
 }
 .overlay .opening-text:hover {
   cursor: pointer;
