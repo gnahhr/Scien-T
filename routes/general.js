@@ -20,7 +20,7 @@ router.route('/getIntellimentCounter/:access/:difficulty').get(getIntellimentCou
 
 
 //BATTLE
-router.route('/testBattle/:access/:username/:topic/:stage').post(testBattle)
+router.route('/testBattle/:access/:topic/:stage').post(testBattle)
 router.route('/buyTestBattleStage/:access/:topic').post(buyTestBattleStage)
 router.route('/userProgTestBattle/:access/:topic').get(getUserProgTestBattle)
 
