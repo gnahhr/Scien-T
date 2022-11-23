@@ -77,8 +77,11 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
   useEffect(() => {
     initChoices();
     initCustomers();
-    mixDashBGM.play();
   }, [])
+
+  useEffect(() => {
+    mixDashBGM && mixDashBGM.play();
+  }, [mixDashBGM])
 
   useEffect(() => {
     return () => {
