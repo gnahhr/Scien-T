@@ -8,4 +8,14 @@ export default async function buyMixDashStage(access, stagePrice){
             stagePrice
         })
     })
+
+    const data = await response.json()
+
+    if(data.status === 'ok'){
+        console.log('ok')
+    }
+    
+    else{
+        alert(data.error)
+    }
 }

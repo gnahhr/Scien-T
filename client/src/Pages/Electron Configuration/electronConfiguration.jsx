@@ -85,7 +85,7 @@ const electronConfiguration = () => {
 
   useEffect(() => {
     if(gameProgress === 10){
-      pushProgEC(access,igPoints,prizeCoins,username)
+      pushProgEC(access,igPoints,prizeCoins)
       setShowModal(true)
       console.log('finish na')
     }

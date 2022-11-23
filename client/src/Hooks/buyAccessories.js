@@ -11,9 +11,7 @@ export default async function buyAccessories(access, top, bottom, accessory, tot
 
     const data = await response.json()
 
-    if (data.status === 'ok'){
-    }
-    else{
+    if(data.status === 'error'){
         alert(data.error)
     }
 }

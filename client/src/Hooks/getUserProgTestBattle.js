@@ -8,5 +8,12 @@ export default async function getUserProgTestBattle(access, topic){
     })
 
     const data = await response.json()
-    return data.data
+    
+    if(data.status === 'ok'){
+        return data.data
+    }
+
+    else{
+        alert(data.error)
+    }
 }

@@ -13,6 +13,6 @@ export default async function getCoins(access) {
         return data.data
     }
     else{
-        alert(data.error)
+        alert(data.error)//return data.error kapag ilalagay sa toast yung yung error message
     }
 }

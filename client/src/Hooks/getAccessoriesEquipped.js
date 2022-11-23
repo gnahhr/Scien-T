@@ -9,9 +9,11 @@ export default async function getAccessoriesEquipped(access){
 
     const data = await response.json()
 
-    if(data.status === 'ok')
-        return data.data
+    if(data.status === 'ok'){
+      return data.data
+    }
 
-    else
-        alert(data.error)
+    else{
+      alert(data.error)
+    }
 }

@@ -1,11 +1,11 @@
-export default async function pushIntelliment(score, access, username, category, corAve){
+export default async function pushIntelliment(score, access, category, corAve){
     const response = await fetch (`${process.env.REACT_APP_API_URL}/api/intelliment`,{              
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          access, score, username, category, corAve
+          access, score, category, corAve
         })
       })
       
@@ -14,6 +14,6 @@ export default async function pushIntelliment(score, access, username, category,
         console.log('ok')
       }
       else{
-        console.error(data.error)
+        alert(data.error)
       }
 }

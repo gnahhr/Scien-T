@@ -6,6 +6,11 @@ export default async function getIntellimentCounter(access, difficulty){
             'Content-Type': 'application/json',
           }
       })
-      const data = await response.json()
+    const data = await response.json()
+
+    if(data.status  === 'ok')
       return data.data
+
+    else
+      console.log(data.error)
 }

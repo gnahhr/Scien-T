@@ -8,4 +8,12 @@ export default async function buyTestBattleStage(access, topic, stagePrice){
             stagePrice
         })
     })
+
+    const data = await response.json()
+
+    if(data.status === 'ok')
+        console.log(data.status)
+    
+    else
+        alert(data.error)
 }

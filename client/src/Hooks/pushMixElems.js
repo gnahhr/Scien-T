@@ -11,10 +11,9 @@ export default async function pushMixElems(element,access){
     
     const data = await response.json()
     if (data.status === 'ok'){
-      // console.log('ok')
     }
     else{
-      console.error(data.error)
+      alert(data.error)
     }
 
 }

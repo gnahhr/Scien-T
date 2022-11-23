@@ -7,5 +7,9 @@ export default async function getIntellimentData(access, difficulty){
           }
       })
       const data = await response.json()
-      return data.data
+      if(data.status  === 'ok')
+        return data.data;
+
+      else
+        console.log(data.error);
 }

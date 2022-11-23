@@ -8,4 +8,13 @@ export default async function pushMixDash(access, prizeCoins){
             prizeCoins
         })
     })
+
+    const data = await response.json()
+
+    if(data.status === 'ok')
+        console.log('ok')
+
+    else{
+        alert(data.error)
+    }
 }

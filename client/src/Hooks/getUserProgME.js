@@ -12,6 +12,8 @@ export default async function getUserProgME(access){
   if(data.status === 'ok'){
     return data.userProg.mixingElements;
   }
-  else
+  else{
     alert(data.error)
+    console.log('here')
+  }
 }
