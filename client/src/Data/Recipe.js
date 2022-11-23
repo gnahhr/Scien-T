@@ -160,7 +160,7 @@ export const recipe = [
 		name: "Sodium  Bicarbonate",
 		compoundPic: "acetic-acid.png",
 		elements: ["Na", "H", "C", "O"],
-		formula: "(NaHCO<sub>3</sub>",
+		formula: "NaHCO<sub>3</sub>",
 		moleWeight: "84.007 g/mol",
 		description: [
 			"Nicolas Leblanc a French chemist produced sodium carbonate in the year 1791.In the year 1846 Austin Church and John Dwight, bakers of New York started the first factory to produce baking soda.",
@@ -176,7 +176,7 @@ export const recipe = [
 		name: "Sodium hydroxide",
 		compoundPic: "acetic-acid.png",
 		elements: ["Na", "O", "H",],
-		formula: "(NaOH",
+		formula: "NaOH",
 		moleWeight: "39.997 g/mol",
 		description: [
 			"It is highly corrosive and can cause severe skin burns and irritation to the eyes and other body parts.",
