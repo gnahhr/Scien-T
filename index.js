@@ -17,7 +17,7 @@ app.use('/api', require('./routes/general'))
 // const DB_URI = 'mongodb://joshuakyle:joshuakyle@cluster0-shard-00-00.uano5.mongodb.net:27017,cluster0-shard-00-01.uano5.mongodb.net:27017,cluster0-shard-00-02.uano5.mongodb.net:27017/?ssl=true&replicaSet=atlas-ak88jv-shard-0&authSource=admin&retryWrites=true&w=majority'
 
 // DB Connection
-mongoose.connect(DB_URI, {useNewUrlParser:true, useUnifiedTopology:true})
+mongoose.connect(process.env.DB_URI, {useNewUrlParser:true, useUnifiedTopology:true})
 .then( () => {
     console.log('DB Connected!');
 })
