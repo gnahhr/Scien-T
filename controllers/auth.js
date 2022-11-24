@@ -288,13 +288,15 @@ exports.editUser = async (req, res, next) => {
 		},{upsert: true})
 
 		if(user){
+			const getUser = await UserData.findById({_id})
 			const token = jwt.sign(
 				{
-					id: user._id,
-					username: username,
-					firstName: firstName,
-					lastName: lastName,
-					email: email
+					id: getUser._id,
+					username: getUser.username,
+					firstName: getUser.firstName,
+					lastName: getUser.lastName,
+					gender: getUser.gender,
+					email: getUser.email
 				},
 				JWT_SECRET 
 			)

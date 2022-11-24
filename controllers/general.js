@@ -930,4 +930,3 @@ exports.getCharacterHit = async(req, res, next) => {
         res.json({status:'error', error:'Something went wrong. Try logging in again'})
     }
 }
-
