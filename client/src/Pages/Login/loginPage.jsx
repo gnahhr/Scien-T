@@ -8,9 +8,6 @@ const loginPage = ({setUser}) => {
   const navigate = useNavigate()
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [forgot, setForgot] = useState(false);
-  const [counter, setCounter] = useState(0);
-  const [tkn, setTkn] = useState("")
 
   const setText = {
         "username": setUsername,

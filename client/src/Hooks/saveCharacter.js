@@ -9,5 +9,12 @@ export default async function saveCharacter(access, gender, top, bottom, accesso
         })
     })
 
-    const data = await response.json()
+    const data = await response.json();
+
+    if(data.status === 'error'){
+        return data.error;
+    } else {
+        return data;
+    }
+
 }

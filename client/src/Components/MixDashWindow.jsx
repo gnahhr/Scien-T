@@ -47,7 +47,7 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
 
   //Animation States
   const [ animState, setAnimState ] = useState(1);
-  const [ isAnimate, setIsAnimate ] = useState(false); 
+  const [ isAnimate, setIsAnimate ] = useState(true); 
 
   //Audio Refense
   const mixDashBGM = useAudio(Bgm, {volume: 0.8, playbackRate: 1, loop: true});
@@ -115,10 +115,10 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
 
   //Customer Satisfaction
   useEffect(() => {
-    if (paused) {
+    if (paused || isAnimate) {
       setCustSatis(100);
     }
-    else if (!paused && (custSatis > 0)) {
+    else if (!paused && (custSatis > 0) && !isAnimate) {
       setTimeout(() => setCustSatis(() => custSatis - 1), 100);
     } else if (!paused && (custSatis === 0)) {
       wrongSFX.play();
@@ -141,7 +141,7 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
       tips: tips,
       totalEarned: totalEarned
     })
-    setPrizeCoins(earned / 10);
+    setPrizeCoins(Math.round(totalEarned / 10));
     if (finished) {
       build.goal <= totalEarned ? setResultState("victory") : setResultState("defeat");
       nextPhase(2);
@@ -219,9 +219,10 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
   
     if (compareElemArr(selected.sort(), orderRecipe.sort())){
         const pay = customers[currCustomer].money;
-
+        rightSFX.load();
         rightSFX.play();
         setIsAnimate(true);
+        // setPaused(() => true);
         setEarned(() => earned + pay);
         setTips(() => tips + calcTip(custSatis, pay));
         setTotalEarned(() => totalEarned + (pay + calcTip(custSatis, pay)));
@@ -243,10 +244,10 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
   }
 
   const calcTip = (custSatis, pay) => {
-    if (custSatis > 75) {
-      return pay * .5;
-    } else if (custSatis > 50 && custSatis < 75){
-      return pay * .25;
+    if (custSatis >= 75) {
+      return Math.round(pay * .5);
+    } else if (custSatis >= 50 && custSatis < 75){
+      return Math.round(pay * .25);
     } else if (custSatis < 50){
       return 0;
     }
@@ -285,16 +286,18 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
   //Animate Toggle
   const animateCustomer = (state) => {
     if (state === "before") {
-      setPaused(true);
-      setAnimState(0);
-      setInterval(() => setPaused(false), 4000);
+      setPaused(() => true);
+      setIsAnimate(() => true);
+      animateCustomer("idle");
     } else if (state === "after") {
-      setPaused(true);
+      setPaused(() => true);
       setAnimState(0);
       setTimeout(() => setAnimState(3), 300);
     } else if (state === "angry") {
       setAnimState(2);
     } else if (state === "idle") {
+      setIsAnimate(() => false);
+      setInterval(() => {setPaused(() => false)}, 4750);
       setAnimState(0);
     }
   }
@@ -339,25 +342,30 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
           <img src={Microscope} alt="microscope" />
         </div>
         <div className="elements-wrapper">
-          <h2>Available elements for this order</h2>
-          <div className="elements">
-            {choices && choices.map((choice) => 
-              <div className={
-                choice.selected ? 
-                "dash-elem selected" :
-                  "dash-elem"
-                }
-                onClick={() => {toggleSelected(choice.element);}}
-                >{choice.element}</div>
-            )}
-          </div>
-          <div className="mix-wrapper">
-            <button className="battle-btn cta"
-                    onClick={() => {verifyMix()}}
-                    disabled={!selState}>
-              Mix!
-            </button>
-          </div>
+          {isAnimate ?
+          <h2>Waiting for the next customer.</h2> 
+          :
+          <>
+            <h2>Available elements for this order</h2>
+            <div className="elements">
+              {choices && choices.map((choice) => 
+                <div className={
+                  choice.selected ? 
+                  "dash-elem selected" :
+                    "dash-elem"
+                  }
+                  onClick={() => {toggleSelected(choice.element);}}
+                  >{choice.element}</div>
+              )}
+            </div>
+            <div className="mix-wrapper">
+              <button className="battle-btn cta"
+                      onClick={() => {verifyMix()}}
+                      disabled={!selState}>
+                Mix!
+              </button>
+            </div>
+            </>}
         </div>
         <div className="flask-group">
           <img src={FlaskGroup} alt="flask group" />

@@ -24,6 +24,23 @@ import Star from '../Assets/Images/battle-star.svg';
 //Hooks
 import getCharacter from '../Hooks/getCharacter'
 import getCharacterHit from '../Hooks/getCharacterHit';
+import useAudio from '../Hooks/useAudio';
+
+//Audio files
+//BGM
+import Bgm from '../Assets/Audio/TestBattle/testBattle-bgm.mp3';
+//Misc SFX
+import SelectSFX from '../Assets/Audio/TestBattle/select.mp3';
+//Item SFX
+import HealSFX from '../Assets/Audio/TestBattle/healPots.mp3';
+import HalfSFX from '../Assets/Audio/TestBattle/halfPots.mp3';
+import SkipSFX from '../Assets/Audio/TestBattle/skipPots.mp3';
+//Battle SFX
+import SpawnE from '../Assets/Audio/TestBattle/enemyUp.mp3';
+import DefeatE from '../Assets/Audio/TestBattle/enemyDown.mp3';
+import HitEnemy from '../Assets/Audio/TestBattle/hitEnemy.mp3';
+import HitChar from '../Assets/Audio/TestBattle/hitChara.mp3';
+
 
 const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDefeatInfo, setPrizeCoins}) => {
   //Data States
@@ -56,6 +73,18 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
   const [ isAnimate, setIsAnimate ] = useState(false);
   const [ itemUsed, setItemUsed ] = useState(false);
 
+  //Sound References
+  const testBattleBGM = useAudio(Bgm, {volume: 0.5, playbackRate: 1, loop: true});
+  const selectSFX = useAudio(SelectSFX, {volume: 0.8, playbackRate: 1.75})
+  const healSFX = useAudio(HealSFX, {volume: 0.8})
+  const halfSFX = useAudio(HalfSFX, {volume: 0.8})
+  const skipSFX = useAudio(SkipSFX, {volume: 0.8})
+  const spawnE = useAudio(SpawnE, {volume: 0.8})
+  const defeatE = useAudio(DefeatE, {volume: 0.8})
+  const hitEnemy = useAudio(HitEnemy, {volume: 0.8})
+  const hitChar = useAudio(HitChar, {volume: 0.8})
+  
+
   //Questions
   const topicQs = {
     "category": "What is the group of the element?",
@@ -84,23 +113,35 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
     1: Enemy2Hit,
   }
 
-  //Get User Info
+  //Initial Mount
   useEffect(() => {
+    //Get User Info
     const token = localStorage.getItem('token')
     const user = jwtDecode(token)
     setAccess(user.id);
     setUsername(user.username);
 
+    //Set Character Models
     (async() => {
       const model =  await getCharacter(user.id, user.gender);
       setModel(model);
     })(); 
 
-      (async() => {
+    (async() => {
         const model =  await getCharacterHit(user.id, user.gender);
         setModelHit(model);
-    })(); 
+    })();
+
+    //Play BGM
+    testBattleBGM.play();
   },[])
+
+  //Pause BGM on unmount
+  useEffect(() => {
+    return () => {
+      testBattleBGM.pause();
+    }
+  }, [])
 
   //SetQuestions
   useEffect(() => {
@@ -154,10 +195,12 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
   }, [conRight])
 
   useEffect(() => {
+    if (isRight) hitEnemy.play();
     setBattleLog("Correct Answer! You've defeated the enemy!");
   }, [isRight])
 
   useEffect(() => {
+    if (isWrong) hitChar.play();
     setBattleLog("Wrong Answer! You've received 1 damage.");
   }, [isWrong])
 
@@ -268,6 +311,7 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
   
   //Check Attack
   const checkAttack = (selected) => {
+    selectSFX.play();
     let confirm = questions[index].elemAnswer === selected ? true : false;
     if (confirm) {
       animateTimeout(setIsRight, true);
@@ -287,6 +331,7 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
       victoryBattle();
       setPrizeCoins(prize);
     } else {
+      spawnE.play();
       setIndex((index) => index + 1);
     }
   }
@@ -295,9 +340,11 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
     entityGot(true);
     setIsAnimate(true);
 
-    setTimeout(() => {
-      setIsDefeated(true);
-    }, 1000);
+    if (proceed) {
+      setTimeout(() => {
+        setIsDefeated(true);
+      }, 1000);
+    }
 
     setTimeout(() => {
       entityGot(false);
@@ -308,13 +355,13 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
         nextEnemy(stage);
       }
 
-    }, 1700);
+    }, 2500);
   }
 
   //Set battle to victory
   const victoryBattle = () => {
     battleResult({
-      totalEnemies: index,
+      totalEnemies: index+1,
       score: score,
       highMulti: highestMulti,
     })
@@ -356,10 +403,13 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
     setItemUsed(true);
 
     if (item === 1) {
+      healSFX.play()
       restoreHealth();
     } else if (item === 2) {
+      halfSFX.play();
       halfQs();
     } else if (item === 3) {
+      skipSFX.play();
       skipQ();
     }
 
@@ -383,7 +433,7 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
                 <img src={isWrong ? modelHit : model} alt="model" className={isWrong ? "gfx-active" : ""}/>
                 <img src={Pewpew} alt="gfx" className={isWrong ? "gfx gfx-active" : "gfx"}/>
             </div>
-            <div className="question-bubble">
+            <div className={`question-bubble ${isDefeated && "defeat"}`}>
                 {!isAnimate &&
                 <div className="element-icon">
                     {!isAnimate && questions ? questions[index].elemSym : <p>NOOOO!</p>}
@@ -402,7 +452,7 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
                     {healthRender}
                 </div>
             </div>
-            <div className="entity enemy">
+            <div className={`entity enemy ${isDefeated && "defeat"}`}>
                 { !isRight ? 
                   <img src={questions && questions[index].model} alt="Enemy" /> : 
                   <img src={questions && questions[index].modelHit} alt="Enemy" className={`${isRight && !isDefeated ? "gfx-active" : ""} ${isDefeated ? " defeat" : ""}`} />
@@ -428,7 +478,7 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
                 }
             </div>
             <div className="items-wrapper">
-                <BattleItemWindow uItem={useItem}/>    
+                <BattleItemWindow uItem={useItem} sfxClick={selectSFX}/>    
             </div>
         </div>
     </div>

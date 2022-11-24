@@ -23,8 +23,6 @@ import './Shop.css';
 //Hooks
 import getCoins from '../../Hooks/getCoins';
 
-
-
 const Shop = () => {
     //Data States
     const [ coins, setCoins ] = useState(0);
@@ -43,8 +41,12 @@ const Shop = () => {
     const [ isBought, setIsBought ] = useState(false);
 
     useEffect(() => {
-        setCoins(coins - totalValue);
-    }, [isBought])
+        if (isBought) {
+            setCoins(coins - totalValue);
+            setTotalValue(0);
+            setIsBought(false);
+        }
+    }, [isBought, totalValue])
 
     useEffect(() => {
         const token = localStorage.getItem('token');
@@ -69,7 +71,6 @@ const Shop = () => {
         model && mergeImages([hitModel, ...sample]).then(b64 => setHitPreview(b64));
     }
 
-
     return (
         <>
             <div className='main-header'>
@@ -83,7 +84,7 @@ const Shop = () => {
                         </div>
                         <div className='lower-part'>
                             <img src={MoneyBag} alt="" />
-                            {coins && <h1>{coins}</h1>}
+                            <h1>{coins}</h1>
                         </div>
                     </div>
                     <div className='character-preview-container'>

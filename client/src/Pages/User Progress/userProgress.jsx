@@ -12,10 +12,6 @@ import getUserProgME from '../../Hooks/getUserProgME'
 import getIntellimentCounter from '../../Hooks/getIntellimentCounter'
 
 const userProgress = () => {
-  const [ username, setUsername ] = useState('');
-  const [ email, setEmail ] = useState('');
-  const [ firstName, setFirstName]  = useState('');
-  const [ lastName, setLastName ] = useState('');
   const [ access, setAccess ] = useState('')
   const [ data, setData ] = useState([])
   const [ intellimentCounter, setIntellimentCounter ] = useState([])
@@ -28,10 +24,6 @@ const userProgress = () => {
   useEffect(()=>{
     const token = localStorage.getItem('token')
     const user = jwtDecode(token)
-    setUsername(user.username)
-    setEmail(user.email)
-    setFirstName(user.firstName)
-    setLastName(user.lastName)
     setAccess(user.id);
 
     (async () => {
@@ -74,8 +66,6 @@ const userProgress = () => {
     })
     const result = regression.linear(formattedArray)
     const predict = result.predict(intellimentCounter.length+1)
-    console.log(predict)
-    console.log(formattedArray)
     setPredictedValue(predict[1])
   },[intellimentCounter])
 

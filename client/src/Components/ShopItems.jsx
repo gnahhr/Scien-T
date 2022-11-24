@@ -25,6 +25,7 @@ const template = {
 };
 
 const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender, isBought, boughtState, coins}) => {
+
   //Tried Item States
   const [ tops, setTops ] = useState(template);
   const [ bottoms, setBottoms ] = useState(template);
@@ -55,13 +56,8 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender, isBoug
   useEffect(() => {
     const token = localStorage.getItem('token');
     const user = jwtDecode(token);
-
-    (async() =>{
-        const data =  await getAccessoriesOwned(user.id);
-        setOwnedTops(data.topOwned);
-        setOwnedBots(data.bottomOwned);
-        setOwnedAccs(data.accessoryOwned);
-    })();
+    
+    setOwnedItems(user.id);
 
     (async() =>{
       const data =  await getAccessoriesEquipped(user.id);
@@ -75,6 +71,14 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender, isBoug
   })();
 
   }, [])
+
+  useEffect(() => {
+    if (boughtState){
+      const token = localStorage.getItem('token');
+      const user = jwtDecode(token);
+      setOwnedItems(user.id);
+    }
+  }, [boughtState])
 
   useEffect(() => {
     const total = tops.price + bottoms.price + accessories.price;
@@ -100,11 +104,9 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender, isBoug
       return template;
     }
 
-    const data = Clothes.filter((Clothe) => {
-      if (Clothe.category === category && Clothe.id === id) {
-        return Clothe
-      }
-    }).map(Clothe => {
+    const data = Clothes
+    .filter((Clothe) => (Clothe.category === category) && (Clothe.id === id))
+    .map(Clothe => {
       return {
         ...Clothe,
         owned: true,
@@ -112,7 +114,7 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender, isBoug
         dir: `./images${Clothe.dir}/${Clothe.image}`,
       }
     });
-
+    
     return data[0];
   }
 
@@ -132,6 +134,13 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender, isBoug
     } else if (item.category === "accessory") {
       setAccessories(data);
     }
+  }
+
+  const setOwnedItems = async (id) => {
+    const data =  await getAccessoriesOwned(id);
+    setOwnedTops(data.topOwned);
+    setOwnedBots(data.bottomOwned);
+    setOwnedAccs(data.accessoryOwned);
   }
   
   const resetChar = () => {
@@ -158,8 +167,7 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender, isBoug
     
       updateCharacter();
       buyAccessories(access, ...filtered, priceAll);
-      isBought(!boughtState);
-      setTotal(0);
+      isBought(true);
       setShowModal(false);
     } else {
       setToastMessage("Insufficient Money");

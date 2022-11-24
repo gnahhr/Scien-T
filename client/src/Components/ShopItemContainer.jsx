@@ -6,6 +6,14 @@ const ShopItemContainer = ({category, items, tryItem, model, ownedClothes, Cloth
   const [ shopData, setShopData ] = useState();
 
   useEffect(() => {
+    updateShop();
+  }, [])
+
+  useEffect(() => {
+    updateShop();
+  }, [ownedClothes])
+
+  const updateShop = () => {
     setShopData(Clothes.filter((Clothe) => {
       if (Clothe.model === model && Clothe.category === items) {
         return Clothe
@@ -16,7 +24,7 @@ const ShopItemContainer = ({category, items, tryItem, model, ownedClothes, Cloth
         ...Clothe
       }
     }));
-  }, [])
+  }
 
   return (
     <div className='category-and-items-container'>

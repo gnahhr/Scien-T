@@ -6,7 +6,7 @@ import HealingPots from '../Assets/Images/healing-potion.svg';
 import Fifty from '../Assets/Images/50-50.svg';
 import SkipBomb from '../Assets/Images/bomb.svg';
 
-const BattleItemWindow = ({ toggleWindow, uItem }) => {
+const BattleItemWindow = ({ uItem, sfxClick }) => {
   const [ items, setItems ] = useState([
     {
         itemId: 1,
@@ -32,6 +32,7 @@ const BattleItemWindow = ({ toggleWindow, uItem }) => {
   ])
 
   const useItem = (itemPassed, qty) => {
+    sfxClick.play();
     setItems(items.map((item) => {
         if (item.itemId === itemPassed) {
             return {
@@ -55,7 +56,7 @@ const BattleItemWindow = ({ toggleWindow, uItem }) => {
         </div>
         <div className="items">
             {items && items.map((item) => 
-                <div className="item" onClick={() => useItem(item.itemId, item.qty)} disabled={item.qty > 0 ? false : true}>
+                <div className="item" title={item.desc} onClick={() => useItem(item.itemId, item.qty)} disabled={item.qty > 0 ? false : true}>
                     <img src={item.img} alt={""} />
                     <div className="item-name">{item.name}</div>
                     <div className="item-qty">x{item.qty}</div>

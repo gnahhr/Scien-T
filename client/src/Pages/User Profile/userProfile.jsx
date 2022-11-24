@@ -9,7 +9,6 @@ import Loader from '../../Components/Loader.jsx';
 
 //Hooks
 import getCharacter from '../../Hooks/getCharacter'
-import getCharacterHit from '../../Hooks/getCharacterHit';
 
 import './userProfile.css';
 
@@ -24,8 +23,13 @@ const userProfile = () => {
   const [ firstName, setfName]  = useState('');
   const [ lastName, setlName ] = useState('');
 
+  //Character Model State
   const [ b64String, setB64String ] = useState();
-  const [ b64StringHit, setB64StringHit ] = useState()
+
+  //Toast States
+  const [ showToast, setShowToast ] = useState(false);
+  const [ toastMessage, setToastMessage ] = useState("");
+  const [ toastType, setToastType ] = useState("");
 
   const setText = {
     "username": setUsername,
@@ -45,12 +49,8 @@ const userProfile = () => {
     setGender(user.gender);
 
     (async() =>{
-      const data = await getCharacter(user.id, user.gender); //tanggalin mo nalang kapag may nagenerate ka na
+      const data = await getCharacter(user.id, user.gender);
       setB64String(data);
-    })();
-    (async() =>{
-      const data = await getCharacterHit(user.id, user.gender); //tanggalin mo nalang kapag may nagenerate ka na
-      setB64StringHit(data);
     })();
     
   }, [])
@@ -62,7 +62,7 @@ const userProfile = () => {
   }
 
   async function editUser(event){
-    event.preventDefault()
+    event.preventDefault();
     const response = await fetch('/api/editUser/' + access, {
       method: 'POST',
       headers: {
@@ -79,10 +79,15 @@ const userProfile = () => {
       localStorage.clear()
       localStorage.setItem('token', data.user);
       localStorage.setItem('username', username);
-      alert('Successfully edited user profile')
+      setToastMessage("Successfully edited user profile");
+      setToastType("success");
+      setShowToast(true);
     }
     else{
-      alert(data.error)
+      alert(data.error);
+      setToastMessage("Something went wrong. Please try again.");
+      setToastType("warning");
+      setShowToast(true);
     }
   }
 
@@ -121,6 +126,7 @@ const userProfile = () => {
           </div>
         </div>
       </div>
+      <Toast message={toastMessage} timer={3000} toastType={toastType} showToast={setShowToast} toastState={showToast}/>
     </>
   )
 }
