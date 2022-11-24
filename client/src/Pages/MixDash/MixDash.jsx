@@ -6,7 +6,7 @@ import MixDashWindow from '../../Components/MixDashWindow';
 import MixDashLevels from '../../Components/MixDashLevels';
 import MixDashResult from '../../Components/MixDashResult';
 import Loader from '../../Components/Loader';
-
+import InstructionModal from '../../Components/InstructionModal';
 
 //Hooks
 import pushMixDash from  '../../Hooks/pushMixDash'
@@ -32,6 +32,8 @@ const MixDash = () => {
   const [ username, setUsername ] = useState('');
   const [ access, setAccess ]  = useState('');
 
+  const [ showInstruction, setShowInstruction ]  = useState(true)
+  const game = "MixDash"
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -63,6 +65,7 @@ const MixDash = () => {
   
   return (
     <>
+    {showInstruction && <InstructionModal game={game} setShowInstruction={setShowInstruction}/>}
       <div className="main-header">
         <h1>Mix Dash</h1>
       </div>

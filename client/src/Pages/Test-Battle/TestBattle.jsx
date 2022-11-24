@@ -15,6 +15,7 @@ import BattleStage from '../../Components/BattleStage';
 import BattleWindow from '../../Components/BattleWindow';
 import BattleStats from '../../Components/BattleStats';
 import BattleDefeat from '../../Components/BattleDefeat';
+import InstructionModal from '../../Components/InstructionModal';
 
 //Styles
 import "./TestBattle.css";
@@ -38,6 +39,10 @@ const TestBattle = () => {
 
   const [ access, setAccess ] = useState('');
   const [ username, setUsername ] = useState('');
+
+  
+  const [ showInstruction, setShowInstruction ]  = useState(true)//kagagawan ni  juicewaqh
+  const game = 'TestBattle'
 
   useEffect(() => {
     const token = localStorage.getItem('token');
@@ -87,6 +92,7 @@ const TestBattle = () => {
   
   return (
     <>
+      {showInstruction && <InstructionModal game={game} setShowInstruction={setShowInstruction}/>}
       <div className="main-header">
         <h1>Test Battle</h1>
       </div>

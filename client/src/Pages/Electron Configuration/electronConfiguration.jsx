@@ -24,12 +24,16 @@ import icon8 from '../../Assets/Images/icon8.png';
 import icon9 from '../../Assets/Images/icon9.png';
 import icon10 from '../../Assets/Images/icon10.png';
 
+//Components
+import InstructionModal from '../../Components/InstructionModal.jsx';
+
 
 //Style
 import "./electronConfiguration.css";
 
 const electronConfiguration = () => {
   const icons = [icon1,icon2,icon3,icon4,icon5,icon6,icon7,icon8,icon9,icon10]
+  
   const [ points, setPoints ] = useState(0)
   const [ prizeCoins, setPrizeCoins ] = useState(500)
   const [ igPoints, setIGPoints ] = useState(0)
@@ -41,8 +45,11 @@ const electronConfiguration = () => {
   const [ clickState, setClickState ] = useState(true)
   const [ gameProgress, setGameProgress ] = useState(0)
 
-  const [ overlayState, setOverlayState ] = useState(true)
+  const [ overlayState, setOverlayState ] = useState(false)
   const [ showModal, setShowModal ] = useState(false)
+
+  const [ showInstruction, setShowInstruction ]  = useState(true)
+  const game = "ElectronConfiguration"
 
   
   const [ access, setAccess ] = useState('')
@@ -60,6 +67,12 @@ const electronConfiguration = () => {
       setPoints(data)
     })()
   },[])
+
+  useEffect(() => {
+    if(showInstruction === false){
+      setOverlayState(true)
+    }
+  },[showInstruction])
   
   useEffect(() => {
     if(cell.length > 0)
@@ -165,6 +178,9 @@ const electronConfiguration = () => {
 
   return (
       <>
+        {showInstruction &&
+          <InstructionModal game={game} setShowInstruction={setShowInstruction}/>
+        }
         {overlayState && 
           <div className='overlay' onClick={() => setOverlayState(!overlayState)}>
             <div className='bg'></div>
