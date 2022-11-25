@@ -9,6 +9,7 @@ import { periodicTable } from '../Data/PeriodicTableJSON';
 
 //Components
 import BattleItemWindow from './BattleItemWindow';
+import MuteButton from './MuteButton';
 
 //Images
 import Enemy1 from '../Assets/Images/Enemy1.png';
@@ -42,7 +43,7 @@ import HitEnemy from '../Assets/Audio/TestBattle/hitEnemy.mp3';
 import HitChar from '../Assets/Audio/TestBattle/hitChara.mp3';
 
 
-const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDefeatInfo, setPrizeCoins}) => {
+const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDefeatInfo, setPrizeCoins, setShowInstruction}) => {
   //Data States
   const [ questions, setQuestions ] = useState(undefined);
   const [ index, setIndex ] = useState(0);
@@ -83,8 +84,9 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
   const defeatE = useAudio(DefeatE, {volume: 0.8})
   const hitEnemy = useAudio(HitEnemy, {volume: 0.8})
   const hitChar = useAudio(HitChar, {volume: 0.8})
-  
 
+  const audioArray = [testBattleBGM, selectSFX, healSFX, halfSFX, skipSFX, spawnE, hitEnemy, hitChar];
+  
   //Questions
   const topicQs = {
     "category": "What is the group of the element?",
@@ -421,12 +423,21 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
   return (
     <>
     <div className="testBattle-wrapper"> 
-    <div className="score">
-      <img src={Star} alt="Star" />
-      <div className="score-text">
-        Score: {score}
+    <div className="game-header">
+      <div className="score">
+        <img src={Star} alt="Star" />
+        <div className="score-text">
+          Score: {score}
+        </div>
+      </div>
+      <div className="settings-wrapper">
+        <div className="icon" onClick={() => setShowInstruction(true)}>
+          HELP
+        </div>
+        <MuteButton audio={audioArray} />
       </div>
     </div>
+    
     <div className="battle-window">
         <div className="players-wrapper">
             <div className="entity player">

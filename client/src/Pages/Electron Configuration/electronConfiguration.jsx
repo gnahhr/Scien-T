@@ -27,6 +27,8 @@ import icon10 from '../../Assets/Images/icon10.png';
 //Components
 import InstructionModal from '../../Components/InstructionModal.jsx';
 
+//Data
+import ElectronConfigInstructions from '../../Data/ElectronConfigInstructions'
 
 //Style
 import "./electronConfiguration.css";
@@ -49,11 +51,11 @@ const electronConfiguration = () => {
   const [ showModal, setShowModal ] = useState(false)
 
   const [ showInstruction, setShowInstruction ]  = useState(true)
-  const game = "ElectronConfiguration"
 
-  
   const [ access, setAccess ] = useState('')
   const [ username, setUsername] = useState('')
+
+
 
 
   useEffect(() => {
@@ -179,7 +181,7 @@ const electronConfiguration = () => {
   return (
       <>
         {showInstruction &&
-          <InstructionModal game={game} setShowInstruction={setShowInstruction}/>
+          <InstructionModal instructions={ElectronConfigInstructions} setShowInstruction={setShowInstruction}/>
         }
         {overlayState && 
           <div className='overlay' onClick={() => setOverlayState(!overlayState)}>

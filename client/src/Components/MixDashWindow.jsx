@@ -15,6 +15,7 @@ import Customer4 from '../Assets/Images/cust4.png';
 
 //Components
 import NewRecipeModal from './NewRecipeModal';
+import MuteButton from './MuteButton';
 
 //Audio Files
 import Bgm from '../Assets/Audio/MixDash/mixDash-bgm.mp3';
@@ -55,6 +56,8 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
   const rightSFX = useAudio(RightSFX, {volume: 0.6, playbackRate: 1, loop: false});
   const wrongSFX = useAudio(WrongSFX, {volume: 0.6, playbackRate: 1, loop: false});
 
+  //Audio Array
+  const audioArray = [mixDashBGM, selectSFX, rightSFX, wrongSFX]; 
 
   //Customers Array
   const custArray = {
@@ -304,15 +307,21 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
 
   return (
     <>
-    <div className="dash-status">
-      <p className="progress stats">
-          <img src={Customers} alt="customers" />
-          <p>{build.numOfCustomers - currCustomer}</p>
-      </p>
-      <p className="goal-count stats">
-        <img src={Money} alt="money-bag" />
-        <p>{earned}/{build.goal}</p> 
-      </p>
+    <div className="mixDash-header">
+      <div className="dash-status">
+        <p className="progress stats">
+            <img src={Customers} alt="customers" />
+            <p>{build.numOfCustomers - currCustomer}</p>
+        </p>
+        <p className="goal-count stats">
+          <img src={Money} alt="money-bag" />
+          <p>{earned}/{build.goal}</p> 
+        </p>
+      </div>
+
+      <div className="settings-wrapper">
+        <MuteButton audio={audioArray} />
+      </div>
     </div>
     <div className="mixDash-window">
       <div className="customer-backdrop">

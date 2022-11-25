@@ -264,8 +264,8 @@ h2 {
 
 .icon {
     background-color: #FBB500;
-    width: 34px;
-    height: 34px;
+    width: 26px;
+    height: 26px;
     align-self: flex-end;
     border-radius: 5px;
     padding: .5rem;
@@ -281,7 +281,15 @@ h2 {
 
   .icon:hover {
     background-color: #ffffff;
-  }
+    cursor: pointer;
+}
+
+.settings-wrapper {
+    margin-left: auto;
+    align-self: center;
+    justify-self: flex-end;
+    display: flex;
+}
 
 .modal-wrapper {
     background-color: rgba(0, 0, 0, .5);

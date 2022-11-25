@@ -1,8 +1,8 @@
 .close-button {
   position: absolute;
   z-index: 3;
-  top: 5%;
-  right: 20%;
+  top: 0;
+  right: -5%;
 }
 .close-button a img {
   width: 2rem;
@@ -11,43 +11,73 @@
 .content {
   display: grid;
   background-color: pink;
+  position: relative;
   border-radius: 10px;
-  width: 50vw;
+  width: 70vw;
+  height: 85vh;
   padding: 1rem;
 }
 .content .screenshots-slider {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  padding: 1rem;
+  grid-template-columns: 1fr;
   background-color: purple;
-  border-radius: 5px;
-  align-items: center;
-  justify-items: center;
+  place-items: center;
+  position: relative;
 }
-.content .screenshots-slider .left-button a img {
+.content .screenshots-slider .middle-container {
+  position: relative;
+  margin: auto;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 0.5rem 2rem;
+  border-radius: 20px;
+  width: fit-content;
+}
+.content .screenshots-slider .middle-container .left-button, .content .screenshots-slider .middle-container .right-button {
+  position: absolute;
+}
+.content .screenshots-slider .middle-container .left-button {
+  left: 0;
+}
+.content .screenshots-slider .middle-container .left-button a img {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
 }
-.content .screenshots-slider .middle-container {
-  display: grid;
-  text-align: center;
-  padding: 1rem;
-  border-radius: 20px;
+.content .screenshots-slider .middle-container .right-button {
+  right: 0;
 }
 .content .screenshots-slider .middle-container .screenshots {
-  width: 30vw;
-  height: 56vh;
+  width: clamp(155px, 35vw, 35rem);
+  height: clamp(145px, 30vw, 30rem);
 }
 .content .screenshots-slider .middle-container .screenshots img {
   border-radius: 20px;
-  width: 30vw;
-  height: 56vh;
+  width: inherit;
+  height: inherit;
 }
-.content .screenshots-slider .middle-container .text h1 {
-  font-size: 2rem;
+.content .screenshots-slider .steps {
+  background-color: rgba(0, 0, 0, 0.6);
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  grid-column: span 3/auto;
 }
-.content .description-and-steps h1 {
-  font-size: 1.5rem;
+.content .screenshots-slider .steps p {
+  color: #FFFFFF;
+  margin: 0;
+  font-size: clamp(14px, 2vw, 1.25rem);
+  text-align: center;
+}
+.content .description-and-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.content .description-and-steps .description > p {
+  font-size: clamp(12px, 2vw, 1rem);
+  text-align: center;
+  font-weight: bold;
 }
 
 .Incorrect {
@@ -58,10 +88,17 @@
   background-color: green;
 }
 
-.left-button img, .right-button img {
-  width: 2vw;
+.left-button, .right-button {
+  width: 1.5rem;
 }
 
-.left-button img:hover, .right-button img:hover {
-  width: 3vw;
+.left-button:hover, .right-button:hover {
+  transform: scale(1.25);
+}
+
+@media only screen and (orientation: portrait) {
+  .content .screenshots-slider .middle-container .screenshots {
+    height: clamp(250px, 35vw, 40rem);
+    width: clamp(165px, 30vw, 35rem);
+  }
 }

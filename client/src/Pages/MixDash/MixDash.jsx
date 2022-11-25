@@ -14,6 +14,8 @@ import getUserProgMixDash from '../../Hooks/getUserProgMixDash';
 
 //Data
 import { levels } from '../../Data/MixDashLevels.js';
+import MixDashInstructions from '../../Data/MixDashInstructions'
+
 
 //Styles
 import './MixDash.css'
@@ -30,7 +32,7 @@ const MixDash = () => {
 
   const [ access, setAccess ]  = useState('');
 
-  const [ showInstruction, setShowInstruction ]  = useState(true)
+  const [ showInstruction, setShowInstruction ]  = useState(false);
   const game = "MixDash"
 
   useEffect(() => {
@@ -62,7 +64,7 @@ const MixDash = () => {
   
   return (
     <>
-    {showInstruction && <InstructionModal game={game} setShowInstruction={setShowInstruction}/>}
+    {showInstruction && <InstructionModal instructions={MixDashInstructions} setShowInstruction={setShowInstruction}/>}
       <div className="main-header">
         <h1>Mix Dash</h1>
       </div>

@@ -1,13 +1,11 @@
 const ElectronConfigInstructions = {
-
-    description: "Incididunt magna dolore dolor in. Incididunt magna dolore dolor in. Incididunt magna dolore dolor in. Incididunt magna dolore dolor in.",
-
+    game: "ElectronConfiguration",
+    description: "Electron Configuration is a mix-and-match game where you match the element and its electron configuration",
     steps : [
-        "Ut id enim cupidatat minim nisi consectetur laboris ut minim tempor.",
-        "Ex enim id ut reprehenderit culpa.",
-        "Esse elit dolor ullamco in non."
+        "Just click on the tiles and you will see if it is wrong if it doesn't disappear and the icon above the tiles are different.",
+        "This shows the two tiles have the same icon meaning the element and the electron configuration matches.",
+        "If it is matched, then the tile disappears from the board."
     ],
-
     screenshots : [
         "electronConfig-1",
         "electronConfig-2",

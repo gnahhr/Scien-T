@@ -6,7 +6,13 @@
   height: 90vh;
 }
 
-.testBattle-wrapper .score {
+.testBattle-wrapper .game-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+.testBattle-wrapper .game-header .score {
   background-color: #0C004E;
   color: #FFFFFF;
   display: flex;
@@ -14,9 +20,8 @@
   padding: 0.5rem;
   border-radius: 5px;
   justify-self: flex-start;
-  margin-bottom: 1rem;
 }
-.testBattle-wrapper .score img {
+.testBattle-wrapper .game-header .score img {
   aspect-ratio: 1;
   width: 1rem;
   margin: 0 0.2rem;

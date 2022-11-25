@@ -7,20 +7,26 @@
 }
 
 .testBattle-wrapper{
-    .score {
-        background-color: #0C004E;
-        color: #FFFFFF;
+    .game-header {
         display: flex;
-        width: 8rem;
-        padding: .5rem;
-        border-radius: 5px;
-        justify-self: flex-start;
+        align-items: center;
+        justify-content: center;
         margin-bottom: 1rem;
-    
-        img {
-            aspect-ratio: 1;
-            width: 1rem;
-            margin: 0 .2rem;
+
+        .score {
+            background-color: #0C004E;
+            color: #FFFFFF;
+            display: flex;
+            width: 8rem;
+            padding: .5rem;
+            border-radius: 5px;
+            justify-self: flex-start;
+        
+            img {
+                aspect-ratio: 1;
+                width: 1rem;
+                margin: 0 .2rem;
+            }
         }
     }
     

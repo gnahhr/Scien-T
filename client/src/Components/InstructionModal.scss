@@ -1,9 +1,9 @@
 .close-button{
     position: absolute;
     z-index: 3;
-    top: 5%;
-    right: 20%;
-        a{
+    top: 0;
+    right: -5%;
+    a{
        img{
             width: 2rem;//clamp  later
         }
@@ -14,56 +14,88 @@
 .content {
     display: grid;
     background-color: pink;
+    position: relative;
     border-radius: 10px;
-    width: 50vw;
-    padding: 1rem;//clamp mamaya
+    width: 70vw;
+    height: 85vh;
+    padding: 1rem;
 
     .screenshots-slider{
         display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        padding: 1rem;//clamp mamaya
+        grid-template-columns: 1fr;
         background-color: purple;
-        border-radius: 5px;
-        align-items: center;
-        justify-items: center;
-            
-        .left-button{
-            a{
-                img{
-                    -webkit-transform: scaleX(-1);
-                    transform: scaleX(-1)
-                }
-            }
-        }
+        place-items: center;
+        position: relative;
+
 
         .middle-container{
+            position: relative;
+            margin: auto;
+
+            .left-button, .right-button {
+                position: absolute
+            }
+
+            .left-button {
+                left: 0;
+                a {
+                    img {
+                        -webkit-transform: scaleX(-1);
+                        transform: scaleX(-1);
+                    }
+                }
+            }
+
+            .right-button {
+                right: 0;
+            }
+
             display: grid;
+            place-items: center;
             text-align: center;
-            padding: 1rem;//clamp  later
+            padding: .5rem 2rem;//clamp  later
             border-radius: 20px;
+            width: fit-content;
+
             .screenshots{
-                width: 30vw;//clamp  later
-                height: 56vh;//clamp  later
+                width: clamp(155px, 35vw, 35rem);
+                height: clamp(145px, 30vw, 30rem);
                 img{ 
                     border-radius: 20px;
-                    width: 30vw;//clamp  later
-                    height: 56vh;//clamp  later
+                    width: inherit;//clamp  later
+                    height: inherit;//clamp  later
+                    // height: clamp(145px, 30vw, 30rem);//clamp  later
                     // width: 29vw;
                 }
             }
-            .text{
-                h1{
-                    font-size: 2rem;//clamp  later
-                }
-            }
         }
             
+        .steps {
+            background-color: rgba(0, 0, 0, 0.6);
+            // position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            grid-column: span 3/ auto;
 
+            p{
+                color: #FFFFFF;
+                margin: 0;
+                font-size: clamp(14px, 2vw, 1.25rem);
+                text-align: center;
+            }
+        }
     }
 
     .description-and-steps{
-        h1{
-            font-size: 1.5rem;//clamp mamaya
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .description > p {
+            font-size: clamp(12px, 2vw, 1rem);
+            text-align: center;
+            font-weight: bold;
         }
     }
 }
@@ -79,19 +111,22 @@
 }
 
 .left-button, .right-button{
-    img{
-        width: 2vw;
-    }
-
+    width: 1.5rem;
 }
 
-.left-button, .right-button{
-    img:hover{
-        width: 3vw;
-    }
-    
+.left-button:hover, .right-button:hover{
+    transform: scale(1.25);
 }
 
-// .slide-right{animation:slide-right 0.4s linear both}@keyframes slide-right{0%{transform:translateX(0)}100%{transform:translateX(100px)}}
-
-// .slide-left{animation:slide-left 0.4s linear both}@keyframes slide-left{0%{transform:translateX(0)}100%{transform:translateX(-100px)}}
+@media only screen and (orientation: portrait) {
+    .content {
+        .screenshots-slider {
+            .middle-container {
+                .screenshots{
+                    height: clamp(250px, 35vw, 40rem);
+                    width: clamp(165px, 30vw, 35rem);
+                }
+            }
+        }
+    }
+}
