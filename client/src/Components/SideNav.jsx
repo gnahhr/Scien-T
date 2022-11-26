@@ -1,5 +1,6 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
+import jwtDecode from 'jwt-decode';
 
 //Logos
 import Logo from '../Assets/Images/logo.png';
@@ -24,12 +25,17 @@ import MixDash from '../Assets/Images/mix-dash.svg';
 import TestBattle from '../Assets/Images/test-battle.svg';
 import Assessment from '../Assets/Images/assessment.svg';
 
+//hooks
+import getProfilePicture from '../Hooks/getProfilePicture'
+
 //Design
 import "./SideNav.css";
 
 const SideNav = ({children}) => {
   const nav = useNavigate();
   const [ navOpen, setNavOpen ] = useState(false);
+  const [ character, setCharacter ] = useState();
+  const [ profilePicture, setProfilePicture ] = useState();
 
   const toggleNav = (status) => setNavOpen(!status);
 
@@ -44,7 +50,22 @@ const SideNav = ({children}) => {
       setNavOpen(false);
     }
   }
+
+  useEffect(() =>  {
+    const token = localStorage.getItem('token');
+    const user = jwtDecode(token);
+    (async() =>{
+      const response = await getProfilePicture(user.id, user.gender);
+      setCharacter(response)
+    })();
+  },[])
+
+  useEffect(() =>{
+    console.log(character)
+  },[character])
+
   
+                           
   return (
     <>
     <div className={navOpen ? "sideNav" : "sideNav collapsed-nav"}>
@@ -52,7 +73,7 @@ const SideNav = ({children}) => {
       <img src={Close} alt="close" id="side-nav-close" onClick={() => toggleNav(navOpen)}/>
       <img src={Logo} alt="logo" className="side-nav-logo"/>
       <div className="user">
-        <img src={User} alt="pfp"/>
+        <img src={character} alt='pfp'/>
         <NavLink to="/profile" onClick={closeNav}>
           <p className="username">{localStorage.getItem("username")}</p>
         </NavLink>
