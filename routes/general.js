@@ -2,7 +2,7 @@ const express = require ('express')
 const { get } = require('mongoose')
 const router = express.Router()
 
-const { mixElements, getME, electronConfiguration, getEC, intelliment, getIntellimentRankings, getElectronConfigRankings, getIntellimentData, getIntellimentCounter, getUserProgTestBattle, testBattle, buyTestBattleStage, getTestBattleRankings, mixDash, buyMixDashStage, getUserProgMixDash, getCoins, saveCharacter, getCharacter, getCharacterHit, buyAccessories, getAccessoriesOwned, getAccessoriesEquipped
+const { mixElements, getME, electronConfiguration, getEC, intelliment, getIntellimentRankings, getElectronConfigRankings, getIntellimentData, getIntellimentCounter, getUserProgTestBattle, testBattle, buyTestBattleStage, getTestBattleRankings, mixDash, buyMixDashStage, getUserProgMixDash, getCoins, saveCharacter, getCharacter, getProfilePicture, getCharacterHit, buyAccessories, getAccessoriesOwned, getAccessoriesEquipped
 } = require('../controllers/general')
 
 //MIXING TABLE
@@ -47,6 +47,7 @@ router.route('/buyAccessories/:access').post(buyAccessories)
 //
 router.route('/saveCharacter/:access/:gender').post(saveCharacter)
 router.route('/getCharacter/:access/:gender').get(getCharacter)
+router.route('/getProfilePicture/:access/:gender').get(getProfilePicture)
 router.route('/getCharacterHit/:access/:gender').get(getCharacterHit)
 
 

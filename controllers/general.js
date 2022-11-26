@@ -881,8 +881,12 @@ exports.saveCharacter = async(req, res, next) => {
             const filePathHit = `../Character/${gender}/hit-${_id}.png`
             const bufferHit = Buffer.from(req.body.base64hit.split(',')[1],'base64')
 
+            const filePathProfile = `../Character/${gender}/profile-${_id}.png`
+            const bufferProfile = Buffer.from(req.body.base64profile.split(',')[1],'base64')
+
             fs.writeFileSync(path.join(__dirname, filePath), buffer)
             fs.writeFileSync(path.join(__dirname, filePathHit), bufferHit)
+            fs.writeFileSync(path.join(__dirname, filePathProfile), bufferProfile)
         }
 
         else{
@@ -907,6 +911,26 @@ exports.getCharacter = async(req, res, next) => {
         
         else{
             res.sendFile(path.join(__dirname,`../Character/${gender}/${gender}.png`))
+        }
+    } catch (error) {
+        res.json({status:'error', error:'Something went wrong. Try logging in again'})
+    }
+}
+
+exports.getProfilePicture = async(req, res, next) => {
+    try {
+        const access = req.params['access']
+        const _id = new ObjectId (access)
+        
+        const gender = req.params['gender']
+        const filePath= `../Character/${gender}/profile-${_id}.png`
+
+        if(fs.existsSync(path.join(__dirname, filePath))){
+            res.sendFile(path.join(__dirname, filePath))
+        }
+        
+        else{
+            res.sendFile(path.join(__dirname,`../Character/${gender}/profile-${gender}.png`))
         }
     } catch (error) {
         res.json({status:'error', error:'Something went wrong. Try logging in again'})
