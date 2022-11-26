@@ -24,7 +24,7 @@ const template = {
   price: 0,
 };
 
-const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender, isBought, boughtState, coins}) => {
+const ShopItems = ({tryMe, setTotal, access, preview, hitPreview,  profilePreview, gender, isBought, boughtState, coins}) => {
 
   //Tried Item States
   const [ tops, setTops ] = useState(template);
@@ -184,7 +184,7 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview, gender, isBoug
     setEquipAcc(accessories);
     setHasTried(false);
 
-    saveCharacter(access, gender, ...previewed, preview, hitPreview);
+    saveCharacter(access, gender, ...previewed, preview, hitPreview, profilePreview);
     setToastMessage("Character updated");
     setToastType("success");
     setShowToast(true);

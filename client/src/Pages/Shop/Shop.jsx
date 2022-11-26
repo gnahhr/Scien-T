@@ -29,8 +29,10 @@ const Shop = () => {
     const [ totalValue, setTotalValue ] = useState(0);
     const [ model, setModel ] = useState();
     const [ hitModel, setHitModel ] = useState();
+    const [ profileModel, setProfileModel ] = useState();
     const [ preview, setPreview ] = useState(model);
     const [ hitPreview, setHitPreview ] = useState(hitModel);
+    const [ profilePreview, setProfilePreview ] = useState(profileModel);
 
     //Query States
     const [ username, setUsername ] = useState('');
@@ -69,6 +71,13 @@ const Shop = () => {
         const sample = data.filter((x) => x !== "");
         model && mergeImages([model, ...sample]).then(b64 => setPreview(b64));
         model && mergeImages([hitModel, ...sample]).then(b64 => setHitPreview(b64));
+        if(gender === 'male'){
+            model && mergeImages([model, ...sample],{ width: 1000, height: 1100}).then(b64 => setProfilePreview(b64));
+        }
+
+        else if(gender === 'female'){//  magkaiba kase dimensions ng dalawa kaya hiwalay
+            model && mergeImages([model, ...sample],{ width: 1300, height: 1370}).then(b64 => setProfilePreview(b64));
+        }
     }
 
     return (
@@ -101,6 +110,7 @@ const Shop = () => {
                                access={access}
                                preview={preview}
                                hitPreview={hitPreview}
+                               profilePreview={profilePreview}
                                gender={gender}
                                isBought={setIsBought}
                                boughtState={isBought}
