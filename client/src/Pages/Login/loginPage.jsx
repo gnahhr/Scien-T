@@ -8,6 +8,7 @@ const loginPage = ({setUser}) => {
   const navigate = useNavigate()
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [message, setMessage] = useState("");
 
   const setText = {
         "username": setUsername,
@@ -43,11 +44,9 @@ const loginPage = ({setUser}) => {
       setUser(localStorage.token);
       navigate("/");
     }
-
     else if(data.status === 'error'){
-      alert(data.error)
+      setMessage(data.error)
     }
-
     else if(data.status === 'Verify User'){// if user returned not verified, redirect to verify page with new OTP and updated verification token
       localStorage.setItem('verify', data.user);
       navigate('/verify')
@@ -70,10 +69,11 @@ const loginPage = ({setUser}) => {
         <div className="form-wrapper">
           <h2>Login</h2>
           <form onSubmit={loginUser} id="login">
+              {message !== '' && <h3 style={{color: "#AB2921"}}>{message}</h3>}
               <label htmlFor="username">Username </label>
-              <input type="text" name="username" id="username" value={username} onChange={(e) => onInputChange(e)}/>
+              <input type="text" name="username" id="username" value={username} onChange={(e) => onInputChange(e)} required/>
               <label htmlFor="password">Password </label>
-              <input type="password" name="password" id="password" value={password} onChange={(e) => onInputChange(e)}/>
+              <input type="password" name="password" id="password" value={password} onChange={(e) => onInputChange(e)} required/>
               <button type="submit" value="Login" className="teal">LOGIN</button>
           </form>
           <a id="forgot-pw" onClick={() => {handleClick()}}>Forgot Password?</a>

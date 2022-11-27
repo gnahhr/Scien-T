@@ -10,13 +10,15 @@ const InstructionModal = ({instructions, setShowInstruction}) => {
     const [ steps, setSteps ] = useState([])
     const [ description, setDescription ] = useState('')
     const [ screenshots, setScreenshots ] = useState([])
+    const [ mobileScreens, setMobileScreens ] = useState([])
     const [ index, setIndex ] = useState(0)
     const [ indicator, setIndicator ] = useState('')
 
     useEffect(() => {
-        setSteps(instructions.steps)
-        setDescription(instructions.description)
-        setScreenshots(instructions.screenshots)
+        setSteps(instructions.steps);
+        setDescription(instructions.description);
+        setScreenshots(instructions.screenshots);
+        setMobileScreens(instructions.mobileScreens);
     },[])
 
     useEffect(() => {
@@ -48,8 +50,7 @@ const InstructionModal = ({instructions, setShowInstruction}) => {
 
   return (
     <div className='modal-wrapper'>
-        
-        <div className='content'>
+        <div className='instruction-content'>
             <div className='close-button'>
                     <a onClick={() => closeInstruction()}><img src={close} alt="" /></a>
             </div> 
@@ -63,7 +64,8 @@ const InstructionModal = ({instructions, setShowInstruction}) => {
                     </div>
                     
                     <div className='screenshots'>
-                        <img className={indicator}  src={`./images/${instructions.game}/${screenshots[index]}.png`} alt="" />
+                        <img className={`screenshot`}  src={`./images/${instructions.game}/${screenshots[index]}.png`} alt="" />
+                        <img className={`mobile-screenshot`}  src={`./images/${instructions.game}/${mobileScreens[index]}.png`} alt="" />
                     </div>
 
                     <div className='right-button'>

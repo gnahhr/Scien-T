@@ -11,7 +11,7 @@
         
 }
 
-.content {
+.instruction-content {
     display: grid;
     background-color: pink;
     position: relative;
@@ -27,10 +27,14 @@
         place-items: center;
         position: relative;
 
-
         .middle-container{
             position: relative;
             margin: auto;
+            display: grid;
+            place-items: center;
+            text-align: center;
+            width: 100%;
+            overflow: hidden;
 
             .left-button, .right-button {
                 position: absolute
@@ -50,26 +54,27 @@
                 right: 0;
             }
 
-            display: grid;
-            place-items: center;
-            text-align: center;
-            padding: .5rem 2rem;//clamp  later
-            border-radius: 20px;
-            width: fit-content;
-
             .screenshots{
-                width: clamp(155px, 35vw, 35rem);
+                width: clamp(160px, 35vw, 35rem);
                 height: clamp(145px, 30vw, 30rem);
+                display: grid;
+                place-items: center;
+
+
                 img{ 
-                    border-radius: 20px;
-                    width: inherit;//clamp  later
-                    height: inherit;//clamp  later
-                    // height: clamp(145px, 30vw, 30rem);//clamp  later
-                    // width: 29vw;
+                    border-radius: 5px;
+                    width: inherit;
+                }
+
+                .mobile-screenshot {
+                    display: none;
+                }
+
+                .screenshot {
+                    display: block;
                 }
             }
         }
-            
         .steps {
             background-color: rgba(0, 0, 0, 0.6);
             // position: absolute;
@@ -100,14 +105,14 @@
     }
 }
 
-
-
 .Incorrect{
     background-color: red;
+    height: 100%;
 }
 
 .Correct{
     background-color: green;
+    height: 100%;
 }
 
 .left-button, .right-button{
@@ -119,12 +124,24 @@
 }
 
 @media only screen and (orientation: portrait) {
-    .content {
+    .instruction-content {
+        height: 90vh;
         .screenshots-slider {
+            align-items: flex-start;
+            grid-template-rows: 70% 30%;
             .middle-container {
+                // margin: 0;
+                // height: 80%;
                 .screenshots{
-                    height: clamp(250px, 35vw, 40rem);
-                    width: clamp(165px, 30vw, 35rem);
+                    height: inherit;
+                    .mobile-screenshot {
+                        display: block;
+                    }
+
+                    .screenshot {
+                        display: none;
+                        width: clamp(165px, 30vw, 35rem);
+                    }
                 }
             }
         }

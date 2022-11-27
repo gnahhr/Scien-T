@@ -61,7 +61,7 @@ const electronConfiguration = () => {
   //Modal States
   const [ overlayState, setOverlayState ] = useState(false)
   const [ showModal, setShowModal ] = useState(false)
-  const [ showInstruction, setShowInstruction ]  = useState(true)
+  const [ showInstruction, setShowInstruction ]  = useState(false)
 
   //Audio References
   const elecConfigBGM = useAudio(BgmElecConfig, {volume: 0.65, playbackRate: 1, loop: true});
@@ -243,6 +243,9 @@ const electronConfiguration = () => {
               </div>
 
               <div className="settings-wrapper">
+                <div className="icon" onClick={() => setShowInstruction(true)}>
+                  HELP
+                </div>
                 <MuteButton audio={audioArray} />
               </div>
             </div>
