@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import jwtDecode from "jwt-decode"
 
 //Hooks
 import pushProgEC from '../../Hooks/pushProgEC.js';
 import getUserProgEC from '../../Hooks/getUserProgEC';
+import useAudio from '../../Hooks/useAudio.js';
 
 //Data
 import { periodicTable } from '../../Data/PeriodicTableJSON';
-import backCard from '../../Assets/Images/back-card.png';
 
-//Assets
+//Images
 import star from '../../Assets/Images/Star1.png';
 import frontCard from '../../Assets/Images/front-card.png';
+import backCard from '../../Assets/Images/back-card.png';
 import icon1 from '../../Assets/Images/icon1.png';
 import icon2 from '../../Assets/Images/icon2.png';
 import icon3 from '../../Assets/Images/icon3.png';
@@ -24,8 +24,15 @@ import icon8 from '../../Assets/Images/icon8.png';
 import icon9 from '../../Assets/Images/icon9.png';
 import icon10 from '../../Assets/Images/icon10.png';
 
+//Audio
+import BgmElecConfig from '../../Assets/Audio/Electron Configuration/elecConfig-bgm.mp3';
+import RightSFX from '../../Assets/Audio/Electron Configuration/correct.mp3';
+import WrongSFX from '../../Assets/Audio/Electron Configuration/wrong.mp3';
+import SelectSFX from '../../Assets/Audio/Electron Configuration/select.mp3';
+
 //Components
 import InstructionModal from '../../Components/InstructionModal.jsx';
+import MuteButton from '../../Components/MuteButton.jsx';
 
 //Data
 import ElectronConfigInstructions from '../../Data/ElectronConfigInstructions'
@@ -34,10 +41,12 @@ import ElectronConfigInstructions from '../../Data/ElectronConfigInstructions'
 import "./electronConfiguration.css";
 
 const electronConfiguration = () => {
-  const icons = [icon1,icon2,icon3,icon4,icon5,icon6,icon7,icon8,icon9,icon10]
+  //Icon Array
+  const icons = [icon1,icon2,icon3,icon4,icon5,icon6,icon7,icon8,icon9,icon10];
   
+  //Data States
   const [ points, setPoints ] = useState(0)
-  const [ prizeCoins, setPrizeCoins ] = useState(500)
+  const [ prizeCoins, setPrizeCoins ] = useState(10)
   const [ igPoints, setIGPoints ] = useState(0)
   const [ cell, setCell ] = useState([])
   const [ answer, setAnswer ] = useState([])
@@ -46,29 +55,42 @@ const electronConfiguration = () => {
   const [ cellState, setCellState ] = useState(false)
   const [ clickState, setClickState ] = useState(true)
   const [ gameProgress, setGameProgress ] = useState(0)
-
-  const [ overlayState, setOverlayState ] = useState(false)
-  const [ showModal, setShowModal ] = useState(false)
-
-  const [ showInstruction, setShowInstruction ]  = useState(true)
-
   const [ access, setAccess ] = useState('')
   const [ username, setUsername] = useState('')
 
+  //Modal States
+  const [ overlayState, setOverlayState ] = useState(false)
+  const [ showModal, setShowModal ] = useState(false)
+  const [ showInstruction, setShowInstruction ]  = useState(true)
 
+  //Audio References
+  const elecConfigBGM = useAudio(BgmElecConfig, {volume: 0.65, playbackRate: 1, loop: true});
+  const selectSFX = useAudio(SelectSFX, {volume: 0.6, playbackRate: 1.75, loop: false});
+  const rightSFX = useAudio(RightSFX, {volume: 0.6, playbackRate: 1, loop: false});
+  const wrongSFX = useAudio(WrongSFX, {volume: 0.6, playbackRate: 1, loop: false});
 
+  const audioArray = [elecConfigBGM, selectSFX, rightSFX, wrongSFX];
 
   useEffect(() => {
     const token = localStorage.getItem('token')
     const user = jwtDecode(token)
+
     setAccess(user.id)
     setUsername(user.username)
     cellGenerator(119);
+    elecConfigBGM.play();
+
     (async() => {
       const data = await getUserProgEC(user.id)
       setPoints(data)
     })()
   },[])
+
+  useEffect(() => {
+    return () => {
+      elecConfigBGM.pause()
+    }
+  }, [])
 
   useEffect(() => {
     if(showInstruction === false){
@@ -102,7 +124,6 @@ const electronConfiguration = () => {
     if(gameProgress === 10){
       pushProgEC(access,igPoints,prizeCoins)
       setShowModal(true)
-      console.log('finish na')
     }
   },[gameProgress])
 
@@ -139,7 +160,7 @@ const electronConfiguration = () => {
 
   const checkAnswer = (ans1, index1, cellState1, ans2, index2, cellState2) => {
     if(ans1 === ans2){
-      console.log('correct')
+      rightSFX.play();
       let updatedCells = [...shuffledCell]
       updatedCells[index1][2] = true
       updatedCells[index2][2] = true
@@ -149,8 +170,8 @@ const electronConfiguration = () => {
       setAnswer([])
       setGameProgress(gameProgress+1)
     }
-
     else{
+      wrongSFX.play();
       let updatedCells = [...shuffledCell]
       updatedCells[index1][3] = false
       updatedCells[index2][3] = false
@@ -163,6 +184,7 @@ const electronConfiguration = () => {
   }
 
   const handleClick = (cell,index, cellState) => {
+    selectSFX.play();
     setAnswer((current) => [...current, [cell,index, cellState]])
     let updatedCells = [...shuffledCell]
     updatedCells[index][3] = true
@@ -218,7 +240,10 @@ const electronConfiguration = () => {
               <div className='points'>
                 <img src={star} alt="" />
                 <h1>Points: {points+igPoints}</h1>
-                {gameProgress === 10 ? <h1>Finish na</h1> : ''}
+              </div>
+
+              <div className="settings-wrapper">
+                <MuteButton audio={audioArray} />
               </div>
             </div>
 

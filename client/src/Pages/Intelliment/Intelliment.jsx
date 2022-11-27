@@ -1,6 +1,3 @@
-//TO-DO:
-//Refactor Intelliment per component
-
 import React, { useState, useEffect } from 'react';
 import jwtDecode from "jwt-decode"
 
@@ -18,7 +15,6 @@ import { periodicTable } from '../../Data/PeriodicTableJSON';
 import { sampleQuestions } from '../../Data/SampleQuestion.js';
 
 //Styles
-import Music from '../../Assets/Images/music.svg';
 import ElemColors from '../../Data/ElemColors.js'
 import "./Intelliment.css";
 
@@ -140,6 +136,12 @@ const Intelliment = ({mode}) => {
     }
   }, [step])
 
+  useEffect(() => {
+    if(nthQuestion === questions.length) {
+      setFinished(true);
+    }
+  }, [nthQuestion])
+
   //Combo
   useEffect(() => {
     if (multiplier < 5) {
@@ -168,7 +170,7 @@ const Intelliment = ({mode}) => {
       setTimer(10);
     }
 
-    if (pickedDifficulty & !answered){
+    if (pickedDifficulty && !answered){
       if (timer === 0) {
         selectAns("");
         // prepToast("wrong", "warning");
@@ -232,7 +234,6 @@ const Intelliment = ({mode}) => {
       } else {
         setCombo(0);
         setMultiplier(1);
-        // prepToast("Wrong!", "warning");
         prepToast("wrong", 0);
       }
       setAnswered(true);
@@ -377,11 +378,6 @@ const Intelliment = ({mode}) => {
                   {`x${multiplier}`} 
                 </div>
               </div>
-              <div className="settings">
-                <div className="icon">
-                  <img src={Music} alt="music"/>
-                </div>
-              </div>
             </div>
             <div className="question-wrapper">
                 <ElementQuestion data={questions[nthQuestion]} sequence={step-1}/>
@@ -399,7 +395,6 @@ const Intelliment = ({mode}) => {
                     })}
                 </div>
             </div>
-
             <div className="timer">
                 <div className="text-timer">
                     {timer}s

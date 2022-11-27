@@ -113,19 +113,25 @@
   width: 100%;
 }
 .main-page footer form {
-  width: 30%;
+  width: fit-content;
 }
 .main-page footer form textarea {
   background-color: #D9D9D9;
   border: none;
+  padding: 1ch;
   border-radius: 7px;
-  width: 105%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
 }
 .main-page footer form label {
   color: #282054;
-}
-.main-page footer form input[type=email] {
-  background-color: #D9D9D9;
+  text-align: center;
+  display: block;
+  margin: auto;
+  width: 100%;
+  font-size: 1.5rem;
 }
 .main-page footer form input[type=submit] {
   margin: 1rem auto;

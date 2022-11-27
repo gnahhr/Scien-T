@@ -1,14 +1,20 @@
 import React from 'react';
-import logo from '../../Assets/Images/logo.png';
-import user from '../../Assets/Images/user.png';
+import { useNavigate } from 'react-router-dom';
+
+//Components
+import Card from '../../Components/Card';
+
+//Images
 import table from '../../Assets/Images/table.png'
 import atom from '../../Assets/Images/atom.png';
 import chemical from '../../Assets/Images/chemical.png';
-import mixingTable from '../../Assets/Images/mixingTable.png';
-import intelliment from '../../Assets/Images/intelliment.png';
-import Card from '../../Components/Card';
+
+//Data
+import mainLinks from '../../Data/MainLinks';
+
+
+//Design
 import './mainPage.css';
-import { useNavigate } from 'react-router-dom';
 
 const mainPage = () => {
   let nav = useNavigate();
@@ -48,34 +54,36 @@ const mainPage = () => {
                         LEARN NOW!
                     </button>
                 </div>
-
+                <div className="games-wrapper">
+                    {mainLinks && mainLinks.filter((link) => link.type === "learn").map((data) =>
+                    <Card
+                        key={data.name}
+                        type={data.type}
+                        picture={`/images/${data.picture}`}
+                        name={data.name}
+                        description={data.desc}
+                        btnType={data.btnType}
+                        path={data.path}/>)}
+                </div>
                 <h2>Choose any from these games and enjoy.</h2>
                 <div className="games-wrapper">
-                    <Card picture={intelliment}
-                        name={"Intelliment"}
-                        description={"Identify the element based on its atomic number, weight and group."}
-                        btnType="teal"
-                        path="/intelliment"/>
-                    <Card picture={mixingTable}
-                        name={"Mixing Table"}
-                        description={"Mix different elements and discover a new compound."}
-                        btnType="red"
-                        path="/mix"/>
-                    <Card picture={intelliment}
-                        name={"Electron Configuration"}
-                        description={"Abracadbara"}
-                        btnType="teal"
-                        path="/electronConfiguration"/>
+                    {mainLinks && mainLinks.filter((link) => link.type === "game").map((data) =>
+                    <Card
+                        key={data.name}
+                        type={data.type}
+                        picture={`/images/${data.picture}`}
+                        name={data.name}
+                        description={data.desc}
+                        btnType={data.btnType}
+                        path={data.path}/>)}
                 </div>
             </div>
             <footer>
                 <div className="contact-us">
                     <h1>Contact Us</h1>
-                    <form action="">
-                        <label htmlFor="email">Email</label>
-                        <input type="email" name="email" id="email"/>
-                        <label htmlFor="message">Message</label> <br />
-                        <textarea name="message" id="message" cols="56" rows="10"></textarea>
+                    <form action="mailto:cs62scient@gmail.com" method="get" enctype="text/plain">
+                        <label htmlFor="body">Message</label> <br />
+                        <textarea name="body" id="body" cols="56" rows="10"></textarea>
                         <input type="submit" value="Submit" className="button" />
                     </form>
                 </div>
