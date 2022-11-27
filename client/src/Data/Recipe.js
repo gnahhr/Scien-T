@@ -66,7 +66,6 @@ export const recipe = [
 			"It is also known as trihydridonitrogen and nitrogen trihydride. This compound is known to be the simplest pnictogen hydride.",
 			"When large concentrations of ammonia are inhaled, the most common symptoms that arise include an immediate burning of the throat, nose, and respiratory tract.",
 			"One of the most important applications of ammonia is its use in the agriculture industry as a fertilizer.It is also used in the household as a cleaner.Ammonia is mixed with water to clean stainless steel and glass",
-			
 		]
 	},
 	{
@@ -96,7 +95,6 @@ export const recipe = [
 			"It has many essential applications, in particular in the manufacture of fertilizers.",
 			"It's others uses are skincare product, supplement feed for farm animals, brewing, and remove rust from the surface to metals.",
 			"It gives a tangy taste to soft drinks and prevents mould and bacteria from developing, which can easily multiply in a sugar solution."
-			
 		]
 	},
 	{
@@ -153,7 +151,6 @@ export const recipe = [
 			"The preparation of carbonated water, sparkling wine, and other aerated drinks involve the use of carbonic acid.",
 			"It helps in the transportation of carbon dioxide out of the body.",
 			"Ringworm and other dermatitides are treated via the application of carbonic acid over the affected area."
-
 		]
 	},
 	{
@@ -169,7 +166,6 @@ export const recipe = [
 			"It is used in cooking especially to bake food items",
 			"It is used in medicine to be injected intravenously to the prevention of chemotherapy side effects",
 			"It is used to wash kitchen products due to its antibacterial properties"
-
 		]
 	},
 	{
@@ -183,8 +179,6 @@ export const recipe = [
 			"It generates a high level of heat and so is always created by mixing the compound into the water, not vice versa.",
 			"Used in the manufacture of soaps and a range of detergents used in homes and business applications",
 			"Used for the production of bleach.",
-
-
 		]
 	},
 	{
@@ -198,7 +192,6 @@ export const recipe = [
 			"The saturated solution of calcium hydroxide in water also reacts with and dissolves metals such as aluminium.",
 			"The production of many plastics involves the use of calcium hydroxide as an ingredient.",
 			" It is used in industrial settings such as the treatment of waste, the manufacturing of paper, building and processing of food. There are also several medical and dental applications of this compound. For instance, fillings used in root canal treatments often contain calcium hydroxide."
-
 		]
 	},
 	{
@@ -381,7 +374,6 @@ export const recipe = [
 			"also called Filter Alum or Dialuminum trisulphate.",
 			"It is used in baking soda, gardening, dyeing or printing of cloth, firefighting foam, and sewage treatment.",
 			"Aluminium sulphate is an irritant to the skin and eyes, so you should wear gloves and eye protection while dealing with it.",
-
 		]
 	},
 	{
@@ -405,10 +397,9 @@ export const recipe = [
 		formula: "NH<sub>4</sub>NO<sub>3</sub>",
 		moleWeight: "80.043 g/mol",
 		description: [
-	
 			"Used to make fertilizers and explosives, and as a nutrient in antibiotic and yeast growth. Ammonium nitrate is the nitric acid ammonium salt. It has a function as a fertilizer, an oxidizing agent and an explosive.",
 			"It feels cold when ammonium nitrate is dissolved in water which indicates an endothermic reaction.",
-			" The use of ammonium nitrate in gardens and large-scale growing fields stimulates plant growth and provides a ready source of nitrogen that plants can draw from."
+			"The use of ammonium nitrate in gardens and large-scale growing fields stimulates plant growth and provides a ready source of nitrogen that plants can draw from."
 		]
 	},
 	{
@@ -418,7 +409,6 @@ export const recipe = [
 		formula: `"(NH<sub>4</sub>)<sub>3</sub>PO<sub>4</sub>"`,
 		moleWeight: "132.056 g/mol",
 		description: [
-	
 			"also known as triammonium phosphate, diazanium hydrogen phosphate",
 			"Ammonium phosphate is a high source of elemental nitrogen used as an ingredient in certain fertilizers. This is also used in thermoplastic formulations as a flame retardant.",
 			"Ammonium phosphate is a fast-release fertilizer that can be used for new grass planting, cleaning, monitoring, or lawn renovation."
@@ -431,7 +421,6 @@ export const recipe = [
 		formula: `"BA(OH)<sub>2</sub>"`,
 		moleWeight: "171.341 g/mol",
 		description: [
-	
 			"is also called as baryta with",
 			"Used in the manufacture of alkalis, glass, oil and grease additives, barium soaps, and other barium compounds.",
 			"Inhalation of barium dusts can cause irritation of the nose and upper respiratory tract and may produce benign pneumoconiosis known as baritosis.",
