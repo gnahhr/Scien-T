@@ -8,7 +8,7 @@
   width: 2rem;
 }
 
-.content {
+.instruction-content {
   display: grid;
   background-color: pink;
   position: relative;
@@ -17,64 +17,70 @@
   height: 85vh;
   padding: 1rem;
 }
-.content .screenshots-slider {
+.instruction-content .screenshots-slider {
   display: grid;
   grid-template-columns: 1fr;
   background-color: purple;
   place-items: center;
   position: relative;
 }
-.content .screenshots-slider .middle-container {
+.instruction-content .screenshots-slider .middle-container {
   position: relative;
   margin: auto;
   display: grid;
   place-items: center;
   text-align: center;
-  padding: 0.5rem 2rem;
-  border-radius: 20px;
-  width: fit-content;
+  width: 100%;
+  overflow: hidden;
 }
-.content .screenshots-slider .middle-container .left-button, .content .screenshots-slider .middle-container .right-button {
+.instruction-content .screenshots-slider .middle-container .left-button, .instruction-content .screenshots-slider .middle-container .right-button {
   position: absolute;
 }
-.content .screenshots-slider .middle-container .left-button {
+.instruction-content .screenshots-slider .middle-container .left-button {
   left: 0;
 }
-.content .screenshots-slider .middle-container .left-button a img {
+.instruction-content .screenshots-slider .middle-container .left-button a img {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
 }
-.content .screenshots-slider .middle-container .right-button {
+.instruction-content .screenshots-slider .middle-container .right-button {
   right: 0;
 }
-.content .screenshots-slider .middle-container .screenshots {
-  width: clamp(155px, 35vw, 35rem);
+.instruction-content .screenshots-slider .middle-container .screenshots {
+  width: clamp(160px, 35vw, 35rem);
   height: clamp(145px, 30vw, 30rem);
+  display: grid;
+  place-items: center;
 }
-.content .screenshots-slider .middle-container .screenshots img {
-  border-radius: 20px;
+.instruction-content .screenshots-slider .middle-container .screenshots img {
+  border-radius: 5px;
   width: inherit;
-  height: inherit;
 }
-.content .screenshots-slider .steps {
+.instruction-content .screenshots-slider .middle-container .screenshots .mobile-screenshot {
+  display: none;
+}
+.instruction-content .screenshots-slider .middle-container .screenshots .screenshot {
+  display: block;
+}
+.instruction-content .screenshots-slider .steps {
   background-color: rgba(0, 0, 0, 0.6);
   bottom: 0;
   width: 100%;
   height: 100%;
   grid-column: span 3/auto;
 }
-.content .screenshots-slider .steps p {
+.instruction-content .screenshots-slider .steps p {
   color: #FFFFFF;
   margin: 0;
   font-size: clamp(14px, 2vw, 1.25rem);
   text-align: center;
 }
-.content .description-and-steps {
+.instruction-content .description-and-steps {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-.content .description-and-steps .description > p {
+.instruction-content .description-and-steps .description > p {
   font-size: clamp(12px, 2vw, 1rem);
   text-align: center;
   font-weight: bold;
@@ -82,10 +88,12 @@
 
 .Incorrect {
   background-color: red;
+  height: 100%;
 }
 
 .Correct {
   background-color: green;
+  height: 100%;
 }
 
 .left-button, .right-button {
@@ -97,8 +105,21 @@
 }
 
 @media only screen and (orientation: portrait) {
-  .content .screenshots-slider .middle-container .screenshots {
-    height: clamp(250px, 35vw, 40rem);
+  .instruction-content {
+    height: 90vh;
+  }
+  .instruction-content .screenshots-slider {
+    align-items: flex-start;
+    grid-template-rows: 70% 30%;
+  }
+  .instruction-content .screenshots-slider .middle-container .screenshots {
+    height: inherit;
+  }
+  .instruction-content .screenshots-slider .middle-container .screenshots .mobile-screenshot {
+    display: block;
+  }
+  .instruction-content .screenshots-slider .middle-container .screenshots .screenshot {
+    display: none;
     width: clamp(165px, 30vw, 35rem);
   }
 }

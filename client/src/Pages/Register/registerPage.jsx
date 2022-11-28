@@ -15,6 +15,9 @@ import './registerPage.css';
 const registerPage = () => {
   const navigate = useNavigate();
 
+  //Message
+  const [message, setMessage] = useState('');
+
   //Input Field States
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -47,6 +50,11 @@ const registerPage = () => {
   async function registerUser(event) {
 		event.preventDefault()
 
+    if (password !== conPassword) {
+      setMessage("Password mismatch!");
+      return;
+    }
+
 		const response = await fetch(`${process.env.REACT_APP_API_URL}/api/register`, {
 			method: 'POST',
 			headers: {
@@ -65,9 +73,11 @@ const registerPage = () => {
 		const data = await response.json()
     
 		if (data.status === 'ok') {
-      localStorage.setItem('verify', data.user)
-			navigate('/verify')
-		}
+      localStorage.setItem('verify', data.user);
+			navigate('/verify');
+		} else {
+      setMessage(data.error);
+    }
 	}
 
   return (
@@ -85,18 +95,19 @@ const registerPage = () => {
               </div>
             </div>
             <form onSubmit={registerUser} id="login">
+              {message !== '' && <h3 style={{color: "#AB2921"}}>{message}</h3>}
               <label htmlFor="firstName">First Name</label>
-                <input type="text" name="firstName" id="firstName" value={firstName} onChange={(e) => onInputChange(e)}/>
+                <input type="text" name="firstName" id="firstName" value={firstName} onChange={(e) => onInputChange(e)} required/>
                 <label htmlFor="lastName">Last Name</label>
-                <input type="text" name="lastName" id="lastName" value={lastName} onChange={(e) => onInputChange(e)}/>
+                <input type="text" name="lastName" id="lastName" value={lastName} onChange={(e) => onInputChange(e)} required/>
                 <label htmlFor="username">Username</label>
-                <input type="text" name="username" id="username" value={username} onChange={(e) => onInputChange(e)}/>
+                <input type="text" name="username" id="username" value={username} onChange={(e) => onInputChange(e)} required/>
                 <label htmlFor="password">Password</label>
-                <input type="password" name="password" id="password" value={password} onChange={(e) => onInputChange(e)}/>
+                <input type="password" name="password" id="password" value={password} onChange={(e) => onInputChange(e)} required/>
                 <label htmlFor="password">Confirm Password</label>
-                <input type="password" name="conPassword" id="conPassword" value={conPassword} onChange={(e) => onInputChange(e)}/>
+                <input type="password" name="conPassword" id="conPassword" value={conPassword} onChange={(e) => onInputChange(e)} required/>
                 <label htmlFor="email">E-mail</label>
-                <input type="email" name="email" id="email" value={email} onChange={(e) => onInputChange(e)}/>
+                <input type="email" name="email" id="email" value={email} onChange={(e) => onInputChange(e)} required/>
                 <button type="submit" value="Register" className="teal">Sign Up</button>
             </form>
           </div>

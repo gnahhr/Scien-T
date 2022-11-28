@@ -14,7 +14,6 @@ import Progress from '../Assets/Images/progress.svg';
 import Game from '../Assets/Images/game.svg';
 import Learn from '../Assets/Images/learn.svg';
 import Home from '../Assets/Images/home.svg';
-import Intell from '../Assets/Images/intell-icon.svg';
 import Mix from '../Assets/Images/mix-icon.svg';
 import Trivia from '../Assets/Images/trivia-icon.svg';
 import PerIcon from '../Assets/Images/periodic-icon.svg';
@@ -35,7 +34,6 @@ const SideNav = ({children}) => {
   const nav = useNavigate();
   const [ navOpen, setNavOpen ] = useState(false);
   const [ character, setCharacter ] = useState();
-  const [ profilePicture, setProfilePicture ] = useState();
 
   const toggleNav = (status) => setNavOpen(!status);
 
@@ -52,19 +50,21 @@ const SideNav = ({children}) => {
   }
 
   useEffect(() =>  {
+    getCharacter();
+  },[])
+
+  useEffect(() =>{
+    getCharacter();
+  },[children])
+
+  const getCharacter = () => {
     const token = localStorage.getItem('token');
     const user = jwtDecode(token);
     (async() =>{
       const response = await getProfilePicture(user.id, user.gender);
       setCharacter(response)
     })();
-  },[])
-
-  useEffect(() =>{
-    console.log(character)
-  },[character])
-
-  
+  }
                            
   return (
     <>
@@ -73,7 +73,7 @@ const SideNav = ({children}) => {
       <img src={Close} alt="close" id="side-nav-close" onClick={() => toggleNav(navOpen)}/>
       <img src={Logo} alt="logo" className="side-nav-logo"/>
       <div className="user">
-        <img src={character} alt='pfp'/>
+        <img src={character ? character : User} alt='pfp'/>
         <NavLink to="/profile" onClick={closeNav}>
           <p className="username">{localStorage.getItem("username")}</p>
         </NavLink>

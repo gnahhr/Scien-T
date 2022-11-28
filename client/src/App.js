@@ -57,7 +57,7 @@ function App() {
           
         {user &&
         <> 
-          <SideNav >
+          <SideNav>
             <Routes>
               <Route path="/" element={<MainPage />} />
               <Route path="/mix" element={<MixingTable />} />
@@ -77,7 +77,6 @@ function App() {
               <Route path="*" element={<MixingTable />}/> 
             </Routes>
           </SideNav>
-          {/* <SideNav /> */}
         </>}
       </div>
     </DndProvider>

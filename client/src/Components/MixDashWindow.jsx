@@ -50,7 +50,7 @@ const MixDashWindow = ({build, setResultState, setResult, nextPhase, setPrizeCoi
   const [ animState, setAnimState ] = useState(1);
   const [ isAnimate, setIsAnimate ] = useState(true); 
 
-  //Audio Refense
+  //Audio Reference
   const mixDashBGM = useAudio(Bgm, {volume: 0.8, playbackRate: 1, loop: true});
   const selectSFX = useAudio(SelectSFX, {volume: 0.6, playbackRate: 1.75, loop: false});
   const rightSFX = useAudio(RightSFX, {volume: 0.6, playbackRate: 1, loop: false});

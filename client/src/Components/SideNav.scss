@@ -59,10 +59,10 @@
     margin: 1rem auto 2rem;
 
     img {
-        width: 32px;
+        width: clamp(38px, 40%, 6rem);
         background-color: #d0bfe9;
         border-radius: 50%;
-        padding: 1rem;
+        padding: .2rem;
     }
     
     p {
@@ -193,13 +193,6 @@
     .side-nav-logo {
         width: 80%;
         padding: 2rem;
-    }
-
-    .user {
-        img{
-            width: 32px;
-            padding: .5rem;
-        }
     }
 
     .category {

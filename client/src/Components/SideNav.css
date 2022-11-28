@@ -57,10 +57,10 @@
   margin: 1rem auto 2rem;
 }
 .user img {
-  width: 32px;
+  width: clamp(38px, 40%, 6rem);
   background-color: #d0bfe9;
   border-radius: 50%;
-  padding: 1rem;
+  padding: 0.2rem;
 }
 .user p {
   margin: 0.5rem;
@@ -163,10 +163,6 @@
 .collapsed-nav .side-nav-logo {
   width: 80%;
   padding: 2rem;
-}
-.collapsed-nav .user img {
-  width: 32px;
-  padding: 0.5rem;
 }
 .collapsed-nav .category {
   display: flex;

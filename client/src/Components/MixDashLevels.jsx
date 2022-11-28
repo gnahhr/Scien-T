@@ -10,7 +10,7 @@ import Lock from '../Assets/Images/lock.svg';
 //Hooks
 import buyMixDashStage from '../Hooks/buyMixDashStage';
 
-const MixDashLevels = ({totalLevels, lastFinStage, nextPhase, setLevel, boughtStage, boughtState, access}) => {
+const MixDashLevels = ({totalLevels, lastFinStage, nextPhase, setLevel, boughtStage, boughtState, access, setShowInstruction}) => {
   //Selected Data States
   const [ selStage, setSelStage ] = useState(0);
   const [ selPrice, setSelPrice ] = useState(0);
@@ -69,6 +69,11 @@ const MixDashLevels = ({totalLevels, lastFinStage, nextPhase, setLevel, boughtSt
         <h2>Pick a stage:</h2>
         <div className="stages mixDash-stages">
             {levels && levels}
+        </div>
+        <div className="settings-wrapper">
+          <div className="icon float-help" onClick={() => setShowInstruction(true)}>
+            HELP
+          </div>
         </div>
         <Toast message={toastMessage} timer={3000} toastType={"success"} showToast={setShowToast} toastState={showToast}/>
         {showModal && <UnlockStageModal stage={selStage} price={200} showModal={setShowModal} buyStage={buyStage}/>}

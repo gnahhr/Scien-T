@@ -10,8 +10,13 @@ const ElectronConfigInstructions = {
         "electronConfig-1",
         "electronConfig-2",
         "electronConfig-3"
+    ],
+
+    mobileScreens : [
+        "electronConfig-1-m",
+        "electronConfig-2-m",
+        "electronConfig-3-m"
     ]
-    
 }
 
 export default ElectronConfigInstructions

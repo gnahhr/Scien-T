@@ -272,6 +272,12 @@ h2 {
   cursor: pointer;
 }
 
+.float-help {
+  position: fixed;
+  right: 10%;
+  bottom: 10%;
+}
+
 .settings-wrapper {
   margin-left: auto;
   align-self: center;

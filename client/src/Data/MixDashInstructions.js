@@ -11,9 +11,16 @@ const MixDashInstructions = {
 
     screenshots : [
         "mixDash-1",
-        "mixDash-1",
-        "mixDash-1",
-        "mixDash-2"
+        "mixDash-2",
+        "mixDash-3",
+        "mixDash-4"
+    ],
+
+    mobileScreens : [
+        "mixDash-1-m",
+        "mixDash-2-m",
+        "mixDash-3",
+        "mixDash-4-m"
     ]
 }
 
