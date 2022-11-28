@@ -1,8 +1,15 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import './PeriodicModal.css';
-import ElemColors from '../Data/ElemColors.js';
+
+//Components
 import Bohr3D from './Bohr3D';
+
+//Data
+import ElemColors from '../Data/ElemColors.js';
+import { elemPics } from '../Data/ElementPictures.js';
+
+//Design
+import './PeriodicModal.css';
 
 const PeriodicModal = ({data, showModal}) => {
   const { familyBGs } = ElemColors;
@@ -12,14 +19,19 @@ const PeriodicModal = ({data, showModal}) => {
         <div className="wrapper">
             <div className="exit" onClick={() => showModal(false)}>X</div>
             <h2 className="category">{data.category}</h2>
-            <div className="element-wrapper"
-                 style={{
-                    backgroundColor: familyBGs[data.category] ? familyBGs[data.category] : "#EBF3F6" 
-                 }}>
-                <p className="atomic-num">{data.number}</p>
-                <p className="element-sym">{data.symbol}</p>
-                <div className="element-name">{data.name}</div>
-                <div className="element-weight">{data.atomic_mass}</div>
+            <div className="element-header">
+                <div className="element-wrapper"
+                    style={{
+                        backgroundColor: familyBGs[data.category] ? familyBGs[data.category] : "#EBF3F6" 
+                    }}>
+                    <p className="atomic-num">{data.number}</p>
+                    <p className="element-sym">{data.symbol}</p>
+                    <div className="element-name">{data.name}</div>
+                    <div className="element-weight">{data.atomic_mass}</div>
+                </div>
+                <div className="element-picture">
+                    <img src={`/images/Elements/${elemPics[data.number-1].picture}`} alt={data.name} />
+                </div>
             </div>
             <div className="description-wrapper">
                 <div className="left-desc">Discovered By:</div>

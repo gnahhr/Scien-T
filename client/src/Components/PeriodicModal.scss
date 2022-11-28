@@ -46,19 +46,44 @@
             cursor: pointer;
         }
 
-        .element-wrapper {
+        .element-header {
+            display: grid;
             width: 80%;
-            padding: 3rem auto;
-            color:#220C41;
+            margin-bottom: 1rem;
+            .element-wrapper {
+                width: 40%;
+                padding: 3rem auto;
+                color:#220C41;
+                align-self: flex-end;
+                justify-self: center;
+                margin: 0;
+                transform: translateY(15%);
+    
+                .atomic-num {
+                    font-size: 2rem;
+                }
+                .element-sym {
+                    font-size: 4rem;
+                }
+                .element-name {
+                    font-size: 2rem;
+                }
+            }
 
-            .atomic-num {
-                font-size: 2rem;
-            }
-            .element-sym {
-                font-size: 4rem;
-            }
-            .element-name {
-                font-size: 2rem;
+            .element-picture {
+                height: 100%;
+                width: 60%;          
+                align-self: flex-start;
+                justify-self: center;
+                height: 20rem;
+                border-radius: 15px;
+
+                img {
+                    border-radius: 15px;
+                    width: 100%;
+                    object-fit:fill;              
+                    height: inherit;
+                }
             }
         }
 

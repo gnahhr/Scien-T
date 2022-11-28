@@ -42,19 +42,42 @@
   border: 2px solid #FF0000;
   cursor: pointer;
 }
-.periodic-modal .wrapper .element-wrapper {
+.periodic-modal .wrapper .element-header {
+  display: grid;
   width: 80%;
+  margin-bottom: 1rem;
+}
+.periodic-modal .wrapper .element-header .element-wrapper {
+  width: 40%;
   padding: 3rem auto;
   color: #220C41;
+  align-self: flex-end;
+  justify-self: center;
+  margin: 0;
+  transform: translateY(15%);
 }
-.periodic-modal .wrapper .element-wrapper .atomic-num {
+.periodic-modal .wrapper .element-header .element-wrapper .atomic-num {
   font-size: 2rem;
 }
-.periodic-modal .wrapper .element-wrapper .element-sym {
+.periodic-modal .wrapper .element-header .element-wrapper .element-sym {
   font-size: 4rem;
 }
-.periodic-modal .wrapper .element-wrapper .element-name {
+.periodic-modal .wrapper .element-header .element-wrapper .element-name {
   font-size: 2rem;
+}
+.periodic-modal .wrapper .element-header .element-picture {
+  height: 100%;
+  width: 60%;
+  align-self: flex-start;
+  justify-self: center;
+  height: 20rem;
+  border-radius: 15px;
+}
+.periodic-modal .wrapper .element-header .element-picture img {
+  border-radius: 15px;
+  width: 100%;
+  object-fit: fill;
+  height: inherit;
 }
 .periodic-modal .wrapper .description-wrapper {
   display: grid;

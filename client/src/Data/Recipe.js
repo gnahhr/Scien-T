@@ -2,7 +2,7 @@
 export const recipe = [
 	{
 		name: "Acetic acid",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "acetic-acid.jpg",
 		elements: ["C", "H", "O"],
 		formula: "CH<sub>3</sub>COOH",
 		moleWeight: "60.052 g/mol",
@@ -17,7 +17,7 @@ export const recipe = [
 	},
 	{
 		name: "Hydrochloric acid",
-		compoundPic: "hydrochloric-acid.png",
+		compoundPic: "hydrochloric-acid.jpg",
 		elements: ["H", "Cl"],
 		formula: "HCI",
 		moleWeight: "36.458 g/mol",
@@ -29,7 +29,7 @@ export const recipe = [
 	},
 	{
 		name: "Sulfuric acid",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Sulfuric-Acid.jpg",
 		elements: ["H", "S", "O"],
 		formula: "H<sub>2</sub>SO<sub>4</sub>",
 		moleWeight: "98.072 g/mol",
@@ -43,7 +43,7 @@ export const recipe = [
 	},
 	{
 		name: "Acetate",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Acetate.jpg",
 		elements: ["C", "H", "O"],
 		formula: "C<sub>2</sub>H<sub>3</sub>O<sub>2</sub>",
 		moleWeight: "59.044 g/mol",
@@ -57,7 +57,7 @@ export const recipe = [
 	},
 	{
 		name: "Ammonia",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Ammonia.png",
 		elements: ["N", "H"],
 		formula: "NH<sub>3</sub>",
 		moleWeight: "17.031 g/mol",
@@ -66,11 +66,12 @@ export const recipe = [
 			"It is also known as trihydridonitrogen and nitrogen trihydride. This compound is known to be the simplest pnictogen hydride.",
 			"When large concentrations of ammonia are inhaled, the most common symptoms that arise include an immediate burning of the throat, nose, and respiratory tract.",
 			"One of the most important applications of ammonia is its use in the agriculture industry as a fertilizer.It is also used in the household as a cleaner.Ammonia is mixed with water to clean stainless steel and glass",
+			
 		]
 	},
 	{
 		name: "Nitric Acid",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Nitric-Acid.jpg",
 		elements: ["N", "H", "O"],
 		formula: "NHO<sub>3</sub>",
 		moleWeight: "63.01 g/mol",
@@ -85,7 +86,7 @@ export const recipe = [
 	},		
 	{
 		name: "Phosphoric acid",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Phosphoric-acid.png",
 		elements: ["H", "P", "O"],
 		formula: "H<sub>3</sub>PO<sub>4</sub>",
 		moleWeight: "97.994 g/mol",
@@ -95,11 +96,12 @@ export const recipe = [
 			"It has many essential applications, in particular in the manufacture of fertilizers.",
 			"It's others uses are skincare product, supplement feed for farm animals, brewing, and remove rust from the surface to metals.",
 			"It gives a tangy taste to soft drinks and prevents mould and bacteria from developing, which can easily multiply in a sugar solution."
+			
 		]
 	},
 	{
 		name: "Sodium Phosphate",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Sodium-Phosphate.png",
 		elements: ["Na", "P", "O"],
 		formula: "Na<sub>3</sub>PO<sub>4</sub>",
 		moleWeight: "163.94 g/mol",
@@ -113,7 +115,7 @@ export const recipe = [
 	},
 	{
 		name: "Calcium Carbonate",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Calcium-Carbonate.jpg",
 		elements: ["Ca", "C", "O"],
 		formula: "CaCO<sub>3</sub>",
 		moleWeight: "100.0869 g/mol",
@@ -127,7 +129,7 @@ export const recipe = [
 	},
 	{
 		name: "Ammonium Sulfate",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Ammonium-Sulfate.jpg",
 		elements: ["N", "H", "S", "O"],
 		formula: `"(NA<sub>4</sub>)<sub>2</sub>SO<sub>4</sub>"`,
 		moleWeight: "132.14 g/mol",
@@ -141,7 +143,7 @@ export const recipe = [
 	},
 	{
 		name: "Carbonic Acid",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "carbonic-acid.png",
 		elements: ["H", "C", "O"],
 		formula: "H<sub>2</sub>CO<sub>3</sub>",
 		moleWeight: "62.03 g/mol",
@@ -151,13 +153,14 @@ export const recipe = [
 			"The preparation of carbonated water, sparkling wine, and other aerated drinks involve the use of carbonic acid.",
 			"It helps in the transportation of carbon dioxide out of the body.",
 			"Ringworm and other dermatitides are treated via the application of carbonic acid over the affected area."
+
 		]
 	},
 	{
 		name: "Sodium  Bicarbonate",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Sodium-bicarbonate.png",
 		elements: ["Na", "H", "C", "O"],
-		formula: "NaHCO<sub>3</sub>",
+		formula: "(NaHCO<sub>3</sub>",
 		moleWeight: "84.007 g/mol",
 		description: [
 			"Nicolas Leblanc a French chemist produced sodium carbonate in the year 1791.In the year 1846 Austin Church and John Dwight, bakers of New York started the first factory to produce baking soda.",
@@ -166,24 +169,27 @@ export const recipe = [
 			"It is used in cooking especially to bake food items",
 			"It is used in medicine to be injected intravenously to the prevention of chemotherapy side effects",
 			"It is used to wash kitchen products due to its antibacterial properties"
+
 		]
 	},
 	{
 		name: "Sodium hydroxide",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Sodium-hydroxide.jpg",
 		elements: ["Na", "O", "H",],
-		formula: "NaOH",
+		formula: "(NaOH",
 		moleWeight: "39.997 g/mol",
 		description: [
 			"It is highly corrosive and can cause severe skin burns and irritation to the eyes and other body parts.",
 			"It generates a high level of heat and so is always created by mixing the compound into the water, not vice versa.",
 			"Used in the manufacture of soaps and a range of detergents used in homes and business applications",
 			"Used for the production of bleach.",
+
+
 		]
 	},
 	{
 		name: "Calcium hydroxide",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Calcium-Hydroxide.jpg",
 		elements: ["Ca", "O", "H",],
 		formula: `"Ca(OH)<sub>2</sub>"`,
 		moleWeight: "74.092 g/mol",
@@ -192,11 +198,12 @@ export const recipe = [
 			"The saturated solution of calcium hydroxide in water also reacts with and dissolves metals such as aluminium.",
 			"The production of many plastics involves the use of calcium hydroxide as an ingredient.",
 			" It is used in industrial settings such as the treatment of waste, the manufacturing of paper, building and processing of food. There are also several medical and dental applications of this compound. For instance, fillings used in root canal treatments often contain calcium hydroxide."
+
 		]
 	},
 	{
 		name: "Ethanol",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Ethanol.png",
 		elements: ["C", "H", "O",],
 		formula: "C<sub>2</sub>H<sub>5</sub>OH",
 		moleWeight: "46.069 g/mol",
@@ -208,7 +215,7 @@ export const recipe = [
 	},
 	{
 		name: "Hydrobromic acid",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "hydrobromic-acid.jpg",
 		elements: ["H", "Br"],
 		formula: "HBr",
 		moleWeight: "80.912 g/mol",
@@ -220,7 +227,7 @@ export const recipe = [
 	},
 	{
 		name: "Nitrous acid",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Nitrous-acid.jpg",
 		elements: ["H", "N", "O"],
 		formula: "HNO<sub>2</sub>",
 		moleWeight: "47.013 g/mol",
@@ -233,7 +240,7 @@ export const recipe = [
 	},
 	{
 		name: "Potassium hydroxide",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Potassium-hydroxide.jpg",
 		elements: ["K", "O", "H"],
 		formula: "KOH",
 		moleWeight: "56.11 g/mol",
@@ -247,7 +254,7 @@ export const recipe = [
 	},
 	{
 		name: "Silver nitrate",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "silver-nitrate.jpg",
 		elements: ["Ag", "N", "O"],
 		formula: "AgNO<sub>3</sub>",
 		moleWeight: "169.872 g/mol",
@@ -259,7 +266,7 @@ export const recipe = [
 	},
 	{
 		name: "Sodium carbonate",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "sodium-carbonate.jpg",
 		elements: ["Na", "C", "O"],
 		formula: "Na<sub>2</sub>CO<sub>3</sub>",
 		moleWeight: "105.988 g/mol",
@@ -273,7 +280,7 @@ export const recipe = [
 	},
 	{
 		name: "Sodium chloride",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "sodium-chloride.jpg",
 		elements: ["Na", "Cl"],
 		formula: "NaCl",
 		moleWeight: "58.44 g/mol",
@@ -285,7 +292,7 @@ export const recipe = [
 	},
 	{
 		name: "Cellulose",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "cellulose.jpg",
 		elements: ["C", "H", "O"],
 		formula: `"(C<sub>6</sub>H<sub>10</sub>O<sub>5</sub>)n"`,
 		moleWeight: "162.1406 g/mol",
@@ -299,7 +306,7 @@ export const recipe = [
 	},
 	{
 		name: "Magnesium hydroxide",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Magnesium-hydroxide.png",
 		elements: ["Mg", "O", "H"],
 		formula: `"Mg(OH)<sub>2</sub>"`,
 		moleWeight: "58.319 g/mol",
@@ -312,7 +319,7 @@ export const recipe = [
 	},
 	{
 		name: "Methane",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "methane.jpg",
 		elements: ["C", "H"],
 		formula: "CH<sub>4</sub>",
 		moleWeight: "16.043 g/mol",
@@ -325,7 +332,7 @@ export const recipe = [
 	},
 	{
 		name: "Nitrogen dioxide",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "nitrogen-dioxide.png",
 		elements: ["N", "O"],
 		formula: "NO<sub>2</sub>",
 		moleWeight: "30.006 g/mol",
@@ -339,7 +346,7 @@ export const recipe = [
 	},
 	{
 		name: "Sodium nitrate",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Sodium-nitrate.png",
 		elements: ["Na","N", "O"],
 		formula: "NaNO<sub>2</sub>",
 		moleWeight: "84.994 g/mol",
@@ -353,7 +360,7 @@ export const recipe = [
 	},
 	{
 		name: "Sulfurous acid",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Sulfurous-acid.jpg",
 		elements: ["H","S", "O"],
 		formula: "H<sub>2</sub>SO<sub>3</sub>",
 		moleWeight: "82.073 g/mol",
@@ -366,7 +373,7 @@ export const recipe = [
 	},
 	{
 		name: "Aluminium sulfate",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "ammonium-sulfate.jpg",
 		elements: ["Al","S", "O"],
 		formula: `"Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub>"`,
 		moleWeight: "342.15 g/mol",
@@ -374,11 +381,12 @@ export const recipe = [
 			"also called Filter Alum or Dialuminum trisulphate.",
 			"It is used in baking soda, gardening, dyeing or printing of cloth, firefighting foam, and sewage treatment.",
 			"Aluminium sulphate is an irritant to the skin and eyes, so you should wear gloves and eye protection while dealing with it.",
+
 		]
 	},
 	{
 		name: "Aluminum oxide",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "aluminium-oxide.jpg",
 		elements: ["Al","S", "O"],
 		formula: "Al<sub>2</sub>O<sub>3</sub>",
 		moleWeight: "101.96 g/mol",
@@ -392,23 +400,25 @@ export const recipe = [
 	},
 	{
 		name: "Ammonium nitrate",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "ammonium-nitrate.jpg",
 		elements: ["N","H", "O"],
 		formula: "NH<sub>4</sub>NO<sub>3</sub>",
 		moleWeight: "80.043 g/mol",
 		description: [
+	
 			"Used to make fertilizers and explosives, and as a nutrient in antibiotic and yeast growth. Ammonium nitrate is the nitric acid ammonium salt. It has a function as a fertilizer, an oxidizing agent and an explosive.",
 			"It feels cold when ammonium nitrate is dissolved in water which indicates an endothermic reaction.",
-			"The use of ammonium nitrate in gardens and large-scale growing fields stimulates plant growth and provides a ready source of nitrogen that plants can draw from."
+			" The use of ammonium nitrate in gardens and large-scale growing fields stimulates plant growth and provides a ready source of nitrogen that plants can draw from."
 		]
 	},
 	{
 		name: "Ammonium phosphate",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "ammonum-phosphate.jpg",
 		elements: ["N","H", "P", "O"],
 		formula: `"(NH<sub>4</sub>)<sub>3</sub>PO<sub>4</sub>"`,
 		moleWeight: "132.056 g/mol",
 		description: [
+	
 			"also known as triammonium phosphate, diazanium hydrogen phosphate",
 			"Ammonium phosphate is a high source of elemental nitrogen used as an ingredient in certain fertilizers. This is also used in thermoplastic formulations as a flame retardant.",
 			"Ammonium phosphate is a fast-release fertilizer that can be used for new grass planting, cleaning, monitoring, or lawn renovation."
@@ -416,11 +426,12 @@ export const recipe = [
 	},
 	{
 		name: "Barium Hydroxide",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Barium-Hydroxide.jpg",
 		elements: ["B","A", "O", "H"],
 		formula: `"BA(OH)<sub>2</sub>"`,
 		moleWeight: "171.341 g/mol",
 		description: [
+	
 			"is also called as baryta with",
 			"Used in the manufacture of alkalis, glass, oil and grease additives, barium soaps, and other barium compounds.",
 			"Inhalation of barium dusts can cause irritation of the nose and upper respiratory tract and may produce benign pneumoconiosis known as baritosis.",
@@ -429,7 +440,7 @@ export const recipe = [
 	},
 	{
 		name: "Carbon tetrachloride",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Carbon-tetrachloride.jpg",
 		elements: ["C","Cl"],
 		formula: "CCl<sub>4</sub>",
 		moleWeight: "153.811 g/mol",
@@ -442,7 +453,7 @@ export const recipe = [
 	},
 	{
 		name: "Citric acid",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "citric-acid.jpg",
 		elements: ["C","H","O"],
 		formula: "C<sub>6</sub>H<sub>8</sub>O<sub>7</sub>",
 		moleWeight: "192.123 g/mol",
@@ -455,7 +466,7 @@ export const recipe = [
 	},
 	{
 		name: "Hydrocyanic acid",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "hydrocyanic-acid.png",
 		elements: ["H","C","N"],
 		formula: "HCN",
 		moleWeight: "27.026 g/mol	",
@@ -469,7 +480,7 @@ export const recipe = [
 	},
 	{
 		name: "Salicylic Acid",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Salicylic-Acid.jpg",
 		elements: ["C","H","O"],
 		formula: "C<sub>7</sub>H<sub>6</sub>O<sub>7</sub>",
 		moleWeight: "138.121 g/mol",
@@ -482,7 +493,7 @@ export const recipe = [
 	},
 	{
 		name: "Hydroiodic acid",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Hydroiodic-acid.jpeg",
 		elements: ["H","I"],
 		formula: "HI",
 		moleWeight: "127.91 g/mol",
@@ -496,7 +507,7 @@ export const recipe = [
 	},
 	{
 		name: "Hypochlorous acid",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "hypochlorous-acid.jpg",
 		elements: ["H", "C", "I", "O"],
 		formula: "HCIO",
 		moleWeight: "52.457 g/mol",
@@ -509,11 +520,11 @@ export const recipe = [
 	},
 	{
 		name: "Iron iii oxide",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "iron-iii-oxide.jpg",
 		elements: ["Fe", "O"],
 		formula: "Fe<sub>2</sub>O<sub></sub>",
 		moleWeight: "159.687 g/mol",
-		description: [			"product that is formed when iron undergoes oxidation.",
+		description: ["product that is formed when iron undergoes oxidation.",
 			"It is also known as Hematite or Red iron oxide. This compound occurs naturally in rocks of all ages. It appears as a Red-brown solid. It is odourless.",
 			"used in paints and coatings, inks, plastics, rubber products and glass as a pigment and/or UV blocking agent. It is also used as a polishing agent for glass, diamonds and precious metals. This compound also finds use as a component in magnets, as a dental abrasive, and as a process regulator or catalyst in the manufacture of other products.",
 			
@@ -521,7 +532,7 @@ export const recipe = [
 	},
 	{
 		name: "Magnesium phosphate",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "magnesium-phosphate.jpg",
 		elements: ["Mg", "P", "O"],
 		formula: `"Mg<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub>"`,
 		moleWeight: "262.855 g/mol",
@@ -534,7 +545,7 @@ export const recipe = [
 	},
 	{
 		name: "Sodium acetate",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Sodium-acetate.jpg",
 		elements: ["C", "H", "Na", "O"],
 		formula: "C<sub>2</sub>H<sub>3</sub>NaO<sub>2</sub>",
 		moleWeight: "82.0343 g/mol",
@@ -548,7 +559,7 @@ export const recipe = [
 	},
 	{
 		name: "Sodium sulfate",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Sodium-sulfate.jpg",
 		elements: ["Na", "S", "O"],
 		formula: "Na<sub>2</sub>SO<sub>4</sub>",
 		moleWeight: "142.036 g/mol",
@@ -561,7 +572,7 @@ export const recipe = [
 	},
 	{
 		name: "Sucrose",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "sucrose.jpg",
 		elements: ["C", "H", "O"],
 		formula: "C<sub>12</sub>H<sub>22</sub>O<sub>11</sub>",
 		moleWeight: "342.2965 g/mol",
@@ -575,7 +586,7 @@ export const recipe = [
 	},
 	{
 		name: "Potassium nitrate",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "potassium-nitrate.jpg",
 		elements: ["K", "N", "O"],
 		formula: "KNO<sub>3</sub>",
 		moleWeight: "101.102 g/mol",
@@ -591,7 +602,7 @@ export const recipe = [
 	},
 	{
 		name: "Ammonium bicarbonate",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "ammonium-bicarbonate.jpg",
 		elements: ["N", "H", "C", "O"],
 		formula: "NH<sub>4</sub>HCO<sub>3</sub>",
 		moleWeight: "96.086 g/mol",
@@ -603,7 +614,7 @@ export const recipe = [
 	},
 	{
 		name: "	Ammonium chloride",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "ammonium-chloride.jpg",
 		elements: ["N", "H", "Cl"],
 		formula: "NH<sub>4</sub>Cl",
 		moleWeight: "53.489 g/mol",
@@ -617,7 +628,7 @@ export const recipe = [
 	},
 	{
 		name: "	Ammonium hydroxide",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "ammonium-hydroxide.jpg",
 		elements: ["N", "H", "O"],
 		formula: "NH<sub>4</sub>OH",
 		moleWeight: "35.046 g/mol	",
@@ -629,7 +640,7 @@ export const recipe = [
 	},
 	{
 		name: "Calcium nitrate",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "calcium-nitrate.jpg",
 		elements: ["Ca", "N", "O"],
 		formula: `"Ca(NO<sub>3</sub>)<sub>2</sub>"`,
 		moleWeight: "164.088 g/mol",
@@ -643,7 +654,7 @@ export const recipe = [
 	},
 	{
 		name: "Calcium oxide",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "calcium-oxide.jpg",
 		elements: ["Ca", "O"],
 		formula: `"CaO"`,
 		moleWeight: "56.0774 g/mol",
@@ -656,7 +667,7 @@ export const recipe = [
 	},
 	{
 		name: "Carbon monoxide",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "carbon-monoxide.jpg",
 		elements: ["C", "O"],
 		formula: `"CO"`,
 		moleWeight: "28.01 g/mol",
@@ -669,7 +680,7 @@ export const recipe = [
 	},
 	{
 		name: "Chlorine gas",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "chlorine-gas.jpg",
 		elements: ["Cl"],
 		formula: `"Cl<sub>2</sub>"`,
 		moleWeight: "70.9 g/mol",
@@ -682,7 +693,7 @@ export const recipe = [
 	},
 	{
 		name: "Phenol",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "phenol.jpg",
 		elements: ["C", "H", "O"],
 		formula: `"C<sub>6</sub>H<sub>6</sub>O"`,
 		moleWeight: "94.11 g/mol",
@@ -696,7 +707,7 @@ export const recipe = [
 	},
 	{
 		name: "Hydrogen Peroxide",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "hydrogen-peroxide.jpg",
 		elements: ["H", "O"],
 		formula: `"H<sub>2</sub>O<sub>2</sub>"`,
 		moleWeight: "4.0147 g/mol",
@@ -708,7 +719,7 @@ export const recipe = [
 	},
 	{
 		name: "Hydroxide",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Hydroxide.jpg",
 		elements: ["O", "H"],
 		formula: `"OH<sup>-</sup>"`,
 		moleWeight: "17.007 g/mol",
@@ -721,7 +732,7 @@ export const recipe = [
 	},
 	{
 		name: "Magnesium chloride",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "magnesium-chloride.jpg",
 		elements: ["Mg", "Cl"],
 		formula: `"MgCl<sub>2</sub>"`,
 		moleWeight: "95.211 g/mol	",
@@ -734,7 +745,7 @@ export const recipe = [
 	},
 	{
 		name: "Potassium chloride",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "potassium-chloride.jpg",
 		elements: ["K", "Cl"],
 		formula: `"KCl"`,
 		moleWeight: "74.5513 g/mol",
@@ -746,7 +757,7 @@ export const recipe = [
 	},
 	{
 		name: "Potassium iodide",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "potassium-iodide.jpg",
 		elements: ["K", "I"],
 		formula: "KI",
 		moleWeight: "166.0028 g/mol",
@@ -759,7 +770,7 @@ export const recipe = [
 	},
 	{
 		name: "Sulfur dioxide",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "sulfur-dioxide.png",
 		elements: ["S", "O"],
 		formula: "SO<sub>2</subs>",
 		moleWeight: "64.066 g/mol",
@@ -772,7 +783,7 @@ export const recipe = [
 	},
 	{
 		name: "Glycerin",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "glycerin.jpg",
 		elements: ["C", "H", "O"],
 		formula: "C<sub>3</sub>H<sub>8</sub>O<sub>3</sub>",
 		moleWeight: "92.09 g/mol",
@@ -785,7 +796,7 @@ export const recipe = [
 	},
 	{
 		name: "Barium nitrate",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Barium-Nitrate.jpg",
 		elements: ["Ba", "N", "O"],
 		formula: `"Ba(NO<sub>3</sub>)<sub>2</sub>"`,
 		moleWeight: "261.337 g/mol",
@@ -798,7 +809,7 @@ export const recipe = [
 	},
 	{
 		name: "Calcium acetate",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Calcium-acetate.jpg",
 		elements: ["C", "H", "O", "Ca"],
 		formula: "C<sub>4</sub>H<sub>6</sub>O<sub>4</sub>Ca",
 		moleWeight: "158.17 g/mol",
@@ -811,7 +822,7 @@ export const recipe = [
 	},
 	{
 		name: "Iron oxide",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "iron-iii-oxide.jpg",
 		elements: ["Fe", "O"],
 		formula: "Fe<sub>4</sub>H<sub>3",
 		moleWeight: "159.69 g/mol",
@@ -825,7 +836,7 @@ export const recipe = [
 	},
 	{
 		name: "Potassium carbonate",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "potassium-carbonate.jpg",
 		elements: ["K","C" ,"O"],
 		formula: "K<sub>2</sub>CO<sub>3",
 		moleWeight: "138.205 g/mol",
@@ -837,7 +848,7 @@ export const recipe = [
 	},
 	{
 		name: "Silver chloride",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "Silver-chloride.jpg",
 		elements: ["Ag","Cl"],
 		formula: "AgCl",
 		moleWeight: "143.318 g/mol",
@@ -849,7 +860,7 @@ export const recipe = [
 	},
 	{
 		name: "Sodium iodide",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "sodium-iodide.jpg",
 		elements: ["Na","l"],
 		formula: "Nal",
 		moleWeight: "149.894 g/mol",
@@ -861,7 +872,7 @@ export const recipe = [
 	},
 	{
 		name: "Sodium oxide",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "sodium-oxide.jpg",
 		elements: ["Na","O"],
 		formula: "Na<sub>2</sub>O",
 		moleWeight: "61.9789 g/mol",
@@ -874,7 +885,7 @@ export const recipe = [
 	},
 	{
 		name: "Sodium sulfide",
-		compoundPic: "acetic-acid.png",
+		compoundPic: "sodium-sulfide.png",
 		elements: ["Na","S"],
 		formula: "Na<sub>2</sub>S",
 		moleWeight: "78.0452 g/mol",
@@ -887,7 +898,7 @@ export const recipe = [
 	
 	{
 		name: "Zinc nitrate	",
-		compoundPic: "zinc-nitrate.png",
+		compoundPic: "zinc-nitrate.jpg",
 		elements: ["Z", "N", "O"],
 		formula: "Zn(NO<sub>3</sub>)<sub>2</sub>",
 		moleWeight: "189.388 g/mol",
@@ -900,7 +911,7 @@ export const recipe = [
 	},
 	{
 		name: "Phenolphthalein",
-		compoundPic: "phenolphthalein.png",
+		compoundPic: "Phenolphthalein.jpg",
 		elements: ["C", "H", "O"],
 		formula: "C<sub>20</sub>H<sub>14</sub>O<sub>4</sub>",
 		moleWeight: "318.32 g/mol",
@@ -912,7 +923,7 @@ export const recipe = [
 	},
 	{
 		name: "Silicon dioxide",
-		compoundPic: "silicon-dioxide.png",
+		compoundPic: "Silicon-dioxide.jpg",
 		elements: ["Si", "O"],
 		formula: "SiO<sub>2</sub>",
 		moleWeight: "60.083 g/mol",
@@ -925,7 +936,7 @@ export const recipe = [
 	},
 	{
 		name: "Acetone",
-		compoundPic: "acetone.png",
+		compoundPic: "Acetone.jpeg",
 		elements: ["C", "H", "O"],
 		formula: "C<sub>3</sub>)H<sub>6</sub>O",
 		moleWeight: "58.08 g/mol",
@@ -937,7 +948,7 @@ export const recipe = [
 	},
 	{
 		name: "Hydroquinone",
-		compoundPic: "hydroquinone.png",
+		compoundPic: "Hydroquinone.jpg",
 		elements: ["C", "H", "O"],
 		formula: "C<sub>6</sub>H<sub>6</sub>O<sub>2</sub>",
 		moleWeight: "110.11 g/mol",
@@ -949,7 +960,7 @@ export const recipe = [
 	},
 	{
 		name: "Pyridine",
-		compoundPic: "pyridine.png",
+		compoundPic: "Pyridine.jpeg",
 		elements: ["C", "H", "N"],
 		formula: "C<sub>5</sub>)H<sub>5</sub>N",
 		moleWeight: "79.1 g g/mol",
@@ -961,7 +972,7 @@ export const recipe = [
 	},
 	{
 		name: "Ammonium acetate",
-		compoundPic: "ammonium-acetate	.png",
+		compoundPic: "Ammonium-acetate.jpg",
 		elements: ["C", "H", "O", "N"],
 		formula: "C<sub>2</sub>)H<sub>3</sub>O<sub>2</sub>NH<sub>4</sub>",
 		moleWeight: "77.083 g/mol",
@@ -972,7 +983,7 @@ export const recipe = [
 	},
 	{
 		name: "Xylene",
-		compoundPic: "xylene.png",
+		compoundPic: "Xylene.jpg",
 		elements: ["C", "H"],
 		formula: "C<sub>8</sub>H<sub>10</sub>",
 		moleWeight: "106.16 g/mol",
@@ -984,7 +995,7 @@ export const recipe = [
 	},
 	{
 		name: "Barium sulfate",
-		compoundPic: "barium-sulfate.png",
+		compoundPic: "Barium-sulfate.jpeg",
 		elements: ["Ba", "S", "O"],
 		formula: "BaSO<sub>4</sub>)",
 		moleWeight: "233.38 g/mol",
@@ -995,7 +1006,7 @@ export const recipe = [
 	},
 	{
 		name: "Benzene",
-		compoundPic: "benzene.png",
+		compoundPic: "Benzene.jpg",
 		elements: ["C", "H"],
 		formula: "C<sub>6</sub>H<sub>6</sub>",
 		moleWeight: "78.11 g/mol",
@@ -1007,7 +1018,7 @@ export const recipe = [
 	},
 	{
 		name: "Bicarbonate",
-		compoundPic: "bicarbonate.png",
+		compoundPic: "Bicarbonate.jpg",
 		elements: ["C", "H", "O"],
 		formula: "CHO<sub>3</sub><sup>-</sup>",
 		moleWeight: "61.016 g/mol",
@@ -1019,7 +1030,7 @@ export const recipe = [
 	},
 	{
 		name: "Chromate",
-		compoundPic: "chromate.png",
+		compoundPic: "Chromate.jpeg",
 		elements: ["Cr", "O"],
 		formula: "CrO<sub>4</sub><sup>2-</sup>",
 		moleWeight: "15.992 g/mol",
@@ -1030,7 +1041,7 @@ export const recipe = [
 	},
 	{
 		name: "Methyl Ethyl Ketone",
-		compoundPic: "methyl-ethyl-ketone.png",
+		compoundPic: "Methyl-Ethyl-Ketone.jpg",
 		elements: ["C", "H", "O"],
 		formula: "C<sub>4</sub>H<sub>8</sub>O",
 		moleWeight: "72.107 g/mol",
@@ -1041,7 +1052,7 @@ export const recipe = [
 	},
 	{
 		name: "Cyanide",
-		compoundPic: "cyanide.png",
+		compoundPic: "Cyanide.jpg",
 		elements: ["C", "N−"],
 		formula: "CN<sup>-</sup>",
 		moleWeight: "26.02 g/mol",
@@ -1053,7 +1064,7 @@ export const recipe = [
 	},
 	{
 		name: "Trichloroacetic acid",
-		compoundPic: "trichloroacetic-acid.png",
+		compoundPic: "Trichloroacetic-acid.jpg",
 		elements: ["C", "H", "Cl", "O"],
 		formula: "C<sub>2</sub>HCl<sub>3</sub>O<sub>2</sub>",
 		moleWeight: "163.38 g/mol",
@@ -1065,7 +1076,7 @@ export const recipe = [
 	},
 	{
 		name: "Magnesium sulfate",
-		compoundPic: "magnesium-sulfate.png",
+		compoundPic: "Magnesium-sulfate.jpg",
 		elements: ["Mg", "N", "O"],
 		formula: "MgSO<sub>4</sub>z",
 		moleWeight: "120.361 g/mol",
@@ -1077,7 +1088,7 @@ export const recipe = [
 	},
 	{
 		name: "Methanol",
-		compoundPic: "methanol.png",
+		compoundPic: "Methanol.jpg",
 		elements: ["C", "H", "O"],
 		formula: "CH<sub>3</sub>OH",
 		moleWeight: "32.04 g/mol",
@@ -1089,7 +1100,7 @@ export const recipe = [
 	},
 	{
 		name: "Oxygen",
-		compoundPic: "oxygen.png",
+		compoundPic: "Oxygen.jpeg",
 		elements: ["O"],
 		formula: "O",
 		moleWeight: "Atomic mass 15.999 g/mol",
@@ -1101,7 +1112,7 @@ export const recipe = [
 	},
 	{
 		name: "Methylene blue",
-		compoundPic: "methylene-blue.png",
+		compoundPic: "Methylene-blue.jpeg",
 		elements: ["C", "H", "I", "N", "S"],
 		formula: "C<sub>16</sub>H<sub>18</sub>CIN<sub>3</sub>S",
 		moleWeight: "319.85 g/mol",
@@ -1113,7 +1124,7 @@ export const recipe = [
 	},
 	{
 		name: "Sodium sulfite",
-		compoundPic: "sodium-sulfite.png",
+		compoundPic: "Sodium-sulfite.jpg",
 		elements: ["Na", "S", "O"],
 		formula: "Na<sub>2</sub>SO<sub>3</sub>",
 		moleWeight: "126.043 g/mol",
@@ -1125,7 +1136,7 @@ export const recipe = [
 	},
 	{
 		name: "Sulfur trioxide",
-		compoundPic: "sulfur-trioxide.png",
+		compoundPic: "Sulfur-trioxide.jpg",
 		elements: ["S", "O"],
 		formula: "SO<sub>3</sub>",
 		moleWeight: "80.057 g/mol",
@@ -1136,7 +1147,7 @@ export const recipe = [
 	},
 	{
 		name: "Aluminum phosphate",
-		compoundPic: "aluminum-phosphate.png",
+		compoundPic: "Aluminum-phosphate.jpg",
 		elements: ["A", "I", "P", "O"],
 		formula: "AIPO<sub>4</sub>",
 		moleWeight: "121.951 g/mol",
@@ -1146,7 +1157,7 @@ export const recipe = [
 	},
 	{
 		name: "Stearic acid",
-		compoundPic: "stearic-acid",
+		compoundPic: "Stearic-acid.jpg",
 		elements: ["C", "H", "O"],
 		formula: "C<sub>18</sub>H<sub>36</sub>O<sub>2</sub>",
 		moleWeight: "284.484 g/mol",
@@ -1157,7 +1168,7 @@ export const recipe = [
 	},
 	{
 		name: "Dinitrogen monoxide",
-		compoundPic: "dinitrogen-monoxide.png",
+		compoundPic: "Dinitrogen-monoxide.jpg",
 		elements: ["N", "O"],
 		formula: "N<sub>2</sub>O",
 		moleWeight: "44.013 g/mol",
@@ -1169,7 +1180,7 @@ export const recipe = [
 	},
 	{
 		name: "Titanium dioxide",
-		compoundPic: "titanium-dioxide.png",
+		compoundPic: "titanium-dioxide.jpg",
 		elements: ["Ti", "O"],
 		formula: "TiO<sub>2</sub>",
 		moleWeight: "233.38 g/mol",
@@ -1181,7 +1192,7 @@ export const recipe = [
 	},
 	{
 		name: "Acetonitrile",
-		compoundPic: "acetonitrile.png",
+		compoundPic: "acetonitrile.jpg",
 		elements: ["C", "H", "N"],
 		formula: "C<sub>2</sub>H<sub>3</sub>N",
 		moleWeight: "41.053 g/mol",
@@ -1193,7 +1204,7 @@ export const recipe = [
 	},
 	{
 		name: "Oxalic acid",
-		compoundPic: "oxalic-acid.png",
+		compoundPic: "oxalic-acid.jpg",
 		elements: ["H", "C", "O"],
 		formula: "H<sub>2</sub>C<sub>2</sub>O<sub>4</sub>",
 		moleWeight: "90.03 g/mol",
@@ -1205,7 +1216,7 @@ export const recipe = [
 	},
 	{
 		name: "Sodium bromide",
-		compoundPic: "sodium-bromide.png",
+		compoundPic: "Sodium-bromide.jpg",
 		elements: ["Na", "Br"],
 		formula: "NaBr",
 		moleWeight: "102.894 g/mol",
@@ -1229,7 +1240,7 @@ export const recipe = [
 	},
 	{
 		name: "Zinc acetate",
-		compoundPic: "zinc-acetate.png",
+		compoundPic: "zinc-acetate.jpg",
 		elements: ["Zn", "C", "H", "O"],
 		formula: "Zm(CH<sub>3</sub>COO)<sub>2</sub>(H<sub>2</sub>O)<sub>2</sub>",
 		moleWeight: "183.48 g/mol",
@@ -1242,7 +1253,7 @@ export const recipe = [
 	},
 	{
 		name: "Potassium dichromate",
-		compoundPic: "potassium-dichromate.png",
+		compoundPic: "potassium-dichromate.jpg",
 		elements: ["K", "Cr", "O"],
 		formula: "K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>",
 		moleWeight: "294.185 g/mol",
@@ -1255,7 +1266,7 @@ export const recipe = [
 	},
 	{
 		name: "Zinc chloride",
-		compoundPic: "zinc-chloride.png",
+		compoundPic: "Zinc-chloride.jpg",
 		elements: ["Zn", "Cl"],
 		formula: "ZnCl<sub>2</sub>",
 		moleWeight: "136.286 g/mol",
@@ -1266,7 +1277,7 @@ export const recipe = [
 	},
 	{
 		name: "Zinc hydroxide",
-		compoundPic: "zinc-hydroxide.png",
+		compoundPic: "Zinc-hydroxide.jpg",
 		elements: ["An", "O", "H"],
 		formula: "Zn(OH)<sub>2</sub>",
 		moleWeight: "99.424 g/mol",
@@ -1278,7 +1289,7 @@ export const recipe = [
 	},
 	{
 		name: "Magnesium carbonate",
-		compoundPic: "magnesium-carbonate.png",
+		compoundPic: "Magnesium-carbonate.jpg",
 		elements: ["Mg", "C", "O"],
 		formula: "MgCO<sub>3</sub>",
 		moleWeight: "84.313 g/mol",
@@ -1290,7 +1301,7 @@ export const recipe = [
 	},
 	{
 		name: "Hydrazine",
-		compoundPic: "hydrazine.png",
+		compoundPic: "hydrazine.jpg",
 		elements: ["N", "H",],
 		formula: "N<sub>2</sub>H<sub>4</sub>",
 		moleWeight: "32.0452 g/mol",
@@ -1303,7 +1314,7 @@ export const recipe = [
 	},
 	{
 		name: "Ascorbic acid",
-		compoundPic: "ascorbic-acid.png",
+		compoundPic: "Ascorbic-acid.jpg",
 		elements: ["C", "H", "O"],
 		formula: "C<sub>6</sub>H<sub>8</sub>O<sub>6</sub>",
 		moleWeight: "176.12 g/mol",
@@ -1316,7 +1327,7 @@ export const recipe = [
 	},
 	{
 		name: "Benzoic acid",
-		compoundPic: "benzoic-acid.png",
+		compoundPic: "benzoic-acid.jpg",
 		elements: ["C", "H", "O"],
 		formula: "C<sub>7</sub>H<sub>6</sub>O<sub>2</sub>",
 		moleWeight: "122.12 g/mol",
@@ -1329,7 +1340,7 @@ export const recipe = [
 	},
 	{
 		name: "Resorcinol",
-		compoundPic: "resorcinol.png",
+		compoundPic: "resorcinol.jpg",
 		elements: ["C", "H", "O"],
 		formula: "C<sub>6</sub>H<sub>6</sub>O<sub>2</sub>",
 		moleWeight: "110.1 g/mol",
@@ -1341,7 +1352,7 @@ export const recipe = [
 	},
 	{
 		name: "Chlorine",
-		compoundPic: "chlorine.png",
+		compoundPic: "chlorine.jpg",
 		elements: ["Cl"],
 		formula: "Cl<sub>2</sub>",
 		moleWeight: "70.9 g/mol",
@@ -1354,7 +1365,7 @@ export const recipe = [
 	},
 	{
 		name: "Maleic acid",
-		compoundPic: "maleic-acid.png",
+		compoundPic: "maleic-acid.jpeg",
 		elements: ["C", "H", "O"],
 		formula: "C<sub>4</sub>H<sub>4</sub>O<sub>4</sub>",
 		moleWeight: "116.072 g/mol",
@@ -1366,7 +1377,7 @@ export const recipe = [
 	},
 	{
 		name: "Sodium metabisulfite",
-		compoundPic: "sodium-metabisulfite.png",
+		compoundPic: "sodium-metabisulfite.jpg",
 		elements: ["Na", "S", "O"],
 		formula: "Na<sub>2</sub>S<sub>2</sub>O<sub>5</sub>",
 		moleWeight: "190.107 g/mol",
@@ -1379,7 +1390,7 @@ export const recipe = [
 	},
 	{
 		name: "Acetamide",
-		compoundPic: "acetamide.png",
+		compoundPic: "acetamide.jpeg",
 		elements: ["C", "H", "N", "O"],
 		formula: "C<sub>2</sub>H<sub>5</sub>NO",
 		moleWeight: "59.068 g/mol",
@@ -1392,7 +1403,7 @@ export const recipe = [
 	},
 	{
 		name: "Sodium silicate",
-		compoundPic: "sodium-silicate.png",
+		compoundPic: "sodium-silicate.jpg",
 		elements: ["Na", "O", "Si"],
 		formula: "(Na<sub>2</sub>O)<sub>x</sub>·SiO<sub>2</sub>",
 		moleWeight: "122.062 g/mol",
@@ -1404,7 +1415,7 @@ export const recipe = [
 	},
 	{
 		name: "Nitrite",
-		compoundPic: "nitrite.png",
+		compoundPic: "nitrite.jpg",
 		elements: ["N", "O"],
 		formula: "NO<sub>2</sub><sup>-</sup>",
 		moleWeight: "46.005 g/mol",
@@ -1416,7 +1427,7 @@ export const recipe = [
 	},
 	{
 		name: "Phosphate",
-		compoundPic: "phosphate.png",
+		compoundPic: "Phosphate.jpg",
 		elements: ["P", "O"],
 		formula: "PO<sub>4</sub><sup>3-</sup>",
 		moleWeight: "94.9714 g/mol",
@@ -1429,7 +1440,7 @@ export const recipe = [
 	},
 	{
 		name: "Dichloromethane",
-		compoundPic: "dichloromethane.png",
+		compoundPic: "dichloromethane.jpg",
 		elements: ["C", "H", "Cl"],
 		formula: "CH<sub>2</sub>Cl<sub>2</sub>",
 		moleWeight: "76.13 g/mol",
@@ -1441,7 +1452,7 @@ export const recipe = [
 	},
 	{
 		name: "Carbon Disulfide",
-		compoundPic: "carbon-disulfide.png",
+		compoundPic: "carbon-disulfide.jpg",
 		elements: ["C", "S"],
 		formula: "CS<sub>2</sub>",
 		moleWeight: "76.13 g/mol",
@@ -1454,7 +1465,7 @@ export const recipe = [
 	},
 	{
 		name: "Potassium chromate",
-		compoundPic: "potassium-chromate.png",
+		compoundPic: "potassium-chromate.jpg",
 		elements: ["Cr", "K", "O"],
 		formula: "CrK<sub>2</sub>O<sub>4</sub>",
 		moleWeight: "194.189 g/mol",
@@ -1467,7 +1478,7 @@ export const recipe = [
 	},
 	{
 		name: "Zinc sulfate",
-		compoundPic: "zinc-sulfate.png",
+		compoundPic: "zinc-sulfate.jpg",
 		elements: ["Zn", "S", "O"],
 		formula: "ZnSO<sub>4</sub>",
 		moleWeight: "161.436 g/mol",
@@ -1480,7 +1491,7 @@ export const recipe = [
 	},
 	{
 		name: "Iodine",
-		compoundPic: "iodine.png",
+		compoundPic: "iodine.jpg",
 		elements: ["I"],
 		formula: "I",
 		moleWeight: "Atomic mass 126.90 g/mol",
@@ -1493,7 +1504,7 @@ export const recipe = [
 	},
 	{
 		name: "Tannic acid",
-		compoundPic: "tannic-acid.png",
+		compoundPic: "tannic-acid.jpg",
 		elements: ["C", "H", "O"],
 		formula: "C<sub>76</sub>H<sub>52</sub>O<sub>46</sub>",
 		moleWeight: "1701.19 g/mol",
@@ -1504,7 +1515,7 @@ export const recipe = [
 	},
 	{
 		name: "Aluminum",
-		compoundPic: "aluminum.png",
+		compoundPic: "aluminum.jpg",
 		elements: ["Al"],
 		formula: "Al",
 		moleWeight: "26.982 g/mol",
@@ -1517,7 +1528,7 @@ export const recipe = [
 	},
 	{
 		name: "Perchloric acid",
-		compoundPic: "perchloric-acid.png",
+		compoundPic: "Perchloric-acid.jpg",
 		elements: ["H", "Cl", "O"],
 		formula: "HClO<sub>4</sub>",
 		moleWeight: "100.46 g/mol",
@@ -1529,7 +1540,7 @@ export const recipe = [
 	},
 	{
 		name: "Hypochlorite",
-		compoundPic: "hypochlorite.png",
+		compoundPic: "Hypochlorite.jpg",
 		elements: ["Cl", "O"],
 		formula: "ClO-",
 		moleWeight: "51.449 g/mol",
@@ -1541,7 +1552,7 @@ export const recipe = [
 	},
 	{
 		name: "Potassium Bromide",
-		compoundPic: "potassium-bromide.png",
+		compoundPic: "Potassium-Bromide.jpg",
 		elements: ["K", "Br"],
 		formula: "KBr",
 		moleWeight: "119.002 g/mol",
@@ -1552,7 +1563,7 @@ export const recipe = [
 	},
 	{
 		name: "Chromic acid",
-		compoundPic: "chromic-acid.png",
+		compoundPic: "chromic-acid.jpg",
 		elements: ["H", "Cr", "O"],
 		formula: "H<sub>2</sub>CrO<sub>4</sub>",
 		moleWeight: "118.01 g/mol",
@@ -1563,7 +1574,7 @@ export const recipe = [
 
 	},	{
 		name: "Dihydrogen monoxide",
-		compoundPic: "dihydrogen-monoxide.png",
+		compoundPic: "dihydrogen-monoxide.jpg",
 		elements: ["H", "O"],
 		formula: "H<sub>2</sub>O",
 		moleWeight: "18.01528 g/mol",
@@ -1575,7 +1586,7 @@ export const recipe = [
 	},
 	{
 		name: "Methyl acetate",
-		compoundPic: "methyl-acetate.png",
+		compoundPic: "methyl-acetate.jpg",
 		elements: ["C", "H", "O"],
 		formula: "C<sub>3</sub>H<sub>6</sub>O<sub>2</sub>",
 		moleWeight: "74.079 g/mol",
@@ -1587,7 +1598,7 @@ export const recipe = [
 	},
 	{
 		name: "Dimethyl sulfoxide",
-		compoundPic: "dimethyl-sulfoxide.png",
+		compoundPic: "dimethyl-sulfoxide.jpg",
 		elements: ["C", "H", "O", "S"],
 		formula: "C<sub>2</sub>H<sub>6</sub>OS",
 		moleWeight: "78.13 g/mol",
@@ -1600,7 +1611,7 @@ export const recipe = [
 	},
 	{
 		name: "Hexane",
-		compoundPic: "hexane.png",
+		compoundPic: "hexane.jpg",
 		elements: ["C", "H"],
 		formula: "C<sub>6</sub>H<sub>14</sub>",
 		moleWeight: "86.18 g/mol",
@@ -1613,7 +1624,7 @@ export const recipe = [
 	},
 	{
 		name: "Eugenol",
-		compoundPic: "eugenol.png",
+		compoundPic: "eugenol.jpeg",
 		elements: ["C", "H", "O"],
 		formula: "C<sub>10</sub>H<sub>12</sub>O<sub>2</sub>",
 		moleWeight: "164.2 g/mol",
@@ -1625,7 +1636,7 @@ export const recipe = [
 	},
 	{
 		name: "Manganese dioxide",
-		compoundPic: "manganese-dioxide.png",
+		compoundPic: "manganese-dioxide.jpg",
 		elements: ["Mn", "O"],
 		formula: "MnO<sub>2</sub>",
 		moleWeight: "86.9368 g/mol",
@@ -1637,7 +1648,7 @@ export const recipe = [
 	},
 	{
 		name: "Lactic acid",
-		compoundPic: "lactic-acid.png",
+		compoundPic: "lactic-acid.jpg",
 		elements: ["C", "H", "O"],
 		formula: "C<sub>3</sub>H<sub>6</sub>O<sub>3</sub>",
 		moleWeight: "90.078 g/mol",
@@ -1650,7 +1661,7 @@ export const recipe = [
 	},
 	{
 		name: "Sodium potassium tartrate",
-		compoundPic: "sodium-potassium-tartrate.png",
+		compoundPic: "sodium-potassium-tartrate.jpeg",
 		elements: ["C", "H", "O", "K", "Na",],
 		formula: "C<sub>4</sub>H<sub>4</sub>KNaO<sub>6</sub>",
 		moleWeight: "282.1 g/mol",
@@ -1662,7 +1673,7 @@ export const recipe = [
 	},
 	{
 		name: "Hexamine",
-		compoundPic: "hexamine.png",
+		compoundPic: "hexamine.jpeg",
 		elements: ["C", "H", "N"],
 		formula: "C<sub>6</sub>H<sub>12</sub>N<sub>4</sub>",
 		moleWeight: "140.186 g/mol",
@@ -1674,7 +1685,7 @@ export const recipe = [
 	},
 	{
 		name: "Lithium hydroxide",
-		compoundPic: "lithium-hydroxide.png",
+		compoundPic: "lithium-hydroxide.jpeg",
 		elements: ["Li", "O", "H"],
 		formula: "LiOH",
 		moleWeight: "23.95 g/mol",
@@ -1734,7 +1745,7 @@ export const recipe = [
 	},
 	{
 		name: "Lithium phosphate",
-		compoundPic: "Lithium-phosphate.png",
+		compoundPic: "Lithium-phosphate.jpg",
 		elements: ["Li", "P", "O"],
 		formula: "Li<sub>3</sub>PO<sub>4</sub>",
 		moleWeight: "115.79 g/mol",
@@ -1744,7 +1755,7 @@ export const recipe = [
 	},
 	{
 		name: "Glycerol",
-		compoundPic: "Glycerol.png",
+		compoundPic: "Glycerol.jpg",
 		elements: ["C", "H", "O"],
 		formula: "C<sub>3</sub>H<sub>8</sub>O<sub>3</sub>",
 		moleWeight: "92.09382 g/mol",
@@ -1765,7 +1776,7 @@ export const recipe = [
 	},
 	{
 		name: "Hypoiodous acid",
-		compoundPic: "Hypoiodous-acid.png",
+		compoundPic: "Hypoiodous-acid.jpg",
 		elements: ["H", "O", "I"],
 		formula: "HOI",
 		moleWeight: "143.89 g/mol",
@@ -1810,7 +1821,7 @@ export const recipe = [
 	},
 	{
 		name: "Urethane",
-		compoundPic: "Urethane.png",
+		compoundPic: "Urethane.jpg",
 		elements: ["C", "H", "NO"],
 		formula: "C<sub>3</sub>H<sub>7</sub>NO<sub>2</sub>",
 		moleWeight: "89.09 g/mol",
@@ -1882,7 +1893,7 @@ export const recipe = [
 	},
 	{
 		name: "Aluminum bromide",
-		compoundPic: "Aluminum-Bromide.png",
+		compoundPic: "Aluminum-Bromide.jpg",
 		elements: ["Al", "Br"],
 		formula: "AlBr<sub>3</sub>",
 		moleWeight: "266.69 g/mol",
@@ -2119,7 +2130,7 @@ export const recipe = [
 	},
 	{
 		name: "Formaldehyde",
-		compoundPic: "Formaldehyde.png",
+		compoundPic: "Formaldehyde.jpg",
 		elements: ["C", "H", "O"],
 		formula: "CH<sub>2</sub>O",
 		moleWeight: "30.031 g/mol",
@@ -2145,7 +2156,7 @@ export const recipe = [
 	},
 	{
 		name: "Sulfur Hexafluoride",
-		compoundPic: "Sulfur-Hexafluoride.png",
+		compoundPic: "Sulfur-Hexafluoride.jpg",
 		elements: ["S", "F"],
 		formula: "SF<sub>6</sub>",
 		moleWeight: "146.06 g/mol",
@@ -2184,7 +2195,7 @@ export const recipe = [
 	},
 	{
 		name: "Dinitrogen Pentoxide",
-		compoundPic: "Dinitrogen-Pentoxide.png",
+		compoundPic: "Dinitrogen-Pentoxide.jpg",
 		elements: ["N", "O"],
 		formula: "N<sub>2</sub>O<sub>5</sub>",
 		moleWeight: "30.07 g/mol",
@@ -2222,7 +2233,7 @@ export const recipe = [
 	},
 	{
 		name: "Xenon Difluoride",
-		compoundPic: "Xenon-Difluoride.png",
+		compoundPic: "Xenon-Difluoride.jpg",
 		elements: ["Xe", "F"],
 		formula: "XeF<sub>2</sub>",
 		moleWeight: "169.29 g/mol",
@@ -2235,7 +2246,7 @@ export const recipe = [
 	},
 	{
 		name: "Diatomic Bromine",
-		compoundPic: "Diatomic-Bromine.png",
+		compoundPic: "Diatomic-Bromine.jpg",
 		elements: ["Br"],
 		formula: "Br<sub>2</sub>",
 		moleWeight: "159.808 g/mol",
@@ -2247,7 +2258,7 @@ export const recipe = [
 	},
 	{
 		name: "Phenyl",
-		compoundPic: "Phenyl.png",
+		compoundPic: "Phenyl.jpg",
 		elements: ["C", "H"],
 		formula: "C<sub>6</sub>H<sub>5</sub>",
 		moleWeight: "77.106 g/mol",
@@ -2271,7 +2282,7 @@ export const recipe = [
 	},
 	{
 		name: "Peroxydisulfuric Acid",
-		compoundPic: "Peroxydisulfuric-Acid.png",
+		compoundPic: "Peroxydisulfuric-Acid.jpg",
 		elements: ["H", "S", "O"],
 		formula: "H<sub>2</sub>S<sub>2</sub>O<sub>8</sub>",
 		moleWeight: "194.14 g/mol",
@@ -2335,7 +2346,7 @@ export const recipe = [
 	},
 	{
 		name: "Chloroacetic acid",
-		compoundPic: "Chloroacetic-acid.png",
+		compoundPic: "Chloroacetic-acid.jpg",
 		elements: ["C", "H", "O", "Cl"],
 		formula: "C<sub>2</sub>H<sub>3</sub>O<sub>2</sub>Cl",
 		moleWeight: "94.49 g/mol",
@@ -2412,7 +2423,7 @@ export const recipe = [
 	},
 	{
 		name: "Chlorine Trifluoride",
-		compoundPic: "Chlorine-Trifluoride.png",
+		compoundPic: "Chlorine-Trifluoride.jpg",
 		elements: ["Cl", "F"],
 		formula: "ClF<sub>3</sub>",
 		moleWeight: "92.448 g/mol",
@@ -2425,7 +2436,7 @@ export const recipe = [
 	},
 	{
 		name: "Ethylene",
-		compoundPic: "Ethylene.png",
+		compoundPic: "Ethylene.jpg",
 		elements: ["C", "H"],
 		formula: "C<sub>2</sub>H<sub>4</sub>",
 		moleWeight: "28.054 g/mol",
@@ -2551,7 +2562,7 @@ export const recipe = [
 	},
 	{
 		name: "Potassium oxide",
-		compoundPic: "Potassium-oxide.png",
+		compoundPic: "Potassium-oxide.jpg",
 		elements: ["K", "O"],
 		formula: "K<sub>2</sub>O",
 		moleWeight: "94.2 g/mol",
@@ -2562,7 +2573,7 @@ export const recipe = [
 	},
 	{
 		name: "Monopotassium phosphate",
-		compoundPic: "Monopotassium-phosphate.png",
+		compoundPic: "Monopotassium-phosphate.jpeg",
 		elements: ["K", "H", "P", "O"],
 		formula: "KH<sub>2</sub>PO<sub>4</sub>",
 		moleWeight: "136.084 g/mol",
@@ -2574,7 +2585,7 @@ export const recipe = [
 	},
 	{
 		name: "Silver acetate",
-		compoundPic: "Silver-acetate.png",
+		compoundPic: "Silver-acetate.jpg",
 		elements: ["Ag", "C", "H", "O"],
 		formula: "AgC<sub>2</sub>H<sub>3</sub>O<sub>2</sub>",
 		moleWeight: "166.91 g/mol",
@@ -2586,7 +2597,7 @@ export const recipe = [
 	},
 	{
 		name: "Sodium citrate",
-		compoundPic: "Sodium-citrate.png",
+		compoundPic: "Sodium-citrate.jpg",
 		elements: ["Na", "C", "H", "O"],
 		formula: "Na<sub>3</sub>C<sub>6</sub>H<sub>5</sub>O<sub>7</sub>",
 		moleWeight: "258.06 g/mol",
@@ -2597,7 +2608,7 @@ export const recipe = [
 	},
 	{
 		name: "Sodium fluoride",
-		compoundPic: "Sodium-fluoride.png",
+		compoundPic: "Sodium-fluoride.jpg",
 		elements: ["Na", "F"],
 		formula: "NaF",
 		moleWeight: "41.98817 g/mol",
@@ -2610,7 +2621,7 @@ export const recipe = [
 	},
 	{
 		name: "Sodium nitrite",
-		compoundPic: "Sodium-nitrite.png",
+		compoundPic: "Sodium-nitrite.jpg",
 		elements: ["Na", "N", "O"],
 		formula: "NaNO<sub>2</sub>",
 		moleWeight: "68.9953 g/mol",
@@ -2636,7 +2647,7 @@ export const recipe = [
 	},
 	{
 		name: "Barium carbonate",
-		compoundPic: "Barium-carbonate.png",
+		compoundPic: "Barium-carbonate.jpg",
 		elements: ["Ba", "C", "O"],
 		formula: "BaCO<sub>3</sub>",
 		moleWeight: "197.34 g/mol",
@@ -2649,7 +2660,7 @@ export const recipe = [
 
 	{
 		name: "Calcium iodide",
-		compoundPic: "Calcium-iodide.png",
+		compoundPic: "Calcium-iodide.jpg",
 		elements: ["Cal"],
 		formula: "Cal<sub>2</sub>",
 		moleWeight: "293.887 g/mol",
@@ -2661,7 +2672,7 @@ export const recipe = [
 
 	{
 		name: "Hydrogen sulfate",
-		compoundPic: "Hydrogen-sulfate.png",
+		compoundPic: "Hydrogen-sulfate.jpg",
 		elements: ["H", "S", "O"],
 		formula: "HSO<sub>4</sub><sup>-</sup>",
 		moleWeight: "97.064 g/mol",
@@ -2687,7 +2698,7 @@ export const recipe = [
 
 	{
 		name: "Dimethylglyoxime",
-		compoundPic: "Dimethylglyoxime.png",
+		compoundPic: "Dimethylglyoxime.jpg",
 		elements: ["C", "H", "N", "O"],
 		formula: "C<sub>4</sub>H<sub>8</sub>N<sub>2</sub>O<sub>2</sub>",
 		moleWeight: "116.12 g/mol",
@@ -2697,7 +2708,7 @@ export const recipe = [
 	},
 	{
 		name: "	Potassium Permanganate",
-		compoundPic: "	Potassium-Permanganate.png",
+		compoundPic: "	Potassium-Permanganate.jpg",
 		elements: ["K", "Mn", "O"],
 		formula: "KMnO<sub>4</sub>",
 		moleWeight: "158.034 g/mol",
@@ -2709,7 +2720,7 @@ export const recipe = [
 	},
 	{
 		name: "Silver phosphate",
-		compoundPic: "Silver-phosphate.png",
+		compoundPic: "Silver-phosphate.jpg",
 		elements: ["Ag", "P", "O"],
 		formula: "Ag<sub>3</sub>PO<sub>4</sub>",
 		moleWeight: "418.58 g/mol",
@@ -2720,7 +2731,7 @@ export const recipe = [
 	},
 	{
 		name: "Ammonium bromide",
-		compoundPic: "Ammonium-bromide.png",
+		compoundPic: "Ammonium-bromide.jpg",
 		elements: ["N", "H", "Br"],
 		formula: "NH<sub>4</sub>Br",
 		moleWeight: "97.943 g/mol",
@@ -2732,7 +2743,7 @@ export const recipe = [
 	},
 	{
 		name: "Calcium phosphate",
-		compoundPic: "Calcium-phosphate.png",
+		compoundPic: "Calcium-phosphate.jpg",
 		elements: ["Ca", "P", "O"],
 		formula: "Ca<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub>",
 		moleWeight: "310.18 g/mol",
@@ -2744,7 +2755,7 @@ export const recipe = [
 	},
 	{
 		name: "Dichromate",
-		compoundPic: "Dichromate.png",
+		compoundPic: "Dichromate.jpg",
 		elements: ["K", "Cr", "O"],
 		formula: "K<sub>2</sub>Cr<sub>2</sub>O<sub>7</sub>",
 		moleWeight: "294.185 g/mol",
@@ -2755,7 +2766,7 @@ export const recipe = [
 	},
 	{
 		name: "Aluminum sulfide",
-		compoundPic: "Aluminum-sulfide.png",
+		compoundPic: "Aluminum-sulfide.jpg",
 		elements: ["Al", "S"],
 		formula: "Al<sub>2</sub>S<sub>3</sub>",
 		moleWeight: "150.158 g/mol",
@@ -2767,7 +2778,7 @@ export const recipe = [
 	},
 	{
 		name: "Ammonium carbonate",
-		compoundPic: "Ammonium-carbonate.png",
+		compoundPic: "Ammonium-carbonate.jpg",
 		elements: ["N", "H", "C", "O"],
 		formula: "(NH<sub>4</sub>)<sub>2<sub/>CO<sub>3</sub>",
 		moleWeight: "96.086 g/mol",
@@ -2779,7 +2790,7 @@ export const recipe = [
 	},
 	{
 		name: "Barium chloride",
-		compoundPic: "Barium-chloride.png",
+		compoundPic: "Barium-chloride.jpg",
 		elements: ["Ba", "Cl"],
 		formula: "BaCl<sub>2</sub>",
 		moleWeight: "208.23 g/mol",
@@ -2801,7 +2812,7 @@ export const recipe = [
 	},
 	{
 		name: "Fructose",
-		compoundPic: "Fructose.png",
+		compoundPic: "Fructose.jpg",
 		elements: ["C", "H", "O"],
 		formula: "C<sub>6</sub>H<sub>12</sub>O<sub>6</sub>",
 		moleWeight: "180.16 g/mol",
@@ -2814,7 +2825,7 @@ export const recipe = [
 	},
 	{
 		name: "Magnesium iodide",
-		compoundPic: "Magnesium-iodide.png",
+		compoundPic: "Magnesium-iodide.jpg",
 		elements: ["Mg", "I"],
 		formula: "Mgl<sub>2</sub>",
 		moleWeight: "278.1139 g/mol",
@@ -2826,7 +2837,7 @@ export const recipe = [
 	},
 	{
 		name: "Magnesium sulfide",
-		compoundPic: "Magnesium-sulfide.png",
+		compoundPic: "Magnesium-sulfide.jpg",
 		elements: ["Mg", "S"],
 		formula: "MgS",
 		moleWeight: "56.38 g/mol",
@@ -2838,7 +2849,7 @@ export const recipe = [
 	},
 	{
 		name: "Ozone",
-		compoundPic: "Ozone.png",
+		compoundPic: "Ozone.jpg",
 		elements: ["O"],
 		formula: "O<sub>3</sub>",
 		moleWeight: "48 g/mol",
@@ -2849,7 +2860,7 @@ export const recipe = [
 		],
 	}, {
 		name: "Potassium cyanide",
-		compoundPic: "Potassium-cyanide.png",
+		compoundPic: "Potassium-cyanide.jpg",
 		elements: ["K", "C", "N"],
 		formula: "KCN",
 		moleWeight: "65.12 g/mol",
@@ -2862,7 +2873,7 @@ export const recipe = [
 	},
 	{
 		name: "Silver oxide",
-		compoundPic: "Silver-oxide.png",
+		compoundPic: "Silver-oxide.jpeg",
 		elements: ["Ag", "O"],
 		formula: "Ag<sub>2</sub>O",
 		moleWeight: "231.735 g/mol",
@@ -2873,7 +2884,7 @@ export const recipe = [
 	},
 	{
 		name: "Sodium chromate",
-		compoundPic: "Sodium-chromate.png",
+		compoundPic: "Sodium-chromate.jpg",
 		elements: ["Na", "Cr", "O"],
 		formula: "Na<sub>2</sub>CrO<sub>4</sub>",
 		moleWeight: "161.97 g/mol",
@@ -2883,7 +2894,7 @@ export const recipe = [
 	},
 	{
 		name: "Sodium peroxide",
-		compoundPic: "Sodium-peroxide.png",
+		compoundPic: "Sodium-peroxide.jpg",
 		elements: ["Na", "O"],
 		formula: "Na<sub>2</sub>O<sub>2</sub>",
 		moleWeight: "77.98 g/mol",
@@ -2893,7 +2904,7 @@ export const recipe = [
 	},
 	{
 		name: "Toluene",
-		compoundPic: "Toluene.png",
+		compoundPic: "Toluene.jpeg",
 		elements: ["C", "H"],
 		formula: "C<sub>7</sub>H<sub>8</sub>",
 		moleWeight: "92.14 g/mol",
@@ -2905,7 +2916,7 @@ export const recipe = [
 	},
 	{
 		name: "Zinc carbonate",
-		compoundPic: "Zinc-carbonate.png",
+		compoundPic: "Zinc-carbonate.jpg",
 		elements: ["Zn", "C", "O"],
 		formula: "ZnCO<sub>3</sub>",
 		moleWeight: "125.388 g/mol",
@@ -2916,7 +2927,7 @@ export const recipe = [
 	},
 	{
 		name: "Zinc phosphate",
-		compoundPic: "Zinc-phosphate.png",
+		compoundPic: "Zinc-phosphate.jpg",
 		elements: ["Zn", "P", "O"],
 		formula: "Zn<sub>3</sub>(PO<sub>4</sub>)<sub>2</sub>",
 		moleWeight: "386.11 g/mol",
@@ -2929,7 +2940,7 @@ export const recipe = [
 	},
 	{
 		name: "Zinc sulfide",
-		compoundPic: "Zinc-sulfide.png",
+		compoundPic: "Zinc-sulfide.jpg",
 		elements: ["Zn", "S"],
 		formula: "ZnS",
 		moleWeight: "97.474 g/mol",
@@ -2941,7 +2952,7 @@ export const recipe = [
 	},
 	{
 		name: "Para dichlorobenzene",
-		compoundPic: "Para-dichlorobenzene.png",
+		compoundPic: "Para-dichlorobenzene.jpg",
 		elements: ["C", "H", "Cl"],
 		formula: "C<sub>6</sub>H<sub>4</sub>Cl<sub>2</sub>",
 		moleWeight: "147.01 g/mol",
@@ -2953,7 +2964,7 @@ export const recipe = [
 	},
 	{
 		name: "Boric acid",
-		compoundPic: "Boric-acid.png",
+		compoundPic: "Boric-acid.jpg",
 		elements: ["H", "B", "O"],
 		formula: "H<sub>3</sub>BO<sub>3</sub>",
 		moleWeight: "61.83 g/mol",
@@ -2968,7 +2979,7 @@ export const recipe = [
 	},
 	{
 		name: "Oxalate",
-		compoundPic: "Oxalate.png",
+		compoundPic: "Oxalate.jpg",
 		elements: ["C", "O"],
 		formula: "C<sub>2</sub>O<sub>4</sub><sup>2-</sup>",
 		moleWeight: "88.018 g/mol",
@@ -2982,7 +2993,7 @@ export const recipe = [
 	},
 	{
 		name: "Potassium bicarbonate",
-		compoundPic: "Potassium-bicarbonate.png",
+		compoundPic: "Potassium-bicarbonate.jpg",
 		elements: ["K", "H", "C", "O"],
 		formula: "KHCO<sub>3</sub>",
 		moleWeight: "100.114 g/mol",
@@ -2994,7 +3005,7 @@ export const recipe = [
 	},
 	{
 		name: "Potassium hypochlorite",
-		compoundPic: "Potassium-hypochlorite.png",
+		compoundPic: "Potassium-hypochlorite.jpg",
 		elements: ["K", "Cl", "O"],
 		formula: "KClO",
 		moleWeight: "90.55 g/mol",
@@ -3006,7 +3017,7 @@ export const recipe = [
 	},
 	{
 		name: "Potassium nitrite",
-		compoundPic: "Potassium-nitrite.png",
+		compoundPic: "Potassium-nitrite.jpg",
 		elements: ["K", "N", "O"],
 		formula: "KNO<sub>2</sub>",
 		moleWeight: "85.103 g/mol",
@@ -3019,7 +3030,7 @@ export const recipe = [
 	},
 	{
 		name: "Bromothymol Blue",
-		compoundPic: "Bromothymol-Blue.png",
+		compoundPic: "Bromothymol-Blue.jpg",
 		elements: ["C", "H", "Br", "O", "S"],
 		formula: "C<sub>27</sub>H<sub>28</sub>Br<sub>2</sub>O<sub>5</sub>S",
 		moleWeight: "624.384 g/mol",
@@ -3030,7 +3041,7 @@ export const recipe = [
 	},
 	{
 		name: "Ammonium iodide",
-		compoundPic: "Ammonium-iodide.png",
+		compoundPic: "Ammonium-iodide.jpg",
 		elements: ["N", "H", "I"],
 		formula: "NH<sub>4</sub>l",
 		moleWeight: "144.94 g/mol",
@@ -3041,7 +3052,7 @@ export const recipe = [
 	},
 	{
 		name: "Ammonium nitrite",
-		compoundPic: "Ammonium-nitrite.png",
+		compoundPic: "Ammonium-nitrite.jpg",
 		elements: ["N", "H", "O"],
 		formula: "NH<sub>4</sub>NO<sub>2</sub>",
 		moleWeight: "64.06 g/mol",
@@ -3054,7 +3065,7 @@ export const recipe = [
 	},
 	{
 		name: "	Ammonium oxide",
-		compoundPic: "Ammonium-oxide.png",
+		compoundPic: "Ammonium-oxide.jpeg",
 		elements: ["N", "H", "O"],
 		formula: "(NH<sub>4</sub>)<sub>2</sub>O",
 		moleWeight: "52.0763 g/mol",
@@ -3066,7 +3077,7 @@ export const recipe = [
 	},
 	{
 		name: "Argon gas",
-		compoundPic: "Argon-gas.png",
+		compoundPic: "Argon-gas.jpg",
 		elements: ["Ar"],
 		formula: "Ar",
 		moleWeight: "39.948 g/mol",
@@ -3079,7 +3090,7 @@ export const recipe = [
 	},
 	{
 		name: "Barium bromide",
-		compoundPic: "Barium-bromide.png",
+		compoundPic: "Barium-bromide.jpeg",
 		elements: ["Ba", "Br"],
 		formula: "BaBr<sub>2</sub>",
 		moleWeight: "297.14 g/mol",
@@ -3091,7 +3102,7 @@ export const recipe = [
 	},
 	{
 		name: "Barium iodide",
-		compoundPic: "Barium-iodide.png",
+		compoundPic: "Barium-iodide.jpg",
 		elements: ["Ba", "I"],
 		formula: "Bal<sub>2</sub>",
 		moleWeight: "391.136 g/mol",
@@ -3102,7 +3113,7 @@ export const recipe = [
 	},
 	{
 		name: "Bromate",
-		compoundPic: "Bromate.png",
+		compoundPic: "Bromate.jpg",
 		elements: ["Br", "O"],
 		formula: "BrO<sub>3</sub><sup>-</sup>",
 		moleWeight: "127.901 g/mol",
@@ -3113,7 +3124,7 @@ export const recipe = [
 	},
 	{
 		name: "Dinitrogen trioxide",
-		compoundPic: "Dinitrogen-trioxide.png",
+		compoundPic: "Dinitrogen-trioxide.jpg",
 		elements: ["N", "O",],
 		formula: "N<sub>2</sub>O<sub>3</sub>",
 		moleWeight: "76.01 g/mol",
@@ -3124,7 +3135,7 @@ export const recipe = [
 	},
 	{
 		name: "Ethylene glycol",
-		compoundPic: "Ethylene-glycol.png",
+		compoundPic: "Ethylene-glycol.jpg",
 		elements: ["C", "H", "O"],
 		formula: "C<sub>2</sub>H<sub>6</sub>O<sub>2</sub>",
 		moleWeight: "62.07 g/mol",
@@ -3138,7 +3149,7 @@ export const recipe = [
 	},
 	{
 		name: "Nickel sulfate",
-		compoundPic: "Nickel-sulfate.png",
+		compoundPic: "Nickel-sulfate.jpg",
 		elements: ["Ni", "S", "O"],
 		formula: "NiSO<sub>4</sub>",
 		moleWeight: "154.75 g/mol",
@@ -3150,7 +3161,7 @@ export const recipe = [
 	},
 	{
 		name: "Helium",
-		compoundPic: "Helium.png",
+		compoundPic: "Helium.jpg",
 		elements: ["He"],
 		formula: "He",
 		moleWeight: "4.002602 u g/mol",
@@ -3164,7 +3175,7 @@ export const recipe = [
 	},
 	{
 		name: "Iodide",
-		compoundPic: "Iodide.png",
+		compoundPic: "Iodide.jpg",
 		elements: ["I"],
 		formula: "I<sup>-</sup>",
 		moleWeight: "253.809 g/mol",
@@ -3177,7 +3188,7 @@ export const recipe = [
 	},
 	{
 		name: "Lead ii acetate",
-		compoundPic: "Lead-ii-acetate.png",
+		compoundPic: "Lead-ii-acetate.jpg",
 		elements: ["Pb", "C", "H", "O"],
 		formula: "Pb(C<sub>2</sub>H<sub>3</sub>O<sub>2</sub>)<sub>2</sub>",
 		moleWeight: "325.29 g/mol",
@@ -3191,7 +3202,7 @@ export const recipe = [
 	},
 	{
 		name: "Lithium chloride",
-		compoundPic: "Lithium-chloride.png",
+		compoundPic: "Lithium-chloride.jpg",
 		elements: ["Li", "Cl"],
 		formula: "LiCl",
 		moleWeight: "42.394 g/mol",
@@ -3202,7 +3213,7 @@ export const recipe = [
 	},
 	{
 		name: "Phosphate ion",
-		compoundPic: "Phosphate-ion.png",
+		compoundPic: "Phosphate-ion.jpg",
 		elements: ["P", "O"],
 		formula: "PO<sub>4</sub><sup>3-</sup>",
 		moleWeight: "94.9714 g/mol",
@@ -3215,7 +3226,7 @@ export const recipe = [
 	},
 	{
 		name: "Potassium fluoride",
-		compoundPic: "Potassium-fluoride.png",
+		compoundPic: "Potassium-fluoride.jpg",
 		elements: ["K", "F"],
 		formula: "KF",
 		moleWeight: "58.0967 g/mol",
@@ -3227,7 +3238,7 @@ export const recipe = [
 	},
 	{
 		name: "Potassium sulfite",
-		compoundPic: "Potassium-sulfite.png",
+		compoundPic: "Potassium-sulfite.jpg",
 		elements: ["K", "S", "O"],
 		formula: "K<sub>2</sub>SO<sub>3</sub>",
 		moleWeight: "158.26 g/mol",
@@ -3238,7 +3249,7 @@ export const recipe = [
 	},
 	{
 		name: "Silver carbonate",
-		compoundPic: "Silver-carbonate.png",
+		compoundPic: "Silver-carbonate.jpg",
 		elements: ["Ag", "C", "O"],
 		formula: "Ag<sub>2</sub>CO<sub>3</sub>",
 		moleWeight: "275.7453 g/mol",
@@ -3250,7 +3261,7 @@ export const recipe = [
 	},
 	{
 		name: "Sodium cyanide",
-		compoundPic: "Sodium-cyanide.png",
+		compoundPic: "Sodium-cyanide.jpg",
 		elements: ["Na", "C", "N"],
 		formula: "NaCN",
 		moleWeight: "49.0072 g/mol",
@@ -3264,7 +3275,7 @@ export const recipe = [
 	},
 	{
 		name: "Sodium nitride",
-		compoundPic: "Sodium-nitride.png",
+		compoundPic: "Sodium-nitride.jpg",
 		elements: ["Na", "N"],
 		formula: "Na<sub>3</sub>N",
 		moleWeight: "82.976 g/mol",
@@ -3275,7 +3286,7 @@ export const recipe = [
 	},
 	{
 		name: "Strontium chloride",
-		compoundPic: "Strontium-chloride.png",
+		compoundPic: "Strontium-chloride.jpg",
 		elements: ["Sr", "Cl"],
 		formula: "SrCl<sub>2</sub>",
 		moleWeight: "158.52 g/mol",
@@ -3301,7 +3312,7 @@ export const recipe = [
 	},
 	{
 		name: "Urea",
-		compoundPic: "Urea.png",
+		compoundPic: "Urea.jpg",
 		elements: ["C", "H", "N", "O"],
 		formula: "CH<sub>4</sub>N<sub>2</sub>O",
 		moleWeight: "60.056 g/mol",
@@ -3318,7 +3329,7 @@ export const recipe = [
 	},
 	{
 		name: "Bleach",
-		compoundPic: "Bleach.png",
+		compoundPic: "Bleach.jpg",
 		elements: ["Na", "Cl", "O"],
 		formula: "NaClO",
 		moleWeight: "74.439 g/mol",
@@ -3345,7 +3356,7 @@ export const recipe = [
 	},
 	{
 		name: "Aluminum fluoride",
-		compoundPic: "Aluminum-fluoride.png",
+		compoundPic: "Aluminum-fluoride.jpg",
 		elements: ["Al", "F"],
 		formula: "AlF<sub>3</sub>",
 		moleWeight: "83.9767 g/mol",
@@ -3358,7 +3369,7 @@ export const recipe = [
 	},
 	{
 		name: "Barium fluoride",
-		compoundPic: "Barium-fluoride.png",
+		compoundPic: "Barium-fluoride.jppg",
 		elements: ["Ba", "F"],
 		formula: "BaF<sub>2</sub>",
 		moleWeight: "175.34 g/mol",
