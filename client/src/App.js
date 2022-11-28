@@ -34,7 +34,7 @@ import Shop from './Pages/Shop/Shop';
 
 function App() {
   const [ user, setUser ] = useState(localStorage.token ? localStorage.token : null); //true
-  const [ verifyToken, setVerifyToken ] = useState(localStorage.getItem('verify'));
+  
   return (
     <DndProvider backend={HTML5Backend}>
       <div className={user ? "App" : "App-uno"}>
@@ -45,13 +45,11 @@ function App() {
           <Route index path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage setUser={setUser}/>} />
           <Route path="/register" element={<RegisterPage />}/>
-          {verifyToken &&
           <>
             <Route path="/verify" element={<VerifyUser />} />
             <Route path="/forgotPassword" element={<ForgotPassword/>} />
           </>
-          }
-          <Route path="/forgotPasswordOTP" element ={<ForgotPasswordOTP/>} />
+          <Route path="/forgotPasswordOTP" element ={<ForgotPasswordOTP/>} />asdasd
           <Route path="/findYourAccount" element={<FindYourAccount/>} />
           <Route path="*" element={<LandingPage />}/> 
         </Routes>}
