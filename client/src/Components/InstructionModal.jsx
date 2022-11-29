@@ -52,14 +52,14 @@ const InstructionModal = ({instructions, setShowInstruction}) => {
     <div className='modal-wrapper'>
         <div className='instruction-content'>
             <div className='close-button'>
-                    <a onClick={() => closeInstruction()}><img src={close} alt="" /></a>
+                    <img src={close} alt="" onClick={() => closeInstruction()}/>
             </div> 
 
             <div className='screenshots-slider'>
                 <div className={`middle-container ${indicator}`}>
                     <div className='left-button'>
                         {index > 0 && 
-                            <a onClick={() => toTheLeft()}><img src={arrow} alt="" /></a>
+                            <img src={arrow} alt="" onClick={() => toTheLeft()}/>
                         }
                     </div>
                     
@@ -70,7 +70,7 @@ const InstructionModal = ({instructions, setShowInstruction}) => {
 
                     <div className='right-button'>
                         {index < screenshots.length-1 && 
-                            <a onClick={() => toTheRight()}><img src={arrow} alt="" /></a>
+                            <img src={arrow} alt="" onClick={() => toTheRight()}/>
                         }
                     </div>
                 </div>

@@ -3,12 +3,13 @@
     z-index: 3;
     top: 0;
     right: -5%;
-    a{
-       img{
-            width: 2rem;//clamp  later
-        }
-    }
-        
+    img{
+        width: 2rem;//clamp  later
+    }   
+}
+
+.close-button:hover {
+    cursor: pointer;
 }
 
 .instruction-content {
@@ -42,11 +43,9 @@
 
             .left-button {
                 left: 0;
-                a {
-                    img {
-                        -webkit-transform: scaleX(-1);
-                        transform: scaleX(-1);
-                    }
+                img {
+                    -webkit-transform: scaleX(-1);
+                    transform: scaleX(-1);
                 }
             }
 
@@ -121,6 +120,7 @@
 
 .left-button:hover, .right-button:hover{
     transform: scale(1.25);
+    cursor: pointer;
 }
 
 @media only screen and (orientation: portrait) {

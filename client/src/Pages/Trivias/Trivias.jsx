@@ -6,16 +6,16 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 
-const Trivias = ({data}) => {
+const Trivias = () => {
   let {element} = useParams();
   const [ curTrivia, setCurTrivia ] = useState(TriviasData[0]);
   const [ search, setSearch ] = useState("");
   const [ filtSearch, setFiltSearch ] = useState([]);
 
   useEffect(() => {
-    setCurTrivia(TriviasData.filter((data) => {
+    getTriviaData(TriviasData.filter((data) => {
       if (data.name.toLowerCase().includes(element.toLowerCase())) {
-        return data;
+        return {data};
       }
     })[0])
   }, []);
@@ -26,7 +26,7 @@ const Trivias = ({data}) => {
     } else {
       setFiltSearch(TriviasData.filter((data) => {
         if (data.name.toLowerCase().includes(search.toLowerCase())) {
-          return data;
+          return {data}
         }
       }))
     }
@@ -34,7 +34,10 @@ const Trivias = ({data}) => {
 
   //Get Trivia Data
   const getTriviaData = (data) => {
-    setCurTrivia(data);
+    setCurTrivia({
+      ...data,
+      index: TriviasData.findIndex(x => x.name === data.name)
+    });
     setSearch("");
   }
 
@@ -62,7 +65,7 @@ const Trivias = ({data}) => {
             </div>
             <div className="filt-data-wrapper">
               {filtSearch && filtSearch.map((filtData) =>
-                            <option
+                            <option className="filt-data"
                                 onClick={() => getTriviaData(filtData)}>{filtData.name}</option>)}
             </div>
           </div>

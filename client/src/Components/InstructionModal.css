@@ -4,8 +4,12 @@
   top: 0;
   right: -5%;
 }
-.close-button a img {
+.close-button img {
   width: 2rem;
+}
+
+.close-button:hover {
+  cursor: pointer;
 }
 
 .instruction-content {
@@ -39,7 +43,7 @@
 .instruction-content .screenshots-slider .middle-container .left-button {
   left: 0;
 }
-.instruction-content .screenshots-slider .middle-container .left-button a img {
+.instruction-content .screenshots-slider .middle-container .left-button img {
   -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
 }
@@ -102,6 +106,7 @@
 
 .left-button:hover, .right-button:hover {
   transform: scale(1.25);
+  cursor: pointer;
 }
 
 @media only screen and (orientation: portrait) {

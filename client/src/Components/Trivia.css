@@ -13,32 +13,96 @@
   word-wrap: break-word;
   overflow-y: auto;
 }
-.Trivia .wrapper h2 {
-  margin-top: 2rem;
+.Trivia .wrapper .trivia-header {
+  position: relative;
+  width: 60%;
+  height: 20rem;
+  border-radius: 15px 15px 0 0;
+  overflow: hidden;
+}
+.Trivia .wrapper .trivia-header img {
+  width: 100%;
+  height: inherit;
+  object-fit: cover;
+}
+.Trivia .wrapper .trivia-header h2 {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   text-align: center;
   color: rgb(255, 255, 255);
   font-size: 4rem;
+  margin: 0;
+  padding: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 25px;
-  padding: 0.3rem 2rem;
 }
-.Trivia .wrapper h3 {
-  margin-top: 1rem;
-  font-size: 1.5rem;
+.Trivia .wrapper .desc-wrapper h3 {
+  display: block;
+  text-align: center;
+  font-size: clamp(1.2rem, 5vw, 2.5rem);
 }
-.Trivia .wrapper .trivia-text {
+.Trivia .wrapper .desc-wrapper .trivia-text {
   text-align: justify;
-  text-indent: 2rem;
+}
+.Trivia .wrapper .DYK-wrapper {
+  width: 100%;
+}
+.Trivia .wrapper .DYK-wrapper h3 {
+  font-size: clamp(1.2rem, 5vw, 2.5rem);
+  text-align: center;
+}
+.Trivia .wrapper .DYK-wrapper .trivias-wrapper {
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+  min-height: 3rem;
+  width: 95%;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.Trivia .wrapper .DYK-wrapper .trivias-wrapper .trivia-text {
+  text-align: center;
+  color: #FFFFFF;
+}
+.Trivia .wrapper .DYK-wrapper .trivias-wrapper .triv-btn img {
+  width: 1.5rem;
+}
+.Trivia .wrapper .DYK-wrapper .trivias-wrapper .prev-btn {
+  transform: scaleX(-1);
+}
+.Trivia .wrapper .DYK-wrapper .trivias-wrapper .prev-btn:hover,
+.Trivia .wrapper .DYK-wrapper .trivias-wrapper .next-btn:hover {
+  cursor: pointer;
+}
+.Trivia .wrapper .DYK-wrapper .trivias-wrapper .prev-btn:hover img,
+.Trivia .wrapper .DYK-wrapper .trivias-wrapper .next-btn:hover img {
+  transform: translateX(5px);
 }
 
 @media only screen and (orientation: portrait) {
   .Trivia {
     margin: 3rem 0 !important;
   }
-  .wrapper {
+  .Trivia .wrapper {
+    padding: 0;
     overflow-x: hidden;
   }
-  .wrapper h2 {
+  .Trivia .wrapper h2 {
     font-size: clamp(20px, 4rem, 3rem) !important;
+  }
+  .Trivia .wrapper .trivia-header {
+    width: 100%;
+    border-radius: 0;
+  }
+  .Trivia .wrapper .desc-wrapper {
+    margin: 0.5rem;
+  }
+  .Trivia .wrapper .DYK-wrapper {
+    margin: 0.5rem 0;
+  }
+  .Trivia .wrapper .DYK-wrapper .trivias-wrapper {
+    padding: 0;
   }
 }

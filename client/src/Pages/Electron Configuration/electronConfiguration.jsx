@@ -257,7 +257,7 @@ const electronConfiguration = () => {
                     {
                       shuffledCell[2] ? 
                       <div className='game-cells' key={index}>
-                          <a></a>
+                          <p></p>
                       </div> : 
                       <div className='' key={index} onClick={() => {clickState ? handleClick(shuffledCell[0],index, shuffledCell[3]) : console.log('sumosobra ka na')}}>
                         {
@@ -265,7 +265,7 @@ const electronConfiguration = () => {
                             <div className='game-cells rotate-scale-up-vertical'>
                               <img className='card' src={frontCard} alt="" />
                               <img className='icons' src={icons[shuffledCell[0]]}/>
-                              <a className='text'>{shuffledCell[1]}</a>
+                              <p className='text'>{shuffledCell[1]}</p>
                             </div> : 
                             <div className='game-cells' >
                               <img className='card rotate-scale-up-vertical' src={backCard} alt="" />

@@ -38,6 +38,7 @@
   border-bottom-right-radius: 5px;
   padding: auto 1rem;
   float: left;
+  z-index: 999;
 }
 .Trivias .search-wrapper .filt-data-wrapper .filt-data {
   padding: 0 1rem;
