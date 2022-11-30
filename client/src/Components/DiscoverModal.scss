@@ -11,8 +11,10 @@
     z-index: 10;
 
     .wrapper {
-        width: 50vw;
-        height: 25vh;
+        width: clamp(15rem, 50vw, 60rem);
+        height: fit-content;
+        min-height: 10rem;
+        max-height: 80vw;
         background-color: white;
         color: black;
         border-radius: 18px;
@@ -23,12 +25,17 @@
 
         .exit {
             align-self: flex-end;
-            font-size: 1.5rem;
+            
             text-align: center;
             border: 2px solid black;
             border-radius: 50%;
-            padding: .05rem;
+            
             aspect-ratio: 1;
+
+            span {
+                padding: .5rem;
+                font-size: 1.5rem;
+            }
         }
         
         .exit:hover {
@@ -45,21 +52,28 @@
             .compound {
                 display:grid;
                 grid-template-columns: 1fr 4fr;
-                justify-content: space-around;
+                place-items: center;
                 width: 80%;
                 margin: 1rem auto;
 
                 .text {
+                    text-align: center;
+
                     h2 {
                         color: black;
                         margin: 0;
-                        font-size: 2rem;
+                        font-size: clamp(25px, 1.5vw, 2rem);
+                    }
+
+                    h3 {
+                        font-size: clamp(16px, 1.5vw, 1.25rem);
                     }
                 }
                 
         
                 .picture {
                     width: 128px;
+                    height: 128px;
                     padding: .5rem;
                     background-color: transparent;
                     margin-right: 1rem;
@@ -69,6 +83,30 @@
                         width: 100%;
                         height: 100%;
                         padding: .3rem;
+                        object-fit: cover;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media only screen and (orientation: portrait) {
+    #discover-modal{
+        .wrapper {
+            width: 95vw;
+            height: 100vh;
+            max-height: 100vh;
+
+            .compound-wrapper {
+                .compound {
+                    display: flex;
+                    flex-direction: column;
+
+                    .picture {
+                        width: 60%;
+                        height: 5rem;
+                        margin: auto;
                     }
                 }
             }

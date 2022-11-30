@@ -5,7 +5,7 @@ const DiscoverModal = ({showNew, data}) => {
   return (
     <div id="discover-modal">
         <div className="wrapper">
-            <div className="exit" onClick={() => {showNew(false)}}>X</div>
+            <div className="exit" onClick={() => {showNew(false)}}><span>X</span></div>
             <div className="compound-wrapper">
                 {data.map((compound) => {
                     return(

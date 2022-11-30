@@ -40,30 +40,35 @@
 
         .header {
             display:flex;
-            justify-content: space-around;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
             width: 100%;
 
             h2 {
                 color: black;
                 margin: 0;
-                font-size: 3rem;
+                font-size: clamp(24px, 2.5vw, 2.5rem);
             }
     
             .picture {
-                height: 128px;
-                padding: .5rem;
-                background-color: transparent;
-                margin-right: 3rem;
+                height: 10rem;
+                width: 70%;
+                background-color: white;
+                border: 1px solid black;
+                border-radius: 15px;
 
                 img {
-                    border: 1px solid black;
                     height: 100%;
+                    width: 100%;
+                    object-fit: contain;
+                    margin: auto;
                 }
             }
         }
 
         .description {
-            margin: 2rem 4rem 0;
+            margin: 1rem 4rem 0;
             padding: 1rem;
             overflow-y: auto;
 
@@ -74,6 +79,16 @@
                 text-align: justify;
                 margin-top: 1rem;
             }
+        }
+    }
+}
+
+@media only screen and (orientation: portrait) {
+    #compound-modal{
+        .wrapper {
+            width: 95vw;
+            height: 100vh;
+            max-height: 100vh;
         }
     }
 }

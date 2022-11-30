@@ -59,7 +59,7 @@ const electronConfiguration = () => {
   const [ username, setUsername] = useState('')
 
   //Modal States
-  const [ overlayState, setOverlayState ] = useState(false)
+  const [ overlayState, setOverlayState ] = useState(true)
   const [ showModal, setShowModal ] = useState(false)
   const [ showInstruction, setShowInstruction ]  = useState(false)
 
@@ -91,12 +91,6 @@ const electronConfiguration = () => {
       elecConfigBGM.pause()
     }
   }, [])
-
-  useEffect(() => {
-    if(showInstruction === false){
-      setOverlayState(true)
-    }
-  },[showInstruction])
   
   useEffect(() => {
     if(cell.length > 0)

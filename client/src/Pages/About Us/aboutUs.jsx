@@ -1,52 +1,16 @@
 import React from 'react';
-import './aboutUs.css';
+
+//Images
 import Logo from '../../Assets/Images/logo.png';
 
+//Data
+import Members from '../../Data/Members.js';
+
+//Designs
+import './aboutUs.css';
+
 const aboutUs = () => {
-
-  const members = [
-    {
-      img: {},
-      name: "Patrick Jan Capati",
-      role: "Data Researcher"
-    },
-    {
-      img: {},
-      name: "Michenne Cortez",
-      role: "UI/UX Designer"
-    },
-    {
-      img: {},
-      name: "Matt Gabriel Domingo",
-      role: "Front-end Developer"
-    },
-    {
-      img: {},
-      name: "Kimberly Joy Magat",
-      role: "Data Researcher"
-    },
-    {
-      img: {},
-      name: "Ram Keazar Medina",
-      role: "Documentation"
-    },
-    {
-      img: {},
-      name: "Joshua Kyle Ocampo",
-      role: "Back-end Developer"
-    },
-    {
-      img: {},
-      name: "Jerico Carlo Pangilinan",
-      role: "Data Researcher"
-    },
-    {
-      img: {},
-      name: "Louis Andrei Suba",
-      role: "Documentation"
-    }
-  ]
-
+  const members = Members;
   return (
     <>
       <div className="main-header">
@@ -57,12 +21,13 @@ const aboutUs = () => {
       <div className="about-wrapper">
         <img src={Logo} alt="logo" id="logo-about"/>
         <p className="short-desc">
-          Scien-T is web-based Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum error laboriosam eum cumque corporis, maxime iure, quisquam, tenetur sunt suscipit facilis commodi. Ea voluptatem fugit ad excepturi amet doloribus veniam?
+          Scien-T is web-based gamified learning system to help students be motivated and pique their interest in chemistry. It is a website to learn and play while tracking your progress or collecting cosmetics just for fun. Learn through Trivias, Mixing Table, and an interactive Periodic Table or play and learn with games like Mix Dash, Test Battle and Electron Configuration. You get to choose on how to learn!
         </p>
+        <h2>Members</h2>
         <div className="members-wrapper">
           {members && members.map((member) => 
             <div className="member">
-              <div className="picture"></div>
+              <img src={`/images/About/${member.img}`} alt={member.name} className="picture" />
               <p className="name">{member.name}</p>
               <p className="role">{member.role}</p>
             </div>

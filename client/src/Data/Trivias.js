@@ -394,7 +394,7 @@ export const TriviasData = [
     {
         name: "Gold",
         description: "Gold is the most malleable element, and is a dense non-tarnishing colored metal.",
-        used: "Gold is one of the most coveted metals in the world, because it can be easily shaped and sculpted, conducts electricity well, and does not tarnish. Aside from its use in coinage and jewelry, it is used in gears for watches, artificial limb joints, and electrical connectors. Gold nanoparticles are used as industrial catalysts. "
+        used: "Gold is one of the most coveted metals in the world, because it can be easily shaped and sculpted, conducts electricity well, and does not tarnish. Aside from its use in coinage and jewelry, it is used in gears for watches, artificial limb joints, and electrical connectors. Gold nanoparticles are used as industrial catalysts."
     },
     {
         name: "Mercury",

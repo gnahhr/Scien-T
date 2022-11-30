@@ -63,3 +63,10 @@
 .hidden {
     transform: translateX(100%);
 }
+
+@media only screen and (orientation: portrait) {
+    #discover-list {
+        width: 100vw;
+        padding: 2px;
+    }
+}

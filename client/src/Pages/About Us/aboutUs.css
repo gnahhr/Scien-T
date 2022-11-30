@@ -6,6 +6,9 @@
   gap: 2rem;
   height: 88vh;
 }
+.about-wrapper h2 {
+  font-size: 2.5rem;
+}
 
 #logo-about {
   margin: 1rem auto 0;
@@ -33,10 +36,16 @@
   border-radius: 50%;
   width: 150px;
   height: 150px;
+  object-fit: cover;
+  border: 3px white solid;
 }
 .members-wrapper * {
   margin: auto;
   text-align: center;
+}
+.members-wrapper p {
+  color: white;
+  font-size: 1rem;
 }
 
 @media only screen and (orientation: portrait) {

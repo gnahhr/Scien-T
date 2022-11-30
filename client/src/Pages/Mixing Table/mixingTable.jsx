@@ -263,6 +263,7 @@ const mixingTable = () => {
                 symbol={element.symbol}
                 xpos={element.xpos}
                 ypos={element.ypos}
+                tag={"unavailable"}
               />)
               
               }

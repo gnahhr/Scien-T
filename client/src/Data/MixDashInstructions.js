@@ -24,4 +24,4 @@ const MixDashInstructions = {
     ]
 }
 
-export  default MixDashInstructions
+export default MixDashInstructions

@@ -55,7 +55,7 @@
 
   h2 {
     color: #0B004A;
-    font-size: 1rem;
+    font-size: clamp(12px, 1.5vw, 1.05rem);
     margin: 0;
   }
 
@@ -101,5 +101,38 @@
   .cta:hover:enabled {
     background-color: #FFEAB6;
     box-shadow: 0 5px 5px #00000077;
+  }
+}
+
+@media only screen and (orientation: portrait) {
+  .main-wrapper {
+    .mixing-table {
+      width: 80%;
+      margin-top: 2rem;
+
+      #mixing-table {
+        width: 100%;
+        box-shadow: 0 0 0 0;
+        border: 5px #320D63 solid;
+      }
+
+      .cta {
+        max-width: 100%;
+        width: 40%;
+        margin: 1rem 0 0;
+      }
+
+      flex-direction: column;
+    }
+
+    #periodic-table {
+      display: flex;
+      flex-wrap: wrap;
+      width: 80vw;
+      gap: 3px;
+      .element.unavailable {
+        display: none;
+      }
+    }
   }
 }

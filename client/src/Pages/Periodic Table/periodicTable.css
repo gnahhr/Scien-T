@@ -45,7 +45,7 @@
 }
 
 @media only screen and (orientation: portrait) {
-  #periodic-table {
+  .periodic-wrapper #periodic-table {
     display: none;
   }
   #periodic-table-mobile {
