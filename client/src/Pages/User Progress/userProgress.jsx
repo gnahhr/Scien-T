@@ -6,18 +6,27 @@ import regression from 'regression'
 import "./userProgress.css";
 
 //Hooks
-import getIntellimentData from '../../Hooks/getIntellimentData'
-import getUserProgEC from '../../Hooks/getUserProgEC'
-import getUserProgME from '../../Hooks/getUserProgME'
-import getIntellimentCounter from '../../Hooks/getIntellimentCounter'
+import getIntellimentData from '../../Hooks/getIntellimentData';
+import getUserProgEC from '../../Hooks/getUserProgEC';
+import getUserProgME from '../../Hooks/getUserProgME';
+import getUserProgTestBattle from '../../Hooks/getUserProgTestBattle';
+import getUserProgMixDash from '../../Hooks/getUserProgMixDash';
+import getIntellimentCounter from '../../Hooks/getIntellimentCounter';
 
 const userProgress = () => {
   const [ access, setAccess ] = useState('')
   const [ data, setData ] = useState([])
   const [ intellimentCounter, setIntellimentCounter ] = useState([])
   const [ difficulty, setDifficulty ] = useState('easy')
+
+
   const [ mixingTableCounter, setMixingTableCounter ] = useState(0)
   const [ electronConfigCounter, setElectronConfigCounter ] = useState(0)
+  const [ testBattleNameCtr, setTestbattleNameCtr ] = useState(0);
+  const [ testBattleNumCtr, setTestbattleNumCtr ] = useState(0);
+  const [ testBattleMassCtr, setTestbattleMassCtr ] = useState(0);
+  const [ testBattleCatCtr, setTestbattleCatCtr ] = useState(0);
+  const [ mixDashCtr, setMixDashCtr ] = useState(0);
   const [ predictedValue, setPredictedValue ] = useState(0)
 
   //get data on refresh
@@ -44,6 +53,28 @@ const userProgress = () => {
     (async () => {
       const progress = await getUserProgEC(user.id);
       setElectronConfigCounter(progress);
+    })();
+
+    (async () => {
+      const progress = await getUserProgMixDash(user.id);
+      setMixDashCtr(progress);
+    })();
+
+    (async () => {
+      const progress = await getUserProgTestBattle(user.id, "elemName");
+      setTestbattleNameCtr(progress);
+    })();
+    (async () => {
+      const progress = await getUserProgTestBattle(user.id, "atomicNum");
+      setTestbattleNumCtr(progress);
+    })();
+    (async () => {
+      const progress = await getUserProgTestBattle(user.id, "atomicMass");
+      setTestbattleMassCtr(progress);
+    })();
+    (async () => {
+      const progress = await getUserProgTestBattle(user.id, "category");
+      setTestbattleCatCtr(progress);
     })();
   },[])
 
@@ -130,6 +161,31 @@ const userProgress = () => {
               <p>{mixingTableCounter}/273</p>
               <p></p>
             </div>
+            <div className="mix-progress progress-div">
+              <h3>Mix Dash Progress</h3>
+              <p>{mixDashCtr}/10</p>
+              <p></p>
+            </div>
+            <div className="mix-progress progress-div">
+              <h3>Test Battle(Element Name) Progress</h3>
+              <p>{testBattleNameCtr}/9</p>
+              <p></p>
+            </div>
+            <div className="mix-progress progress-div">
+              <h3>Test Battle(Element Number) Progress</h3>
+              <p>{testBattleNumCtr}/9</p>
+              <p></p>
+            </div>
+            <div className="mix-progress progress-div">
+              <h3>Test Battle(Atomic Mass) Progress</h3>
+              <p>{testBattleMassCtr}/9</p>
+              <p></p>
+            </div>
+            <div className="mix-progress progress-div">
+              <h3>Test Battle(Category) Progress</h3>
+              <p>{testBattleCatCtr}/9</p>
+              <p></p>
+            </div>
             <div className="electron-progress progress-div">
               <h3>Electron Configuration Progress</h3>
               <p>{electronConfigCounter}pts</p>
@@ -143,9 +199,7 @@ const userProgress = () => {
         </div>
         <div className="progress-body">
           <div className="category-wrapper">
-              <h1>Intelliment</h1>
-              {/* <button>Intelliment</button>
-              <button>Electron Configuration</button> */}
+              <h1>Assessment</h1>
           </div>
           <div className="body-content">
             <div className="left-progress">
