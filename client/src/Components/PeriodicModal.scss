@@ -126,9 +126,22 @@
         .wrapper {
             max-width: 100vw;
             max-height: 80vh;
-    
-            .element-wrapper {
+            padding: .5rem;
+            
+            .element-header {
                 width: 100%;
+                .element-wrapper {
+                    width: 100%;
+                }
+
+                .element-picture {
+                    height: 100%;
+                    width: 100%;          
+                    align-self: flex-start;
+                    justify-self: center;
+                    height: 20rem;
+                    border-radius: 15px;
+                }
             }
     
             .description-wrapper {
@@ -136,7 +149,7 @@
             }
             .bohr-img {
                 img {
-                    width: 150px;
+                    width: 200px;
                     border-radius: 25px;
                 }
             }

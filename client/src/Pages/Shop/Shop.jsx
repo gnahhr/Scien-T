@@ -74,7 +74,6 @@ const Shop = () => {
         if(gender === 'male'){
             model && mergeImages([model, ...sample],{ width: 1000, height: 1100}).then(b64 => setProfilePreview(b64));
         }
-
         else if(gender === 'female'){//  magkaiba kase dimensions ng dalawa kaya hiwalay
             model && mergeImages([model, ...sample],{ width: 1300, height: 1370}).then(b64 => setProfilePreview(b64));
         }

@@ -109,15 +109,27 @@
   .periodic-modal .wrapper {
     max-width: 100vw;
     max-height: 80vh;
+    padding: 0.5rem;
   }
-  .periodic-modal .wrapper .element-wrapper {
+  .periodic-modal .wrapper .element-header {
     width: 100%;
+  }
+  .periodic-modal .wrapper .element-header .element-wrapper {
+    width: 100%;
+  }
+  .periodic-modal .wrapper .element-header .element-picture {
+    height: 100%;
+    width: 100%;
+    align-self: flex-start;
+    justify-self: center;
+    height: 20rem;
+    border-radius: 15px;
   }
   .periodic-modal .wrapper .description-wrapper {
     width: 100%;
   }
   .periodic-modal .wrapper .bohr-img img {
-    width: 150px;
+    width: 200px;
     border-radius: 25px;
   }
   .periodic-modal .wrapper .summary {

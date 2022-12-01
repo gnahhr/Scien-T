@@ -209,47 +209,27 @@ const BattleWindow = ({topic, stage, nextPhase, resultState, battleResult, setDe
   //Generate Questions as per Category
   const generateQsTopic = (topic, stage) => {
     let totalQs = [];
-    if (stage !== "endless") {
-      for(let i=stage-10; i<stage; i++) {
-        const modelRand = Math.floor(Math.random() * 2);
-        let topics = {
-            "elemName": periodicTable[i].name,
-            "atomicMass": periodicTable[i].atomic_mass,
-            "atomicNum": periodicTable[i].number,
-            "category": periodicTable[i].category,
-        };
+    const max = stage !== "endless" ? stage : 118;
+    const start = stage !== "endless" ? stage-10 : 0;
+    
+    for(let i=start; i<max; i++) {
+      const modelRand = Math.floor(Math.random() * 2);
+      let topics = {
+          "elemName": periodicTable[i].name,
+          "atomicMass": periodicTable[i].atomic_mass,
+          "atomicNum": periodicTable[i].number,
+          "category": periodicTable[i].category,
+      };
 
-        totalQs.push({
-          "elemSym": periodicTable[i].symbol,
-          "elemAnswer": topics[topic],
-          "model": modelsArr[modelRand],
-          "modelHit": modelsHitArr[modelRand],
-          "choices": [
+      totalQs.push({
+        "elemSym": periodicTable[i].symbol,
+        "elemAnswer": topics[topic],
+        "model": modelsArr[modelRand],
+        "modelHit": modelsHitArr[modelRand],
+        "choices": [
 
-          ]
-        });
-      }
-    } else {
-      for(let i=0; i<119; i++) {
-        const modelRand = Math.floor(Math.random() * 2);
-
-        let topics = {
-            "elemName": periodicTable[i].name,
-            "atomicMass": periodicTable[i].atomic_mass,
-            "atomicNum": periodicTable[i].number,
-            "category": periodicTable[i].category,
-        };
-
-        totalQs.push({
-          "elemSym": periodicTable[i].symbol,
-          "elemAnswer": topics[topic],
-          "model": modelsArr[modelRand],
-          "modelHit": modelsHitArr[modelRand],
-          "choices": [
-
-          ]
-        });
-      }
+        ]
+      });
     }
     
     totalQs.map(el => el["choices"] = generateChoices(totalQs, el));

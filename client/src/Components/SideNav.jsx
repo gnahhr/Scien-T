@@ -54,6 +54,7 @@ const SideNav = ({children}) => {
   },[])
 
   useEffect(() =>{
+    console.log("asdasdds");
     getCharacter();
   },[children])
 
