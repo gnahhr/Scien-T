@@ -14,6 +14,5 @@ export default async function getUserProgME(access){
   }
   else{
     alert(data.error)
-    console.log('here')
   }
 }

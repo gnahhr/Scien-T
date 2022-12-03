@@ -71,6 +71,7 @@ const Shop = () => {
         const sample = data.filter((x) => x !== "");
         model && mergeImages([model, ...sample]).then(b64 => setPreview(b64));
         model && mergeImages([hitModel, ...sample]).then(b64 => setHitPreview(b64));
+        
         if(gender === 'male'){
             model && mergeImages([model, ...sample],{ width: 1000, height: 1100}).then(b64 => setProfilePreview(b64));
         }

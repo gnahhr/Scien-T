@@ -11,7 +11,6 @@ import getUserProgME from '../../Hooks/getUserProgME.js';
 //Data
 import elements from '../../Data/PeriodicTableJSON.json';
 import { recipe } from '../../Data/Recipe.js';
-import sampleBGM from '../../Assets/Audio/sample-bgm.mp3'
 
 //Components
 import Elements from '../../Components/Elements.jsx';
@@ -23,9 +22,7 @@ import NoDragElem from '../../Components/NoDragElem.jsx';
 
 //Design
 import "./mixingTable.css";
-import gear from "../../Assets/Images/gear.svg";
 import listIcon from "../../Assets/Images/list-icon.svg";
-import ElemColors from '../../Data/ElemColors.js';
 import Mix from "../../Assets/Images/mix.svg";
 
 

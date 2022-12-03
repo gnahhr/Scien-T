@@ -372,8 +372,8 @@ export const recipe = [
 		]
 	},
 	{
-		name: "Aluminium sulfate",
-		compoundPic: "ammonium-sulfate.jpg",
+		name: "Aluminum sulfide",
+		compoundPic: "Aluminum-sulfide.png",
 		elements: ["Al","S", "O"],
 		formula: `"Al<sub>2</sub>(SO<sub>4</sub>)<sub>3</sub>"`,
 		moleWeight: "342.15 g/mol",
@@ -386,12 +386,11 @@ export const recipe = [
 	},
 	{
 		name: "Aluminum oxide",
-		compoundPic: "aluminium-oxide.jpg",
+		compoundPic: "aluminum-oxide.jpg",
 		elements: ["Al","S", "O"],
 		formula: "Al<sub>2</sub>O<sub>3</sub>",
 		moleWeight: "101.96 g/mol",
 		description: [
-	
 			"It is also called as Alpha-Alumina, alumina, alundum or aloxide.",
 			"It is found naturally as corundum, Ruby's, sapphires, and emeralds.",
 			"Aluminium oxide is a very good ceramic oxide which has many important applications in the manufacture of adsorbents and catalysts. It is also used in the aerospace industry and in the production of many commercially important chemicals.",
@@ -405,7 +404,6 @@ export const recipe = [
 		formula: "NH<sub>4</sub>NO<sub>3</sub>",
 		moleWeight: "80.043 g/mol",
 		description: [
-	
 			"Used to make fertilizers and explosives, and as a nutrient in antibiotic and yeast growth. Ammonium nitrate is the nitric acid ammonium salt. It has a function as a fertilizer, an oxidizing agent and an explosive.",
 			"It feels cold when ammonium nitrate is dissolved in water which indicates an endothermic reaction.",
 			" The use of ammonium nitrate in gardens and large-scale growing fields stimulates plant growth and provides a ready source of nitrogen that plants can draw from."
@@ -413,7 +411,7 @@ export const recipe = [
 	},
 	{
 		name: "Ammonium phosphate",
-		compoundPic: "ammonum-phosphate.jpg",
+		compoundPic: "ammonium-phosphate.jpg",
 		elements: ["N","H", "P", "O"],
 		formula: `"(NH<sub>4</sub>)<sub>3</sub>PO<sub>4</sub>"`,
 		moleWeight: "132.056 g/mol",
@@ -431,7 +429,6 @@ export const recipe = [
 		formula: `"BA(OH)<sub>2</sub>"`,
 		moleWeight: "171.341 g/mol",
 		description: [
-	
 			"is also called as baryta with",
 			"Used in the manufacture of alkalis, glass, oil and grease additives, barium soaps, and other barium compounds.",
 			"Inhalation of barium dusts can cause irritation of the nose and upper respiratory tract and may produce benign pneumoconiosis known as baritosis.",
@@ -445,7 +442,6 @@ export const recipe = [
 		formula: "CCl<sub>4</sub>",
 		moleWeight: "153.811 g/mol",
 		description: [
-	
 			"In the past, this compound was widely used in cleaning agents. It was also used in fire extinguishers and was known to serve as a precursor to several refrigerants. However, the use of this compound has been phased out by several governments due to its toxicity.",
 			"The inhalation of large quantities of carbon tetrachloride can cause serious damage to vital organs like the kidney and liver.",
 			"It can also have negative effects on the central nervous system (CNS). Furthermore, prolonged human exposure to carbon tetrachloride often results in death.",
@@ -458,7 +454,6 @@ export const recipe = [
 		formula: "C<sub>6</sub>H<sub>8</sub>O<sub>7</sub>",
 		moleWeight: "192.123 g/mol",
 		description: [
-	
 			"This acid is usually found in citrus fruits like lemons, oranges etc. ",
 			"This organic acid was isolated for the first time by chemist Carl Wilhelm Scheele in the year 1784.",
 			"is an organic compound that is found in citrus fruits. It is a natural preservative and is also used in foods and soft drinks to imbue an acidic (or a sour) flavour. It is essential in biochemistry as an intermediate in the cycle of citric acid, and thus occurs in the metabolism of almost every living organism.",
@@ -469,7 +464,7 @@ export const recipe = [
 		compoundPic: "hydrocyanic-acid.png",
 		elements: ["H","C","N"],
 		formula: "HCN",
-		moleWeight: "27.026 g/mol	",
+		moleWeight: "27.026 g/mol",
 		description: [
 			"Also known as Prussic acid, acetonitrile, formonitrile",
 			"a colourless liquid whose vapour is lighter than air and dissipates rapidly. ",
@@ -527,7 +522,6 @@ export const recipe = [
 		description: ["product that is formed when iron undergoes oxidation.",
 			"It is also known as Hematite or Red iron oxide. This compound occurs naturally in rocks of all ages. It appears as a Red-brown solid. It is odourless.",
 			"used in paints and coatings, inks, plastics, rubber products and glass as a pigment and/or UV blocking agent. It is also used as a polishing agent for glass, diamonds and precious metals. This compound also finds use as a component in magnets, as a dental abrasive, and as a process regulator or catalyst in the manufacture of other products.",
-			
 		]
 	},
 	{
@@ -540,7 +534,6 @@ export const recipe = [
 			"also known as Trimagnesium diphosphate, Phosphoric acid magnesium salt",
 			"Magnesium phosphate is widely used in medication in order to support the relaxation of muscles. This compound is also used to prevent the cramping of muscles. Magnesium phosphate is also used to prevent vitamin E deficiency.",
 			"The solution is easily prepared by agitating some salt with carbon dioxide-free water for several hours.",
-			
 		]
 	},
 	{
@@ -554,7 +547,6 @@ export const recipe = [
 			"It is either in its white granular powder form or appears as monoclinic crystals. It is hygroscopic in nature and easily soluble in water. It is usually odourless but when heated to decomposition, it smells like vinegar or acetic acid. ",
 			"widely used as a source of carbon for the culturing of many important bacteria.",
 			" also acts as a concrete sealant and is, therefore, used to reduce the water damage suffered by concrete in the construction industry."
-			
 		]
 	},
 	{
@@ -567,7 +559,6 @@ export const recipe = [
 			"Anhydrous literally means “no water.” In chemistry, substances without water are labelled as anhydrous. The term is most often applied to crystalline substances after the water of crystallisation is removed. ",
 			"The name and function of salt compounds change with the presence or absence of water ",
 			"Sodium sulfate is used to dry organic liquids and as a filler in powdered home laundry detergents.",
-			
 		]
 	},
 	{
@@ -581,7 +572,6 @@ export const recipe = [
 			"It is widely used as a sweetener in food. ",
 			"It can be obtained from sugar beets or sugar canes, but it must be refined to be fit for human consumption.",
 			"Sucrose can be dissolved in water, thus retaining a stable structure. Sucrose will then be transported into the phloem by plant cells, the special vascular tissue intended for sugar transport.",
-			
 		]
 	},
 	{
@@ -597,7 +587,6 @@ export const recipe = [
 			"A number of health hazards can present in potassium nitrate. It can trigger breathing issues when inhaled, including coughing and shortness of breath. Contact with the skin or eye can lead to discomforts such as redness, itching, and pain.",
 			"It is used as gunpowder in explosives such as bombs, grenades, etc.",
 			"Used in toothpaste to make the teeth less sensitive to pain"
-			
 		]
 	},
 	{
@@ -682,12 +671,12 @@ export const recipe = [
 		name: "Chlorine gas",
 		compoundPic: "chlorine-gas.jpg",
 		elements: ["Cl"],
-		formula: `"Cl<sub>2</sub>"`,
+		formula: "Cl<sub>2</sub>",
 		moleWeight: "70.9 g/mol",
 		description: [
-			" Carl Wilhelm Scheele who was a Swedish chemist discovered Chlorine in the year 1774.",
-			" Liquid chlorine can cause skin burn and chlorine in its gaseous form irritates the mucous membrane.",
-			" Chlorine is used in the treatment of drinking water to kill bacteria",
+			"Carl Wilhelm Scheele who was a Swedish chemist discovered Chlorine in the year 1774.",
+			"Liquid chlorine can cause skin burn and chlorine in its gaseous form irritates the mucous membrane.",
+			"Chlorine is used in the treatment of drinking water to kill bacteria",
 			"It is used to produce drugs and manufacture of dyes and plastics"
 		]
 	},
@@ -709,7 +698,7 @@ export const recipe = [
 		name: "Hydrogen Peroxide",
 		compoundPic: "hydrogen-peroxide.jpg",
 		elements: ["H", "O"],
-		formula: `"H<sub>2</sub>O<sub>2</sub>"`,
+		formula: "H<sub>2</sub>O<sub>2</sub>",
 		moleWeight: "4.0147 g/mol",
 		description: [
 			"It is a colourless liquid and is used in aqueous solution for safety reasons. It acts as a bleaching agent and is also used as a disinfectant.",
@@ -721,7 +710,7 @@ export const recipe = [
 		name: "Hydroxide",
 		compoundPic: "Hydroxide.jpg",
 		elements: ["O", "H"],
-		formula: `"OH<sup>-</sup>"`,
+		formula: "OH<sup>-</sup>",
 		moleWeight: "17.007 g/mol",
 		description: [
 			"is also called Hydroxyl or Hydroxyl radical or hydroxide ion.",
@@ -734,7 +723,7 @@ export const recipe = [
 		name: "Magnesium chloride",
 		compoundPic: "magnesium-chloride.jpg",
 		elements: ["Mg", "Cl"],
-		formula: `"MgCl<sub>2</sub>"`,
+		formula: "MgCl<sub>2</sub>",
 		moleWeight: "95.211 g/mol	",
 		description: [
 			" is also called Magnesium dichloride or magnesium (II) chloride or Chloromagnesite.",
@@ -747,7 +736,7 @@ export const recipe = [
 		name: "Potassium chloride",
 		compoundPic: "potassium-chloride.jpg",
 		elements: ["K", "Cl"],
-		formula: `"KCl"`,
+		formula: "KCl",
 		moleWeight: "74.5513 g/mol",
 		description: [
 			" Potassium chloride is used in the manufacture of potash, an important form of fertilizer that enriches soils with potassium which promotes the growth of plant life.",
@@ -798,7 +787,7 @@ export const recipe = [
 		name: "Barium nitrate",
 		compoundPic: "Barium-Nitrate.jpg",
 		elements: ["Ba", "N", "O"],
-		formula: `"Ba(NO<sub>3</sub>)<sub>2</sub>"`,
+		formula: "Ba(NO<sub>3</sub>)<sub>2</sub>",
 		moleWeight: "261.337 g/mol",
 		description: [
 			"  It is also called Barium dinitrate or Nitrobarite or Barium salt.",
@@ -997,7 +986,7 @@ export const recipe = [
 		name: "Barium sulfate",
 		compoundPic: "Barium-sulfate.jpeg",
 		elements: ["Ba", "S", "O"],
-		formula: "BaSO<sub>4</sub>)",
+		formula: "BaSO<sub>4</sub>",
 		moleWeight: "233.38 g/mol",
 		description: [
 			"It is a white crystalline solid that is odorless and insoluble in water. It occurs as the mineral barite, which is the main commercial source of barium and materials prepared from it.",
@@ -1053,7 +1042,7 @@ export const recipe = [
 	{
 		name: "Cyanide",
 		compoundPic: "Cyanide.jpg",
-		elements: ["C", "N−"],
+		elements: ["C", "N-"],
 		formula: "CN<sup>-</sup>",
 		moleWeight: "26.02 g/mol",
 		description: [
@@ -1175,7 +1164,7 @@ export const recipe = [
 		description: [
 			"Nitrous oxide is another name for dinitrogen monoxide. It’s an inorganic substance having a simple chemical formula.",
 			"At room temperature, it is colourless and combustible.",
-			"It’s also a strong oxidant, thus it’s quite comparable to the oxygen molecule. Let us look at the dinitrogen monoxide formula with examples in this article. This article also covers its properties and applications. "
+			"It's also a strong oxidant, thus it's quite comparable to the oxygen molecule. Let us look at the dinitrogen monoxide formula with examples in this article. This article also covers its properties and applications. "
 		],
 	},
 	{
@@ -1474,7 +1463,6 @@ export const recipe = [
 			"Potassium chromate is highly corrosive and is a strong oxidizing agent. This substance is used in the manufacture of dyes and in textile dyeing processes.",
 			"Potassium chromate primarily affects the nose, throat and lungs causing ulcerations, shortness of breath, bronchitis, pneumonia and asthma but can also affect the gastrointestinal tract, liver, kidneys and immune system."
 		],
-
 	},
 	{
 		name: "Zinc sulfate",
@@ -1487,7 +1475,6 @@ export const recipe = [
 			"Side effects of excess supplementation may include abdominal pain, vomiting, headache, and tiredness.",
 			"The most common form includes water of crystallization as the heptahydrate, with the formula ZnSO4·7H2O. It was historically known as `white vitriol`. Zinc sulfate and its hydrates are colourless solids."
 		],
-
 	},
 	{
 		name: "Iodine",
@@ -2306,8 +2293,8 @@ export const recipe = [
 		]
 	},
 	{
-		name: "Aluminium hydroxide",
-		compoundPic: "Aluminium-hydroxide.jpg",
+		name: "Aluminum hydroxide",
+		compoundPic: "Aluminum-hydroxide.jpg",
 		elements: ["Al", "O", "H"],
 		formula: "Al(OH)<sub>3</sub>",
 		moleWeight: "78.00 g/mol",
