@@ -253,7 +253,7 @@ const electronConfiguration = () => {
                     {
                       shuffledCell[2] ? 
                       <div className=''>
-                        <div className='game-cells' key={index}>
+                        <div className='game-cells  scale-down-center' key={index}>
                           <img className='card gray-out' src={frontCard} alt="" />
                           <img className='icons' src={icons[shuffledCell[0]]}/>
                           <p className='text'>{shuffledCell[1]}</p>

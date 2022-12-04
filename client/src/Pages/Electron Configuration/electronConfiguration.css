@@ -167,6 +167,27 @@
     transform: scale(1) rotateY(360deg);
   }
 }
+.container-electron-config .middle-container .game-grid .scale-down-center {
+  -webkit-animation: scale-down-center 0.4s;
+          animation: scale-down-center 0.4s;
+  transform: scale(0.9);
+}
+@-webkit-keyframes scale-down-center {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+@keyframes scale-down-center {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
 .container-electron-config .right-container {
   display: grid;
   text-align: center;
