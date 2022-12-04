@@ -1,13 +1,15 @@
 .modal-wrapper .user-info {
   position: absolute;
-  top: 10vh;
-  left: 0;
+  bottom: 10vh;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .modal-wrapper .user-info .upper-part {
   width: 100%;
   background-color: #B1BEFA;
   padding: 0.5rem auto;
-  border-top-right-radius: 2rem;
+  border-top-right-radius: 0.5rem;
+  border-top-left-radius: 0.5rem;
 }
 .modal-wrapper .user-info .upper-part h1 {
   font-size: clamp(16px, 1.25vw, 3rem);
@@ -18,7 +20,8 @@
   display: flex;
   width: 100%;
   background-color: #282054;
-  border-bottom-right-radius: 0.5rem;
+  border-bottom-right-radius: 2rem;
+  border-bottom-left-radius: 2rem;
   align-items: center;
   justify-content: space-around;
   align-self: center;
