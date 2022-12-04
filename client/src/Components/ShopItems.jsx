@@ -5,6 +5,7 @@ import jwtDecode from 'jwt-decode';
 import ShopItemContainer from './ShopItemContainer';
 import ShopBuyModal from './ShopBuyModal';
 import Toast from './Toast';
+import Loader from './Loader';
 
 //Hooks
 import buyAccessories from '../Hooks/buyAccessories';
@@ -222,11 +223,11 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview,  profilePrevie
   return (
     <>
       <div className='shop-items-container'>
-        {ownedTops && <ShopItemContainer category={"Tops"} Clothes={Clothes} items={"top"} model={gender} tryItem={tryItem} ownedClothes={ownedTops}/>}
-        {ownedBots && <ShopItemContainer category={"Bottoms"} Clothes={Clothes} items={"bottom"} model={gender} tryItem={tryItem} ownedClothes={ownedBots}/>}
-        {ownedAccs && <ShopItemContainer category={"Accessories"} Clothes={Clothes} items={"accessory"} model={gender} tryItem={tryItem} ownedClothes={ownedAccs}/>}
+        {ownedTops ? <ShopItemContainer category={"Tops"} Clothes={Clothes} items={"top"} model={gender} tryItem={tryItem} ownedClothes={ownedTops}/> : <Loader />}
+        {ownedBots ? <ShopItemContainer category={"Bottoms"} Clothes={Clothes} items={"bottom"} model={gender} tryItem={tryItem} ownedClothes={ownedBots}/> : <Loader />}
+        {ownedAccs ? <ShopItemContainer category={"Accessories"} Clothes={Clothes} items={"accessory"} model={gender} tryItem={tryItem} ownedClothes={ownedAccs}/> : <Loader />}
         {/* {ownedCostumes && <ShopItemContainer category={"Costumes"} Clothes={Clothes} items={"costumes"} model={gender} tryItem={tryItem} ownedClothes={ownedCostumes}/>} */}
-        {showModal && <ShopBuyModal showModal={setShowModal} clothes={getShopUnowned} buyClothes={buy}/>}
+        {showModal ? <ShopBuyModal showModal={setShowModal} clothes={getShopUnowned} buyClothes={buy}/> : <Loader />}
       </div>
       <div className="btn-group">
         <button className="fluid-btn" onClick={() => clearChar()}>Clear </button>

@@ -7,7 +7,7 @@ import getUserProgEC from '../../Hooks/getUserProgEC';
 import useAudio from '../../Hooks/useAudio.js';
 
 //Data
-import { periodicTable } from '../../Data/PeriodicTableJSON';
+import { periodicTable } from '../../Data/PeriodicTableJSON.js';
 
 //Images
 import star from '../../Assets/Images/Star1.png';
@@ -123,10 +123,12 @@ const electronConfiguration = () => {
 
   const cellGenerator = (range) =>{
     setCell([])
-    for(let i = 0; i < 10; ++i){
-      const rng = Math.floor(Math.random() * range)
-      setCell((current) => [...current, [i,periodicTable[rng].symbol,isCorrect,cellState]])
-      setCell((current) => [...current, [i,periodicTable[rng].electron_configuration_semantic,isCorrect,cellState]])
+    if (periodicTable) {
+      for(let i = 0; i < 10; ++i){
+        const rng = Math.floor(Math.random() * range)
+        setCell((current) => [...current, [i,periodicTable[rng].symbol,isCorrect,cellState]])
+        setCell((current) => [...current, [i,periodicTable[rng].electron_configuration_semantic,isCorrect,cellState]])
+      }
     }
   }
 
@@ -210,7 +212,7 @@ const electronConfiguration = () => {
           <div className='overlay'>
             <div className='bg'></div>
             <div className='container-text'>
-              <h1>Would you like to play again?</h1>
+              <h1 className='container-h1'>Would you like to play again?</h1>
               <button onClick={() => modal()}>Yes</button>
             </div>
           </div>

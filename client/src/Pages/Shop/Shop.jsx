@@ -67,8 +67,11 @@ const Shop = () => {
         })();
     },[])
 
-    const tryMe = (data) => {
+
+    //Condition for costume
+    const tryMe = (data, isCostume = false) => {
         const sample = data.filter((x) => x !== "");
+        // const mergers = isCostume ? [model, ...sample] : [...sample];
         model && mergeImages([model, ...sample]).then(b64 => setPreview(b64));
         model && mergeImages([hitModel, ...sample]).then(b64 => setHitPreview(b64));
         

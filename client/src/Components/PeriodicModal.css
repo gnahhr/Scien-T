@@ -76,7 +76,8 @@
 .periodic-modal .wrapper .element-header .element-picture img {
   border-radius: 15px;
   width: 100%;
-  object-fit: fill;
+  -o-object-fit: fill;
+     object-fit: fill;
   height: inherit;
 }
 .periodic-modal .wrapper .description-wrapper {

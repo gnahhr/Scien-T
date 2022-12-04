@@ -104,6 +104,12 @@
     }
 }
 
+.right {
+ align-self: center;
+ justify-self: center;
+ width: 100%;
+}
+
 @media only screen and (orientation: portrait) {
     .shop-wrapper{
         display: flex;

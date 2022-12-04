@@ -2523,7 +2523,7 @@ export const recipe = [
 	},
 	{
 		name: "Lead (IV) oxide",
-		compoundPic: "Lead-(IV)-oxide.jpg",
+		compoundPic: "Lead-IV-oxide.jpg",
 		elements: ["Pb", "O"],
 		formula: "PbO<sub>2</sub>",
 		moleWeight: "239.1988 g/mol",
