@@ -152,7 +152,7 @@ const leaderboard = () => {
     <>
       <div className="selector-wrapper">
         <div className="selector">
-            <button id="intelliment" className={showIntelliment ? "active":""} onClick={() => {toggleIntelliment()}}> Intelliment </button>
+            <button id="intelliment" className={showIntelliment ? "active":""} onClick={() => {toggleIntelliment()}}> Assessment </button>
             <button id="electronConfig" className={showElectronConfig ? "active":""} onClick={() => {toggleElectronConfig()}}>Electron <br></br>Configuration</button>
             <button id="testBattle" className={showTestBattle ? "active":""} onClick={() => {toggleTestBattle()}}>Test Battle</button>
         </div>
