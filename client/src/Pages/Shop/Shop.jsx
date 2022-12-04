@@ -90,7 +90,7 @@ const Shop = () => {
                             <h1>{username}</h1>
                         </div>
                         <div className='lower-part'>
-                            <img src={MoneyBag} alt="" />
+                            <img src={MoneyBag} alt="" className="money-bag"/>
                             <h1>{coins}</h1>
                         </div>
                     </div>
@@ -99,7 +99,7 @@ const Shop = () => {
                     </div>
                     <div className="totalValue">
                         <div className="label"><span>Total Value: </span></div>
-                        <div className="value">{totalValue}</div>
+                        <div className="value"><img src={MoneyBag} alt="" className="money-bag"/><span>{totalValue}</span></div>
                     </div>
                 </div>
                 <div className='right'>
