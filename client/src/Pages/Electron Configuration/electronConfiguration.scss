@@ -153,6 +153,10 @@
     }
 }
 
+.gray-out{
+    filter: saturate(0);
+}
+
 @media only screen and (orientation: portrait) {
     .container-electron-config{
         display: flex;
