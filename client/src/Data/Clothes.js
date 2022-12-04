@@ -107,7 +107,7 @@ const Clothes = [
         image:"polo-shirt.png",
         model: "male",
         dir:bdir,
-        price:100,
+        price:200,
     },
     {
         id:"2005",
@@ -116,7 +116,7 @@ const Clothes = [
         image:"polo-brown.png",
         model: "female",
         dir: gdir,
-        price:100,
+        price:200,
     },
     {
         id:"2006",
