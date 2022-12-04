@@ -271,7 +271,6 @@ const electronConfiguration = () => {
                               <img className='card rotate-scale-up-vertical' src={backCard} alt="" />
                             </div>
                         }
-                        {/* <img src={<img className='icons' src={shuffledCell[4]}/>} alt="" /> */}
                       </div>
                       
                     }

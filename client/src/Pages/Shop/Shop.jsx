@@ -1,7 +1,3 @@
-//TODOs
-//Refresh total values
-//Something
-
 import React, { useState, useEffect } from 'react'
 import jwtDecode from 'jwt-decode'
 import mergeImages from 'merge-images';
@@ -71,14 +67,13 @@ const Shop = () => {
     //Condition for costume
     const tryMe = (data, isCostume = false) => {
         const sample = data.filter((x) => x !== "");
-        // const mergers = isCostume ? [model, ...sample] : [...sample];
         model && mergeImages([model, ...sample]).then(b64 => setPreview(b64));
         model && mergeImages([hitModel, ...sample]).then(b64 => setHitPreview(b64));
         
         if(gender === 'male'){
             model && mergeImages([model, ...sample],{ width: 1000, height: 1100}).then(b64 => setProfilePreview(b64));
         }
-        else if(gender === 'female'){//  magkaiba kase dimensions ng dalawa kaya hiwalay
+        else if(gender === 'female'){
             model && mergeImages([model, ...sample],{ width: 1300, height: 1370}).then(b64 => setProfilePreview(b64));
         }
     }

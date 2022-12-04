@@ -3039,7 +3039,7 @@ export const recipe = [
 	},
 	{
 		name: "Ammonium nitrite",
-		compoundPic: "Ammonium-nitrite.jpg",
+		compoundPic: "Ammonium-nitrite.png",
 		elements: ["N", "H", "O"],
 		formula: "NH<sub>4</sub>NO<sub>2</sub>",
 		moleWeight: "64.06 g/mol",

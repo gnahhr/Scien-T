@@ -37,11 +37,12 @@
   border-radius: 1rem;
   padding: 5rem;
 }
-.overlay .container-text h1 {
+.overlay .container-text .container-h1 {
   font-family: "Skranji", cursive;
-  color: #FFEFD7;
+  color: #FFEFD7 !important;
   font-size: 2.5rem;
   opacity: 100%;
+  margin-bottom: 2rem;
 }
 .overlay .container-text button {
   display: block;

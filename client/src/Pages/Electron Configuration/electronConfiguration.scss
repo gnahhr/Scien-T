@@ -41,15 +41,15 @@
         padding: 5rem;
         .container-h1{
             font-family: 'Skranji', cursive;
-            color: #FFEFD7;
+            color: #FFEFD7 !important;
             font-size: 2.5rem;
             opacity: 100%;
+            margin-bottom: 2rem;
         }
         button{
             display: block;
             margin: auto;
         }
-
     }
 }
 
