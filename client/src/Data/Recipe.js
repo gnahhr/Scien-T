@@ -2397,7 +2397,7 @@ export const recipe = [
 	},
 	{
 		name: "Tin Oxide",
-		compoundPic: "Tin-Oxide.jpg",
+		compoundPic: "Tin-oxide.jpg",
 		elements: ["Sn", "O"],
 		formula: "SnO<sub>2</sub",
 		moleWeight: "97.561 g/mol",
