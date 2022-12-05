@@ -2156,7 +2156,7 @@ export const recipe = [
 	},
 	{
 		name: "Phosphorus Trichloride",
-		compoundPic: "Phosphorus-Trichloridel.jpg",
+		compoundPic: "Phosphorus-Trichloride.jpg",
 		elements: ["P", "Cl"],
 		formula: "PCl<sub>3</sub>",
 		moleWeight: "137.33 g/mol",
@@ -2473,7 +2473,7 @@ export const recipe = [
 	},
 	{
 		name: "Copper (II) chloride",
-		compoundPic: "Copper (II)-chloride.jpg",
+		compoundPic: "Copper(II)-chloride.jpg",
 		elements: ["Cu", "Cl"],
 		formula: "CuCl<sub>2</sub>",
 		moleWeight: "134.45 g/mol",
@@ -3356,7 +3356,7 @@ export const recipe = [
 	},
 	{
 		name: "Barium fluoride",
-		compoundPic: "Barium-fluoride.jppg",
+		compoundPic: "Barium-fluoride.jpg",
 		elements: ["Ba", "F"],
 		formula: "BaF<sub>2</sub>",
 		moleWeight: "175.34 g/mol",
