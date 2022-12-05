@@ -3356,7 +3356,7 @@ export const recipe = [
 	},
 	{
 		name: "Barium fluoride",
-		compoundPic: "Barium-fluoride.jpg",
+		compoundPic: "Barium-fluoride.png",
 		elements: ["Ba", "F"],
 		formula: "BaF<sub>2</sub>",
 		moleWeight: "175.34 g/mol",
