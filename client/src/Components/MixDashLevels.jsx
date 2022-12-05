@@ -23,6 +23,7 @@ const MixDashLevels = ({totalLevels, lastFinStage, nextPhase, setLevel, boughtSt
   //Toast States
   const [ showToast, setShowToast ] = useState(false);
   const [ toastMessage, setToastMessage ] = useState("");
+  const [ toastType, setToastType ] = useState("");
 
   useEffect(() => {
     initLevels();
@@ -43,11 +44,19 @@ const MixDashLevels = ({totalLevels, lastFinStage, nextPhase, setLevel, boughtSt
     setSelStage(stage);
   }
 
-  const buyStage = (price) => {
-    buyMixDashStage(access, price);
-    setToastMessage("Stage bought!");
+  const buyStage = (price, isBought) => {
+
+    if(isBought){
+      buyMixDashStage(access,price);
+      setToastMessage("Stage bought!");
+      setToastType("success");
+      boughtStage(!boughtState);
+    } else {
+      setToastType("warning");
+      setToastMessage("Insufficient Money!");
+    }
+    
     setShowToast(true);
-    boughtStage(!boughtState);
   }
 
   const initLevels = () => {
@@ -75,7 +84,7 @@ const MixDashLevels = ({totalLevels, lastFinStage, nextPhase, setLevel, boughtSt
             HELP
           </div>
         </div>
-        <Toast message={toastMessage} timer={3000} toastType={"success"} showToast={setShowToast} toastState={showToast}/>
+        <Toast message={toastMessage} timer={3000} toastType={toastType} showToast={setShowToast} toastState={showToast}/>
         {showModal && <UnlockStageModal stage={selStage} price={200} showModal={setShowModal} buyStage={buyStage}/>}
     </div>
   )

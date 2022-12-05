@@ -347,9 +347,9 @@ const Intelliment = ({mode}) => {
             <div className="difficulty-chooser">
               <h2>Choose a difficulty:</h2>
               <button onClick={() => setDifficulty(5)}>Easy</button>
-              <button onClick={() => setDifficulty(10)}>Medium</button>
-              <button onClick={() => setDifficulty(15)}>Hard</button>
-              <button onClick={() => setDifficulty(20)}>Hardcore</button>
+              <button onClick={() => setDifficulty(20)}>Medium</button>
+              <button onClick={() => setDifficulty(40)}>Hard</button>
+              <button onClick={() => setDifficulty(60)}>Hardcore</button>
             </div>}
 
           {(!pickedDifficulty && mode === "learn") &&

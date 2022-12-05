@@ -33,7 +33,11 @@ const UnlockStageModal = ({stage, topic, price, showModal, buyStage}) => {
   },[])
 
   const unlockStage = () => {
-    buyStage(price);
+    if (price <= coins) {
+        buyStage(price, true);
+    } else {
+        buyStage(price, false);
+    }
     showModal(false);
   }
 

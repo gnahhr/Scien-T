@@ -24,6 +24,7 @@ const BattleStage = ({setStage, lastFinStage, nextPhase, topic, access, boughtSt
   //Toast States
   const [ showToast, setShowToast ] = useState(false);
   const [ toastMessage, setToastMessage ] = useState("");
+  const [ toastType, setToastType ] = useState("");
 
   const stages = [
     {
@@ -92,11 +93,20 @@ const BattleStage = ({setStage, lastFinStage, nextPhase, topic, access, boughtSt
     },
   ]
 
-  const buyStage = (price) => {
-    buyTestBattleStage(access,topic,price);
-    setToastMessage("Stage bought!");
-    setShowToast(true);
-    boughtStage(!boughtState);
+  const buyStage = (price, isBought) => {
+
+    if(isBought){
+        buyTestBattleStage(access,topic,price);
+        setToastMessage("Stage bought!");
+        setToastType("success");
+        setShowToast(true);
+        boughtStage(!boughtState);
+    } else {
+        setToastType("warning");
+        setToastMessage("Insufficient Money!");
+        setShowToast(true);
+    }
+    
   }
 
   const onClickHandler = (value) => {
@@ -124,7 +134,7 @@ const BattleStage = ({setStage, lastFinStage, nextPhase, topic, access, boughtSt
                 }
             })}
         </div>
-        <Toast message={toastMessage} timer={3000} toastType={"success"} showToast={setShowToast} toastState={showToast}/>
+        <Toast message={toastMessage} timer={3000} toastType={toastType} showToast={setShowToast} toastState={showToast}/>
         {showModal && <UnlockStageModal stage={selStage} topic={topic} price={selPrice} showModal={setShowModal} buyStage={buyStage}/>}
     </div>
   )
