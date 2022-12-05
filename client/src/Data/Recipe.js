@@ -1441,7 +1441,7 @@ export const recipe = [
 	},
 	{
 		name: "Carbon Disulfide",
-		compoundPic: "Carbon-disulfide.jpg",
+		compoundPic: "carbon-disulfide.jpg",
 		elements: ["C", "S"],
 		formula: "CS<sub>2</sub>",
 		moleWeight: "76.13 g/mol",
