@@ -1,7 +1,3 @@
-//TODOs
-//Refresh total values
-//Something
-
 import React, { useState, useEffect } from 'react'
 import jwtDecode from 'jwt-decode'
 import mergeImages from 'merge-images';
@@ -67,7 +63,9 @@ const Shop = () => {
         })();
     },[])
 
-    const tryMe = (data) => {
+
+    //Condition for costume
+    const tryMe = (data, isCostume = false) => {
         const sample = data.filter((x) => x !== "");
         model && mergeImages([model, ...sample]).then(b64 => setPreview(b64));
         model && mergeImages([hitModel, ...sample]).then(b64 => setHitPreview(b64));
@@ -75,7 +73,7 @@ const Shop = () => {
         if(gender === 'male'){
             model && mergeImages([model, ...sample],{ width: 1000, height: 1100}).then(b64 => setProfilePreview(b64));
         }
-        else if(gender === 'female'){//  magkaiba kase dimensions ng dalawa kaya hiwalay
+        else if(gender === 'female'){
             model && mergeImages([model, ...sample],{ width: 1300, height: 1370}).then(b64 => setProfilePreview(b64));
         }
     }
@@ -92,7 +90,7 @@ const Shop = () => {
                             <h1>{username}</h1>
                         </div>
                         <div className='lower-part'>
-                            <img src={MoneyBag} alt="" />
+                            <img src={MoneyBag} alt="" className="money-bag"/>
                             <h1>{coins}</h1>
                         </div>
                     </div>
@@ -101,7 +99,7 @@ const Shop = () => {
                     </div>
                     <div className="totalValue">
                         <div className="label"><span>Total Value: </span></div>
-                        <div className="value">{totalValue}</div>
+                        <div className="value"><img src={MoneyBag} alt="" className="money-bag"/><span>{totalValue}</span></div>
                     </div>
                 </div>
                 <div className='right'>

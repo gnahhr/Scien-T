@@ -23,7 +23,8 @@
 .Trivia .wrapper .trivia-header img {
   width: 100%;
   height: inherit;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 .Trivia .wrapper .trivia-header h2 {
   position: absolute;

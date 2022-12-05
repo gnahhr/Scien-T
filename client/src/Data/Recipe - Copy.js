@@ -17,7 +17,7 @@ export const recipe = [
 	},
 	{
 		name: "Hydrochloric acid",
-		compoundPic: "hydrochloric-acid.png",
+		compoundPic: "hydrochloric-acid.jpg",
 		elements: ["H", "Cl"],
 		formula: "HCI",
 		moleWeight: "36.458 g/mol",
@@ -3368,3 +3368,4 @@ export const recipe = [
 		],
 	}
 ];
+

@@ -7,7 +7,7 @@ import getUserProgEC from '../../Hooks/getUserProgEC';
 import useAudio from '../../Hooks/useAudio.js';
 
 //Data
-import { periodicTable } from '../../Data/PeriodicTableJSON';
+import { periodicTable } from '../../Data/PeriodicTableJSON.js';
 
 //Images
 import star from '../../Assets/Images/Star1.png';
@@ -123,10 +123,12 @@ const electronConfiguration = () => {
 
   const cellGenerator = (range) =>{
     setCell([])
-    for(let i = 0; i < 10; ++i){
-      const rng = Math.floor(Math.random() * range)
-      setCell((current) => [...current, [i,periodicTable[rng].symbol,isCorrect,cellState]])
-      setCell((current) => [...current, [i,periodicTable[rng].electron_configuration_semantic,isCorrect,cellState]])
+    if (periodicTable) {
+      for(let i = 0; i < 10; ++i){
+        const rng = Math.floor(Math.random() * range)
+        setCell((current) => [...current, [i,periodicTable[rng].symbol,isCorrect,cellState]])
+        setCell((current) => [...current, [i,periodicTable[rng].electron_configuration_semantic,isCorrect,cellState]])
+      }
     }
   }
 
@@ -210,7 +212,7 @@ const electronConfiguration = () => {
           <div className='overlay'>
             <div className='bg'></div>
             <div className='container-text'>
-              <h1>Would you like to play again?</h1>
+              <h1 className='container-h1'>Would you like to play again?</h1>
               <button onClick={() => modal()}>Yes</button>
             </div>
           </div>
@@ -251,8 +253,8 @@ const electronConfiguration = () => {
                     {
                       shuffledCell[2] ? 
                       <div className=''>
-                        <div className='game-cells' key={index}>
-                          <img className='card' src={frontCard} alt="" />
+                        <div className='game-cells  scale-down-center' key={index}>
+                          <img className='card gray-out' src={frontCard} alt="" />
                           <img className='icons' src={icons[shuffledCell[0]]}/>
                           <p className='text'>{shuffledCell[1]}</p>
                         </div>
@@ -269,7 +271,6 @@ const electronConfiguration = () => {
                               <img className='card rotate-scale-up-vertical' src={backCard} alt="" />
                             </div>
                         }
-                        {/* <img src={<img className='icons' src={shuffledCell[4]}/>} alt="" /> */}
                       </div>
                       
                     }

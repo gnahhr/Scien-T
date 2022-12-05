@@ -34,7 +34,20 @@
   text-align: center;
 }
 #intelliment .intellimain .header .settings {
-  justify-self: end;
+  display: flex;
+  flex-direction: row-reverse;
+  align-self: flex-start;
+  justify-self: flex-end;
+  margin-top: 1rem;
+}
+#intelliment .intellimain .header .settings .icon:hover {
+  color: #000;
+}
+#intelliment .intellimain .header .settings .exit {
+  background-color: #D34646;
+}
+#intelliment .intellimain .header .settings .exit:hover {
+  background-color: #FFF;
 }
 #intelliment .intellimain .question-wrapper {
   justify-self: center;

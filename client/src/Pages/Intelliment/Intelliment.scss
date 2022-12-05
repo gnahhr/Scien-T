@@ -39,7 +39,23 @@
             }
 
             .settings {
-                justify-self: end;
+                display: flex;
+                flex-direction: row-reverse;
+                align-self: flex-start;
+                justify-self: flex-end;
+                margin-top: 1rem;
+                
+                .icon:hover {
+                    color: #000;
+                }
+
+                .exit {
+                    background-color: #D34646;
+                }
+
+                .exit:hover {
+                    background-color: #FFF;
+                }
             }
         }
 

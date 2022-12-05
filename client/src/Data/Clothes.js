@@ -17,7 +17,7 @@ const Clothes = [
         image:"facemask-blue.png",
         model: "male",
         dir:bdir,
-        price:100,
+        price:50,
     },
     {
         id:"1003",
@@ -35,7 +35,7 @@ const Clothes = [
         image:"headset.png",
         model: "male",
         dir:bdir,
-        price:100,
+        price:200,
     },
     {
         id: "1005",
@@ -53,7 +53,7 @@ const Clothes = [
         image:"facemask-blue.png",
         model: "female",
         dir: gdir,
-        price:100,
+        price:50,
     },
     {
         id:"1007",
@@ -71,7 +71,7 @@ const Clothes = [
         image:"headset.png",
         model: "female",
         dir: gdir,
-        price:100,
+        price:200,
     },
     {
         id:"2001",
@@ -89,7 +89,7 @@ const Clothes = [
         image:"tshirt-blue.png",
         model: "male",
         dir:bdir,
-        price:100,
+        price:50,
     },
     {
         id:"2003",
@@ -98,7 +98,7 @@ const Clothes = [
         image:"tshirt-navy-blue.png",
         model: "male",
         dir:bdir,
-        price:100,
+        price:75,
     },
     {
         id:"2004",
@@ -107,7 +107,7 @@ const Clothes = [
         image:"polo-shirt.png",
         model: "male",
         dir:bdir,
-        price:100,
+        price:200,
     },
     {
         id:"2005",
@@ -116,7 +116,7 @@ const Clothes = [
         image:"polo-brown.png",
         model: "female",
         dir: gdir,
-        price:100,
+        price:200,
     },
     {
         id:"2006",
@@ -125,7 +125,7 @@ const Clothes = [
         image:"tshirt-blue.png",
         model: "female",
         dir: gdir,
-        price:100,
+        price:50,
     },
     {
         id:"2007",
@@ -134,7 +134,7 @@ const Clothes = [
         image:"tshirt-navy-blue.png",
         model: "female",
         dir: gdir,
-        price:100,
+        price:75,
     },
     {
         id:"2008",
@@ -152,7 +152,7 @@ const Clothes = [
         image:"pants-blue.png",
         model: "male",
         dir:bdir,
-        price:100,
+        price:50,
     },
     {
         id:"3002",
@@ -161,7 +161,7 @@ const Clothes = [
         image:"pants-dark-blue.png",
         model: "male",
         dir:bdir,
-        price:100,
+        price:75,
     },
     {
         id:"3003",
@@ -179,7 +179,7 @@ const Clothes = [
         image:"shorts-red.png",
         model: "male",
         dir:bdir,
-        price:100,
+        price:150,
     },
     {
         id:"3005",
@@ -188,7 +188,7 @@ const Clothes = [
         image:"pants-blue.png",
         model: "female",
         dir: gdir,
-        price:100,
+        price:50,
     },
     {
         id:"3006",
@@ -215,7 +215,7 @@ const Clothes = [
         image:"pants-maroon.png",
         model: "female",
         dir: gdir,
-        price:100,
+        price:150,
     },
 ]
 

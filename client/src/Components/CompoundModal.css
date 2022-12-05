@@ -13,7 +13,7 @@
 }
 #compound-modal .wrapper {
   width: 50vw;
-  height: 60vh;
+  height: 80vh;
   background-color: white;
   color: black;
   border-radius: 18px;
@@ -59,7 +59,8 @@
 #compound-modal .wrapper .header .picture img {
   height: 100%;
   width: 100%;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   margin: auto;
 }
 #compound-modal .wrapper .description {

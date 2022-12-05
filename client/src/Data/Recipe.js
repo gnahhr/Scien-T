@@ -2156,7 +2156,7 @@ export const recipe = [
 	},
 	{
 		name: "Phosphorus Trichloride",
-		compoundPic: "Phosphorus-Trichloridel.jpg",
+		compoundPic: "Phosphorus-Trichloride.jpg",
 		elements: ["P", "Cl"],
 		formula: "PCl<sub>3</sub>",
 		moleWeight: "137.33 g/mol",
@@ -2473,7 +2473,7 @@ export const recipe = [
 	},
 	{
 		name: "Copper (II) chloride",
-		compoundPic: "Copper (II)-chloride.jpg",
+		compoundPic: "Copper(II)-chloride.jpg",
 		elements: ["Cu", "Cl"],
 		formula: "CuCl<sub>2</sub>",
 		moleWeight: "134.45 g/mol",
@@ -2523,7 +2523,7 @@ export const recipe = [
 	},
 	{
 		name: "Lead (IV) oxide",
-		compoundPic: "Lead-(IV)-oxide.jpg",
+		compoundPic: "Lead-IV-oxide.jpg",
 		elements: ["Pb", "O"],
 		formula: "PbO<sub>2</sub>",
 		moleWeight: "239.1988 g/mol",
@@ -3039,7 +3039,7 @@ export const recipe = [
 	},
 	{
 		name: "Ammonium nitrite",
-		compoundPic: "Ammonium-nitrite.jpg",
+		compoundPic: "Ammonium-nitrite.png",
 		elements: ["N", "H", "O"],
 		formula: "NH<sub>4</sub>NO<sub>2</sub>",
 		moleWeight: "64.06 g/mol",
@@ -3356,7 +3356,7 @@ export const recipe = [
 	},
 	{
 		name: "Barium fluoride",
-		compoundPic: "Barium-fluoride.jppg",
+		compoundPic: "Barium-fluoride.png",
 		elements: ["Ba", "F"],
 		formula: "BaF<sub>2</sub>",
 		moleWeight: "175.34 g/mol",

@@ -37,11 +37,12 @@
   border-radius: 1rem;
   padding: 5rem;
 }
-.overlay .container-text h1 {
+.overlay .container-text .container-h1 {
   font-family: "Skranji", cursive;
-  color: #FFEFD7;
+  color: #FFEFD7 !important;
   font-size: 2.5rem;
   opacity: 100%;
+  margin-bottom: 2rem;
 }
 .overlay .container-text button {
   display: block;
@@ -91,7 +92,8 @@
   background-color: #d8c2c2;
   border-radius: 1rem;
   padding: clamp(0.5rem, 2vw, 2rem);
-  column-gap: clamp(0.5rem, 0.1vw, 0.5rem);
+  -moz-column-gap: clamp(0.5rem, 0.1vw, 0.5rem);
+       column-gap: clamp(0.5rem, 0.1vw, 0.5rem);
   row-gap: clamp(0.5rem, 2vw, 3rem);
 }
 .container-electron-config .middle-container .game-grid .game-cells {
@@ -120,7 +122,16 @@
   width: 100%;
 }
 .container-electron-config .middle-container .game-grid .scale-up-horizontal-center {
-  animation: scale-up-horizontal-center 0.5s;
+  -webkit-animation: scale-up-horizontal-center 0.5s;
+          animation: scale-up-horizontal-center 0.5s;
+}
+@-webkit-keyframes scale-up-horizontal-center {
+  0% {
+    transform: scaleX(0.2);
+  }
+  100% {
+    transform: scaleX(1);
+  }
 }
 @keyframes scale-up-horizontal-center {
   0% {
@@ -131,7 +142,19 @@
   }
 }
 .container-electron-config .middle-container .game-grid .rotate-scale-up-vertical {
-  animation: rotate-scale-up-vertical 0.4s linear both;
+  -webkit-animation: rotate-scale-up-vertical 0.4s linear both;
+          animation: rotate-scale-up-vertical 0.4s linear both;
+}
+@-webkit-keyframes rotate-scale-up-vertical {
+  0% {
+    transform: scale(1) rotateY(0);
+  }
+  50% {
+    transform: scale(2) rotateY(180deg);
+  }
+  100% {
+    transform: scale(1) rotateY(360deg);
+  }
 }
 @keyframes rotate-scale-up-vertical {
   0% {
@@ -144,6 +167,27 @@
     transform: scale(1) rotateY(360deg);
   }
 }
+.container-electron-config .middle-container .game-grid .scale-down-center {
+  -webkit-animation: scale-down-center 0.4s;
+          animation: scale-down-center 0.4s;
+  transform: scale(0.9);
+}
+@-webkit-keyframes scale-down-center {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
+@keyframes scale-down-center {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.9);
+  }
+}
 .container-electron-config .right-container {
   display: grid;
   text-align: center;
@@ -154,6 +198,10 @@
   font-size: clamp(1rem, 7.2vw, 7.8rem);
   color: #D0D0D0;
   opacity: 25%;
+}
+
+.gray-out {
+  filter: saturate(0);
 }
 
 @media only screen and (orientation: portrait) {

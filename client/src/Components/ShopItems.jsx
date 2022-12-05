@@ -5,6 +5,7 @@ import jwtDecode from 'jwt-decode';
 import ShopItemContainer from './ShopItemContainer';
 import ShopBuyModal from './ShopBuyModal';
 import Toast from './Toast';
+import Loader from './Loader';
 
 //Hooks
 import buyAccessories from '../Hooks/buyAccessories';
@@ -30,20 +31,17 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview,  profilePrevie
   const [ tops, setTops ] = useState(template);
   const [ bottoms, setBottoms ] = useState(template);
   const [ accessories, setAccessories] = useState(template);
-  // const [ costumes, setCostumes] = useState(template);
   const [ priceAll, setPriceAll ] = useState(0);
 
   //Owned Items
   const [ ownedTops, setOwnedTops ] = useState();
   const [ ownedBots, setOwnedBots ] = useState();
   const [ ownedAccs, setOwnedAccs ] = useState();
-  // const [ ownedCostumes, setOwnedCostumes ] = useState();
 
   //Add Default Values
   const [ equipTop, setEquipTop ] = useState(template);
   const [ equipBot, setEquipBot ] = useState(template);
   const [ equipAcc, setEquipAcc ] = useState(template);
-  // const [ equipCost, setEquipCost ] = useState(template);
 
   //Modal State
   const [ showModal, setShowModal ] = useState(false);
@@ -85,7 +83,6 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview,  profilePrevie
 
   useEffect(() => {
     const total = tops.price + bottoms.price + accessories.price;
-    // const total = tops.price + bottoms.price + accessories.price + costumes.price;
     
     tryMe([
       tops.dir,
@@ -138,9 +135,6 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview,  profilePrevie
     } else if (item.category === "accessory") {
       setAccessories(data);
     }
-    // else if (item.category === "costume") {
-    //   setCostumes(data);
-    // }
   }
 
   const setOwnedItems = async (id) => {
@@ -148,27 +142,23 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview,  profilePrevie
     setOwnedTops(data.topOwned);
     setOwnedBots(data.bottomOwned);
     setOwnedAccs(data.accessoryOwned);
-    // setOwnedCostumes(data.costumedOwned);
   }
   
   const resetChar = () => {
     setAccessories(equipAcc);
     setTops(equipTop);
     setBottoms(equipBot);
-    // setCostumes(equipCost);
   }
 
   const clearChar = () => {
     setAccessories(template);
     setTops(template);
     setBottoms(template);
-    // setCostumes(template);
   }
 
   const buy = () => {
     if (priceAll <= coins) {
       const filtered = [tops, bottoms, accessories].map(item => {
-      // const filtered = [tops, bottoms, accessories, costumes].map(item => {
         if (item.owned === true) {
           return "";
         } else {
@@ -189,12 +179,10 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview,  profilePrevie
 
   const updateCharacter = () => {
     let previewed = [tops.id, bottoms.id, accessories.id];
-    // let previewed = [tops.id, bottoms.id, accessories.id, costumes.id];
     
     setEquipTop(tops);
     setEquipBot(bottoms);
     setEquipAcc(accessories);
-    // setEquipCost(costumes)
     setHasTried(false);
 
     saveCharacter(access, gender, ...previewed, preview, hitPreview, profilePreview);
@@ -215,18 +203,16 @@ const ShopItems = ({tryMe, setTotal, access, preview, hitPreview,  profilePrevie
 
   const getShopUnowned = () => {
     const filtered = [tops, bottoms, accessories].filter(item => item.owned === false);
-    // const filtered = [tops, bottoms, accessories, costumes].filter(item => item.owned === false);
     return filtered;
   }
 
   return (
     <>
       <div className='shop-items-container'>
-        {ownedTops && <ShopItemContainer category={"Tops"} Clothes={Clothes} items={"top"} model={gender} tryItem={tryItem} ownedClothes={ownedTops}/>}
-        {ownedBots && <ShopItemContainer category={"Bottoms"} Clothes={Clothes} items={"bottom"} model={gender} tryItem={tryItem} ownedClothes={ownedBots}/>}
-        {ownedAccs && <ShopItemContainer category={"Accessories"} Clothes={Clothes} items={"accessory"} model={gender} tryItem={tryItem} ownedClothes={ownedAccs}/>}
-        {/* {ownedCostumes && <ShopItemContainer category={"Costumes"} Clothes={Clothes} items={"costumes"} model={gender} tryItem={tryItem} ownedClothes={ownedCostumes}/>} */}
-        {showModal && <ShopBuyModal showModal={setShowModal} clothes={getShopUnowned} buyClothes={buy}/>}
+        {ownedTops ? <ShopItemContainer category={"Tops"} Clothes={Clothes} items={"top"} model={gender} tryItem={tryItem} ownedClothes={ownedTops}/> : <Loader />}
+        {ownedBots ? <ShopItemContainer category={"Bottoms"} Clothes={Clothes} items={"bottom"} model={gender} tryItem={tryItem} ownedClothes={ownedBots}/> : <Loader />}
+        {ownedAccs ? <ShopItemContainer category={"Accessories"} Clothes={Clothes} items={"accessory"} model={gender} tryItem={tryItem} ownedClothes={ownedAccs}/> : <Loader />}
+        {showModal ? <ShopBuyModal showModal={setShowModal} clothes={getShopUnowned} buyClothes={buy}/> : <Loader />}
       </div>
       <div className="btn-group">
         <button className="fluid-btn" onClick={() => clearChar()}>Clear </button>

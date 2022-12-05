@@ -8,7 +8,7 @@
     width: 40vw;
     .user-info{
         display: grid;
-        justify-content: start;
+        justify-content: center;
         text-align: center;
         min-width: fit-content;
 
@@ -17,6 +17,7 @@
             background-color: #B1BEFA;
             padding: .5rem auto;
             border-top-right-radius: 2rem;
+            border-top-left-radius: 2rem;
 
             h1 {
                 font-size: clamp(16px, 1.25vw, 3rem);
@@ -30,15 +31,10 @@
             width: 100%;
             background-color: #282054;
             border-bottom-right-radius: 0.5rem;
+            border-bottom-left-radius: 0.5rem;
             align-items: center;
             justify-content: space-around;
             align-self: center;
-
-            img{
-                margin: .3rem;
-                width: clamp(25px, 1.25vw, 3rem);
-                float: left;
-            }
             
             h1{
                 font-size: clamp(16px, 1vw, 3rem);
@@ -99,9 +95,25 @@
 
         .value {
             width: 100%;
+            font-size: clamp(20px, 1.25vw, 3rem);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
     }
+}
+
+.right {
+ align-self: center;
+ justify-self: center;
+ width: 100%;
+}
+
+.money-bag{
+    margin: .3rem;
+    width: clamp(25px, 1.25vw, 3rem);
+    float: left;
 }
 
 @media only screen and (orientation: portrait) {

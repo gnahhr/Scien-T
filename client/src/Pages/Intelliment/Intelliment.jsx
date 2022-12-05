@@ -202,6 +202,8 @@ const Intelliment = ({mode}) => {
       setQuestions(shuffleArray(generateQsCategory(difficulty)));
       setPickedDifficulty(true);
     }
+
+    setTimer(10);
   }
 
   //Play Again - Reset Stats
@@ -209,7 +211,7 @@ const Intelliment = ({mode}) => {
     setNthQuestion(0);
     setScore(0);
     setNumCorrect(0);
-    setMultiplier(0);
+    setMultiplier(1);
     setCombo(0);
     setMaxCombo(0);
     setHighestMult(0);
@@ -218,6 +220,8 @@ const Intelliment = ({mode}) => {
     setCorName(0);
     setCorMass(0);
     setFinished(false);
+    setTimer(10);
+    setQuestions(shuffleArray(generateQsDiff(category)));
   }
 
   //Verify Answer
@@ -342,10 +346,10 @@ const Intelliment = ({mode}) => {
           {(!pickedDifficulty && mode === "game") &&
             <div className="difficulty-chooser">
               <h2>Choose a difficulty:</h2>
-              <button onClick={() => setDifficulty(30)}>Easy</button>
-              <button onClick={() => setDifficulty(60)}>Medium</button>
-              <button onClick={() => setDifficulty(90)}>Hard</button>
-              <button onClick={() => setDifficulty(118)}>Hardcore</button>
+              <button onClick={() => setDifficulty(5)}>Easy</button>
+              <button onClick={() => setDifficulty(10)}>Medium</button>
+              <button onClick={() => setDifficulty(15)}>Hard</button>
+              <button onClick={() => setDifficulty(20)}>Hardcore</button>
             </div>}
 
           {(!pickedDifficulty && mode === "learn") &&
@@ -377,6 +381,10 @@ const Intelliment = ({mode}) => {
                 <div className="multi">
                   {`x${multiplier}`} 
                 </div>
+              </div>
+              <div className="settings">
+                <div className="exit icon" onClick={() => setPickedDifficulty(false)}>EXIT</div>
+                <div className="reset icon" onClick={() => playAgain()}>RESET</div>
               </div>
             </div>
             <div className="question-wrapper">

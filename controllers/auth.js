@@ -43,7 +43,7 @@ exports.register = async (req, res, next) => {
 			from: process.env.MAIL_USERNAME_APP,
 			to: response.email,
 			subject: 'verify email',
-			html: `<h1> ${OTP} </h1>`
+			html: `<h1> ${OTP} </h1>`//mamaya gagawin
 
 		})
 

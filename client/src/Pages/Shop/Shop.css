@@ -9,8 +9,10 @@
 }
 .left .user-info {
   display: grid;
-  justify-content: start;
+  justify-content: center;
   text-align: center;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
   min-width: fit-content;
 }
 .left .user-info .upper-part {
@@ -18,6 +20,7 @@
   background-color: #B1BEFA;
   padding: 0.5rem auto;
   border-top-right-radius: 2rem;
+  border-top-left-radius: 2rem;
 }
 .left .user-info .upper-part h1 {
   font-size: clamp(16px, 1.25vw, 3rem);
@@ -29,14 +32,10 @@
   width: 100%;
   background-color: #282054;
   border-bottom-right-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
   align-items: center;
   justify-content: space-around;
   align-self: center;
-}
-.left .user-info .lower-part img {
-  margin: 0.3rem;
-  width: clamp(25px, 1.25vw, 3rem);
-  float: left;
 }
 .left .user-info .lower-part h1 {
   font-size: clamp(16px, 1vw, 3rem);
@@ -68,6 +67,8 @@
 .left .totalValue {
   text-align: center;
   background-color: #FFFFFF;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
   width: fit-content;
   padding: 0;
   border-radius: 10px 10px 5px 5px;
@@ -85,6 +86,22 @@
 }
 .left .totalValue .value {
   width: 100%;
+  font-size: clamp(20px, 1.25vw, 3rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.right {
+  align-self: center;
+  justify-self: center;
+  width: 100%;
+}
+
+.money-bag {
+  margin: 0.3rem;
+  width: clamp(25px, 1.25vw, 3rem);
+  float: left;
 }
 
 @media only screen and (orientation: portrait) {

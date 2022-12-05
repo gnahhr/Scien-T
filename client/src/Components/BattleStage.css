@@ -9,6 +9,8 @@
   grid-template-rows: repeat(5, 1fr);
 }
 .stage-wrapper .stages button {
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   padding: 5px;
   aspect-ratio: 1;
@@ -30,6 +32,8 @@
 .stage-wrapper .mixDash-stages button:nth-last-child(1) {
   grid-column: span 1/auto;
   grid-row: span 1/auto;
+  width: -webkit-max-content;
+  width: -moz-max-content;
   width: max-content;
   padding: 5px;
   aspect-ratio: 1;
