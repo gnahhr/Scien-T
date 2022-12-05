@@ -2333,7 +2333,7 @@ export const recipe = [
 	},
 	{
 		name: "Chloroacetic acid",
-		compoundPic: "Chloroacetic-acid.jpg",
+		compoundPic: "Chloroacetic-Acid.jpg",
 		elements: ["C", "H", "O", "Cl"],
 		formula: "C<sub>2</sub>H<sub>3</sub>O<sub>2</sub>Cl",
 		moleWeight: "94.49 g/mol",
