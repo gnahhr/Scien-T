@@ -87,7 +87,7 @@ const periodicTable = () => {
             <div id="periodic-table-mobile">
                 <h2>Elements of the Periodic Table</h2>
                 <form>
-                    <label htmlFor="periodic-category">Caregory:</label>
+                    <label htmlFor="periodic-category">Category:</label>
                     <select
                         id="periodic-category" 
                         onChange={(e) => changeCategory(e.target.value)}

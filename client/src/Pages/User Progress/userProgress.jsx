@@ -163,27 +163,27 @@ const userProgress = () => {
             </div>
             <div className="mix-progress progress-div">
               <h3>Mix Dash Progress</h3>
-              <p>{mixDashCtr}/10</p>
+              <p>{mixDashCtr}/9</p>
               <p></p>
             </div>
             <div className="mix-progress progress-div">
               <h3>Test Battle(Element Name) Progress</h3>
-              <p>{testBattleNameCtr}/9</p>
+              <p>{testBattleNameCtr}/12</p>
               <p></p>
             </div>
             <div className="mix-progress progress-div">
               <h3>Test Battle(Element Number) Progress</h3>
-              <p>{testBattleNumCtr}/9</p>
+              <p>{testBattleNumCtr}/12</p>
               <p></p>
             </div>
             <div className="mix-progress progress-div">
               <h3>Test Battle(Atomic Mass) Progress</h3>
-              <p>{testBattleMassCtr}/9</p>
+              <p>{testBattleMassCtr}/12</p>
               <p></p>
             </div>
             <div className="mix-progress progress-div">
               <h3>Test Battle(Category) Progress</h3>
-              <p>{testBattleCatCtr}/9</p>
+              <p>{testBattleCatCtr}/12</p>
               <p></p>
             </div>
             <div className="electron-progress progress-div">
