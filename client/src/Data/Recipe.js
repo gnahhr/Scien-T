@@ -1379,7 +1379,7 @@ export const recipe = [
 	},
 	{
 		name: "Acetamide",
-		compoundPic: "acetamide.jpeg",
+		compoundPic: "Acetamide.jpeg",
 		elements: ["C", "H", "N", "O"],
 		formula: "C<sub>2</sub>H<sub>5</sub>NO",
 		moleWeight: "59.068 g/mol",
@@ -1672,7 +1672,7 @@ export const recipe = [
 	},
 	{
 		name: "Lithium hydroxide",
-		compoundPic: "lithium-hydroxide.jpeg",
+		compoundPic: "Lithium-hydroxide.jpeg",
 		elements: ["Li", "O", "H"],
 		formula: "LiOH",
 		moleWeight: "23.95 g/mol",
