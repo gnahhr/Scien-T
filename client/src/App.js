@@ -32,8 +32,6 @@ import TestBattle from './Pages/Test-Battle/TestBattle';
 import MixDash from './Pages/MixDash/MixDash';
 import Shop from './Pages/Shop/Shop';
 
-import Mema from './Pages/Output'
-
 function App() {
   const [ user, setUser ] = useState(localStorage.token ? localStorage.token : null); //true
   
@@ -44,7 +42,7 @@ function App() {
         {/* <Navbar setUser={setUser}/> */}
         {!user && 
         <Routes>
-          <Route index path="/" element={<Mema />} />
+          <Route index path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage setUser={setUser}/>} />
           <Route path="/register" element={<RegisterPage />}/>
           <>
