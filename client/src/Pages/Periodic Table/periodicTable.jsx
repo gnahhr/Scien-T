@@ -8,6 +8,7 @@ import {TriviasData} from '../../Data/Trivias.js';
 import PeriodicModal from '../../Components/PeriodicModal';
 import NoDragElem from '../../Components/NoDragElem';
 import ElemPopup from '../../Components/ElemPopup';
+import Legend from '../../Components/Legend.jsx';
 
 //Design
 import './periodicTable.css';
@@ -62,6 +63,7 @@ const periodicTable = () => {
         </div>
         <div className="periodic-wrapper">
             <div id="periodic-table">
+                <Legend />
                 {listElems.map(element =>
                     <div className="elem-wrapper"
                         style={{

@@ -19,6 +19,7 @@ import CompoundModal from '../../Components/CompoundModal.jsx';
 import DiscoverModal from '../../Components/DiscoverModal.jsx';
 import Toast from '../../Components/Toast.jsx';
 import NoDragElem from '../../Components/NoDragElem.jsx';
+import Legend from '../../Components/Legend.jsx';
 
 //Design
 import "./mixingTable.css";
@@ -152,7 +153,7 @@ const mixingTable = () => {
         setNewDiscover(mixed);
         setShowNew(true); 
       } else {
-        prepToast("You already discovered that compound!", "warning");
+        prepToast("You already mixed that compound!", "warning");
       }
   	}
     
@@ -209,7 +210,7 @@ const mixingTable = () => {
     drag: "Drop the element here",
     noDrag: "Click and Drag the Elements here in the box to discover a new composition",
     noElem: "There is no compound of this mixture.",
-    doneCom: "You have already known this compound"
+    doneCom: "You have already mixed this compound"
   }
 
   const GetFilterElems = () => {
@@ -242,6 +243,7 @@ const mixingTable = () => {
           </div>
 
           <div id="periodic-table">
+            <Legend />
 
             {listElems.map(element =>
               filterElems.includes(element.symbol) ?

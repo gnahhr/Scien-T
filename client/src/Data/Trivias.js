@@ -87,7 +87,7 @@ export const TriviasData = [
     {
         name: "Argon",
         description: `"Under standard conditions argon is an odorless and colorless gas. It is also an inert gas, meaning that it typically doesn't react with other elements to form compounds. When argon is excited by a high voltage electric field it glows in a violet color. Argon is the most abundant of the noble gases in the Earth's atmosphere. English chemist Henry Cavendish was the first scientist to show that air contained other gases than nitrogen, oxygen, and carbon dioxide. The name argon comes from the Greek word "argos" meaning "lazy" or "inactive.""`,
-        used: "Because argon is the most abundant and cheapest of the noble gases, it is often used when an inert gas is needed. One of the main applications for argon is for the gas inside incandescent lighting. Because argon won't react with the filament used by light bulbs even at high temperatures, it helps the filament to last longer and keeps the glass of the bulb from blackening. Argon is also used for welding, medical instruments, preserving wine, thermal insulation in windows, and in microelectronics."
+        used: "Argon is the most abundant and cheapest of the noble gases, that is why it is often used when an inert gas is needed. One of the main applications for argon is for the gas inside incandescent lighting. Because argon won't react with the filament used by light bulbs even at high temperatures, it helps the filament to last longer and keeps the glass of the bulb from blackening. Argon is also used for welding, medical instruments, preserving wine, thermal insulation in windows, and in microelectronics."
     },
     {
         name: "Potassium",
@@ -168,7 +168,7 @@ export const TriviasData = [
     },
     {
         name: "Selenium",
-        description: "Selenium is a brittle gray solid. ",
+        description: "Selenium is a brittle gray solid.",
         used: "Primary uses for selenium are in the glass industry. Its properties allow it to decolorize class and make red glass as well. It is used in solar and photocells. In film photography, it is also used as a photographic toner."
     },
     {

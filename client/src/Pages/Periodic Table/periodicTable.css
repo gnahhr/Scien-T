@@ -9,6 +9,40 @@
   transition: opacity 500ms ease;
 }
 
+.legends-color {
+  width: 0.8rem;
+  height: 0.8rem;
+}
+
+.legends {
+  grid-row: 0/4;
+  grid-column: 3/13;
+  width: 100%;
+  height: 100%;
+}
+.legends h2 {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px 10px 0 0;
+}
+.legends .color-legends {
+  display: grid;
+  padding: 0.2rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0 0 10px 10px;
+  grid-template-columns: repeat(3, auto);
+}
+.legends .color-legends .category-lgroup {
+  display: flex;
+  color: white;
+  align-items: center;
+}
+.legends .color-legends .category-lgroup .legends-color {
+  margin-right: 5px;
+}
+.legends .color-legends .category-lgroup .legends-label span {
+  font-size: 0.8rem;
+}
+
 #periodic-table {
   overflow-y: hidden;
 }

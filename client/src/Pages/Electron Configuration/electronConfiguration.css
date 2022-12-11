@@ -92,8 +92,7 @@
   background-color: #d8c2c2;
   border-radius: 1rem;
   padding: clamp(0.5rem, 2vw, 2rem);
-  -moz-column-gap: clamp(0.5rem, 0.1vw, 0.5rem);
-       column-gap: clamp(0.5rem, 0.1vw, 0.5rem);
+  column-gap: clamp(0.5rem, 0.1vw, 0.5rem);
   row-gap: clamp(0.5rem, 2vw, 3rem);
 }
 .container-electron-config .middle-container .game-grid .game-cells {
@@ -122,16 +121,7 @@
   width: 100%;
 }
 .container-electron-config .middle-container .game-grid .scale-up-horizontal-center {
-  -webkit-animation: scale-up-horizontal-center 0.5s;
-          animation: scale-up-horizontal-center 0.5s;
-}
-@-webkit-keyframes scale-up-horizontal-center {
-  0% {
-    transform: scaleX(0.2);
-  }
-  100% {
-    transform: scaleX(1);
-  }
+  animation: scale-up-horizontal-center 0.5s;
 }
 @keyframes scale-up-horizontal-center {
   0% {
@@ -142,19 +132,7 @@
   }
 }
 .container-electron-config .middle-container .game-grid .rotate-scale-up-vertical {
-  -webkit-animation: rotate-scale-up-vertical 0.4s linear both;
-          animation: rotate-scale-up-vertical 0.4s linear both;
-}
-@-webkit-keyframes rotate-scale-up-vertical {
-  0% {
-    transform: scale(1) rotateY(0);
-  }
-  50% {
-    transform: scale(2) rotateY(180deg);
-  }
-  100% {
-    transform: scale(1) rotateY(360deg);
-  }
+  animation: rotate-scale-up-vertical 0.4s linear both;
 }
 @keyframes rotate-scale-up-vertical {
   0% {
@@ -168,17 +146,8 @@
   }
 }
 .container-electron-config .middle-container .game-grid .scale-down-center {
-  -webkit-animation: scale-down-center 0.4s;
-          animation: scale-down-center 0.4s;
+  animation: scale-down-center 0.4s;
   transform: scale(0.9);
-}
-@-webkit-keyframes scale-down-center {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(0.9);
-  }
 }
 @keyframes scale-down-center {
   0% {

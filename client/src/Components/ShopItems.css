@@ -14,8 +14,6 @@
   padding: 1.5rem 0;
 }
 .shop-items-container .category-and-items-container .category-title {
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
   min-width: fit-content;
   text-align: center;
   margin-bottom: 1rem;

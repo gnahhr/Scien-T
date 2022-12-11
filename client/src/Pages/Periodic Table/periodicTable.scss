@@ -13,6 +13,43 @@
     }
 }
 
+.legends-color {
+    width: .8rem;
+    height: .8rem;
+}
+
+.legends {
+    grid-row: 0 / 4;
+    grid-column: 3 / 13;
+    width: 100%;
+    height: 100%;
+    h2{
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 10px 10px 0 0;
+    }
+    .color-legends {
+        display: grid;
+        padding: .2rem;
+        background-color: rgba(0, 0, 0, 0.5);
+        border-radius: 0 0 10px 10px;
+        grid-template-columns: repeat(3, auto);
+        .category-lgroup{
+            display: flex;
+            color: white;
+            align-items: center;
+            .legends-color{
+                margin-right: 5px;
+            }
+            .legends-label{
+                span {
+                    font-size: .8rem;
+                }
+            }
+        }
+    }
+}
+
+
 #periodic-table {
     overflow-y: hidden;
 }

@@ -85,6 +85,15 @@
                     height: inherit;
                 }
             }
+
+            .pic-dsc {
+                margin-top: 1rem;
+                p {
+                    text-align: center;
+                    color: #FFF;
+                    background-color: rgba(0, 0, 0, 0.5);
+                }
+            }
         }
 
         .description-wrapper {

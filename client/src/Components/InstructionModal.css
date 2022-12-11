@@ -44,6 +44,7 @@
   left: 0;
 }
 .instruction-content .screenshots-slider .middle-container .left-button img {
+  -webkit-transform: scaleX(-1);
   transform: scaleX(-1);
 }
 .instruction-content .screenshots-slider .middle-container .right-button {

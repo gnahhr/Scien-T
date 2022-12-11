@@ -36,8 +36,7 @@
   border-radius: 50%;
   width: 150px;
   height: 150px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border: 3px white solid;
 }
 .members-wrapper * {

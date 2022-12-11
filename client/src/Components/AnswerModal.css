@@ -28,8 +28,6 @@
 }
 .answerModal .result {
   text-align: center;
-  width: -webkit-max-content;
-  width: -moz-max-content;
   width: max-content;
   padding: 1rem 4rem;
   border-radius: 15px;
@@ -41,8 +39,6 @@
   justify-items: center;
   align-items: center;
   margin-top: 1rem;
-  width: -webkit-max-content;
-  width: -moz-max-content;
   width: max-content;
   padding: 1rem 5rem;
   border-radius: 500px;
@@ -75,8 +71,6 @@
     padding: 1rem 2rem !important;
   }
   .points {
-    width: -webkit-max-content;
-    width: -moz-max-content;
     width: max-content;
     padding: 1rem !important;
   }

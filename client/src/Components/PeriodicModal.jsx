@@ -32,6 +32,9 @@ const PeriodicModal = ({data, showModal}) => {
                 <div className="element-picture">
                     <img src={`/images/Elements/${elemPics[data.number-1].picture}`} alt={data.name} />
                 </div>
+                <div className="pic-dsc">
+                    <p>{elemPics[data.number-1].desc}</p>
+                </div>
             </div>
             <div className="description-wrapper">
                 <div className="left-desc">Discovered By:</div>

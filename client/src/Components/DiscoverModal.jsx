@@ -15,7 +15,7 @@ const DiscoverModal = ({showNew, data}) => {
                         </div>
                         <div className="text">
                             <h2 className="name">{compound.name}</h2>
-                            <h3 className="formula">You have discoverd a new compound!</h3>
+                            <h3 className="formula">You have mixed this compound for the first time!</h3>
                         </div>
                     </div>
                 )})}

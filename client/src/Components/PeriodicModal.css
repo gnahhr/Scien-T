@@ -76,9 +76,16 @@
 .periodic-modal .wrapper .element-header .element-picture img {
   border-radius: 15px;
   width: 100%;
-  -o-object-fit: fill;
-     object-fit: fill;
+  object-fit: fill;
   height: inherit;
+}
+.periodic-modal .wrapper .element-header .pic-dsc {
+  margin-top: 1rem;
+}
+.periodic-modal .wrapper .element-header .pic-dsc p {
+  text-align: center;
+  color: #FFF;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 .periodic-modal .wrapper .description-wrapper {
   display: grid;

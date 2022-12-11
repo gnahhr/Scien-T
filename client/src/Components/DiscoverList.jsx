@@ -16,7 +16,7 @@ const DiscoverList = ({knownCompound, showDiscover, discoverState, selectedCompo
         <div id="exit-icon" onClick={() => showDiscover(false)}>X</div>
         <div id="total">{knownCompound.length}/273</div>
         <div className="title">
-            <h2>Discover List</h2>
+            <h2>Mix List</h2>
         </div>
         <div className="elements">
             {knownCompound.length > 0 ? knownCompound.map((element) => <div className="known-elem" key={element.name} onClick={() => selected(element)}>{element.name}</div>) : <div>"Discovered compounds will be found here."</div>}

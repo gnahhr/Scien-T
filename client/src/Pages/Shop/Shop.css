@@ -11,8 +11,6 @@
   display: grid;
   justify-content: center;
   text-align: center;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
   min-width: fit-content;
 }
 .left .user-info .upper-part {
@@ -67,8 +65,6 @@
 .left .totalValue {
   text-align: center;
   background-color: #FFFFFF;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
   width: fit-content;
   padding: 0;
   border-radius: 10px 10px 5px 5px;

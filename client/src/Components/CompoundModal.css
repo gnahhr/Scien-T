@@ -59,8 +59,7 @@
 #compound-modal .wrapper .header .picture img {
   height: 100%;
   width: 100%;
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
   margin: auto;
 }
 #compound-modal .wrapper .description {
