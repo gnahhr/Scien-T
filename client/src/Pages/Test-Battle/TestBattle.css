@@ -193,6 +193,7 @@
 }
 .testBattle-wrapper .battle-window .action-choices .choices-wrapper .label {
   text-align: center;
+  font-size: clamp(16px, 2vw, 1.5rem);
 }
 .testBattle-wrapper .battle-window .action-choices .choices-wrapper .battle-log {
   grid-row: 1/2;

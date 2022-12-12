@@ -58,6 +58,7 @@
 }
 #intelliment .intellimain .question-wrapper .question {
   margin: 1rem;
+  font-size: clamp(16px, 2vw, 1.5rem);
   text-align: center;
 }
 #intelliment .intellimain .question-wrapper .choices-wrapper {

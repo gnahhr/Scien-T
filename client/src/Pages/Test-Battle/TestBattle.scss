@@ -225,6 +225,7 @@
     
                 .label {
                     text-align: center;
+                    font-size: clamp(16px, 2vw, 1.5rem)
                 }
                 
                 .battle-log {
